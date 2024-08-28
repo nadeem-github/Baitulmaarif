@@ -1,0 +1,130 @@
+<div class="contact py-5">
+    <section class="overflow-hidden">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-12">
+                <div class="border-top border-start border-bottom shadow-sm">
+                    <div class="row no-gutters">
+                        <div class="col-md-7 d-flex align-items-stretch">
+                            <div class="contact-wrap w-100 p-md-5 p-4">
+                                <h3 class="mb-4">Get in touch</h3>
+                                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" id="contactForm"
+                                    name="contactForm">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-4">
+                                                <input type="text" class="form-control" formControlName="name" placeholder="Full Name">
+                                                <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid" class="text-danger">
+                                                    Name is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-4">
+                                                <input type="email" class="form-control" formControlName="email" placeholder="Email ID">
+                                                <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="text-danger">
+                                                    <div *ngIf="contactForm.get('email')?.errors?.['required']">
+                                                        Email is required.
+                                                    </div>
+                                                    <div *ngIf="contactForm.get('email')?.errors?.['email']">
+                                                        Invalid email format.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group mb-4">
+                                                <input type="number" class="form-control" formControlName="number" placeholder="Mobile Number">
+                                                <div *ngIf="contactForm.get('number')?.touched && contactForm.get('number')?.invalid" class="text-danger">
+                                                    <div *ngIf="contactForm.get('number')?.errors?.['required']">
+                                                        Mobile number is required.
+                                                    </div>
+                                                    <div *ngIf="contactForm.get('number')?.errors?.['pattern']">
+                                                        Invalid mobile number format.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-4">
+                                                <input type="text" class="form-control" formControlName="subject" placeholder="Subject">
+                                                <div *ngIf="contactForm.get('subject')?.touched && contactForm.get('subject')?.invalid" class="text-danger">
+                                                    Subject is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-5">
+                                                <textarea formControlName="message" class="form-control" cols="30" rows="7" placeholder="Message"></textarea>
+                                                <div *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid" class="text-danger">
+                                                    Message is required.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input type="submit" value="Send Message" class="btn btn-primary" [disabled]="contactForm.invalid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="col-md-5 d-flex align-items-stretch">
+                            <div class="info-wrap bg-brawn w-100 p-lg-5 p-4">
+                                <h3 class="mb-4 text-white">Contact us</h3>
+                                <div class="dbox w-100 d-flex align-items-start">
+                                    <div class="icon d-flex align-items-center justify-content-center me-3">
+                                        <span class="fa fa-map-marker"></span>
+                                    </div>
+                                    <div class="text pl-3">
+                                        <p>
+                                            <span class="me-1">Address :</span>
+                                            198 West 21th Street, Suite 721 New York NY 10016
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="dbox w-100 d-flex align-items-center">
+                                    <div class="icon d-flex align-items-center justify-content-center me-3">
+                                        <span class="fa fa-phone"></span>
+                                    </div>
+                                    <div class="text pl-3">
+                                        <p>
+                                            <span class="me-1">Phone :</span>
+                                            <a href="tel://1234567920" class="text-white">+ 1235 2355 98</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="dbox w-100 d-flex align-items-center">
+                                    <div class="icon d-flex align-items-center justify-content-center me-3">
+                                        <span class="fa fa-paper-plane"></span>
+                                    </div>
+                                    <div class="text pl-3">
+                                        <p><span class="me-1">Email :</span>
+                                            <a href="mailto:info@yoursite.com" class="text-white">info@yoursite.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="dbox w-100 d-flex align-items-center">
+                                    <div class="icon d-flex align-items-center justify-content-center me-3">
+                                        <span class="fa fa-globe"></span>
+                                    </div>
+                                    <div class="text pl-3">
+                                        <p>
+                                            <span class="me-1">Website :</span>
+                                            <a href="#" class="text-white">baitulmaarif.com</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3465.764632384087!2d77.67340414579347!3d29.697602843484876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ea46aa5efaf23%3A0x1ceafce3de3e712e!2zRGFydWwgVWxvb20gRGVvYmFuZCAo2KfZhNis2KfZhdi524Mg2KfZhNin2LPZhNin2YXbjNuBINiv2KfYsdin2YTYudmE2YjZhSDYr9uM2YjYqNmG2K8p!5e0!3m2!1sen!2sin!4v1665833338080!5m2!1sen!2sin"
+                                    class="w-100 shadow-sm img-thumbnail" height="400" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

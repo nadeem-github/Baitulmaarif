@@ -1,0 +1,30 @@
+:host::ng-deep {
+    .active {
+        .step-title {
+            color: #b06601;
+        }
+    }
+
+    .stepper-header .steps .step .step-bullet {
+        width: 60px !important;
+        height: 60px !important;
+        background-color: #fff !important;
+        border: solid 4px #dedede;
+    }
+
+    .stepper-header .steps .step.active .step-bullet {
+        border: solid 4px #b06601;
+    }
+}
+
+.fa-check, .bi-check2 {
+    color: #32e67f;
+}
+
+button {
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+    color: #fff;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px;
+}

@@ -1,0 +1,23 @@
+<div>
+    <input class="form-control" [formControl]="searchControl" placeholder="Search by name">
+</div>
+
+<div *ngIf="filteredEditions$ | async as filteredEditions">
+    <div *ngIf="filteredEditions.length > 0">
+        <ul>
+            <li *ngFor="let edition of filteredEditions">
+                <p>{{ edition.name }} ({{ edition.language }})</p>
+                <audio controls>
+                    <source [src]="edition.audioUrl" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="filteredEditions.length === 0">
+        No results found.
+    </div>
+</div>
+<div *ngIf="editions.length === 0">
+    Loading editions...
+</div>

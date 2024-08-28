@@ -1,0 +1,54 @@
+<div class="container py-4">
+    <div class="card-header text-center card-lbk rounded-1">
+        <h5 class="text-white border-bottom-dotted mb-0">Mufti Muhammad Mujahid Khairabadi</h5>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr class="bg-light">
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Size</th>
+                    <th class="text-center" scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let country of countries">
+                    <td class="majlis">
+                        <div [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                            <div class="fw-semibold text-truncate text-truncate-20">{{ country.id }}- {{ country.name }}</div>
+                        </div>
+                    </td>
+                    <td class="align-middle">{{ country.date }}</td>
+                    <td class="align-middle text-nowrap">4.4 MB</td>
+                    <td class="text-center verticale-align pb-0">
+                        <ul class="social-icons mb-0 d-flex align-items-center justify-content-center">
+                            <li>
+                                <a title="Download Bayaan" class="social-square">
+                                    <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a title="Share Bayaan" class="social-square">
+                                    <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="responsive">
+        <div class="d-flex justify-content-between">
+            <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshCountries()">
+            </ngb-pagination>
+
+            <!-- <select class="form-select" style="width: auto" [(ngModel)]="pageSize"
+                (ngModelChange)="refreshCountries()">
+                <option [ngValue]="10">10 Bayaan Per Page</option>
+                <option [ngValue]="15">15 Bayaan Per Page</option>
+            </select> -->
+        </div>
+    </div>
+</div>

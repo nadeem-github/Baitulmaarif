@@ -1,0 +1,15 @@
+.pdf-container {
+    iframe{
+        height: 90vh;
+        width: 100%;
+    }
+}
+
+@media (max-width:450px){
+    .pdf-container {
+        iframe{
+            height: 48vh;
+            width: 80%;
+        }
+    }
+}

@@ -1,0 +1,114 @@
+<div class="text-center">
+    <div class="py-5" style="background-color: #fff3e0;">
+        <h3 class="mb-4 fw-bold">Latest Audios</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-4">
+                    <h5 class="fw-semibold mb-4">Jumerat Majlis</h5>
+                    <div class="audio-circle-div">
+                        <div class="audio-circle bg-white p-3 d-flex align-items-center justify-content-center">
+                            <div class="audio-div">
+                                <div *ngIf="isAudioPlaying; else notPlaying">
+                                    <img src="assets/images/voice.png" width="80" alt="">
+                                </div>
+                                <div>
+                                    <ng-template #notPlaying class="d-block">
+                                        <img src="assets/images/speaker.png" width="80" alt="">
+                                    </ng-template>
+                                </div>
+                                <p class="my-3 fw-semibold">211- Ahl-e-ilm Ki Zimmedaryan</p>
+                                <audio preload="none" class="audio-player" controls (playing)="updateAudioState($event)" (pause)="updateAudioState($event)">
+                                    <source src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-61905/zapsplat_multimedia_alert_chime_short_musical_notification_cute_child_like_001_64918.mp3?_=1" type="audio/mpeg">
+                                    Your Browser Does Not Support Audio, Click button to Download
+                                </audio>   
+                                  
+                                <p class="mt-2 mb-1 fw-semibold">Voice: Hazrat Wala DB</p>
+                                <p class="fw-semibold">7 December 2023</p>
+                                <div class="player-btn-border d-flex justify-content-center align-items-center">
+                                    <a class="actionbtns me-3" download>
+                                        <i class="fa fa-download me-2" aria-hidden="true"></i>
+                                        <span class="ml-2">Download</span>
+                                    </a>
+                                    <a class="actionbtns">
+                                        <i class="fa fa-share me-2" aria-hidden="true"></i>
+                                        <span class="ml-2">Share</span>
+                                    </a>                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-4">
+                    <h5 class="fw-semibold mb-4">Juma Majlis</h5>
+                    <div class="audio-circle-div">
+                        <div class="audio-circle bg-white p-3 d-flex align-items-center justify-content-center">
+                            <div class="audio-div">
+                                <div *ngIf="isAudioPlaying2; else notPlaying2">
+                                    <img src="assets/images/voice.png" width="80" alt="">
+                                </div>
+                                <div>
+                                    <ng-template #notPlaying2 class="d-block">
+                                        <img src="assets/images/speaker.png" width="80" alt="">
+                                    </ng-template>
+                                </div>
+                                <p class="my-3 fw-semibold">211- Ahl-e-ilm Ki Zimmedaryan</p>
+                                <audio preload="none" class="audio-player" controls (playing)="updateAudioState2($event)" (pause)="updateAudioState2($event)">
+                                    <source src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-61905/zapsplat_multimedia_alert_chime_short_musical_notification_cute_child_like_001_64918.mp3?_=1" type="audio/mpeg">
+                                    Your Browser Does Not Support Audio, Click button to Download
+                                </audio>   
+                                  
+                                <p class="mt-2 mb-1 fw-semibold">Voice: Hazrat Wala DB</p>
+                                <p class="fw-semibold">7 December 2023</p>
+                                <div class="player-btn-border d-flex justify-content-center align-items-center">
+                                    <a class="actionbtns me-3" download>
+                                        <i class="fa fa-download me-2" aria-hidden="true"></i>
+                                        <span class="ml-2">Download</span>
+                                    </a>
+                                    <a class="actionbtns">
+                                        <i class="fa fa-share me-2" aria-hidden="true"></i>
+                                        <span class="ml-2">Share</span>
+                                    </a>                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-4">
+                    <h5 class="fw-semibold mb-4">Islahi Bayan</h5>
+                    <div class="audio-circle-div">
+                        <div class="audio-circle bg-white p-3 d-flex align-items-center justify-content-center">
+                            <div class="audio-div">
+                                <div *ngIf="isAudioPlaying3; else notPlaying3">
+                                    <img src="assets/images/voice.png" width="80" alt="">
+                                </div>
+                                <div>
+                                    <ng-template #notPlaying3 class="d-block">
+                                        <img src="assets/images/speaker.png" width="80" alt="">
+                                    </ng-template>
+                                </div>
+                                <p class="my-3 fw-semibold">211- Ahl-e-ilm Ki Zimmedaryan</p>
+                                <audio preload="none" class="audio-player" controls (playing)="updateAudioState3($event)" (pause)="updateAudioState3($event)">
+                                    <source src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-61905/zapsplat_multimedia_alert_chime_short_musical_notification_cute_child_like_001_64918.mp3?_=1" type="audio/mpeg">
+                                    Your Browser Does Not Support Audio, Click button to Download
+                                </audio>   
+                                  
+                                <p class="mt-2 mb-1 fw-semibold">Voice: Hazrat Wala DB</p>
+                                <p class="fw-semibold">7 December 2023</p>
+                                <div class="player-btn-border d-flex justify-content-center align-items-center">
+                                    <a class="actionbtns me-3" download>
+                                        <i class="fa fa-download me-2" aria-hidden="true"></i>
+                                        <span class="ml-2">Download</span>
+                                    </a>
+                                    <a class="actionbtns">
+                                        <i class="fa fa-share me-2" aria-hidden="true"></i>
+                                        <span class="ml-2">Share</span>
+                                    </a>                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

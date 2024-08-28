@@ -1,0 +1,206 @@
+<picture>
+    <source media="(min-width:450px)" srcset="assets/images/eng-header.jpg" class="img-fluid">
+    <img src="assets/images/eng-header-mob.jpg" alt="Top Banner" class="img-fluid">
+</picture>
+<!-- <img src="assets/images/eng-header.jpg" class="img-fluid hide-mob" alt="">
+<img src="assets/images/eng-header-mob.jpg" class="img-fluid show-mob" alt=""> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-nav">
+    <div class="container">
+        <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
+        <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+
+        <a class="navbar-brand">
+            <span class="header-dateTime">{{ currentDate | date:'EEEE, MMM d, y'}}</span>
+            <button class="btn btn-sm btn-light fw-bold px-3" type="submit">Urdu</button>
+        </a>
+
+        <!-- Step 2: Add the ngbCollapse directive to the element below. -->
+        <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+            <ul class="navbar-nav hList">
+                <li class="nav-item">
+                    <a class="nav-link menu" [routerLink]="'EngHome'" (click)="isMenuCollapsed = true">
+                        HOME
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="menu">
+                        <span class="menu-title nav-link menu-title_2nd">QURAN</span>
+                        <ul class="menu-dropdown">
+                            <li>
+                                <a [routerLink]="'./quran-mp3'" (click)="isMenuCollapsed = true; gotoTop();" (click)="$event.preventDefault()">
+                                    Quran MP3
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'./quran-pdf'" (click)="isMenuCollapsed = true; gotoTop();" (click)="$event.preventDefault()">
+                                    Quran PDF
+                                </a>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="menu">
+                        <span class="nav-link menu-title">BAYANAT</span>
+                        <ul class="menu-dropdown">
+                            <li>
+                                <a [routerLink]="'./Bayaandetaillist'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault(); gotoTop()">
+                                    Hazrat Maulana Maseehullah Khan Jalalabadi RH.
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'./Bayaandetaillist'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault(); gotoTop()">
+                                    Hazrat Maulana Shah Abararul Haq Sb. Hardoi RH.
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'./Bayaandetaillist'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault(); gotoTop()">
+                                    Hazrat Maulana Muhammad Arshad Sb. Bajhedi DB.
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'./Bayaandetaillist'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault(); gotoTop()">
+                                    Hazrat Maulana Hakeem Muhammad Akhtar Sb. RH.
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'./Bayaandetaillist'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault(); gotoTop()">
+                                    Hazrat Shah Feroz Abdullah Memon Sb. DB.
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'./Bayaandetaillist'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault(); gotoTop()">
+                                    Mufti Muhammad Mujahid Khairabadi
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'./Bayaandetaillist'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault(); gotoTop()">
+                                    Other Bayanaat
+                                </a>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="menu">
+                        <span class="menu-title nav-link menu-title_2nd">ASH'AAR</span>
+                        <ul class="menu-dropdown">
+                            <li>
+                                <a [routerLink]="'.'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault()">
+                                    Islahi Ash'aar
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'.'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault()">
+                                    Hamd-o-Munajaat
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'.'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault()">
+                                    Naat-e-Paak
+                                </a>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="menu">
+                        <span class="menu-title nav-link menu-title_2nd">BOOK'S</span>
+                        <ul class="menu-dropdown">
+                            <li>
+                                <a [routerLink]="'./Islahibookslist'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault(); gotoTop()">
+                                    Islahi Books
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'./Islahibookslist'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault(); gotoTop()">
+                                    Tafseer
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'./Islahibookslist'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault(); gotoTop()">
+                                    Hadees
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'./Islahibookslist'" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault(); gotoTop()">
+                                    Fiqh-o-Fatawa
+                                </a>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="menu">
+                        <span class="menu-title nav-link menu-title_3rd">DARUL-IFTA</span>
+                        <ul class="menu-dropdown">
+                            <li>
+                                <a [routerLink]="'Fatawa'" (click)="gotoTop()" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault()">
+                                    Fatawa
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'ResentFatawa'" (click)="gotoTop()" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault()">
+                                    Resent Fatawa
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'AskQuestion'" (click)="gotoTop()" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault()">
+                                    Ask Question
+                                </a>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">FAHM-E-DEEN COURS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">ASK HAZRAT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="menu">
+                        <span class="menu-title nav-link enu-title_4th">ABOUT US</span>
+                        <ul class="menu-dropdown">
+                            <li>
+                                <a [routerLink]="'.'" (click)="gotoTop()" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault()">
+                                    Hazrat Wala DB.
+                                </a>
+                            </li>
+                            <li>
+                                <a [routerLink]="'abt-baitulmaarif'" (click)="gotoTop()" (click)="isMenuCollapsed = true"
+                                    (click)="$event.preventDefault()">
+                                    Baitul Maarif
+                                </a>
+                            </li>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
+            <div class="d-flex date-btn d-none-sm">
+                <span class="header-dateTime">{{ currentDate | date:'EEEE, MMM d, y'}}</span>
+                <button class="btn btn-sm btn-light fw-bold px-3" type="submit">Urdu</button>
+            </div>
+        </div>
+    </div>
+</nav>

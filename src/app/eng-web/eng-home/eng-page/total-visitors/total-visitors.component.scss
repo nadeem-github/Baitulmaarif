@@ -1,0 +1,17 @@
+.subs-count {
+    background-color: #ffd495;
+    max-width: 100%;
+    margin: 0 auto;
+    color: #000;
+    padding: 1rem 1rem;
+    font-size: 3rem;
+    font-weight: 900;
+    border-radius: 1rem;
+    border: dotted 3px #f99700;
+}
+
+@media (max-width:450px){
+    .subs-count{
+        max-width: fit-content;
+    }
+}

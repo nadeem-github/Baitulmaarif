@@ -1,0 +1,1030 @@
+<div class="bg-clock shadow search-engine-resp">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 align-self-center mx-auto">
+                <div class="input-group">
+                    <span class="input-group-text">
+                        <img src="assets/images/search.png" width="20" alt="">
+                    </span>
+                    <input type="text" class="form-control" placeholder="Search anything">
+                    <button class="btn btn-outline-secondary" type="button">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<eng-top-slider></eng-top-slider>
+
+<div class="bg-clock search-engine-deks">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 align-self-center mx-auto">
+                <div class="input-group shadow-sm">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <img src="assets/images/search.png" width="20" alt="">
+                        </span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Search anything">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-search-top border-redius-cusotm">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-light">
+    <div class="container">
+        <div class="row text-center py-5">
+            <div class="col-lg-3 col-md-4 mb-wekly-maj">
+                <h5 class="mb-5 fw-bold">Weekly Majalis</h5>
+                <div class="card shadow-sm weekly-majalis-div-resp">
+                    <div class="card-body card-bayan-bg">
+                        <div class="row">
+                            <div class="col-5">
+                                <img src="assets/images/calendar.png" class="img-fluid" width="50" alt="">
+                            </div>
+                            <div class="col-7 align-self-center">
+                                <p class="m-0 fw-700 Schedule">Schedule</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-4 mx-auto mb-wekly-maj">
+                <h5 class="mb-5 fw-bold">
+                    Live Broadcasting
+                    <span class="off-air" *ngIf="!isAudioPlaying">OFF AIR</span>
+                    <span class="on-air" *ngIf="isAudioPlaying">ON AIR</span>
+                </h5>
+                <ang-music-player (playEvent)="playAudio(true)" (pauseEvent)="playAudio(false)" [audioList]=audioList></ang-music-player>
+                <!-- <div class="AudioPlayerNew shadow" *ngFor="let item of audios">
+                    <audio controls>
+                        <source [src]="item.src" />
+                    </audio>
+                </div> -->
+            </div>
+            <div class="col-lg-3 col-md-4">
+                <h5 class="mb-5 fw-bold">Next Majlis After</h5>
+                <div class="countdown card shadow">
+                    <div class="card-body card-bayan-bg p-2">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="cowndown-div mb-0 font-weight-bold" id="days">
+                                <p class="mb-0 table-bg">{{daysToDday}}</p>
+                                <p class="mb-0 clock-color">Day</p>
+                            </div>
+                            <div class="cowndown-div mb-0 font-weight-bold" id="hours">
+                                <p class="mb-0 table-bg">{{hoursToDday}}</p>
+                                <p class="mb-0 clock-color">Hrs</p>                                
+                            </div>
+                            <div class="cowndown-div mb-0 font-weight-bold" id="mins">
+                                <p class="mb-0 table-bg">{{minutesToDday}}</p>
+                                <p class="mb-0 clock-color">Min</p>
+                            </div>
+                            <div class="cowndown-div mb-0 font-weight-bold" id="seconds">
+                                <p class="mb-0 table-bg">{{secondsToDday}}</p>
+                                <p class="mb-0 clock-color">Sec</p>
+                            </div>
+                        </div>
+                        <hr class="my-2">
+                        <p class="mb-0 masjid-hakemul">Masjid Hakemul ummat ,jamiatul Abrar,Bjhedi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="book-section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-12 mb-5-mob">
+                <div class="card bg-none border-custom">
+                    <div class="card-header card-lbk">
+                        <h5 class="mb-0 border-bottom-dotted">Latest Book</h5>
+                    </div>
+                    <div class="card-body pt-0 hover-show-icon">
+                        <swiper class="py-0" [grabCursor]="true" [autoplay]="{ delay: 3000, disableOnInteraction: false }" [loop]="true" [effect]="'creative'" [creativeEffect]="{ prev: { shadow: true, translate: [0, 0, -400] }, next: { translate: ['100%', 0, 0] } }">
+                            <ng-template swiperSlide>
+                                <div class="team-area">
+                                    <div class="team-content ">
+                                      <div class="team-img">
+                                        <img src="assets/images/book-tiltle-1.jpg" />
+                                        <div class="overlay team-2 radious-1">
+                                          <div class="social-icon only-social-icon team-icon-2">
+                                            <ul>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-leanpub"></i>
+                                                </a>
+                                                <span>Read Online</span>
+                                              </li>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-cloud-download"></i>
+                                                </a>
+                                                <span>Download</span>
+                                              </li>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-share-alt-square"></i>
+                                                </a>
+                                                <span>Share</span>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <ng-template swiperSlide>
+                                <div class="team-area">
+                                    <div class="team-content ">
+                                      <div class="team-img">
+                                        <img src="assets/images/book-tiltle-2.jpg" />
+                                        <div class="overlay team-2 radious-1">
+                                          <div class="social-icon only-social-icon team-icon-2">
+                                            <ul>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-leanpub"></i>
+                                                </a>
+                                                <span>Read Online</span>
+                                              </li>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-cloud-download"></i>
+                                                </a>
+                                                <span>Download</span>
+                                              </li>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-share-alt-square"></i>
+                                                </a>
+                                                <span>Share</span>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <ng-template swiperSlide>
+                                <div class="team-area">
+                                    <div class="team-content ">
+                                      <div class="team-img">
+                                        <img src="assets/images/book-tiltle-1.jpg" />
+                                        <div class="overlay team-2 radious-1">
+                                          <div class="social-icon only-social-icon team-icon-2">
+                                            <ul>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-leanpub"></i>
+                                                </a>
+                                                <span>Read Online</span>
+                                              </li>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-cloud-download"></i>
+                                                </a>
+                                                <span>Download</span>
+                                              </li>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-share-alt-square"></i>
+                                                </a>
+                                                <span>Share</span>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <ng-template swiperSlide>
+                                <div class="team-area">
+                                    <div class="team-content ">
+                                      <div class="team-img">
+                                        <img src="assets/images/book-tiltle-1.jpg" />
+                                        <div class="overlay team-2 radious-1">
+                                          <div class="social-icon only-social-icon team-icon-2">
+                                            <ul>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-leanpub"></i>
+                                                </a>
+                                                <span>Read Online</span>
+                                              </li>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-cloud-download"></i>
+                                                </a>
+                                                <span>Download</span>
+                                              </li>
+                                              <li>
+                                                <a href="#">
+                                                    <i class="fa fa-share-alt-square"></i>
+                                                </a>
+                                                <span>Share</span>
+                                              </li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </swiper>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12 mx-auto bg-none mb-5-mob">
+                <div class="card border-0 bg-transparent">
+                    <div class="card-header card-lbk">
+                        <h5 class="mb-0 border-bottom-dotted">Juma Bayaan</h5>
+                    </div>
+                    <div class="card-body p-0 position-relative">
+                        <img src="assets/images/juma-bayan-bg.png" class="img-fluid" alt="">
+                        <div class="juma-bayan-bg position-absolute">
+                            <h5 class="mb-0">Allah ke ba wafa bande...</h5>
+                            <div class="juma-bayan-player-positin">
+                                <div class="player my-2 my-sm-4">
+                                    <audio preload="none" class="audio-player" controls="">
+                                        <source
+                                            src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-61905/zapsplat_multimedia_alert_chime_short_musical_notification_cute_child_like_001_64918.mp3?_=1"
+                                            type="audio/mpeg">
+                                        Your Browser Does Not Support Audio, Click button to Download
+                                    </audio>
+                                </div>
+                                <div class="my-2 my-sm-4">
+                                    <h6 class="mufti-resp">Mufti Muhammad Mujahid Khairabadi</h6>
+                                    <h6 class="mb-0">15/12/2022</h6>
+                                </div>
+                                <div class="player-btn-border d-flex justify-content-center align-items-center flex-wrap">
+                                    <a class="actionbtns mb-3 mb-sm-0" download>
+                                        <i class="fa fa-download me-2" aria-hidden="true"></i>
+                                        <span class="ml-2">Download</span>
+                                    </a>
+                                    <a class="actionbtns mb-3 mb-sm-0 mx-2">
+                                        <i class="fa fa-share me-2" aria-hidden="true"></i>
+                                        <span class="ml-2">Share</span>
+                                    </a>                        
+                                    <a class="actionbtns mb-3 mb-sm-0">
+                                        <i class="fa fa-list me-2" aria-hidden="true"></i>
+                                        <span class="ml-2">View More...</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-12">
+                <div class="card bg-none border-custom">
+                    <div class="card-header card-lbk">
+                        <h5 class="mb-0 border-bottom-dotted">Special Collection</h5>
+                    </div>
+                    <div class="card-body pt-0">
+                        <aajkasabaq></aajkasabaq>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<latest-audio></latest-audio>
+
+<div class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-5-mob">
+                <h3 class="text-center mb-4 fw-700">Majalis</h3>
+                <div class="card shadow-sm border-0">
+                    <div class="card-header card-bayan p-0">
+                        <div class="sub-head">
+                            <h6 class="mb-0">Arif billah Hazrat Aqdas</h6>
+                            <h5 class="mb-0">Mufti Muhammad Arshad Sb.D.B</h5>
+                        </div>
+                    </div>
+                    <div class="card-body p-0 majlist-card-body">
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="py-2 text-center">
+                            <button class="btn btn-primary view-more" (click)="gotoTop()" routerLink="../AhamBayanList">View More...</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5-mob">
+                <h3 class="text-center mb-4 fw-700">Bayanat</h3>
+                <div class="card shadow-sm border-0">
+                    <div class="card-header card-bayan p-0">
+                        <div class="sub-head">
+                            <h6 class="mb-0">Arif billah Hazrat Aqdas</h6>
+                            <h5 class="mb-0">Mufti Muhammad Arshad Sb.D.B</h5>
+                        </div>
+                    </div>
+                    <div class="card-body p-0 majlist-card-body">
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="py-2 text-center">
+                            <button class="btn btn-primary view-more" (click)="gotoTop()" routerLink="../AhamBayanList">View More...</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3 class="text-center mb-4 fw-700">Bayanat</h3>
+                <div class="card shadow-sm border-0">
+                    <div class="card-header card-bayan p-0">
+                        <div class="sub-head">
+                            <h6 class="mb-0">Mufti Muhammad</h6>
+                            <h5 class="mb-0">Mujahid Khairabadi</h5>
+                        </div>
+                    </div>
+                    <div class="card-body p-0 majlist-card-body">
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="py-2 text-center">
+                            <button class="btn btn-primary view-more" (click)="gotoTop()" routerLink="../AhamBayanList">View More...</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-light py-5 shortclip-audio pt-0">
+    <div class="container">
+        <h3 class="text-center mb-4 fw-bold">Short Audio Clips</h3>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-6 mb-3">
+                <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
+                    <img src="assets/images/short-clip-1.jpg" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-6 mb-3">
+                <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
+                    <img src="assets/images/short-clip-2.jpg" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm">
+                <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
+                    <img src="assets/images/short-clip-3.jpg" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm">
+                <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
+                    <img src="assets/images/short-clip-4.jpg" class="img-fluid" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm"></div>
+            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm">
+                <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
+                    <img src="assets/images/short-clip-5.jpg" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm">
+                <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
+                    <img src="assets/images/short-clip-6.jpg" class="img-fluid" alt="">
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm"></div>
+        </div>
+        
+        <div class="py-4 text-center">
+            <button class="btn btn-primary view-more" routerLink="/VideoGallery" (click)="gotoTop()">View More...</button>
+        </div>
+    </div>
+</div>
+
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-12 mx-auto">
+                <img src="assets/images/border.png" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-5-mob">
+                <h3 class="text-center mb-4 fw-700">Aham Bayanat</h3>
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-0 majlist-card-body">
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="py-2 text-center">
+                            <button class="btn btn-primary view-more"  (click)="gotoTop()" routerLink="../AhamBayanList">View More...</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5-mob">
+                <h3 class="text-center mb-4 fw-700">Ash’aar</h3>
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-0 majlist-card-body">
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="majlis">
+                            <a [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+                                <div class="row">
+                                    <div class="col-9 align-self-center">
+                                        <p class="mb-0 text-truncate">01-Khun-e-Tamanna Se Khuda Milta hai</p>
+                                        <p class="mb-0 bayan-date-color">(20-Nov-2022)</p>
+                                    </div>
+                                    <div class="col-3 align-self-center pl-0-resp-maj">
+                                        <div class="text-center text-nowrap">
+                                            <a href="" class="mr-2" title="Click Here to Download">
+                                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="" title="Click to share">
+                                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="py-2 text-center">
+                            <button class="btn btn-primary view-more" (click)="gotoTop()" routerLink="../AhamBayanList">View More...</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mx-auto align-self-center">
+                <div class="card h-100 border-custom bg-none">
+                    <div class="card-header card-lbk text-center">
+                        <h5 class="mb-0 border-bottom-dotted">Aham Ta’leemat</h5>
+                    </div>
+                    <div class="card-body pt-0 aham-teleem-div">
+                        <swiper class="py-0" [effect]="'cube'" [autoplay]="{ delay: 3000, disableOnInteraction: false }" [grabCursor]="true" [cubeEffect]="{ shadow: true, slideShadows: true, shadowOffset: 20, shadowScale: 0.94 }" [navigation]="true" [loop]="true">
+                            <ng-template swiperSlide><img src="assets/images/aham-taleemat-1.jpg" /></ng-template>
+                            <ng-template swiperSlide><img src="assets/images/aham-taleemat-2.jpg" /></ng-template>
+                            <ng-template swiperSlide><img src="assets/images/aham-taleemat-3.jpg" /></ng-template>
+                            <ng-template swiperSlide><img src="assets/images/aham-taleemat-4.jpg" /></ng-template>
+                            <ng-template swiperSlide><img src="assets/images/aham-taleemat-5.jpg" /></ng-template>
+                        </swiper>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-bless">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="assets/images/bless-img.png" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-6">
+                <h2>BLESS YOUR SOUL</h2>
+                <h5>Listen to all bayanats of</h5>
+                <p>
+                    Hazrat Aqdas Mufti Muhammad Arshad Sb.Bajhedi Damat barakatuhum & other akabir from silsilah
+                    Imdadiyah Ashrafiyah on self-purification
+                </p>
+                <div class="center-mob-resp">
+                    <button class="btn btn-primary view-more mt-3">DOWNLOAD BAITUL MAARIF APP</button>
+                </div>
+                <p class="mt-4">AND GET ACCESS TO HIGH QUALITY ISLAMIC CONTENT</p>
+                <div class="row center-mob-resp">
+                    <div class="col-12">
+                        <img src="assets/images/logo-icon.png" class="img-fluid logo-icon-play" width="50" alt="">
+                        <a href="https://play.google.com/store/apps/details?id=com.sarbakaf.baitulmaarif">
+                            <img src="assets/images/app-download.png" class="img-fluid ml-4" width="155" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<total-visitors></total-visitors>
+
+
+<loader></loader>

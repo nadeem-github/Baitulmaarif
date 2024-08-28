@@ -1,0 +1,120 @@
+.footer-bg1 {
+    background-color: #ffdfb5;
+}
+.footer-bg {
+    background: url(../../../../assets/images/footer-bg.png);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 2.5rem 0 ;
+    // border-top: solid 4px #4d3200;
+}
+
+.copyright {
+    background-color: #ffdfb5;
+    // padding: 1rem 0;
+    text-align: center;
+    color: #000;
+    font-size: var(--font-size-14);
+}
+
+.footer-links ul li a {
+    color: #fff;
+    font-size: var(--font-size-14)
+}
+
+.footer-bg h5{
+    font-size: var(--font-size-18)
+}
+
+.footer-links ul {
+    line-height: 2;
+}
+
+.fa {
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+.fa-google {
+    background: #dd4b39;
+    color: white;
+}
+
+.fa-linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.fa-youtube {
+    background: #bb0000;
+    color: white;
+}
+
+.fa-telegram {
+    background: #00aff0;
+    color: white;
+}
+
+.fa-whatsapp {
+    background: #a4c639;
+    color: white;
+}
+
+.d-unset-resp{
+    display: none;
+}
+
+.footer-menu-cursor{
+    li{
+        a{
+            cursor: pointer;
+        }
+    }
+}
+
+@media (max-width:425px){
+    .mb-5-mob{
+        margin-bottom: 4rem;
+    }
+    .footer-bg{
+        background: url(../../../../assets/images/mobile-foter-bg.jpg);
+        background-size: cover;
+    }
+    hr{
+        margin: 0;
+    }
+    .text-center-sm{
+        text-align: center;
+    }
+    .d-none-resp{
+        display: none;
+    }
+    .d-unset-resp{
+        display: unset;
+    }
+    .mobie-width-form{
+        max-width: 60%;
+        margin: 0 auto;
+    }
+}

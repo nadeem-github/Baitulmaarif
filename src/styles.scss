@@ -1,0 +1,155 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap');
+@import "swiper/css";
+@import "swiper/css/effect-coverflow";
+@import "swiper/css/pagination";
+@import "swiper/css/effect-cards";
+@import "swiper/css/effect-creative";
+@import "swiper/css/effect-cube";
+@import 'bootstrap/scss/bootstrap';
+
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+:root {
+    --darkbran: #432b01;
+}
+
+:root {
+    --font-size-80: calc(3.375rem + ((1vw - 7.68px) * 2.2569)); // 54px to 80px
+    --font-size-55: calc(2.3125rem + ((1vw - 10.24px) * 2.0089)); // 37px to 55px
+    --font-size-40: calc(1.6875rem + ((1vw - 10.24px) * 1.4509)); // 27px to 40px
+    --font-size-32: calc(2rem + ((1vw - 10.24px) * -1.1161));
+    --font-size-30: calc(1.25rem + ((1vw - 10.24px) * 1.1161));
+    --font-size-24: calc(1.25rem + ((1vw - 10.24px) * 0.4464));
+    --font-size-22: calc(1.25rem + ((1vw - 7.68px) * 0.1736)); // 20px to 22px
+    --font-size-20: calc(1.125rem + ((1vw - 10.24px) * 0.2232)); // 18px to 20px
+    --font-size-18: calc(1rem + ((1vw - 10.24px) * 0.2232));
+    --font-size-16: calc(0.875rem + ((1vw - 10.24px) * 0.2232)); //14px to 16px
+    --font-size-14: calc(0.875rem + ((1vw - 10.24px) * 0)); //14px to 14px
+    --font-size-12: calc(0.75rem + ((1vw - 10.24px) * 0));
+}
+
+.font-12 {
+    font-size: var(--font-size-12);
+}
+
+.font-14 {
+    font-size: var(--font-size-14);
+}
+
+.font-16 {
+    font-size: var(--font-size-16);
+}
+
+.font-18 {
+    font-size: var(--font-size-18);
+}
+
+.font-20 {
+    font-size: var(--font-size-20);
+}
+
+.font-22 {
+    font-size: var(--font-size-22);
+}
+
+.font-24 {
+    font-size: var(--font-size-24);
+}
+
+.font-30 {
+    font-size: var(--font-size-30);
+}
+
+.font-32 {
+    font-size: var(--font-size-32);
+}
+
+.font-40 {
+    font-size: var(--font-size-40);
+}
+
+.swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 15em;
+    // height: 20em;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.actionbtns {
+    color: #5a3100;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    background: #e1b37b;
+    // background-image: linear-gradient(315deg, #e1b37b 0%, #fd1d1d 50%, #fcb045);
+    box-shadow: 0 5px #784910;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.actionbtns:hover {
+    box-shadow: 0 3px #432b01;
+    color: #5a3100;
+    top: 1px;
+}
+
+.actionbtns:active {
+    box-shadow: 0 0 #4433ff;
+    top: 5px;
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #4E3201 #DDDDDD;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+    width: 10px;
+    width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: #DDDDDD;
+}
+
+*::-webkit-scrollbar-track:hover {
+    background-color: #B8C0C2;
+}
+
+*::-webkit-scrollbar-track:active {
+    background-color: #B8C0C2;
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    background-color: #4E3201;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: #A97F40;
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background-color: #FF9600;
+}

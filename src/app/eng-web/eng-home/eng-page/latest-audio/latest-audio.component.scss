@@ -1,0 +1,38 @@
+.btn-success {
+    background: #432b01;
+    border: solid 1px #432b01;
+}
+
+.audio-circle-div {
+    border-radius: 10%;
+    height: 400px;
+    width: auto;
+    border: solid 5px #432b01;
+    padding: 2px;
+
+    .audio-circle {
+        border-radius: 9%;
+        border: solid 1px #432b01;
+        width: 100%;
+        height: 100%;
+    }
+
+    .audio-div {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .audio-player {
+        border: solid 1px #432b01;
+        border-radius: 50px;
+        width: 100%;
+    }
+}
+
+@media (max-width:425px) {
+    .audio-circle-div{
+        .audio-div {
+            width: 100%;
+        }
+    }
+}

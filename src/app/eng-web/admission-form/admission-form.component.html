@@ -1,0 +1,210 @@
+<div class="main mt-5">
+    <ng-stepper #cdkStepper [linear]="true">
+        <cdk-step [optional]="false">
+            <ng-template cdkStepLabel>
+                <div class="step-title fw-bold font-18">Student Basic Details</div>
+                <div class="step-bullet">
+                    <i *ngIf="!stepsCompleted[0]" class="fa fa-question fa-2x text-danger"></i>
+                    <i *ngIf="stepsCompleted[0]" class="fa fa-check fa-2x"></i>
+                </div>
+            </ng-template>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-xxl-10 col-xl-10 col-lg-12 col-md-12 mx-auto">
+                        <form>
+                            <div class="row">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" class="form-control" name="firstName">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="middleName">Middle Name</label>
+                                    <input type="text" id="middleName" class="form-control" name="middleName">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" class="form-control" name="lastName">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="gender">Gender</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Select Gender</option>
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                        <option value="3">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="dateofBirth">Date of birth</label>
+                                    <input type="date" id="dateofBirth" class="form-control" name="dateofBirth">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="className">Class Name</label>
+                                    <input type="text" id="className" class="form-control" name="className">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="LanguageKnown">Language Known</label>
+                                    <input type="text" id="LanguageKnown" class="form-control" name="LanguageKnown">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="BloodGroup">Blood Group</label>
+                                    <input type="text" id="BloodGroup" class="form-control" name="BloodGroup">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="AdmissionDate">Admission Date</label>
+                                    <input type="date" id="AdmissionDate" class="form-control" name="AdmissionDate">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="AcademicSession">Academic Session</label>
+                                    <input type="text" id="AcademicSession" class="form-control" name="AcademicSession">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="IslamicDate">Islamic Date</label>
+                                    <input type="text" id="IslamicDate" class="form-control" name="IslamicDate">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="FeeDiscount">Fee Discount</label>
+                                    <input type="text" id="FeeDiscount" class="form-control" name="FeeDiscount">
+                                </div>
+                            </div>
+                            <div class="button text-center">
+                                <button class="button previous me-3" cdkStepperPrevious>
+                                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Previous
+                                </button>
+                                <button class="button" cdkStepperNext (click)="markStepCompleted(0)">
+                                    Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </cdk-step>
+
+        <cdk-step [optional]="true">
+            <ng-template cdkStepLabel>
+                <div class="step-title fw-bold font-18">Student Parents Details</div>
+                <div class="step-bullet">
+                    <i *ngIf="!stepsCompleted[1]" class="fa fa-question fa-2x text-danger"></i>
+                    <i *ngIf="stepsCompleted[1]" class="fa fa-check fa-2x"></i>
+                </div>
+            </ng-template>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-xxl-10 col-xl-10 col-lg-12 col-md-12 mx-auto">
+                        <form>
+                            <div class="row">
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="ParentName">Parent Name</label>
+                                    <input type="text" id="ParentName" class="form-control" name="ParentName">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="relationship">Parent Relationship to Student</label>
+                                    <input type="text" id="relationship" class="form-control" name="relationship">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="ParentContactNumber">Parent Contact Number</label>
+                                    <input type="text" id="ParentContactNumber" class="form-control" name="ParentContactNumber">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="ParentEmailAddress">Parent Email Address</label>
+                                    <input type="email" id="ParentEmailAddress" class="form-control" name="ParentEmailAddress">
+                                </div>
+                                <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+                                    <label for="ParentOccupation">Parent Occupation</label>
+                                    <input type="text" id="ParentOccupation" class="form-control" name="ParentOccupation">
+                                </div>
+                            </div>
+                            <div class="button text-center">
+                                <button class="button previous me-3" cdkStepperPrevious>
+                                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Previous
+                                </button>
+                                <button class="button" cdkStepperNext (click)="markStepCompleted(1)">
+                                    Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </cdk-step>
+
+        <cdk-step [optional]="false">
+            <ng-template cdkStepLabel>
+                <div class="step-title fw-bold font-18">Student Address Details</div>
+                <div class="step-bullet">
+                    <i *ngIf="!stepsCompleted[2]" class="fa fa-question fa-2x text-danger"></i>
+                    <i *ngIf="stepsCompleted[2]" class="fa fa-check fa-2x"></i>
+                </div>
+            </ng-template>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-xxl-10 col-xl-10 col-lg-12 col-md-12 mx-auto">
+                        <form>
+                            <div class="row">
+                                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+                                    <label for="Address-1">Address 1</label>
+                                    <textarea class="form-control" id="Address-1" rows="3"></textarea>
+                                </div>
+                                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+                                    <label for="Address-2">Address 2</label>
+                                    <textarea class="form-control" id="Address-2" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="button text-center">
+                                <button class="button previous me-3" cdkStepperPrevious>
+                                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Previous
+                                </button>
+                                <button class="button" cdkStepperNext (click)="markStepCompleted(2)">
+                                    Next <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </cdk-step>
+
+        <cdk-step [optional]="true">
+            <ng-template cdkStepLabel>
+                <div class="step-title fw-bold font-18">Student Document Details</div>
+                <div class="step-bullet">
+                    <i *ngIf="!stepsCompleted[3]" class="fa fa-question fa-2x text-danger"></i>
+                    <i *ngIf="stepsCompleted[3]" class="fa fa-check fa-2x"></i>
+                </div>
+            </ng-template>
+            <div class="container mt-5">
+                <div class="row">
+                    <div class="col-xxl-10 col-xl-10 col-lg-12 col-md-12 mx-auto">
+                        <form>
+                            <div class="row">
+                                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+                                    <label for="document">Student Aadhar Card</label>
+                                    <div class="input-group mb-4">
+                                        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                        <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Upload</button>
+                                    </div>
+                                </div>
+                                <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+                                    <label for="document">Parent Aadhar Card</label>
+                                    <div class="input-group mb-4">
+                                        <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                        <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Upload</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button text-center">
+                                <button class="button previous me-3" cdkStepperPrevious>
+                                    <i class="fa fa-long-arrow-left" aria-hidden="true"></i> Previous
+                                </button>
+                                <button class="button" cdkStepperNext (click)="markStepCompleted(3)">
+                                    Submit <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </cdk-step>
+    </ng-stepper>
+</div>
