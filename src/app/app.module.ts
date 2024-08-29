@@ -41,6 +41,7 @@ import { FullVideoComponent } from './eng-web/full-video/full-video.component';
 import { AajkasabaqComponent } from './eng-web/eng-home/eng-page/aajkasabaq/aajkasabaq.component';
 import { EngTopSliderComponent } from './eng-web/eng-home/eng-page/eng-top-slider/eng-top-slider.component';
 import { AboutBaitulmaarifComponent } from './eng-web/about-baitulmaarif/about-baitulmaarif.component';
+import { LiveBroadcastingPlayerComponent } from './eng-web/live-broadcasting-player/live-broadcasting-player.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +69,7 @@ import { AboutBaitulmaarifComponent } from './eng-web/about-baitulmaarif/about-b
     AajkasabaqComponent,
     EngTopSliderComponent,
     AboutBaitulmaarifComponent,
+    LiveBroadcastingPlayerComponent,
   ],
   imports: [
     BrowserModule,

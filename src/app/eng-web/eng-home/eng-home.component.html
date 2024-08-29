@@ -54,17 +54,7 @@
                 </div>
             </div>
             <div class="col-lg-5 col-md-4 mx-auto mb-wekly-maj">
-                <h5 class="mb-5 fw-bold">
-                    Live Broadcasting
-                    <span class="off-air" *ngIf="!isAudioPlaying">OFF AIR</span>
-                    <span class="on-air" *ngIf="isAudioPlaying">ON AIR</span>
-                </h5>
-                <ang-music-player (playEvent)="playAudio(true)" (pauseEvent)="playAudio(false)" [audioList]=audioList></ang-music-player>
-                <!-- <div class="AudioPlayerNew shadow" *ngFor="let item of audios">
-                    <audio controls>
-                        <source [src]="item.src" />
-                    </audio>
-                </div> -->
+                <live-broadcasting-player></live-broadcasting-player>
             </div>
             <div class="col-lg-3 col-md-4">
                 <h5 class="mb-5 fw-bold">Next Majlis After</h5>

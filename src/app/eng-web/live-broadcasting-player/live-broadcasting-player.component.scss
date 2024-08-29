@@ -1,0 +1,76 @@
+.custom-audio-player {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: #404345;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+
+    .play-pause-btn,
+    .volume-btn {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: #ffffff;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .current-time {
+        font-size: 14px;
+        color: #ffffff;
+    }
+
+    .progress-bar {
+        flex-grow: 1;
+        appearance: none;
+        height: 8px;
+        background: #9c9793;
+        border-radius: 0px;
+        outline: none;
+        cursor: pointer;
+
+        &::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 10px;
+            background: #e9e9e9;
+        }
+    }
+
+    .volume-bar {
+        width: 60px; // Adjust the width as needed
+        appearance: none;
+        height: 8px;
+        background: #9c9793;
+        border-radius: 0px;
+        outline: none;
+        cursor: pointer;
+
+        &::-webkit-slider-thumb {
+            appearance: none;
+            width: 10px;
+            height: 8px;
+            background: #e9e9e9;
+        }
+    }
+
+}
+
+.air-status {
+    padding: 0px 10px;
+    margin-left: 10px;
+    color: #fff;
+    width: 80px;
+
+    &.on-air {
+        background: #00b912;
+    }
+
+    &.off-air {
+        background: #f00;        
+    }
+}

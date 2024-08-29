@@ -1,0 +1,43 @@
+<!-- Live Broadcasting Header with ON AIR/OFF AIR status -->
+<div class="mb-5 d-flex align-items-center justify-content-center">
+    <p class="fw-bold mb-0 font-20">Live Broadcasting</p>
+    <p class="air-status mb-0" [ngClass]="{ 'on-air': isPlaying, 'off-air': !isPlaying }">
+        {{ isPlaying ? 'ON AIR' : 'OFF AIR' }}
+    </p>
+</div>
+
+<!-- Custom Audio Player -->
+<div class="custom-audio-player">
+    <!-- Play/Pause Button -->
+    <button class="play-pause-btn" (click)="togglePlayPause()">
+        <i class="fa fa-play" *ngIf="!isPlaying"></i>
+        <i class="fa fa-pause" *ngIf="isPlaying"></i>
+    </button>
+
+    <!-- Current Time Display -->
+    <span class="current-time">{{ currentTime }}</span>
+
+    <!-- Progress Bar for Audio Seek -->
+    <input type="range" class="progress-bar" [value]="currentProgress" (input)="seekAudio($event)" />
+
+    <!-- Mute/Unmute Button -->
+    <button class="volume-btn" (click)="toggleMute()">
+        <i class="fa fa-volume-up" *ngIf="!isMuted"></i>
+        <i class="fa fa-volume-off" *ngIf="isMuted"></i>
+    </button>
+
+    <!-- Volume Control Slider -->
+    <input type="range" class="volume-bar" [value]="currentVolume" (input)="adjustVolume($event)" [disabled]="isMuted" />
+</div>
+
+<!-- Audio Source -->
+<audio #audioRef (timeupdate)="updateTime($event)" (ended)="onAudioEnd()">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3" />
+</audio>
+
+<!-- App Download Link -->
+<div class="mt-4">
+    <a href="https://play.google.com/store/apps/details?id=com.sarbakaf.baitulmaarif">
+        <img src="assets/images/app-download.png" class="img-fluid" width="120" alt="Download App">
+    </a>
+</div>
