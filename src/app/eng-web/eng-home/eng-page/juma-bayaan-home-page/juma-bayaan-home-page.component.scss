@@ -1,0 +1,39 @@
+.border-bottom-dotted {
+    border-bottom: dashed 1px #ddd;
+    padding-bottom: 6px;
+}
+
+.juma-bayan-bg .btn-success {
+    font-size: var(--font-size-12);
+}
+
+.audio-player {
+    width: 100%;
+    border-radius: 30px;
+    border: solid 2px #794e01;
+}
+
+.card-lbk {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+    color: #fff;
+    margin-bottom: 0.8rem;
+    padding: 10px 0 4px 0;
+}
+
+.juma-bayan-bg {
+    max-width: 80%;
+    margin: 0 auto;
+    top: 8rem;
+    left: 0;
+    right: 0;
+}
+
+.player {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.player-btn-border {
+    padding-bottom: 0.4rem;
+}

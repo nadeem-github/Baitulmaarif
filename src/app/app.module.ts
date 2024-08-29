@@ -42,6 +42,7 @@ import { AajkasabaqComponent } from './eng-web/eng-home/eng-page/aajkasabaq/aajk
 import { EngTopSliderComponent } from './eng-web/eng-home/eng-page/eng-top-slider/eng-top-slider.component';
 import { AboutBaitulmaarifComponent } from './eng-web/about-baitulmaarif/about-baitulmaarif.component';
 import { LiveBroadcastingPlayerComponent } from './eng-web/live-broadcasting-player/live-broadcasting-player.component';
+import { JumaBayaanHomePageComponent } from './eng-web/eng-home/eng-page/juma-bayaan-home-page/juma-bayaan-home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +71,7 @@ import { LiveBroadcastingPlayerComponent } from './eng-web/live-broadcasting-pla
     EngTopSliderComponent,
     AboutBaitulmaarifComponent,
     LiveBroadcastingPlayerComponent,
+    JumaBayaanHomePageComponent,
   ],
   imports: [
     BrowserModule,
