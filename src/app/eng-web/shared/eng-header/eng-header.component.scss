@@ -153,10 +153,6 @@ ul {
 	font-size: var(--font-size-14);
 }
 
-.navbar-brand {
-	display: none;
-}
-
 .date-btn {
 	max-width: fit-content;
 	margin-left: auto;
@@ -176,18 +172,10 @@ ul {
 	}
 }
 
-@media(max-width:425px) {
+@media(max-width:450px) {
 	.navbar-toggler {
 		background: #fff;
 		border-radius: 3px;
-	}
-
-	.date-none {
-		display: none;
-	}
-
-	.navbar-brand {
-		display: unset;
 	}
 
 	.nav-link {
