@@ -43,6 +43,7 @@ import { EngTopSliderComponent } from './eng-web/eng-home/eng-page/eng-top-slide
 import { AboutBaitulmaarifComponent } from './eng-web/about-baitulmaarif/about-baitulmaarif.component';
 import { LiveBroadcastingPlayerComponent } from './eng-web/live-broadcasting-player/live-broadcasting-player.component';
 import { JumaBayaanHomePageComponent } from './eng-web/eng-home/eng-page/juma-bayaan-home-page/juma-bayaan-home-page.component';
+import { NextMajlisCountComponent } from './eng-web/eng-home/eng-page/next-majlis-count/next-majlis-count.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +73,7 @@ import { JumaBayaanHomePageComponent } from './eng-web/eng-home/eng-page/juma-ba
     AboutBaitulmaarifComponent,
     LiveBroadcastingPlayerComponent,
     JumaBayaanHomePageComponent,
+    NextMajlisCountComponent,
   ],
   imports: [
     BrowserModule,

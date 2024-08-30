@@ -41,14 +41,10 @@
             <div class="col-lg-3 col-md-4 mb-wekly-maj">
                 <h5 class="mb-5 fw-bold">Weekly Majalis</h5>
                 <div class="card shadow-sm weekly-majalis-div-resp">
-                    <div class="card-body card-bayan-bg">
-                        <div class="row">
-                            <div class="col-5">
-                                <img src="assets/images/calendar.png" class="img-fluid" width="50" alt="">
-                            </div>
-                            <div class="col-7 align-self-center">
-                                <p class="m-0 fw-700 Schedule">Schedule</p>
-                            </div>
+                    <div class="card-body card-bayan-bg rounded">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <img src="assets/images/calendar.png" class="img-fluid me-4" width="50" alt="">
+                            <p class="m-0 fw-700 Schedule">Schedule</p>
                         </div>
                     </div>
                 </div>
@@ -57,31 +53,7 @@
                 <live-broadcasting-player></live-broadcasting-player>
             </div>
             <div class="col-lg-3 col-md-4">
-                <h5 class="mb-5 fw-bold">Next Majlis After</h5>
-                <div class="countdown card shadow">
-                    <div class="card-body card-bayan-bg p-2">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <div class="cowndown-div mb-0 font-weight-bold" id="days">
-                                <p class="mb-0 table-bg">{{daysToDday}}</p>
-                                <p class="mb-0 clock-color">Day</p>
-                            </div>
-                            <div class="cowndown-div mb-0 font-weight-bold" id="hours">
-                                <p class="mb-0 table-bg">{{hoursToDday}}</p>
-                                <p class="mb-0 clock-color">Hrs</p>                                
-                            </div>
-                            <div class="cowndown-div mb-0 font-weight-bold" id="mins">
-                                <p class="mb-0 table-bg">{{minutesToDday}}</p>
-                                <p class="mb-0 clock-color">Min</p>
-                            </div>
-                            <div class="cowndown-div mb-0 font-weight-bold" id="seconds">
-                                <p class="mb-0 table-bg">{{secondsToDday}}</p>
-                                <p class="mb-0 clock-color">Sec</p>
-                            </div>
-                        </div>
-                        <hr class="my-2">
-                        <p class="mb-0 masjid-hakemul">Masjid Hakemul ummat ,jamiatul Abrar,Bjhedi</p>
-                    </div>
-                </div>
+                <next-majlis-count></next-majlis-count>
             </div>
         </div>
     </div>
