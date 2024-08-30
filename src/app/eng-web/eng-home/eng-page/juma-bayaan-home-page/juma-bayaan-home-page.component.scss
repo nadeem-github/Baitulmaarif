@@ -37,3 +37,18 @@
 .player-btn-border {
     padding-bottom: 0.4rem;
 }
+
+@media(max-width:450px) {
+    .juma-bayan-bg {
+        top: 5rem;
+    }
+
+    .juma-bayan-bg .btn-success {
+        font-size: 0.6em;
+    }
+
+    .actionbtns{
+        padding: 5px;
+        font-size: var(--font-size-12);
+    }
+}

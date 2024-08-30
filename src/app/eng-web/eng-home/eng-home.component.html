@@ -1,14 +1,8 @@
-<div class="bg-clock shadow search-engine-resp">
+<div class="bg-clock shadow d-block d-sm-none">
     <div class="container">
         <div class="row">
             <div class="col-md-7 align-self-center mx-auto">
-                <div class="input-group">
-                    <span class="input-group-text">
-                        <img src="assets/images/search.png" width="20" alt="">
-                    </span>
-                    <input type="text" class="form-control" placeholder="Search anything">
-                    <button class="btn btn-outline-secondary" type="button">Search</button>
-                </div>
+                <search-anything></search-anything>
             </div>
         </div>
     </div>
@@ -16,21 +10,11 @@
 
 <eng-top-slider></eng-top-slider>
 
-<div class="bg-clock search-engine-deks">
+<div class="bg-clock d-none d-sm-block">
     <div class="container">
         <div class="row">
             <div class="col-md-7 align-self-center mx-auto">
-                <div class="input-group shadow-sm">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">
-                            <img src="assets/images/search.png" width="20" alt="">
-                        </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Search anything">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-search-top border-redius-cusotm">Search</button>
-                    </div>
-                </div>
+                <search-anything></search-anything>
             </div>
         </div>
     </div>
@@ -38,21 +22,21 @@
 <div class="bg-light">
     <div class="container">
         <div class="row text-center py-5">
-            <div class="col-lg-3 col-md-4 mb-wekly-maj">
-                <h5 class="mb-5 fw-bold">Weekly Majalis</h5>
+            <div class="col-lg-3 col-md-4 mb-5 mb-sm-0">
+                <h5 class="mb-3 mb-sm-5 fw-bold">Weekly Majalis</h5>
                 <div class="card shadow-sm weekly-majalis-div-resp">
                     <div class="card-body card-bayan-bg rounded">
                         <div class="d-flex align-items-center justify-content-center">
-                            <img src="assets/images/calendar.png" class="img-fluid me-4" width="50" alt="">
+                            <i class="fa fa-calendar fa-3x me-4" aria-hidden="true"></i>
                             <p class="m-0 fw-700 Schedule">Schedule</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 col-md-4 mx-auto mb-wekly-maj">
+            <div class="col-lg-5 col-md-4 mx-auto mb-5 mb-sm-0">
                 <live-broadcasting-player></live-broadcasting-player>
             </div>
-            <div class="col-lg-3 col-md-4">
+            <div class="col-lg-3 col-md-4 mb-5 mb-sm-0">
                 <next-majlis-count></next-majlis-count>
             </div>
         </div>

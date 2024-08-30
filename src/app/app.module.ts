@@ -44,6 +44,7 @@ import { AboutBaitulmaarifComponent } from './eng-web/about-baitulmaarif/about-b
 import { LiveBroadcastingPlayerComponent } from './eng-web/live-broadcasting-player/live-broadcasting-player.component';
 import { JumaBayaanHomePageComponent } from './eng-web/eng-home/eng-page/juma-bayaan-home-page/juma-bayaan-home-page.component';
 import { NextMajlisCountComponent } from './eng-web/eng-home/eng-page/next-majlis-count/next-majlis-count.component';
+import { SearchAnythingComponent } from './eng-web/eng-home/eng-page/search-anything/search-anything.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,6 +75,7 @@ import { NextMajlisCountComponent } from './eng-web/eng-home/eng-page/next-majli
     LiveBroadcastingPlayerComponent,
     JumaBayaanHomePageComponent,
     NextMajlisCountComponent,
+    SearchAnythingComponent,
   ],
   imports: [
     BrowserModule,
