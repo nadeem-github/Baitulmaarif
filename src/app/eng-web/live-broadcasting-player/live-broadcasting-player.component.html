@@ -1,8 +1,8 @@
 <!-- Live Broadcasting Header with ON AIR/OFF AIR status -->
 <div class="mb-3 mb-sm-5 d-flex align-items-center justify-content-center">
     <p class="fw-bold mb-0 font-20">Live Broadcasting</p>
-    <p class="air-status mb-0" [ngClass]="{ 'on-air': isPlaying, 'off-air': !isPlaying }">
-        {{ isPlaying ? 'ON AIR' : 'OFF AIR' }}
+    <p class="air-status mb-0" [ngClass]="{ 'on-air': isAirStatusOn, 'off-air': !isAirStatusOn }">
+        {{ isAirStatusOn ? 'ON AIR' : 'OFF AIR' }}
     </p>
 </div>
 
@@ -33,7 +33,6 @@
 <!-- Audio Source -->
 <audio #audioRef (timeupdate)="updateTime($event)" (ended)="onAudioEnd()">
     <source src="http://live.bazm.org:9002/live" type="audio/mp3" />
-    <!-- http://live.bazm.org:9002/live -->
 </audio>
 
 <!-- App Download Link -->

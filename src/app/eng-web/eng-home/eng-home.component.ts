@@ -18,15 +18,7 @@ export class EngHomeComponent implements OnInit {
   count = 85265;
   duration = 10000;
 
-  isAudioPlaying: boolean = false;
-
-  constructor(private modalService: NgbModal) {
-
-  }
-
-  increment() {
-
-  }
+  constructor(private modalService: NgbModal) { }
 
   swiperConfig: any = {
     breakpoints: {
@@ -36,17 +28,7 @@ export class EngHomeComponent implements OnInit {
     }
   }
 
-  audioList = [
-    {
-      url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-      // http://live.bazm.org:9002/live
-      title: "Live Broadcast",
-    }
-  ];
-
   videoSource = "assets/video/short-clip-1.mp4";
-
-  private subscription!: Subscription;
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -56,14 +38,6 @@ export class EngHomeComponent implements OnInit {
 
   openModalOnDelay() {
     this.modalService.open(HomepageModalOnloadComponent, { centered: true, size: 'md' });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
-
-  playAudio(action: boolean) {
-    this.isAudioPlaying = action;
   }
 
   breakpoints = {
