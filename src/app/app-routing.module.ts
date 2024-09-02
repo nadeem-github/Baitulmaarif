@@ -15,6 +15,11 @@ import { QuranMp3Component } from './eng-web/quran-mp3/quran-mp3.component';
 import { QuranPdfComponent } from './eng-web/quran-pdf/quran-pdf.component';
 import { FullVideoComponent } from './eng-web/full-video/full-video.component';
 import { AboutBaitulmaarifComponent } from './eng-web/about-baitulmaarif/about-baitulmaarif.component';
+import { DuayenComponent } from './eng-web/SpecialCollection/duayen/duayen.component';
+import { SunnatenComponent } from './eng-web/SpecialCollection/sunnaten/sunnaten.component';
+import { MalfuzaatComponent } from './eng-web/SpecialCollection/malfuzaat/malfuzaat.component';
+import { IslahiParcheComponent } from './eng-web/SpecialCollection/islahi-parche/islahi-parche.component';
+import { AshaarComponent } from './eng-web/SpecialCollection/ashaar/ashaar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'EngHome', pathMatch: 'full', },
@@ -33,6 +38,11 @@ const routes: Routes = [
   { path: 'quran-pdf', component: QuranPdfComponent, },
   { path: 'full-video-view', component: FullVideoComponent, },
   { path: 'abt-baitulmaarif', component: AboutBaitulmaarifComponent, },
+  { path: 'Duayen', component: DuayenComponent, },
+  { path: 'Sunnaten', component: SunnatenComponent, },
+  { path: 'Malfuzaat', component: MalfuzaatComponent, },
+  { path: 'IslahiParche', component: IslahiParcheComponent, },
+  { path: 'Ashaar', component: AshaarComponent, },
 ];
 
 @NgModule({

@@ -46,6 +46,11 @@ import { JumaBayaanHomePageComponent } from './eng-web/eng-home/eng-page/juma-ba
 import { NextMajlisCountComponent } from './eng-web/eng-home/eng-page/next-majlis-count/next-majlis-count.component';
 import { SearchAnythingComponent } from './eng-web/eng-home/eng-page/search-anything/search-anything.component';
 import { WeeklyMajalisPopupComponent } from './eng-web/eng-home/eng-page/weekly-majalis-popup/weekly-majalis-popup.component';
+import { DuayenComponent } from './eng-web/SpecialCollection/duayen/duayen.component';
+import { SunnatenComponent } from './eng-web/SpecialCollection/sunnaten/sunnaten.component';
+import { MalfuzaatComponent } from './eng-web/SpecialCollection/malfuzaat/malfuzaat.component';
+import { IslahiParcheComponent } from './eng-web/SpecialCollection/islahi-parche/islahi-parche.component';
+import { AshaarComponent } from './eng-web/SpecialCollection/ashaar/ashaar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,6 +83,11 @@ import { WeeklyMajalisPopupComponent } from './eng-web/eng-home/eng-page/weekly-
     NextMajlisCountComponent,
     SearchAnythingComponent,
     WeeklyMajalisPopupComponent,
+    DuayenComponent,
+    SunnatenComponent,
+    MalfuzaatComponent,
+    IslahiParcheComponent,
+    AshaarComponent,
   ],
   imports: [
     BrowserModule,
