@@ -5,6 +5,7 @@ import { Subscription, interval } from 'rxjs';
 import { map } from 'rxjs/operators';
 import SwiperCore, { Autoplay, EffectCoverflow, Pagination, Navigation, EffectCube, EffectCards, EffectCreative, Mousewheel, Keyboard } from "swiper";
 import { HomepageModalOnloadComponent } from './eng-page/homepage-modal-onload/homepage-modal-onload.component';
+import { WeeklyMajalisPopupComponent } from './eng-page/weekly-majalis-popup/weekly-majalis-popup.component';
 SwiperCore.use([EffectCoverflow, Pagination, Autoplay, Navigation, EffectCube, EffectCards, EffectCreative, Mousewheel, Keyboard]);
 
 @Component({
@@ -38,6 +39,10 @@ export class EngHomeComponent implements OnInit {
 
   openModalOnDelay() {
     this.modalService.open(HomepageModalOnloadComponent, { centered: true, size: 'md' });
+  }
+  
+  weeklyMajalis() {
+    this.modalService.open(WeeklyMajalisPopupComponent, { centered: true, size: 'lg' });
   }
 
   breakpoints = {

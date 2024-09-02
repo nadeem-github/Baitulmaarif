@@ -1,0 +1,39 @@
+.btn-div {
+    right: -10px;
+    top: -10px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.WeeklyMajalisModal {
+    background-color: #674e30;
+}
+
+.table-bordered {
+    border-color: #674e30;
+
+    tr {
+        td {
+            min-width: 85px;
+            height: 75px;
+            padding: 0;
+            vertical-align: middle;
+        }
+    }
+}
+
+@media (max-width:450px) {
+    .btn-div {
+        right: 0;
+        top: 0;
+    }
+
+    .table-bordered {
+        tr {
+            td {
+                padding: 5px;
+            }
+        }
+    }
+}

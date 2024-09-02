@@ -1,137 +1,17 @@
-:host ::ng-deep {
-    .slider .carousel-control-prev {
-        left: 0px;
-        height: 50px;
-        width: 25px;
-        background-color: #000;
-        top: 45%;
-    }
+.WeeklyMajalis {
+    cursor: pointer;
+    transition: transform 0.5s;
 
-    .slider .carousel-control-next {
-        right: 0px;
-        height: 50px;
-        width: 25px;
-        background-color: #000;
-        top: 45%;
-    }
-
-    .wrapper {
-        background-color: #404345 !important;
-        width: 100% !important;
-        height: 10em;
-        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%);
-    }
-
-    .wrapper .container .controls svg {
-        fill: #fff !important;
-    }
-
-    .wrapper .container .details .title {
-        color: #ffffff !important;
-    }
-
-    .slidecontainer .time-line {
-        color: #ffffff !important;
-    }
-
-    .slidecontainer .slider {
-        border-radius: 15px;
-        height: 5px;
-        width: 90%;
-        margin-top: 1rem;
-    }
-
-    .wrapper .container .details .title {
-        margin: 0 !important;
-    }
-
-    .aajka-sabaq .card-header,
-    .aajka-sabaq .card-body {
-        padding: 5px;
-    }
-
-    .aajka-sabaq .card-header {
-        background-color: #96805a;
-    }
-
-    .aajka-sabaq .card-header button {
-        color: #fff;
-        font-weight: bold;
-        display: block;
-        width: 100%;
-        text-align: left;
-        text-decoration: none;
-    }
-
-    .wrapper .container .controls svg:nth-child(2) {
-        display: none;
-    }
-
-    .wrapper .container .controls svg:nth-child(4) {
-        display: none;
-    }
-
-    .accordion-item {
-        border-color: #503400;
-    }
-
-    .accordion-header button,
-    .accordion-button:not(.collapsed) {
-        background: #96805a;
-        color: #fff;
-        font-weight: bold;
-    }
-
-    .swiper-pagination {
-        display: none;
+    &:hover {
+        -ms-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
     }
 }
 
 .border-bottom-dotted {
     border-bottom: dashed 1px #ddd;
     padding-bottom: 6px;
-}
-
-.table-bg {
-    background-color: #b8c6db;
-    background-image: linear-gradient(360deg, #6e6e6e 46%, #171516 50%);
-    color: #fff;
-    font-weight: 400;
-}
-
-.table-bg tr:first-child {
-    border-bottom: solid 2px #000;
-}
-
-.table-bg td {
-    padding: 5px;
-    border: solid 2px #000000;
-}
-
-.table-bg1 td {
-    padding: 5px;
-    border: solid 2px #000000;
-    font-weight: 600;
-    font-size: 14px;
-}
-
-.table-bg p {
-    font-size: 1.8rem;
-    padding: 0;
-    font-weight: 600;
-}
-
-.table-bordered th,
-.table-bordered td {
-    border: 1px solid #747474;
-}
-
-.border-redius-cusotm {
-    border-radius: 0px 5px 5px 0px !important;
-}
-
-.mb-wekly-maj {
-    margin-bottom: 0rem;
 }
 
 .book-section {
@@ -710,10 +590,6 @@
 
     .juma-bayan-bg .btn-success {
         font-size: 0.6em;
-    }
-
-    .mb-wekly-maj {
-        margin-bottom: 3rem;
     }
 
     .swiper {

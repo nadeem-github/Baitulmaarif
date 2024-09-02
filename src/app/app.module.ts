@@ -45,6 +45,7 @@ import { LiveBroadcastingPlayerComponent } from './eng-web/live-broadcasting-pla
 import { JumaBayaanHomePageComponent } from './eng-web/eng-home/eng-page/juma-bayaan-home-page/juma-bayaan-home-page.component';
 import { NextMajlisCountComponent } from './eng-web/eng-home/eng-page/next-majlis-count/next-majlis-count.component';
 import { SearchAnythingComponent } from './eng-web/eng-home/eng-page/search-anything/search-anything.component';
+import { WeeklyMajalisPopupComponent } from './eng-web/eng-home/eng-page/weekly-majalis-popup/weekly-majalis-popup.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +77,7 @@ import { SearchAnythingComponent } from './eng-web/eng-home/eng-page/search-anyt
     JumaBayaanHomePageComponent,
     NextMajlisCountComponent,
     SearchAnythingComponent,
+    WeeklyMajalisPopupComponent,
   ],
   imports: [
     BrowserModule,

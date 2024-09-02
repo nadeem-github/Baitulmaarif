@@ -17,8 +17,6 @@ export class LiveBroadcastingPlayerComponent implements OnInit {
   currentProgress: number = 0;
   currentVolume: number = 100; // Initial volume (100%)
   isAirStatusOn: boolean = false; // ON AIR or OFF AIR status
-  
-  audioSource: string = 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';
 
   ngOnInit() {
     this.checkAirStatus();
@@ -27,7 +25,7 @@ export class LiveBroadcastingPlayerComponent implements OnInit {
   // Check if the audio source is active or inactive
   checkAirStatus() {
     const audioElement = this.audioRef.nativeElement;
-    
+
     audioElement.addEventListener('canplay', () => {
       this.isAirStatusOn = true; // ON AIR if the source is valid
       this.autoplayAudio(); // Automatically start playing if the source is valid
@@ -124,5 +122,4 @@ export class LiveBroadcastingPlayerComponent implements OnInit {
       progressBar.style.background = `linear-gradient(to right, #ffffff ${value}%, #9c9793 ${value}%)`;
     }
   }
-
 }
