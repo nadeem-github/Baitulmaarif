@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbNavConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-duayen',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DuayenComponent implements OnInit {
 
-  constructor() { }
 
   ngOnInit(): void {
   }
+
+  constructor(config: NgbNavConfig) {
+		// customize default values of navs used by this component tree
+		config.destroyOnHide = false;
+		config.roles = false;
+	}
 
 }

@@ -1,0 +1,23 @@
+.heading-text {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+    max-width: fit-content;
+}
+
+.nav-tabs {
+    border-bottom: solid 4px #4d2700;
+
+    .sunnaten-text {
+        background-color: #4d2700;
+        left: -1px;
+        bottom: 1px;
+
+        @media (max-width:450px) {
+            bottom: 0;
+        }
+    }
+}
+
+.content-div {
+    border: solid 2px #4d2700;
+}
