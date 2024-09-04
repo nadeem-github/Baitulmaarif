@@ -17,9 +17,15 @@ export class LiveBroadcastingPlayerComponent implements OnInit {
   currentProgress: number = 0;
   currentVolume: number = 100; // Initial volume (100%)
   isAirStatusOn: boolean = false; // ON AIR or OFF AIR status
+  hasAutoplayed: boolean = false; // Flag to ensure autoplay happens only once on initial load
 
   ngOnInit() {
     this.checkAirStatus();
+  }
+
+  ngOnDestroy() {
+    // Ensure the audio is paused when the component is destroyed
+    this.audioRef.nativeElement.pause();
   }
 
   // Check if the audio source is active or inactive
@@ -28,7 +34,11 @@ export class LiveBroadcastingPlayerComponent implements OnInit {
 
     audioElement.addEventListener('canplay', () => {
       this.isAirStatusOn = true; // ON AIR if the source is valid
-      this.autoplayAudio(); // Automatically start playing if the source is valid
+
+      if (!this.hasAutoplayed) {
+        this.autoplayAudio(); // Autoplay only on the first load
+        this.hasAutoplayed = true; // Set the flag to true after autoplay
+      }
     });
 
     audioElement.addEventListener('error', () => {
@@ -39,6 +49,15 @@ export class LiveBroadcastingPlayerComponent implements OnInit {
       this.isPlaying = false;
       // Keep the status ON AIR even after the audio ends if the source is valid
     });
+
+    // Manually trigger a source check if the audio is already loaded
+    if (audioElement.readyState >= 2) {
+      this.isAirStatusOn = true;
+      if (!this.hasAutoplayed) {
+        this.autoplayAudio(); // Autoplay only on the first load
+        this.hasAutoplayed = true; // Set the flag to true after autoplay
+      }
+    }
   }
 
   // Autoplay the audio when the source is valid

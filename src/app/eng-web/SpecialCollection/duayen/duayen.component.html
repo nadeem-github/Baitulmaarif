@@ -9,11 +9,45 @@
                     Duayen
                 </a>
                 <ng-template ngbNavContent>
-                    <p class="mb-0">These navs will always stay in DOM and have no roles</p>
+                    <div class="row img-sm">
+                        <div *ngFor="let image of images; let i = index" class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6 mb-3">
+                            <div class="position-relative">
+                                <img [src]="image.src" class="img-thumbnail shadow-sm" alt="" (click)="openModal(i)" />
+    
+                                <!-- Share Icon -->
+                                <a class="position-absolute border rounded-circle bg-light text-dark d-flex align-items-center justify-content-center text-decoration-none" (click)="shareImage(image.src)">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </ng-template>
             </li>
         </ul>
         
         <div [ngbNavOutlet]="nav" class="content-div rounded-bottom-2 p-3"></div>
+        
+        <!-- Modal Template -->
+        <ng-template #imageModal let-modal>
+            <div class="modal-body text-center position-relative">
+                <i class="fa fa-times-circle fa-2x text-danger btn-div position-absolute bg-white rounded-circle d-flex align-items-center justify-content-center" aria-hidden="true" (click)="modal.dismiss()"></i>
+                
+                <!-- Loader -->
+                <ngb-progressbar *ngIf="loading" type="info" [animated]="true" class="w-100"></ngb-progressbar>
+
+                <!-- Full Image -->
+                <img [src]="selectedImage?.src" class="img-fluid" alt="" (load)="onImageLoad()" [hidden]="loading">
+
+                <!-- Left Icon -->
+                <div class="position-absolute top-50 start-0 translate-middle-y rounded-circle text-white d-flex align-items-center justify-content-center shadow" (click)="previousImage()" [hidden]="loading">
+                    <i class="fa fa-arrow-circle-o-left fa-2x" aria-hidden="true"></i>
+                </div>
+
+                <!-- Right Icon -->
+                <div class="position-absolute top-50 end-0 translate-middle-y rounded-circle text-white d-flex align-items-center justify-content-center shadow" (click)="nextImage()" [hidden]="loading">
+                    <i class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true"></i>
+                </div>
+            </div>
+        </ng-template>
     </div>
 </section>
