@@ -62,15 +62,20 @@ export class AshaarComponent implements OnInit {
   }
 
   shareImage(imageSrc: string) {
+    const shareData = {
+      title: 'Special Collection',
+      text: 'Check out this image!',
+      url: imageSrc,
+    };
+  
     if (navigator.share) {
-      navigator.share({
-        title: 'Special Collection',
-        text: 'Check out this image!',
-        url: imageSrc,
-      }).catch(error => console.log('Error sharing:', error));
+      navigator.share(shareData)
+        .then(() => console.log('Image shared successfully'))
+        .catch(error => console.log('Error sharing:', error));
     } else {
-      console.log('Share API not supported.');
+      console.log('Web Share API is not supported on this browser.');
     }
   }
+  
 
 }

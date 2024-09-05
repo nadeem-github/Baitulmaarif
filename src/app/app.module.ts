@@ -51,6 +51,7 @@ import { SunnatenComponent } from './eng-web/SpecialCollection/sunnaten/sunnaten
 import { MalfuzaatComponent } from './eng-web/SpecialCollection/malfuzaat/malfuzaat.component';
 import { IslahiParcheComponent } from './eng-web/SpecialCollection/islahi-parche/islahi-parche.component';
 import { AshaarComponent } from './eng-web/SpecialCollection/ashaar/ashaar.component';
+import { LatestBookComponent } from './eng-web/eng-home/eng-page/latest-book/latest-book.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,6 +89,7 @@ import { AshaarComponent } from './eng-web/SpecialCollection/ashaar/ashaar.compo
     MalfuzaatComponent,
     IslahiParcheComponent,
     AshaarComponent,
+    LatestBookComponent,
   ],
   imports: [
     BrowserModule,

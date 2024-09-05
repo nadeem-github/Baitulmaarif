@@ -12,7 +12,6 @@ SwiperCore.use([EffectCoverflow, Pagination, Autoplay, Navigation, EffectCube, E
   selector: 'eng-home',
   templateUrl: './eng-home.component.html',
   styleUrls: ['./eng-home.component.scss'],
-  // encapsulation: ViewEncapsulation.None,
 })
 export class EngHomeComponent implements OnInit {
 
@@ -21,15 +20,6 @@ export class EngHomeComponent implements OnInit {
 
   constructor(private modalService: NgbModal) { }
 
-  swiperConfig: any = {
-    breakpoints: {
-      425: { slidesPerView: 1, spaceBetween: 20 },
-      768: { slidesPerView: 2, spaceBetween: 10 },
-      1024: { slidesPerView: 3, spaceBetween: 0 },
-    }
-  }
-
-  videoSource = "assets/video/short-clip-1.mp4";
 
   ngOnInit(): void {
     setTimeout(() => {
@@ -43,22 +33,6 @@ export class EngHomeComponent implements OnInit {
   
   weeklyMajalis() {
     this.modalService.open(WeeklyMajalisPopupComponent, { centered: true, size: 'lg' });
-  }
-
-  breakpoints = {
-    640: { slidesPerView: 1, spaceBetween: 20 },
-    768: { slidesPerView: 2, spaceBetween: 40 },
-    1024: { slidesPerView: 3, spaceBetween: 50 },
-  };
-
-  breakPointsToggle!: boolean;
-  breakpointChange() {
-    this.breakPointsToggle = !this.breakPointsToggle;
-    this.breakpoints = {
-      640: { slidesPerView: 2, spaceBetween: 20 },
-      768: { slidesPerView: 4, spaceBetween: 40 },
-      1024: { slidesPerView: this.breakPointsToggle ? 7 : 5, spaceBetween: 50 },
-    };
   }
 
   gotoTop() {

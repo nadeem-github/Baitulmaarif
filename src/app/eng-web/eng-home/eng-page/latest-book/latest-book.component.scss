@@ -1,0 +1,144 @@
+.border-bottom-dotted {
+    border-bottom: dashed 1px #ddd;
+    padding-bottom: 6px;
+}
+
+.card-lbk {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+    color: #fff;
+    margin-bottom: 0.8rem;
+    padding: 10px 0 4px 0;
+}
+
+.border-custom {
+    border: solid 1px var(--darkbran);
+}
+
+.btn-div {
+    right: -10px;
+    top: -10px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+
+    @media (max-width:450px) {
+        right: 0;
+        top: 0;
+    }
+}
+
+.hover-show-icon {
+    ul {
+        padding-left: 0px;
+        margin-bottom: 0;
+    }
+
+    li {
+        list-style: none;
+
+        a {
+            cursor: pointer;
+        }
+    }
+
+    .team-area {
+        margin: 0 auto;
+    }
+
+    .team-area .team-content {
+        overflow: hidden;
+    }
+
+    .team-area .team-content .team-img {
+        position: relative;
+    }
+
+    .team-area:hover .overlay {
+        opacity: 1;
+    }
+
+    .team-area .overlay.team-2 {
+        background-color: rgb(110 86 40 / 5%);
+    }
+
+    .team-area .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: 0.7s ease;
+        background-color: rgba(245, 86, 78, 0.65);
+    }
+
+    .team-area:hover .team-icon-2 {
+        bottom: 20px;
+    }
+
+    .team-2 .team-icon-2 {
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        bottom: -100px;
+        display: flex;
+        justify-content: center;
+        transition: .3s ease;
+    }
+
+    .team-2 .team-icon-2 ul {
+        background-color: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .social-icon ul li {
+        display: inline-block;
+    }
+
+    .team-2 .team-icon-2 ul li a {
+        margin: 0px 5px;
+        color: #233142;
+        text-decoration: none;
+    }
+
+    .social-icon.only-social-icon a {
+        background-color: transparent;
+        border-color: transparent;
+        margin: 0px 5px;
+        height: unset;
+        width: unset;
+        margin: 0px 10px;
+    }
+
+    .social-icon a {
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        color: #ffffff;
+        align-items: center;
+        border-radius: 50%;
+        background-color: #6e45e1;
+        margin: 0px 5px;
+    }
+
+    span {
+        font-size: 12px;
+    }
+
+    .team-2 .team-icon-2 ul li a i {
+        font-size: 1.5rem;
+    }
+
+    .social-icon.only-social-icon a i {
+        color: #233142;
+        font-size: 20px;
+    }
+}

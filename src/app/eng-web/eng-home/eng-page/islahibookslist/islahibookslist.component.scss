@@ -3,40 +3,61 @@
     box-shadow: 0 3px 3px #fcefd2;
 }
 
-.book-img{
+.book-img {
     width: 150px;
 }
 
-.form-control:focus{
+.form-control:focus {
     box-shadow: none;
 }
 
-.actionbtnsIslahi{
-    .text-center{  
-        div{
+.btn-div {
+    right: -10px;
+    top: -10px;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+
+    @media (max-width:450px) {
+        right: 0;
+        top: 0;
+    }
+}
+
+.actionbtnsIslahi {
+    .text-center {
+        div {
             width: 40px;
             height: 40px;
             margin: 0 auto;
-        }      
+        }
     }
-    div{
+
+    div {
         cursor: pointer;
         margin-right: 2rem;
-        &:last-child{
+
+        &:last-child {
             margin-right: 0;
         }
     }
-    p{
+
+    p {
         font-size: var(--font-size-12);
     }
 }
 
-@media (max-width:425px){
-    .book-img{
+iframe{
+    height: 85vh;
+}
+
+@media (max-width:425px) {
+    .book-img {
         width: 50%;
     }
-    .books-responsive{
-        .font-14{
+
+    .books-responsive {
+        .font-14 {
             font-size: var(--font-size-12);
         }
     }

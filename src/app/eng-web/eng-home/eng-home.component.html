@@ -46,150 +46,10 @@
 <div class="book-section">
     <div class="container">
         <div class="row text-center">
-            <div class="col-lg-3 col-md-12 mb-5-mob">
-                <div class="card bg-none border-custom">
-                    <div class="card-header card-lbk">
-                        <h5 class="mb-0 border-bottom-dotted">Latest Book</h5>
-                    </div>
-                    <div class="card-body pt-0 hover-show-icon">
-                        <swiper class="py-0" [grabCursor]="true" [autoplay]="{ delay: 3000, disableOnInteraction: false }" [loop]="true" [effect]="'creative'" [creativeEffect]="{ prev: { shadow: true, translate: [0, 0, -400] }, next: { translate: ['100%', 0, 0] } }">
-                            <ng-template swiperSlide>
-                                <div class="team-area">
-                                    <div class="team-content ">
-                                      <div class="team-img">
-                                        <img src="assets/images/book-tiltle-1.jpg" />
-                                        <div class="overlay team-2 radious-1">
-                                          <div class="social-icon only-social-icon team-icon-2">
-                                            <ul>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-leanpub"></i>
-                                                </a>
-                                                <span>Read Online</span>
-                                              </li>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-cloud-download"></i>
-                                                </a>
-                                                <span>Download</span>
-                                              </li>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-share-alt-square"></i>
-                                                </a>
-                                                <span>Share</span>
-                                              </li>
-                                            </ul>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </ng-template>
-                            <ng-template swiperSlide>
-                                <div class="team-area">
-                                    <div class="team-content ">
-                                      <div class="team-img">
-                                        <img src="assets/images/book-tiltle-2.jpg" />
-                                        <div class="overlay team-2 radious-1">
-                                          <div class="social-icon only-social-icon team-icon-2">
-                                            <ul>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-leanpub"></i>
-                                                </a>
-                                                <span>Read Online</span>
-                                              </li>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-cloud-download"></i>
-                                                </a>
-                                                <span>Download</span>
-                                              </li>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-share-alt-square"></i>
-                                                </a>
-                                                <span>Share</span>
-                                              </li>
-                                            </ul>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </ng-template>
-                            <ng-template swiperSlide>
-                                <div class="team-area">
-                                    <div class="team-content ">
-                                      <div class="team-img">
-                                        <img src="assets/images/book-tiltle-1.jpg" />
-                                        <div class="overlay team-2 radious-1">
-                                          <div class="social-icon only-social-icon team-icon-2">
-                                            <ul>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-leanpub"></i>
-                                                </a>
-                                                <span>Read Online</span>
-                                              </li>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-cloud-download"></i>
-                                                </a>
-                                                <span>Download</span>
-                                              </li>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-share-alt-square"></i>
-                                                </a>
-                                                <span>Share</span>
-                                              </li>
-                                            </ul>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </ng-template>
-                            <ng-template swiperSlide>
-                                <div class="team-area">
-                                    <div class="team-content ">
-                                      <div class="team-img">
-                                        <img src="assets/images/book-tiltle-1.jpg" />
-                                        <div class="overlay team-2 radious-1">
-                                          <div class="social-icon only-social-icon team-icon-2">
-                                            <ul>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-leanpub"></i>
-                                                </a>
-                                                <span>Read Online</span>
-                                              </li>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-cloud-download"></i>
-                                                </a>
-                                                <span>Download</span>
-                                              </li>
-                                              <li>
-                                                <a href="#">
-                                                    <i class="fa fa-share-alt-square"></i>
-                                                </a>
-                                                <span>Share</span>
-                                              </li>
-                                            </ul>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </ng-template>
-                        </swiper>
-                    </div>
-                </div>
+            <div class="col-lg-3 col-md-12 mb-5 mb-sm-0">
+                <latest-book></latest-book>
             </div>
-            <div class="col-lg-5 col-md-12 mx-auto bg-none mb-5-mob">
+            <div class="col-lg-5 col-md-12 mx-auto bg-none mb-5 mb-sm-0">
                 <juma-bayaan-home-page></juma-bayaan-home-page>
             </div>
             <div class="col-lg-3 col-md-12">
@@ -211,7 +71,7 @@
 <div class="bg-light py-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 mb-5-mob">
+            <div class="col-md-4 mb-5 mb-sm-0">
                 <h3 class="text-center mb-4 fw-700">Majalis</h3>
                 <div class="card shadow-sm border-0">
                     <div class="card-header card-bayan p-0">
@@ -327,7 +187,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-5-mob">
+            <div class="col-md-4 mb-5 mb-sm-0">
                 <h3 class="text-center mb-4 fw-700">Bayanat</h3>
                 <div class="card shadow-sm border-0">
                     <div class="card-header card-bayan p-0">
@@ -622,7 +482,7 @@
 <div class="bg-light py-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 mb-5-mob">
+            <div class="col-md-4 mb-5 mb-sm-0">
                 <h3 class="text-center mb-4 fw-700">Aham Bayanat</h3>
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-0 majlist-card-body">
@@ -752,7 +612,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-5-mob">
+            <div class="col-md-4 mb-5 mb-sm-0">
                 <h3 class="text-center mb-4 fw-700">Ash’aar</h3>
                 <div class="card shadow-sm border-0">
                     <div class="card-body p-0 majlist-card-body">

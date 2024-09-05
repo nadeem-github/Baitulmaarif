@@ -11,29 +11,33 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-xl-6 col-sm-6 mb-4">
+        <div class="col-xl-6 col-sm-6 mb-4" *ngFor="let item of items">
             <div class="card">
                 <div class="card-body">
                     <div class="d-inline-flex d-sm-flex flex-column-reverse flex-sm-row books-responsive">
                         <div class="me-0 me-sm-3">
-                            <p class="font-14 mb-1"><span class="fw-semibold">Writer:</span> Hazrat Maulana Ashraf Ali Thanvi</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Book Name:</span> Aaina Qadyaniyat</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Topic:</span> Islahe Nafs</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Description:</span> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum, est mollitia debitis modi quasi animi asperiores temporibus corrupti libero expedita fuga! Nobis rem aspernatur ullam maiores!</p>
-                            <div class="d-flex justify-content-center justify-content-sm-start align-items-center actionbtnsIslahi">
-                                <div class="text-center">
+                            <p class="font-14 mb-1">
+                                <span class="fw-semibold">Writer:</span> 
+                                {{item.writer}}
+                            </p>
+                            <p class="font-14 mb-1"><span class="fw-semibold">Book Name:</span> {{item.name}}</p>
+                            <p class="font-14 mb-1"><span class="fw-semibold">Topic:</span> {{item.topic}} </p>
+                            <p class="font-14 mb-1"><span class="fw-semibold">Description:</span> {{item.description}} </p>
+                            <div
+                                class="d-flex justify-content-center justify-content-sm-start align-items-center actionbtnsIslahi">
+                                <div class="text-center" (click)="openPdfModal(pdfModal, item.pdfUrl)">
                                     <div class="d-flex align-items-center justify-content-center rounded-5 border">
                                         <i class="fa fa-leanpub"></i>
                                     </div>
                                     <p class="mb-0">Read Online</p>
                                 </div>
-                                <div class="text-center">
+                                <div class="text-center" (click)="downloadPdf(item.pdfUrl, item.name)">
                                     <div class="d-flex align-items-center justify-content-center rounded-5 border">
                                         <i class="fa fa-cloud-download"></i>
                                     </div>
                                     <p class="mb-0">Download</p>
                                 </div>
-                                <div class="text-center">
+                                <div class="text-center" (click)="sharePdf(item.pdfUrl, item.name)">
                                     <div class="d-flex align-items-center justify-content-center rounded-5 border">
                                         <i class="fa fa-share-alt-square"></i>
                                     </div>
@@ -42,118 +46,7 @@
                             </div>
                         </div>
                         <div class="text-center mb-3 mb-sm-0">
-                            <img src="../../../../../assets/images/book-tiltle-1.jpg" alt="" class="book-img rounded" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6 col-sm-6 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-inline-flex d-sm-flex flex-column-reverse flex-sm-row books-responsive">
-                        <div class="me-0 me-sm-3">
-                            <p class="font-14 mb-1"><span class="fw-semibold">Writer:</span> Hazrat Maulana Ashraf Ali Thanvi</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Book Name:</span> Aaina Qadyaniyat</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Topic:</span> Islahe Nafs</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Description:</span> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum, est mollitia debitis modi quasi animi asperiores temporibus corrupti libero expedita fuga! Nobis rem aspernatur ullam maiores!</p>
-                            <div class="d-flex justify-content-center justify-content-sm-start align-items-center actionbtnsIslahi">
-                                <div class="text-center">
-                                    <div class="d-flex align-items-center justify-content-center rounded-5 border">
-                                        <i class="fa fa-leanpub"></i>
-                                    </div>
-                                    <p class="mb-0">Read Online</p>
-                                </div>
-                                <div class="text-center">
-                                    <div class="d-flex align-items-center justify-content-center rounded-5 border">
-                                        <i class="fa fa-cloud-download"></i>
-                                    </div>
-                                    <p class="mb-0">Download</p>
-                                </div>
-                                <div class="text-center">
-                                    <div class="d-flex align-items-center justify-content-center rounded-5 border">
-                                        <i class="fa fa-share-alt-square"></i>
-                                    </div>
-                                    <p class="mb-0">Share</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center mb-3 mb-sm-0">
-                            <img src="../../../../../assets/images/book-tiltle-1.jpg" alt="" class="book-img rounded" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6 col-sm-6 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-inline-flex d-sm-flex flex-column-reverse flex-sm-row books-responsive">
-                        <div class="me-0 me-sm-3">
-                            <p class="font-14 mb-1"><span class="fw-semibold">Writer:</span> Hazrat Maulana Ashraf Ali Thanvi</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Book Name:</span> Aaina Qadyaniyat</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Topic:</span> Islahe Nafs</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Description:</span> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum, est mollitia debitis modi quasi animi asperiores temporibus corrupti libero expedita fuga! Nobis rem aspernatur ullam maiores!</p>
-                            <div class="d-flex justify-content-center justify-content-sm-start align-items-center actionbtnsIslahi">
-                                <div class="text-center">
-                                    <div class="d-flex align-items-center justify-content-center rounded-5 border">
-                                        <i class="fa fa-leanpub"></i>
-                                    </div>
-                                    <p class="mb-0">Read Online</p>
-                                </div>
-                                <div class="text-center">
-                                    <div class="d-flex align-items-center justify-content-center rounded-5 border">
-                                        <i class="fa fa-cloud-download"></i>
-                                    </div>
-                                    <p class="mb-0">Download</p>
-                                </div>
-                                <div class="text-center">
-                                    <div class="d-flex align-items-center justify-content-center rounded-5 border">
-                                        <i class="fa fa-share-alt-square"></i>
-                                    </div>
-                                    <p class="mb-0">Share</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center mb-3 mb-sm-0">
-                            <img src="../../../../../assets/images/book-tiltle-1.jpg" alt="" class="book-img rounded" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-6 col-sm-6 mb-4">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-inline-flex d-sm-flex flex-column-reverse flex-sm-row books-responsive">
-                        <div class="me-0 me-sm-3">
-                            <p class="font-14 mb-1"><span class="fw-semibold">Writer:</span> Hazrat Maulana Ashraf Ali Thanvi</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Book Name:</span> Aaina Qadyaniyat</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Topic:</span> Islahe Nafs</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Description:</span> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum, est mollitia debitis modi quasi animi asperiores temporibus corrupti libero expedita fuga! Nobis rem aspernatur ullam maiores!</p>
-                            <div class="d-flex justify-content-center justify-content-sm-start align-items-center actionbtnsIslahi">
-                                <div class="text-center">
-                                    <div class="d-flex align-items-center justify-content-center rounded-5 border">
-                                        <i class="fa fa-leanpub"></i>
-                                    </div>
-                                    <p class="mb-0">Read Online</p>
-                                </div>
-                                <div class="text-center">
-                                    <div class="d-flex align-items-center justify-content-center rounded-5 border">
-                                        <i class="fa fa-cloud-download"></i>
-                                    </div>
-                                    <p class="mb-0">Download</p>
-                                </div>
-                                <div class="text-center">
-                                    <div class="d-flex align-items-center justify-content-center rounded-5 border">
-                                        <i class="fa fa-share-alt-square"></i>
-                                    </div>
-                                    <p class="mb-0">Share</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-center mb-3 mb-sm-0">
-                            <img src="../../../../../assets/images/book-tiltle-1.jpg" alt="" class="book-img rounded" />
+                            <img [src]="item.imgUrl" alt="{{ item.name }}" class="book-img rounded" />
                         </div>
                     </div>
                 </div>
@@ -161,3 +54,11 @@
         </div>
     </div>
 </div>
+
+<ng-template #pdfModal let-modal>
+    <div class="modal-body">
+        <i class="fa fa-times-circle fa-2x text-danger btn-div position-absolute bg-white rounded-circle d-flex align-items-center justify-content-center"
+            aria-hidden="true" (click)="modal.dismiss()"></i>
+        <iframe [src]="sanitizedPdfUrl" class="img-fluid shadow-sm w-100" type="application/pdf"></iframe>
+    </div>
+</ng-template>
