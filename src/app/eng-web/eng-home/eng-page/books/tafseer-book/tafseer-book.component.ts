@@ -3,11 +3,11 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-islahibookslist',
-  templateUrl: './islahibookslist.component.html',
-  styleUrls: ['./islahibookslist.component.scss']
+  selector: 'app-tafseer-book',
+  templateUrl: './tafseer-book.component.html',
+  styleUrls: ['./tafseer-book.component.scss']
 })
-export class IslahibookslistComponent implements OnInit {
+export class TafseerBookComponent implements OnInit {
 
   items = [
     {
@@ -98,7 +98,7 @@ export class IslahibookslistComponent implements OnInit {
 
   openPdfModal(modal: any, pdfUrl: string) {
     this.sanitizedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(pdfUrl);
-    this.modalService.open(modal, { size: 'lg' });
+    this.modalService.open(modal, { size: 'xl' });
   }
 
   downloadPdf(pdfUrl: string, pdfName: string) {

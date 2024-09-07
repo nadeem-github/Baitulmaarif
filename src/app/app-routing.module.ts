@@ -10,7 +10,7 @@ import { AhamBayanListComponent } from './eng-web/aham-bayan-list/aham-bayan-lis
 import { ContactComponent } from './eng-web/contact/contact.component';
 import { AdmissionFormComponent } from './eng-web/admission-form/admission-form.component';
 import { BayaandetaillistComponent } from './eng-web/eng-home/eng-page/bayaandetaillist/bayaandetaillist.component';
-import { IslahibookslistComponent } from './eng-web/eng-home/eng-page/islahibookslist/islahibookslist.component';
+import { IslahibookslistComponent } from './eng-web/eng-home/eng-page/books/islahibookslist/islahibookslist.component';
 import { QuranMp3Component } from './eng-web/quran-mp3/quran-mp3.component';
 import { QuranPdfComponent } from './eng-web/quran-pdf/quran-pdf.component';
 import { FullVideoComponent } from './eng-web/full-video/full-video.component';
@@ -20,6 +20,13 @@ import { SunnatenComponent } from './eng-web/SpecialCollection/sunnaten/sunnaten
 import { MalfuzaatComponent } from './eng-web/SpecialCollection/malfuzaat/malfuzaat.component';
 import { IslahiParcheComponent } from './eng-web/SpecialCollection/islahi-parche/islahi-parche.component';
 import { AshaarComponent } from './eng-web/SpecialCollection/ashaar/ashaar.component';
+import { JumaBayanListComponent } from './eng-web/eng-home/eng-page/juma-bayan-list/juma-bayan-list.component';
+import { TafseerBookComponent } from './eng-web/eng-home/eng-page/books/tafseer-book/tafseer-book.component';
+import { HadeesBookComponent } from './eng-web/eng-home/eng-page/books/hadees-book/hadees-book.component';
+import { FiqhoFatawaComponent } from './eng-web/eng-home/eng-page/books/fiqho-fatawa/fiqho-fatawa.component';
+import { IslahiAshaarComponent } from './eng-web/eng-home/eng-page/ashaar/islahi-ashaar/islahi-ashaar.component';
+import { HamdOMunajaatComponent } from './eng-web/eng-home/eng-page/ashaar/hamd-omunajaat/hamd-omunajaat.component';
+import { NaatPaakComponent } from './eng-web/eng-home/eng-page/ashaar/naat-paak/naat-paak.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'EngHome', pathMatch: 'full', },
@@ -43,6 +50,13 @@ const routes: Routes = [
   { path: 'Malfuzaat', component: MalfuzaatComponent, },
   { path: 'IslahiParche', component: IslahiParcheComponent, },
   { path: 'Ashaar', component: AshaarComponent, },
+  { path: 'JumaBayanList', component: JumaBayanListComponent, },
+  { path: 'TafseerBook', component: TafseerBookComponent, },
+  { path: 'HadeesBook', component: HadeesBookComponent, },
+  { path: 'FiqhOFatawa', component: FiqhoFatawaComponent, },
+  { path: 'IslahiAshaar', component: IslahiAshaarComponent, },
+  { path: 'HamdMunajaat', component: HamdOMunajaatComponent, },
+  { path: 'NaatPaak', component: NaatPaakComponent, },
 ];
 
 @NgModule({

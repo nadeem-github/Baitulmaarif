@@ -16,8 +16,12 @@
 						<tr *ngFor="let country of countries">
 							<td class="majlis">
 								<div [routerLink]="'../BayanDetail'" (click)="gotoTop()">
-									<div class="fw-semibold text-truncate text-truncate-20">{{ country.id }}- {{ country.name }}</div>
-									<span class="date">{{ country.date }} - ({{country.size}})</span>
+									<div class="fw-semibold text-truncate text-truncate-20">
+										{{ country.id }} - {{ country.name }}
+									</div>
+									<span class="date">
+										{{ country.date }} - ({{country.size}})
+									</span>
 								</div>
 							</td>
 							<td class="text-center verticale-align pb-0">

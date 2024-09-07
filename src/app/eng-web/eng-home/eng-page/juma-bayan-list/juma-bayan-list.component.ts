@@ -1,8 +1,4 @@
-import { DecimalPipe, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 interface Country {
@@ -215,13 +211,11 @@ const COUNTRIES: Country[] = [
 ];
 
 @Component({
-  selector: 'app-bayaandetaillist',
-  standalone: true,
-  imports: [DecimalPipe, FormsModule, NgbTypeaheadModule, NgbPaginationModule, RouterModule, NgFor],
-  templateUrl: './bayaandetaillist.component.html',
-  styleUrls: ['./bayaandetaillist.component.scss']
+  selector: 'juma-bayan-list',
+  templateUrl: './juma-bayan-list.component.html',
+  styleUrls: ['./juma-bayan-list.component.scss']
 })
-export class BayaandetaillistComponent implements OnInit {
+export class JumaBayanListComponent implements OnInit {
 
   page = 1;
 	pageSize = 10;

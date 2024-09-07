@@ -28,7 +28,7 @@ import { AdmissionFormComponent } from './eng-web/admission-form/admission-form.
 import { LatestAudioComponent } from './eng-web/eng-home/eng-page/latest-audio/latest-audio.component';
 import { TotalVisitorsComponent } from './eng-web/eng-home/eng-page/total-visitors/total-visitors.component';
 import { TopsliderComponent } from './eng-web/eng-home/eng-page/topslider/topslider.component';
-import { IslahibookslistComponent } from './eng-web/eng-home/eng-page/islahibookslist/islahibookslist.component';
+import { IslahibookslistComponent } from './eng-web/eng-home/eng-page/books/islahibookslist/islahibookslist.component';
 import { HomepageModalOnloadComponent } from './eng-web/eng-home/eng-page/homepage-modal-onload/homepage-modal-onload.component';
 import { DoorOpenAnimationComponent } from './eng-web/eng-home/eng-page/door-open-animation/door-open-animation.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -52,6 +52,13 @@ import { MalfuzaatComponent } from './eng-web/SpecialCollection/malfuzaat/malfuz
 import { IslahiParcheComponent } from './eng-web/SpecialCollection/islahi-parche/islahi-parche.component';
 import { AshaarComponent } from './eng-web/SpecialCollection/ashaar/ashaar.component';
 import { LatestBookComponent } from './eng-web/eng-home/eng-page/latest-book/latest-book.component';
+import { JumaBayanListComponent } from './eng-web/eng-home/eng-page/juma-bayan-list/juma-bayan-list.component';
+import { TafseerBookComponent } from './eng-web/eng-home/eng-page/books/tafseer-book/tafseer-book.component';
+import { HadeesBookComponent } from './eng-web/eng-home/eng-page/books/hadees-book/hadees-book.component';
+import { FiqhoFatawaComponent } from './eng-web/eng-home/eng-page/books/fiqho-fatawa/fiqho-fatawa.component';
+import { IslahiAshaarComponent } from './eng-web/eng-home/eng-page/ashaar/islahi-ashaar/islahi-ashaar.component';
+import { HamdOMunajaatComponent } from './eng-web/eng-home/eng-page/ashaar/hamd-omunajaat/hamd-omunajaat.component';
+import { NaatPaakComponent } from './eng-web/eng-home/eng-page/ashaar/naat-paak/naat-paak.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +97,13 @@ import { LatestBookComponent } from './eng-web/eng-home/eng-page/latest-book/lat
     IslahiParcheComponent,
     AshaarComponent,
     LatestBookComponent,
+    JumaBayanListComponent,
+    TafseerBookComponent,
+    HadeesBookComponent,
+    FiqhoFatawaComponent,
+    IslahiAshaarComponent,
+    HamdOMunajaatComponent,
+    NaatPaakComponent,
   ],
   imports: [
     BrowserModule,

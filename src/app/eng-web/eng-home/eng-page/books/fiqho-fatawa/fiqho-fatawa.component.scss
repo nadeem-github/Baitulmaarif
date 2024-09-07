@@ -1,3 +1,17 @@
+.heading-text {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+    max-width: fit-content;
+
+    p {
+        border-bottom: dashed 2px #fff;
+    }
+
+    @media (max-width:450px) {
+        max-width: unset;
+    }
+}
+
 .card {
     border-radius: 1rem;
     box-shadow: 0 3px 3px #fcefd2;
@@ -47,7 +61,7 @@
     }
 }
 
-iframe{
+iframe {
     height: 85vh;
 }
 
