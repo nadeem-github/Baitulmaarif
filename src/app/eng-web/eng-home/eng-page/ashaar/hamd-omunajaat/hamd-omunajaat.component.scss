@@ -1,0 +1,113 @@
+.card-lbk {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+}
+
+.date {
+    color: #979797;
+    font-size: var(--font-size-12);
+}
+
+.verticale-align {
+    vertical-align: middle;
+}
+
+.social-icons {
+    padding: 0;
+    list-style: none;
+    margin: 0em;
+
+    li {
+        display: inline-block;
+        margin: 0 0.15em;
+        position: relative;
+        font-size: 1.2em;
+
+        a {
+            display: inline-block;
+            cursor: pointer;
+
+            .social-square:before {
+                border-radius: 100%;
+            }
+
+            &:before {
+                transform: scale(1);
+                -ms-transform: scale(1);
+                -webkit-transform: scale(1);
+                content: " ";
+                width: 30px;
+                height: 30px;
+                border-radius: 100%;
+                display: block;
+                transition: all 265ms ease-out;
+                border: solid 1px var(--darkbran);
+            }
+
+            i {
+                color: var(--darkbran);
+                position: absolute;
+                top: 7px;
+                left: 0;
+                right: 0;
+                transition: all 265ms ease-out;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+.border-bottom-dotted {
+    border-bottom: dashed 1px #ddd;
+    padding-bottom: 6px;
+}
+
+.majlis {
+    a {
+        font-size: var(--font-size-14);
+    }
+
+    &:hover {
+        background-color: #f2f2f2;
+        transition: 0.5s;
+        cursor: pointer;
+
+        a {
+            color: #794e01;
+            text-decoration: underline;
+        }
+
+        i {
+            color: #000;
+        }
+    }
+}
+
+:host ::ng-deep {
+    .page-link {
+        color: var(--darkbran);
+    }
+
+    .page-link.active,
+    .active>.page-link {
+        background-color: var(--darkbran);
+        border-color: var(--darkbran);
+        color: #fff;
+    }
+}
+
+@media (max-width: 450px) {
+    .responsive {
+        .d-flex {
+            display: unset !important;
+        }
+    }
+
+    .text-truncate-20 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 30ch;
+        font-size: var(--font-size-12);
+    }
+}

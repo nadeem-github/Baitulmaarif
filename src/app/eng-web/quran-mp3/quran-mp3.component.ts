@@ -10,32 +10,19 @@ import { ApisService } from 'src/app/services/apis.service';
 })
 export class QuranMp3Component implements OnInit {
 
-  // console.log('API Data:', data);
+  surahs: any[] = [];
+  reciterId: number = 7; // Example ID, replace with actual reciter ID if necessary
 
-  editions: any[] = [];
-  filteredEditions$: Observable<any[]> | undefined;
-  searchControl = new FormControl('');
-
-  constructor(private apisService: ApisService) { }
+  constructor(private quranService: ApisService) {}
 
   ngOnInit(): void {
-    this.apisService.getEditions().subscribe(
-      (data) => {
-        this.editions = data.data.filter((edition: any) => edition.language === 'en');
-        this.filteredEditions$ = this.searchControl.valueChanges.pipe(
-          startWith(''),
-          map(value => this._filterEditions(value))
-        );
-      },
-      (error) => {
-        console.error('Error fetching editions', error);
-      }
-    );
-  }
-
-  private _filterEditions(value: string | null): any[] {
-    const filterValue = (value || '').toLowerCase();
-    return this.editions.filter(edition => edition.name.toLowerCase().includes(filterValue));
+    this.quranService.getSurahs().subscribe((data: any) => {
+      this.surahs = data.suwar.map((surah: any) => ({
+        id: surah.id,
+        name: surah.name,
+        audio: surah.audio,
+      }));
+    });
   }
 
 }

@@ -1,15 +1,19 @@
-.pdf-container {
-    iframe{
-        height: 90vh;
-        width: 100%;
+.heading-text {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+
+    p {
+        border-bottom: dashed 2px #fff;
     }
 }
 
-@media (max-width:450px){
-    .pdf-container {
-        iframe{
-            height: 48vh;
-            width: 80%;
+.pdf-container {
+    iframe {
+        height: 90vh;
+        width: 100%;
+
+        @media (max-width:450px) {
+            height: 50vh;
         }
     }
 }

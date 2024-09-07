@@ -1,1 +1,63 @@
-<p>islahi-ashaar works!</p>
+<div class="container py-4">
+	<div class="card shadow-sm">
+		<div class="card-header text-center card-lbk px-0">
+			<p class="text-white border-bottom-dotted mb-0 font-24">Islahi Ash'aar</p>
+		</div>
+		<div class="p-0 p-sm-3 card-body">
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<tr class="bg-light">
+							<th scope="col">Title</th>
+							<th class="text-center" scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor="let country of countries">
+							<td class="majlis">
+								<div [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+									<div class="fw-semibold text-truncate text-truncate-20">{{ country.id }}- {{ country.name }}</div>
+									<span class="date">{{ country.date }} - ({{country.size}})</span>
+								</div>
+							</td>
+							<td class="text-center verticale-align pb-0">
+								<ul class="social-icons mb-0 d-flex align-items-center justify-content-center">
+                                    <li>
+                                        <a title="Play Online" class="social-square">
+                                            <i class="fa fa-play" aria-hidden="true"></i>
+                                            <!-- <i class="fa fa-pause" aria-hidden="true"></i> -->
+                                        </a>
+                                    </li>
+									<li>
+										<a title="Download" class="social-square">
+											<i class="fa fa-cloud-download" aria-hidden="true"></i>
+										</a>
+									</li>
+									<li>
+										<a title="Share" class="social-square">
+											<i class="fa fa-share-alt-square" aria-hidden="true"></i>
+										</a>
+									</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="p-2 p-sm-0 responsive">
+				<div class="d-flex justify-content-between">
+					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+						(pageChange)="refreshCountries()">
+					</ngb-pagination>
+
+					<select class="form-select form-select-sm" style="width: auto" [(ngModel)]="pageSize"
+						(ngModelChange)="refreshCountries()">
+						<option [ngValue]="5">5 Bayaan Per Page</option>
+						<option [ngValue]="10">10 Bayaan Per Page</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
