@@ -146,7 +146,6 @@
 .bg-clock {
     background-color: #fafafa;
     border-bottom: solid 1px #ddd;
-    padding: 50px 0;
 }
 
 :host ::ng-deep {
@@ -583,10 +582,6 @@
 
     .search-engine-deks {
         display: none;
-    }
-
-    .bg-clock {
-        padding: 20px 0;
     }
 }
 

@@ -1,26 +1,97 @@
 <section class="py-3 py-sm-5">
     <div class="container">
-        <div class="row text-center">
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4 mb-sm-0">
-                <div class="heading-text mx-auto py-2 px-3 rounded-1 text-center mb-2">
-                    <p class="h4 mb-0 text-white mb-0 pb-1">
-                        13 Lines Quran Paak
-                    </p>
-                </div>
-                <div class="pdf-container">
-                    <iframe src="assets/pdf/Quran-Majeed-13-Line.pdf" class="img-thumbnail shadow-sm" type="application/pdf"></iframe>
-                </div>
+      <div class="row text-center">
+        <!-- Quran Paak 13 Lines -->
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-4 mb-sm-0">
+          <div class="heading-text mx-auto py-2 px-3 rounded-1 text-center mb-2">
+            <p class="h4 mb-0 text-white mb-0 pb-1">
+              13 Lines Quran Paak
+            </p>
+          </div>
+          <div class="pdf-container mb-3">
+            <div *ngIf="showImage13L">
+              <img src="../../../assets/images/Quran-13L.png" class="img-thumbnail" alt="">
             </div>
-            <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4 mb-sm-0">
-                <div class="heading-text mx-auto py-2 px-3 rounded-1 text-center mb-2">
-                    <p class="h4 mb-0 text-white mb-0 pb-1">
-                        15 Lines Quran Paak (Hafzi)
-                    </p>
-                </div>
-                <div class="pdf-container">
-                    <iframe src="assets/pdf/Quran-Majeed-15-Line.pdf" class="img-thumbnail shadow-sm" type="application/pdf"></iframe>
-                </div>
+            <div *ngIf="!showImage13L">
+              <iframe src="assets/pdf/Quran-Majeed-13-Line.pdf" class="img-thumbnail shadow-sm" type="application/pdf"></iframe>
             </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center actionbtnsIslahi">
+            <div class="text-center d-none d-sm-block">
+              <div class="d-flex align-items-center justify-content-center rounded-5 border" (click)="toggleReadOnline13L()">
+                <i class="fa fa-leanpub"></i>
+              </div>
+              <p class="mb-0">Read Online</p>
+            </div>
+            <div class="text-center">
+              <div class="d-flex align-items-center justify-content-center rounded-5 border" (click)="downloadPDF('Quran-Majeed-13-Line.pdf')">
+                <i class="fa fa-cloud-download"></i>
+              </div>
+              <p class="mb-0">Download</p>
+            </div>
+          </div>
         </div>
+  
+        <!-- Quran Paak 15 Lines -->
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-4 mb-sm-0">
+          <div class="heading-text mx-auto py-2 px-3 rounded-1 text-center mb-2">
+            <p class="h4 mb-0 text-white mb-0 pb-1">
+              15 Lines Quran Paak (Hafzi)
+            </p>
+          </div>
+          <div class="pdf-container mb-3">
+            <div *ngIf="showImage15L">
+              <img src="../../../assets/images/Quran-15L.png" class="img-thumbnail" alt="">
+            </div>
+            <div *ngIf="!showImage15L">
+              <iframe src="assets/pdf/Quran-Majeed-15-Line.pdf" class="img-thumbnail shadow-sm" type="application/pdf"></iframe>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center actionbtnsIslahi">
+            <div class="text-center d-none d-sm-block">
+              <div class="d-flex align-items-center justify-content-center rounded-5 border" (click)="toggleReadOnline15L()">
+                <i class="fa fa-leanpub"></i>
+              </div>
+              <p class="mb-0">Read Online</p>
+            </div>
+            <div class="text-center">
+              <div class="d-flex align-items-center justify-content-center rounded-5 border" (click)="downloadPDF('Quran-Majeed-15-Line.pdf')">
+                <i class="fa fa-cloud-download"></i>
+              </div>
+              <p class="mb-0">Download</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-4 mb-sm-0">
+          <div class="heading-text mx-auto py-2 px-3 rounded-1 text-center mb-2">
+            <p class="h4 mb-0 text-white mb-0 pb-1">
+                Arabic Quran Paak
+            </p>
+          </div>
+          <div class="pdf-container mb-3">
+            <div *ngIf="showImage15LArbic">
+              <img src="../../../assets/images/Arabic-Quran-15-Line.png" class="img-thumbnail" alt="">
+            </div>
+            <div *ngIf="!showImage15LArbic">
+              <iframe src="assets/pdf/Arabic-Quran-15-Line.pdf" class="img-thumbnail shadow-sm" type="application/pdf"></iframe>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center align-items-center actionbtnsIslahi">
+            <div class="text-center d-none d-sm-block">
+              <div class="d-flex align-items-center justify-content-center rounded-5 border" (click)="toggleReadOnline15LArbic()">
+                <i class="fa fa-leanpub"></i>
+              </div>
+              <p class="mb-0">Read Online</p>
+            </div>
+            <div class="text-center">
+              <div class="d-flex align-items-center justify-content-center rounded-5 border" (click)="downloadPDF('Arabic-Quran-15-Line.pdf')">
+                <i class="fa fa-cloud-download"></i>
+              </div>
+              <p class="mb-0">Download</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
+  

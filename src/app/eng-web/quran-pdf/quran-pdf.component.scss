@@ -3,13 +3,45 @@
     background: linear-gradient(0deg, #241700 0%, #714904 100%);
 
     p {
-        border-bottom: dashed 2px #fff;
+        border-bottom: dashed 1px #fff;
+    }
+}
+
+.actionbtnsIslahi {
+    .text-center {
+        div {
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+        }
+    }
+
+    div {
+        cursor: pointer;
+        margin-right: 2rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    p {
+        font-size: var(--font-size-12);
     }
 }
 
 .pdf-container {
+    img {
+        width: 100%;
+        height: 80vh;
+        object-fit: fill;
+        @media (max-width:450px) {
+            height: auto;
+        }
+    }
+
     iframe {
-        height: 90vh;
+        height: 80vh;
         width: 100%;
 
         @media (max-width:450px) {

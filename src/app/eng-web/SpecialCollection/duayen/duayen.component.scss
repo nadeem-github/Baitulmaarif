@@ -3,7 +3,7 @@
     background: linear-gradient(0deg, #241700 0%, #714904 100%);
     max-width: fit-content;
     p{
-        border-bottom: dashed 2px #fff;
+        border-bottom: dashed 1px #fff;
     }
 }
 
@@ -20,7 +20,7 @@
     img {
         cursor: pointer;
         transition: transform 0.5s;
-        border-color: #4d2700;
+        border-color: var(--specialColbg);
 
         &:hover {
             -ms-transform: scale(1.1);
@@ -44,11 +44,11 @@
 }
 
 .nav-tabs {
-    border-bottom: solid 4px #4a5565;
+    border-bottom: solid 4px var(--specialColbg);
 
 
     .sunnaten-text {
-        background-color: #4a5565;
+        background-color: var(--specialColbg);
         left: -1px;
         bottom: 1px;
 
@@ -61,7 +61,7 @@
 
 .modal-body {
     .position-absolute {
-        background-color: #4d2700;
+        background-color: var(--specialColbg);
         width: 32px;
         height: 32px;
         cursor: pointer;
@@ -69,5 +69,5 @@
 }
 
 .content-div {
-    border: solid 2px #4a5565;
+    border: solid 2px var(--specialColbg);
 }
