@@ -98,7 +98,6 @@ export class LiveBroadcastingPlayerComponent implements OnInit {
     const input = event.target as HTMLInputElement;
     const seekTime = (this.audioRef.nativeElement.duration / 100) * Number(input.value);
     this.audioRef.nativeElement.currentTime = seekTime;
-    this.updateProgressBar();
   }
 
   // Adjust Volume
@@ -115,7 +114,6 @@ export class LiveBroadcastingPlayerComponent implements OnInit {
     const duration = this.audioRef.nativeElement.duration;
     this.currentProgress = (currentTime / duration) * 100;
     this.currentTime = this.formatTime(currentTime);
-    this.updateProgressBar();
   }
 
   // Handle Audio Ended Event
@@ -131,14 +129,5 @@ export class LiveBroadcastingPlayerComponent implements OnInit {
     const minutes = Math.floor(seconds / 60);
     const secs = Math.floor(seconds % 60);
     return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-  }
-
-  // Update Progress Bar Background Fill
-  private updateProgressBar() {
-    const progressBar = document.querySelector('.progress-bar') as HTMLInputElement;
-    if (progressBar) {
-      const value = (Number(progressBar.value) / Number(progressBar.max)) * 100;
-      progressBar.style.background = `linear-gradient(to right, #ffffff ${value}%, #9c9793 ${value}%)`;
-    }
   }
 }

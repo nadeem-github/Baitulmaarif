@@ -1,9 +1,11 @@
 <div *ngIf="surahs.length > 0">
-    <div *ngFor="let surah of surahs">
-      <h3>{{ surah.id }}. {{ surah.name }}</h3>
-      <audio controls>
-        <source [src]="surah.audio" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-    </div>
+  <div *ngFor="let surah of surahs">
+    <h3>{{ surah.id }}. {{ surah.name }}</h3>
+    <audio controls>
+      <source [src]="surah.audio" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
   </div>
+</div>
+
+<loader></loader>
