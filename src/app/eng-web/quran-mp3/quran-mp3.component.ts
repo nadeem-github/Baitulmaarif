@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
+import { QuranList } from 'src/app/modals/QuranMP3';
 import { ApisService } from 'src/app/services/apis.service';
 
 @Component({
@@ -10,19 +11,29 @@ import { ApisService } from 'src/app/services/apis.service';
 })
 export class QuranMp3Component implements OnInit {
 
+  QuranList: QuranList = new QuranList();
   surahs: any[] = [];
-  reciterId: number = 7; // Example ID, replace with actual reciter ID if necessary
 
   constructor(private quranService: ApisService) {}
 
   ngOnInit(): void {
-    this.quranService.getSurahs().subscribe((data: any) => {
-      this.surahs = data.suwar.map((surah: any) => ({
-        id: surah.id,
-        name: surah.name,
-        audio: surah.audio,
-      }));
+    this.getQuranlist()
+  }
+
+  getQuranlist(){
+    this.quranService.quranList().subscribe((response: any) => {
+      if (response.Status) {
+        this.surahs = response.result;
+      }
     });
   }
+
+  // this.quranService.getSurahs().subscribe((data: any) => {
+  //   this.surahs = data.suwar.map((surah: any) => ({
+  //     id: surah.id,
+  //     name: surah.name,
+  //     audio: surah.audio,
+  //   }));
+  // });
 
 }

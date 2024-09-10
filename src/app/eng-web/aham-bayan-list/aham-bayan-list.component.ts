@@ -9,6 +9,7 @@ interface Country {
   name: string;
   date: string;
   population: number;
+  size: string;
 }
 
 const COUNTRIES: Country[] = [
@@ -16,66 +17,79 @@ const COUNTRIES: Country[] = [
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 146989754,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 64979548,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 82114224,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 10329506,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 36624199,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 95540800,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 209288278,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 129163276,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 324459463,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 1324171354,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 263991379,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 11097,
+    size: '2MB',
   },
   {
     name: 'Khun-e-Tamanna Se Khuda Milta hai',
     date: '12/03/2023',
     population: 1409517397,
+    size: '2MB',
   },
 ];
 

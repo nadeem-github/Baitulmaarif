@@ -9,6 +9,8 @@
 					<thead>
 						<tr class="bg-light">
 							<th scope="col">Title</th>
+							<th class="text-center d-none d-sm-table-cell" scope="col">Date</th>
+							<th class="text-center d-none d-sm-table-cell" scope="col">Size</th>
 							<th class="text-center" scope="col">Action</th>
 						</tr>
 					</thead>
@@ -19,9 +21,17 @@
 									<div class="fw-semibold text-truncate text-truncate-20">
 										{{ country.id }} - {{ country.name }}
 									</div>
-									<span class="date">
-										{{ country.date }} - ({{country.size}})
-									</span>
+									<span class="date d-block d-sm-none">{{ country.date }} - ({{country.size}})</span>
+								</div>
+							</td>
+							<td class="text-center d-none d-sm-table-cell">
+								<div>
+									{{ country.date }}
+								</div>
+							</td>
+							<td class="text-center d-none d-sm-table-cell">
+								<div>
+									{{country.size}}
 								</div>
 							</td>
 							<td class="text-center verticale-align pb-0">
