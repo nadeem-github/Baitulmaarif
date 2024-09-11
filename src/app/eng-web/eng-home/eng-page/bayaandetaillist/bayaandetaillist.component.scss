@@ -96,6 +96,13 @@
     }
 }
 
+.text-truncate-20 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 70ch;
+}
+
 @media (max-width: 450px) {
     .responsive {
         .d-flex {

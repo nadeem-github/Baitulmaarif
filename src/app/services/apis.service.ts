@@ -53,11 +53,17 @@ export class ApisService {
 
   fetchShortClipList(ShortClipModal: ShortClipModal): Observable<any> {
     const headers = this.createHeaders();
-    const fetchShortClipListUrl = 'http://apis.baitulmaarif.com/api/adminActivities/fetchShortClipList';
+    const fetchShortClipListUrl = this.baseURL + '/api/adminActivities/fetchShortClipList';
     return this.http.post(fetchShortClipListUrl, ShortClipModal, { headers });
   }
 
-  
-  
+  molanaBayanList(ShortClipModal: ShortClipModal): Observable<any> {
+    const headers = this.createHeaders();
+    const fetchShortClipListUrl = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';
+    return this.http.post(fetchShortClipListUrl, ShortClipModal, { headers });
+  }
+
+
+
 
 }

@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: 'AhamBayanList', component: AhamBayanListComponent, },
   { path: 'Contact', component: ContactComponent, },
   { path: 'AdmissionForm', component: AdmissionFormComponent, },
-  { path: 'Bayaandetaillist', component: BayaandetaillistComponent, },
+  { path: 'bayaandetaillist/:Catagory', component: BayaandetaillistComponent, },
   { path: 'Islahibookslist', component: IslahibookslistComponent, },
   { path: 'quran-mp3', component: QuranMp3Component, },
   { path: 'quran-pdf', component: QuranPdfComponent, },

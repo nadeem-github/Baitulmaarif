@@ -1,245 +1,85 @@
-import { DecimalPipe, NgFor } from '@angular/common';
+import { CommonModule, DatePipe, DecimalPipe, NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
-
-
-interface Country {
-  id?: number;
-  name: string;
-  date: string;
-  size: string;
-  population: number;
-}
-
-const COUNTRIES: Country[] = [
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 146989754,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 146989754,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 146989754,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 146989754,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 146989754,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 64979548,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 82114224,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 10329506,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 36624199,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 95540800,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 209288278,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 129163276,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 324459463,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1324171354,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 263991379,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 11097,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-  {
-    name: 'Khun-e-Tamanna Se Khuda Milta hai',
-    date: '12/03/2023',
-    size: '4.4 MB',
-    population: 1409517397,
-  },
-];
+import { ShortClipModal } from 'src/app/modals/ShortClipList';
+import { ApisService } from 'src/app/services/apis.service';
 
 @Component({
   selector: 'app-bayaandetaillist',
   standalone: true,
-  imports: [DecimalPipe, FormsModule, NgbTypeaheadModule, NgbPaginationModule, RouterModule, NgFor],
+  imports: [DecimalPipe, FormsModule, NgbTypeaheadModule, NgbPaginationModule, RouterModule, NgFor, DatePipe, CommonModule],
   templateUrl: './bayaandetaillist.component.html',
   styleUrls: ['./bayaandetaillist.component.scss']
 })
 export class BayaandetaillistComponent implements OnInit {
 
+  ShortClipModal: ShortClipModal = new ShortClipModal();
+  dataMolanaBayanList: any[] = [];
   page = 1;
-	pageSize = 10;
-	collectionSize = COUNTRIES.length;
-	countries!: Country[];
-  constructor() {
-    this.refreshCountries();
-  }
+  pageSize = 10;
+  collectionSize = 0; // Total number of items
+  catagory: any;
+
+  constructor(
+    private shortClipService: ApisService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.catagory = params.get('catagory');
+      this.setUpPayload();
+      this.getMolanaBayanList();
+    });
   }
 
-  refreshCountries() {
-		this.countries = COUNTRIES.map((country, i) => ({ id: i + 1, ...country })).slice(
-			(this.page - 1) * this.pageSize,
-			(this.page - 1) * this.pageSize + this.pageSize,
-		);
-	}
+  setUpPayload() {
+    this.ShortClipModal.PageIndexSize = this.page;
+    this.ShortClipModal.SortOrder = 'desc';
+    this.ShortClipModal.Filter = this.catagory; // Use Maulana ID as filter
+    this.ShortClipModal.PageSize = this.pageSize;
+    this.ShortClipModal.SortBy = 'Title';
+  }
+
+  getMolanaBayanList() {
+    this.shortClipService.molanaBayanList(this.ShortClipModal).subscribe(
+      (response: any) => {
+        if (response.Status) {
+          this.dataMolanaBayanList = response.Data;
+          this.collectionSize = response.TotalCount; // Assuming the total count is returned in the response
+        } else {
+          console.warn('API response status is false');
+        }
+      },
+      (error) => {
+        console.error('Error fetching short clips:', error);
+      }
+    );
+  }
+
+  onPageChange() {
+    this.ShortClipModal.PageIndexSize = this.page;
+    this.getMolanaBayanList();
+  }
+
+  onPageSizeChange() {
+    this.page = 1; // Reset to first page when changing page size
+    this.setUpPayload();
+    this.getMolanaBayanList();
+  }
+
+  downloadFile(mp3Path: string, title: string): void {
+    const baseUrl = 'http://apis.baitulmaarif.com/'; // Replace with your actual base URL
+    const downloadUrl = `${baseUrl}${mp3Path}`;
+    
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.download = title; // Optional: Set the download attribute to specify the filename
+    link.target = '_blank';
+    link.click();
+  }
 
   gotoTop() {
     window.scroll({

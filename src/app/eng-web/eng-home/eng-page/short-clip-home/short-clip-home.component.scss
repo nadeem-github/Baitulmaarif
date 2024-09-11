@@ -1,0 +1,27 @@
+.shortclip-audio {
+    .border-custom {
+        transition: transform 0.5s;
+        margin: 2rem;
+        cursor: pointer;
+
+        &:hover {
+            -ms-transform: scale(1.1);
+            -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+    }
+
+    img {
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .view-more {
+        background-color: #794e01;
+        border: none;
+        border-radius: 1rem;
+        padding: 4px 10px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+}

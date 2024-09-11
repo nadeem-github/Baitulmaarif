@@ -15,27 +15,27 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr *ngFor="let country of countries">
+						<tr *ngFor="let clip of dataShortClipList">
 							<td class="majlis">
 								<div [routerLink]="'../BayanDetail'" (click)="gotoTop()">
-									<div class="fw-semibold text-truncate text-truncate-20">{{ country.id }}- {{ country.name }}</div>
-									<span class="date d-block d-sm-none">{{ country.date }} - ({{country.size}})</span>
+									<div class="fw-semibold text-truncate text-truncate-20">{{ clip.Title }}</div>
+									<span class="date d-block d-sm-none">{{ clip.UrUploadDate | date: 'dd/MM/y' }} - {{ clip.FileSize }}</span>
 								</div>
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
 								<div>
-									{{ country.date }}
+									{{ clip.UrUploadDate | date: 'dd/MM/y' }}
 								</div>
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
 								<div>
-									{{country.size}}
+									{{clip.FileSize}}
 								</div>
 							</td>
 							<td class="text-center verticale-align pb-0">
 								<ul class="social-icons mb-0 d-flex align-items-center justify-content-center">
 									<li>
-										<a title="Download" class="social-square">
+										<a title="Download" class="social-square" (click)="downloadFile(clip.UrMp3Path, clip.UrTitle)">
 											<i class="fa fa-cloud-download" aria-hidden="true"></i>
 										</a>
 									</li>
@@ -45,22 +45,24 @@
 										</a>
 									</li>
 								</ul>
-							</td>
+							</td>							
 						</tr>
 					</tbody>
 				</table>
 			</div>
 
-			<div class="p-2 p-sm-0 responsive">
-				<div class="d-flex justify-content-between">
-					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-						(pageChange)="refreshCountries()">
+			<div class="p-2 p-sm-0">
+				<div class="d-flex justify-content-between flex-wrap">
+					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" [maxSize]="2"
+						[rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
 					</ngb-pagination>
-
+				
+				
 					<select class="form-select form-select-sm" style="width: auto" [(ngModel)]="pageSize"
-						(ngModelChange)="refreshCountries()">
+						(ngModelChange)="onPageSizeChange()">
 						<option [ngValue]="5">5 Bayaan Per Page</option>
 						<option [ngValue]="10">10 Bayaan Per Page</option>
+						<option [ngValue]="20">20 Bayaan Per Page</option>
 					</select>
 				</div>
 			</div>

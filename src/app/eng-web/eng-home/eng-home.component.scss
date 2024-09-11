@@ -271,26 +271,6 @@
     padding-bottom: 0.4rem;
 }
 
-.shortclip-audio {
-    .border-custom {
-        transition: transform 0.5s;
-        margin: 2rem;
-        cursor: pointer;
-
-        &:hover {
-            -ms-transform: scale(1.1);
-            -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-        }
-    }
-
-    img {
-        object-fit: cover;
-        // height: 96%;
-        width: 100%;
-    }
-}
-
 .logo-icon-play {
     margin-right: 1rem;
 }

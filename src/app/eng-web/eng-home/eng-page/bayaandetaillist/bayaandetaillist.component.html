@@ -1,4 +1,4 @@
-<div class="container py-5">
+<div class="container py-4">
 	<div class="card shadow-sm">
 		<div class="card-header text-center card-lbk px-0">
 			<p class="text-white border-bottom-dotted mb-0 font-24">Mufti Muhammad Mujahid Khairabadi</p>
@@ -15,32 +15,32 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr *ngFor="let country of countries">
+						<tr *ngFor="let bayan of dataMolanaBayanList">
 							<td class="majlis">
 								<div [routerLink]="'../BayanDetail'" (click)="gotoTop()">
-									<div class="fw-semibold text-truncate text-truncate-20">{{ country.id }}- {{ country.name }}</div>
-									<span class="date d-block d-sm-none">{{ country.date }} - ({{country.size}})</span>
+									<div class="fw-semibold text-truncate-20" [title]="bayan.Title">{{ bayan.Title }}</div>
+									<span class="date d-block d-sm-none">{{ bayan.UrUploadDate | date: 'dd/MM/y' }} - {{ bayan.FileSize }}</span>
 								</div>
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
 								<div>
-									{{ country.date }}
+									{{ bayan.UrUploadDate | date: 'dd/MM/y' }}
 								</div>
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
 								<div>
-									{{country.size}}
+									{{bayan.FileSize}}
 								</div>
 							</td>
 							<td class="text-center verticale-align pb-0">
 								<ul class="social-icons mb-0 d-flex align-items-center justify-content-center">
 									<li>
-										<a title="Download Bayaan" class="social-square">
+										<a title="Download" class="social-square" (click)="downloadFile(bayan.UrMp3Path, bayan.UrTitle)">
 											<i class="fa fa-cloud-download" aria-hidden="true"></i>
 										</a>
 									</li>
 									<li>
-										<a title="Share Bayaan" class="social-square">
+										<a title="Share" class="social-square">
 											<i class="fa fa-share-alt-square" aria-hidden="true"></i>
 										</a>
 									</li>
@@ -51,16 +51,18 @@
 				</table>
 			</div>
 
-			<div class="p-2 p-sm-0 responsive">
-				<div class="d-flex justify-content-between">
-					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-						(pageChange)="refreshCountries()">
+			<div class="p-2 p-sm-0">
+				<div class="d-flex justify-content-between flex-wrap">
+					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" [maxSize]="2"
+						[rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
 					</ngb-pagination>
-
+				
+				
 					<select class="form-select form-select-sm" style="width: auto" [(ngModel)]="pageSize"
-						(ngModelChange)="refreshCountries()">
+						(ngModelChange)="onPageSizeChange()">
 						<option [ngValue]="5">5 Bayaan Per Page</option>
 						<option [ngValue]="10">10 Bayaan Per Page</option>
+						<option [ngValue]="20">20 Bayaan Per Page</option>
 					</select>
 				</div>
 			</div>

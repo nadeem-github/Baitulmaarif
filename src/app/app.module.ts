@@ -56,9 +56,9 @@ import { JumaBayanListComponent } from './eng-web/eng-home/eng-page/juma-bayan-l
 import { TafseerBookComponent } from './eng-web/eng-home/eng-page/books/tafseer-book/tafseer-book.component';
 import { HadeesBookComponent } from './eng-web/eng-home/eng-page/books/hadees-book/hadees-book.component';
 import { FiqhoFatawaComponent } from './eng-web/eng-home/eng-page/books/fiqho-fatawa/fiqho-fatawa.component';
-import { IslahiAshaarComponent } from './eng-web/eng-home/eng-page/ashaar/islahi-ashaar/islahi-ashaar.component';
 import { HamdOMunajaatComponent } from './eng-web/eng-home/eng-page/ashaar/hamd-omunajaat/hamd-omunajaat.component';
 import { NaatPaakComponent } from './eng-web/eng-home/eng-page/ashaar/naat-paak/naat-paak.component';
+import { ShortClipHomeComponent } from './eng-web/eng-home/eng-page/short-clip-home/short-clip-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,9 +101,9 @@ import { NaatPaakComponent } from './eng-web/eng-home/eng-page/ashaar/naat-paak/
     TafseerBookComponent,
     HadeesBookComponent,
     FiqhoFatawaComponent,
-    IslahiAshaarComponent,
     HamdOMunajaatComponent,
     NaatPaakComponent,
+    ShortClipHomeComponent,
   ],
   imports: [
     BrowserModule,
