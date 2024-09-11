@@ -9,25 +9,44 @@ import { ApisService } from 'src/app/services/apis.service';
 })
 export class VideoGalleryComponent implements OnInit {
 
+  isLoading = true;
   videoSource = "assets/video/short-clip-1.mp4";
 
   ShortClipModal: ShortClipModal = new ShortClipModal();
 
   dataShortClipList: any[] = [];
-  
+
   constructor(private shortClipService: ApisService) { }
 
   ngOnInit(): void {
-    this.getShortClipList()
+    this.setUpPayload();
+    this.getShortClipList();
   }
-  
+
+  setUpPayload() {
+    // Set the payload values if needed
+    this.ShortClipModal.PageIndexSize = 1;
+    this.ShortClipModal.SortOrder = 'desc';
+    this.ShortClipModal.Filter = '';  // Add any filter if required
+    this.ShortClipModal.PageSize = 10;
+    this.ShortClipModal.SortBy = 'Title';
+  }
+
   getShortClipList(){
-    this.shortClipService.fetchShortClipList(this.ShortClipModal).subscribe((response: any) => {
-      if (response.Status) {
-        this.dataShortClipList = response.result;
+    this.shortClipService.fetchShortClipList(this.ShortClipModal).subscribe(
+      (response: any) => {
+        // console.log('API Response:', response);
+        if (response.Status) {
+          this.dataShortClipList = response;
+          console.log('Data', this.dataShortClipList);
+        } else {
+          console.warn('API response status is false');
+        }
+      },
+      (error) => {
+        console.error('Error fetching short clips:', error);
       }
-      console.log('Data', this.dataShortClipList);
-    });
+    );
   }
 
 }

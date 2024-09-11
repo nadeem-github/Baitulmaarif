@@ -15,7 +15,17 @@ export class ApisService {
   private surahApiUrl = 'https://www.mp3quran.net/api/v3/suwar?language=ar';
   private recitersApiUrl = 'https://www.mp3quran.net/api/v3/reciters?language=ar';
   private countDownURL = 'http://apis.baitulmaarif.com/services/timercountdown';
-  private fetchShortClipListUrl = 'http://apis.baitulmaarif.com/api/adminActivities/fetchShortClipList';
+
+  private username = 'BaitulMaarif';
+  private password = 'JifYf58uy07d';
+
+  private createHeaders(): HttpHeaders {
+    const encodedCredentials = btoa(`${this.username}:${this.password}`);
+    return new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Basic ${encodedCredentials}`
+    });
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -41,9 +51,13 @@ export class ApisService {
     return this.http.get(this.recitersApiUrl);
   }
 
-  fetchShortClipList(ShortClipModal: ShortClipModal) {
-    return this.http.post(this.fetchShortClipListUrl, ShortClipModal);
+  fetchShortClipList(ShortClipModal: ShortClipModal): Observable<any> {
+    const headers = this.createHeaders();
+    const fetchShortClipListUrl = 'http://apis.baitulmaarif.com/api/adminActivities/fetchShortClipList';
+    return this.http.post(fetchShortClipListUrl, ShortClipModal, { headers });
   }
+
+  
   
 
 }

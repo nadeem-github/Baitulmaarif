@@ -1,16 +1,14 @@
-<!-- <div *ngIf="clips.length > 0; else noData">
-    <div *ngFor="let clip of clips" class="clip">
-        <h3>{{ clip.Title }}</h3>
-        <p>{{ clip.MolanaName }}</p>
-        <p>{{ clip.Descriptions }}</p>
-        <p>Uploaded on: {{ clip.UploadDate | date }}</p>
-        <p>Views: {{ clip.CountViews }}</p>
-    </div>
+<!-- <div *ngIf="isLoading">Loading...</div>
+<div *ngIf="!isLoading && dataShortClipList.length">
+    <ul>
+        <li *ngFor="let clip of dataShortClipList">
+            {{ clip.title }} - {{ clip.description }}
+        </li>
+    </ul>
 </div>
-
-<ng-template #noData>
-    <p>No clips available.</p>
-</ng-template> -->
+<div *ngIf="!isLoading && !dataShortClipList.length">
+    No clips available.
+</div> -->
 
 
 <div class="bg-light py-5 shortclip-audio pt-0">
