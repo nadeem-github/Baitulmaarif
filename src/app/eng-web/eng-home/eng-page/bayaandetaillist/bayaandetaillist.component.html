@@ -17,10 +17,10 @@
 					<tbody>
 						<tr *ngFor="let bayan of dataMolanaBayanList">
 							<td class="majlis">
-								<div [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+								<div [routerLink]="['/BayanDetail',bayan.MolanaBayanId]" (click)="gotoTop()">
 									<div class="fw-semibold text-truncate-20" [title]="bayan.Title">{{ bayan.Title }}</div>
 									<span class="date d-block d-sm-none">{{ bayan.UrUploadDate | date: 'dd/MM/y' }} - {{ bayan.FileSize }}</span>
-								</div>
+								  </div>								  
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
 								<div>

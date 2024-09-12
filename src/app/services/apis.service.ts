@@ -63,6 +63,13 @@ export class ApisService {
     return this.http.post(fetchShortClipListUrl, ShortClipModal, { headers });
   }
 
+  getBayanDetails(id: string): Observable<any> {
+    const headers = this.createHeaders();
+    const fetchBayanDetailsUrl = `${this.baseURL}/api/adminActivities/fetchMolanaBayanDetails/${id}`;
+    return this.http.get(fetchBayanDetailsUrl, { headers });
+  }
+  
+
 
 
 

@@ -24,4 +24,11 @@
         font-size: 0.8rem;
         font-weight: 600;
     }
+
+    @media (max-width:450px) {
+        .col-6 {
+            width: 100%;
+            text-align: center;
+        }
+    }
 }
