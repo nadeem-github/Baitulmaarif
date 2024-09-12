@@ -17,23 +17,8 @@ export class QuranMp3Component implements OnInit {
   constructor(private quranService: ApisService) {}
 
   ngOnInit(): void {
-    this.getQuranlist()
   }
 
-  getQuranlist(){
-    this.quranService.quranList().subscribe((response: any) => {
-      if (response.Status) {
-        this.surahs = response.result;
-      }
-    });
-  }
-
-  // this.quranService.getSurahs().subscribe((data: any) => {
-  //   this.surahs = data.suwar.map((surah: any) => ({
-  //     id: surah.id,
-  //     name: surah.name,
-  //     audio: surah.audio,
-  //   }));
-  // });
+  
 
 }
