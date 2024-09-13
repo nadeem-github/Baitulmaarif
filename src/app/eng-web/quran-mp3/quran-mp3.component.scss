@@ -1,9 +1,52 @@
-p {
-    font-size: 20px;
-    font-weight: bold;
+.heading-text {
+  background: rgb(221, 172, 84);
+  background: linear-gradient(0deg, #241700 0%, #714904 100%);
+  max-width: fit-content;
+
+  p {
+    border-bottom: dashed 1px #fff;
   }
-  
-  p:empty {
-    display: none;
+
+  @media (max-width:450px) {
+    max-width: unset;
   }
-  
+}
+
+audio {
+  width: 100%;
+}
+
+.card {
+  border-color: var(--specialColbg);
+}
+
+:host ::ng-deep {
+  .page-link {
+      color: var(--darkbran);
+  }
+
+  .page-link.active,
+  .active>.page-link {
+      background-color: var(--darkbran);
+      border-color: var(--darkbran);
+      color: #fff;
+  }
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-panel {
+  background-color: #b5b5b5;
+  border: none;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  -webkit-appearance: media-current-time-display;
+  -webkit-user-select: none;
+  flex: none;
+  display: flex;
+  border: none;
+  color: #050505;
+  font-weight: 600;
+  border-radius: unset;
+}

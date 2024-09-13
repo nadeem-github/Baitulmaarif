@@ -1,0 +1,688 @@
+{
+    "surahs": [
+        {
+            "surahNumber": 1,
+            "surahName": "Al-Fatiha",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/1.mp3"
+        },
+        {
+            "surahNumber": 2,
+            "surahName": "Al-Baqarah",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/2.mp3"
+        },
+        {
+            "surahNumber": 3,
+            "surahName": "Aal-E-Imran",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/3.mp3"
+        },
+        {
+            "surahNumber": 4,
+            "surahName": "An-Nisa",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/4.mp3"
+        },
+        {
+            "surahNumber": 5,
+            "surahName": "Al-Maidah",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/5.mp3"
+        },
+        {
+            "surahNumber": 6,
+            "surahName": "Al-An'am",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/6.mp3"
+        },
+        {
+            "surahNumber": 7,
+            "surahName": "Al-A'raf",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/7.mp3"
+        },
+        {
+            "surahNumber": 8,
+            "surahName": "Al-Anfal",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/8.mp3"
+        },
+        {
+            "surahNumber": 9,
+            "surahName": "At-Tawbah",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/9.mp3"
+        },
+        {
+            "surahNumber": 10,
+            "surahName": "Yunus",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/10.mp3"
+        },
+        {
+            "surahNumber": 11,
+            "surahName": "Hud",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/11.mp3"
+        },
+        {
+            "surahNumber": 12,
+            "surahName": "Yusuf",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/12.mp3"
+        },
+        {
+            "surahNumber": 13,
+            "surahName": "Ar-Ra'd",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/13.mp3"
+        },
+        {
+            "surahNumber": 14,
+            "surahName": "Ibrahim",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/14.mp3"
+        },
+        {
+            "surahNumber": 15,
+            "surahName": "Al-Hijr",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/15.mp3"
+        },
+        {
+            "surahNumber": 16,
+            "surahName": "An-Nahl",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/16.mp3"
+        },
+        {
+            "surahNumber": 17,
+            "surahName": "Al-Isra",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/17.mp3"
+        },
+        {
+            "surahNumber": 18,
+            "surahName": "Al-Kahf",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/18.mp3"
+        },
+        {
+            "surahNumber": 19,
+            "surahName": "Maryam",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/19.mp3"
+        },
+        {
+            "surahNumber": 20,
+            "surahName": "Taha",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/20.mp3"
+        },
+        {
+            "surahNumber": 21,
+            "surahName": "Al-Anbiya",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/21.mp3"
+        },
+        {
+            "surahNumber": 22,
+            "surahName": "Al-Hajj",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/22.mp3"
+        },
+        {
+            "surahNumber": 23,
+            "surahName": "Al-Mu'minun",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/23.mp3"
+        },
+        {
+            "surahNumber": 24,
+            "surahName": "An-Nur",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/24.mp3"
+        },
+        {
+            "surahNumber": 25,
+            "surahName": "Al-Furqan",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/25.mp3"
+        },
+        {
+            "surahNumber": 26,
+            "surahName": "Ash-Shu'ara",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/26.mp3"
+        },
+        {
+            "surahNumber": 27,
+            "surahName": "An-Naml",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/27.mp3"
+        },
+        {
+            "surahNumber": 28,
+            "surahName": "Al-Qasas",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/28.mp3"
+        },
+        {
+            "surahNumber": 29,
+            "surahName": "Al-Ankabut",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/29.mp3"
+        },
+        {
+            "surahNumber": 30,
+            "surahName": "Ar-Rum",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/30.mp3"
+        },
+        {
+            "surahNumber": 31,
+            "surahName": "Luqman",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/31.mp3"
+        },
+        {
+            "surahNumber": 32,
+            "surahName": "As-Sajda",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/32.mp3"
+        },
+        {
+            "surahNumber": 33,
+            "surahName": "Al-Ahzab",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/33.mp3"
+        },
+        {
+            "surahNumber": 34,
+            "surahName": "Saba",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/34.mp3"
+        },
+        {
+            "surahNumber": 35,
+            "surahName": "Fatir",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/35.mp3"
+        },
+        {
+            "surahNumber": 36,
+            "surahName": "Ya-Sin",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/36.mp3"
+        },
+        {
+            "surahNumber": 37,
+            "surahName": "As-Saffat",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/37.mp3"
+        },
+        {
+            "surahNumber": 38,
+            "surahName": "Sad",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/38.mp3"
+        },
+        {
+            "surahNumber": 39,
+            "surahName": "Az-Zumar",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/39.mp3"
+        },
+        {
+            "surahNumber": 40,
+            "surahName": "Ghafir",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/40.mp3"
+        },
+        {
+            "surahNumber": 41,
+            "surahName": "Fussilat",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/41.mp3"
+        },
+        {
+            "surahNumber": 42,
+            "surahName": "Ash-Shura",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/42.mp3"
+        },
+        {
+            "surahNumber": 43,
+            "surahName": "Az-Zukhruf",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/43.mp3"
+        },
+        {
+            "surahNumber": 44,
+            "surahName": "Ad-Dukhan",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/44.mp3"
+        },
+        {
+            "surahNumber": 45,
+            "surahName": "Al-Jathiya",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/45.mp3"
+        },
+        {
+            "surahNumber": 46,
+            "surahName": "Al-Ahqaf",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/46.mp3"
+        },
+        {
+            "surahNumber": 47,
+            "surahName": "Muhammad",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/47.mp3"
+        },
+        {
+            "surahNumber": 48,
+            "surahName": "Al-Fath",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/48.mp3"
+        },
+        {
+            "surahNumber": 49,
+            "surahName": "Al-Hujurat",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/49.mp3"
+        },
+        {
+            "surahNumber": 50,
+            "surahName": "Qaf",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/50.mp3"
+        },
+        {
+            "surahNumber": 51,
+            "surahName": "Adh-Dhariyat",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/51.mp3"
+        },
+        {
+            "surahNumber": 52,
+            "surahName": "At-Tur",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/52.mp3"
+        },
+        {
+            "surahNumber": 53,
+            "surahName": "An-Najm",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/53.mp3"
+        },
+        {
+            "surahNumber": 54,
+            "surahName": "Al-Qamar",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/54.mp3"
+        },
+        {
+            "surahNumber": 55,
+            "surahName": "Ar-Rahman",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/55.mp3"
+        },
+        {
+            "surahNumber": 56,
+            "surahName": "Al-Waqi'a",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/56.mp3"
+        },
+        {
+            "surahNumber": 57,
+            "surahName": "Al-Hadid",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/57.mp3"
+        },
+        {
+            "surahNumber": 58,
+            "surahName": "Al-Mujadila",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/58.mp3"
+        },
+        {
+            "surahNumber": 59,
+            "surahName": "Al-Hashr",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/59.mp3"
+        },
+        {
+            "surahNumber": 60,
+            "surahName": "Al-Mumtahina",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/60.mp3"
+        },
+        {
+            "surahNumber": 61,
+            "surahName": "As-Saff",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/61.mp3"
+        },
+        {
+            "surahNumber": 62,
+            "surahName": "Al-Jumua",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/62.mp3"
+        },
+        {
+            "surahNumber": 63,
+            "surahName": "Al-Munafiqun",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/63.mp3"
+        },
+        {
+            "surahNumber": 64,
+            "surahName": "At-Taghabun",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/64.mp3"
+        },
+        {
+            "surahNumber": 65,
+            "surahName": "At-Talaq",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/65.mp3"
+        },
+        {
+            "surahNumber": 66,
+            "surahName": "At-Tahrim",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/66.mp3"
+        },
+        {
+            "surahNumber": 67,
+            "surahName": "Al-Mulk",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/67.mp3"
+        },
+        {
+            "surahNumber": 68,
+            "surahName": "Al-Qalam",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/68.mp3"
+        },
+        {
+            "surahNumber": 69,
+            "surahName": "Al-Haaqqa",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/69.mp3"
+        },
+        {
+            "surahNumber": 70,
+            "surahName": "Al-Maarij",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/70.mp3"
+        },
+        {
+            "surahNumber": 71,
+            "surahName": "Nuh",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/71.mp3"
+        },
+        {
+            "surahNumber": 72,
+            "surahName": "Al-Jinn",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/72.mp3"
+        },
+        {
+            "surahNumber": 73,
+            "surahName": "Al-Muzzammil",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/73.mp3"
+        },
+        {
+            "surahNumber": 74,
+            "surahName": "Al-Muddathir",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/74.mp3"
+        },
+        {
+            "surahNumber": 75,
+            "surahName": "Al-Qiyama",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/75.mp3"
+        },
+        {
+            "surahNumber": 76,
+            "surahName": "Al-Insan",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/76.mp3"
+        },
+        {
+            "surahNumber": 77,
+            "surahName": "Al-Mursalat",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/77.mp3"
+        },
+        {
+            "surahNumber": 78,
+            "surahName": "An-Naba",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/78.mp3"
+        },
+        {
+            "surahNumber": 79,
+            "surahName": "An-Naziat",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/79.mp3"
+        },
+        {
+            "surahNumber": 80,
+            "surahName": "Abasa",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/80.mp3"
+        },
+        {
+            "surahNumber": 81,
+            "surahName": "At-Takwir",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/81.mp3"
+        },
+        {
+            "surahNumber": 82,
+            "surahName": "Al-Infitar",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/82.mp3"
+        },
+        {
+            "surahNumber": 83,
+            "surahName": "Al-Mutaffifin",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/83.mp3"
+        },
+        {
+            "surahNumber": 84,
+            "surahName": "Al-Inshiqaq",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/84.mp3"
+        },
+        {
+            "surahNumber": 85,
+            "surahName": "Al-Buruj",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/85.mp3"
+        },
+        {
+            "surahNumber": 86,
+            "surahName": "At-Tariq",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/86.mp3"
+        },
+        {
+            "surahNumber": 87,
+            "surahName": "Al-Ala",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/87.mp3"
+        },
+        {
+            "surahNumber": 88,
+            "surahName": "Al-Ghashiya",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/88.mp3"
+        },
+        {
+            "surahNumber": 89,
+            "surahName": "Al-Fajr",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/89.mp3"
+        },
+        {
+            "surahNumber": 90,
+            "surahName": "Al-Balad",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/90.mp3"
+        },
+        {
+            "surahNumber": 91,
+            "surahName": "Ash-Shams",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/91.mp3"
+        },
+        {
+            "surahNumber": 92,
+            "surahName": "Al-Lail",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/92.mp3"
+        },
+        {
+            "surahNumber": 93,
+            "surahName": "Ad-Duhaa",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/93.mp3"
+        },
+        {
+            "surahNumber": 94,
+            "surahName": "Ash-Sharh",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/94.mp3"
+        },
+        {
+            "surahNumber": 95,
+            "surahName": "At-Tin",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/95.mp3"
+        },
+        {
+            "surahNumber": 96,
+            "surahName": "Al-Alaq",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/96.mp3"
+        },
+        {
+            "surahNumber": 97,
+            "surahName": "Al-Qadr",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/97.mp3"
+        },
+        {
+            "surahNumber": 98,
+            "surahName": "Al-Bayyina",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/98.mp3"
+        },
+        {
+            "surahNumber": 99,
+            "surahName": "Az-Zalzala",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/99.mp3"
+        },
+        {
+            "surahNumber": 100,
+            "surahName": "Al-Adiyat",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/100.mp3"
+        },
+        {
+            "surahNumber": 101,
+            "surahName": "Al-Qaria",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/101.mp3"
+        },
+        {
+            "surahNumber": 102,
+            "surahName": "At-Takathur",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/102.mp3"
+        },
+        {
+            "surahNumber": 103,
+            "surahName": "Al-Asr",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/103.mp3"
+        },
+        {
+            "surahNumber": 104,
+            "surahName": "Al-Humaza",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/104.mp3"
+        },
+        {
+            "surahNumber": 105,
+            "surahName": "Al-Fil",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/105.mp3"
+        },
+        {
+            "surahNumber": 106,
+            "surahName": "Quraish",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/106.mp3"
+        },
+        {
+            "surahNumber": 107,
+            "surahName": "Al-Maun",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/107.mp3"
+        },
+        {
+            "surahNumber": 108,
+            "surahName": "Al-Kawthar",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/108.mp3"
+        },
+        {
+            "surahNumber": 109,
+            "surahName": "Al-Kafirun",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/109.mp3"
+        },
+        {
+            "surahNumber": 110,
+            "surahName": "An-Nasr",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/110.mp3"
+        },
+        {
+            "surahNumber": 111,
+            "surahName": "Al-Masad",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/111.mp3"
+        },
+        {
+            "surahNumber": 112,
+            "surahName": "Al-Ikhlas",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/112.mp3"
+        },
+        {
+            "surahNumber": 113,
+            "surahName": "Al-Falaq",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/113.mp3"
+        },
+        {
+            "surahNumber": 114,
+            "surahName": "An-Nas",
+            "reader": "ar.alafasy",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/114.mp3"
+        }
+    ]
+}
