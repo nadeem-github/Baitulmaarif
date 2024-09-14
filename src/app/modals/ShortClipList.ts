@@ -23,6 +23,7 @@ export class ShortClipModal {
     Filter: string;
     PageSize: number;
     SortBy: string;
+    MolanaBayanId: any;
   
     constructor() {
       this.PageIndexSize = 1;

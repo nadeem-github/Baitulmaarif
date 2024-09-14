@@ -1,3 +1,18 @@
+<div class="container py-4 d-none">
+    {{bayanDetail}}
+  <h2>{{ bayanDetail?.Title }}</h2>
+  <p><strong>Date:</strong> {{ bayanDetail?.UrUploadDate | date: 'dd/MM/y' }}</p>
+  <p><strong>File Size:</strong> {{ bayanDetail?.FileSize }}</p>
+  <p><strong>Description:</strong> {{ bayanDetail?.Description }}</p>
+
+  <!-- Embed an audio player for the MP3 file -->
+  <audio controls *ngIf="bayanDetail?.UrMp3Path">
+    <source [src]="bayanDetail.UrMp3Path" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+
 <div class="container py-4">
     <div class="row text-center">
         <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">

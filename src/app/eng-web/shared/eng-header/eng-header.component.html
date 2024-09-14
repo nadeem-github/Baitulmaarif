@@ -28,12 +28,12 @@
                         <span class="menu-title nav-link menu-title_2nd">QURAN</span>
                         <ul class="menu-dropdown">
                             <li>
-                                <a [routerLink]="'./quran-mp3'" (click)="isMenuCollapsed = true; gotoTop();" (click)="$event.preventDefault()">
+                                <a [routerLink]="'./quran-mp3'" (click)="isMenuCollapsed = true; gotoTop(); $event.preventDefault()">
                                     Quran MP3
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="'./quran-pdf'" (click)="isMenuCollapsed = true; gotoTop();" (click)="$event.preventDefault()">
+                                <a [routerLink]="'./quran-pdf'" (click)="isMenuCollapsed = true; gotoTop(); $event.preventDefault()">
                                     Quran PDF
                                 </a>
                             </li>
@@ -41,36 +41,39 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="menu">
+                    <a class="nav-link menu" [routerLink]="['/Bayaandetaillist']" (click)="gotoTop();">
+                        BAYANAT
+                    </a>
+                    <!--<a class="menu">
                         <span class="nav-link menu-title">BAYANAT</span>
                         <ul class="menu-dropdown">
                             <li>
-                                <a [routerLink]="['/bayaandetaillist', 'MaseehullahKhan']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
+                                <a [routerLink]="['/bayaandetaillist']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
                                     Hazrat Maulana Maseehullah Khan Jalalabadi RH.
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="['/bayaandetaillist', 'ShahAbararulHaq']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
+                                <a [routerLink]="['/bayaandetaillist']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
                                     Hazrat Maulana Shah Abararul Haq Sb. Hardoi RH.
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="['/bayaandetaillist', 'MuhammadArshad']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
+                                <a [routerLink]="['/bayaandetaillist']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
                                     Hazrat Maulana Muhammad Arshad Sb. Bajhedi DB.
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="['/bayaandetaillist', 'HakeemAkhtar']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
+                                <a [routerLink]="['/bayaandetaillist']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
                                     Hazrat Maulana Hakeem Muhammad Akhtar Sb. RH.
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="['/bayaandetaillist', 'FerozAbdullah']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
+                                <a [routerLink]="['/bayaandetaillist']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
                                     Hazrat Shah Feroz Abdullah Memon Sb. DB.
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="['/bayaandetaillist', 'MujahidKhan']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
+                                <a [routerLink]="['/bayaandetaillist']" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
                                     Mufti Muhammad Mujahid Khairabadi
                                 </a>
                             </li>
@@ -80,24 +83,24 @@
                                 </a>
                             </li>
                         </ul>
-                    </a>
+                    </a>-->
                 </li>
                 <li class="nav-item">
                     <a class="menu">
                         <span class="menu-title nav-link menu-title_2nd">ASH'AAR</span>
                         <ul class="menu-dropdown">
                             <li>
-                                <a [routerLink]="'./IslahiAshaar'" (click)="isMenuCollapsed = true" (click)="$event.preventDefault()">
+                                <a [routerLink]="'./IslahiAshaar'" (click)="isMenuCollapsed = true; $event.preventDefault()">
                                     Islahi Ash'aar
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="'./HamdMunajaat'" (click)="isMenuCollapsed = true" (click)="$event.preventDefault()">
+                                <a [routerLink]="'./HamdMunajaat'" (click)="isMenuCollapsed = true; $event.preventDefault()">
                                     Hamd-o-Munajaat
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="'./NaatPaak'" (click)="isMenuCollapsed = true" (click)="$event.preventDefault()">
+                                <a [routerLink]="'./NaatPaak'" (click)="isMenuCollapsed = true; $event.preventDefault()">
                                     Naat-e-Paak
                                 </a>
                             </li>
@@ -109,22 +112,22 @@
                         <span class="menu-title nav-link menu-title_2nd">BOOK'S</span>
                         <ul class="menu-dropdown">
                             <li>
-                                <a [routerLink]="'./Islahibookslist'" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
+                                <a [routerLink]="'./Islahibookslist'" (click)="isMenuCollapsed = true; $event.preventDefault(); gotoTop()">
                                     Islahi Books
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="'./TafseerBook'" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
+                                <a [routerLink]="'./TafseerBook'" (click)="isMenuCollapsed = true; $event.preventDefault(); gotoTop()">
                                     Tafseer
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="'./HadeesBook'" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
+                                <a [routerLink]="'./HadeesBook'" (click)="isMenuCollapsed = true; $event.preventDefault(); gotoTop()">
                                     Hadees
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="'./FiqhOFatawa'" (click)="isMenuCollapsed = true" (click)="$event.preventDefault(); gotoTop()">
+                                <a [routerLink]="'./FiqhOFatawa'" (click)="isMenuCollapsed = true; $event.preventDefault(); gotoTop()">
                                     Fiqh-o-Fatawa
                                 </a>
                             </li>
@@ -136,17 +139,17 @@
                         <span class="menu-title nav-link menu-title_3rd">DARUL-IFTA</span>
                         <ul class="menu-dropdown">
                             <li>
-                                <a [routerLink]="'Fatawa'" (click)="gotoTop()" (click)="isMenuCollapsed = true" (click)="$event.preventDefault()">
+                                <a [routerLink]="'Fatawa'" (click)="isMenuCollapsed = true; $event.preventDefault(); gotoTop()">
                                     Fatawa
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="'ResentFatawa'" (click)="gotoTop()" (click)="isMenuCollapsed = true" (click)="$event.preventDefault()">
+                                <a [routerLink]="'ResentFatawa'" (click)="isMenuCollapsed = true; $event.preventDefault(); gotoTop()">
                                     Resent Fatawa
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="'AskQuestion'" (click)="gotoTop()" (click)="isMenuCollapsed = true" (click)="$event.preventDefault()">
+                                <a [routerLink]="'AskQuestion'" (click)="isMenuCollapsed = true; $event.preventDefault(); gotoTop()">
                                     Ask Question
                                 </a>
                             </li>
@@ -164,12 +167,12 @@
                         <span class="menu-title nav-link enu-title_4th">ABOUT US</span>
                         <ul class="menu-dropdown">
                             <li>
-                                <a [routerLink]="'.'" (click)="gotoTop()" (click)="isMenuCollapsed = true" (click)="$event.preventDefault()">
+                                <a [routerLink]="'.'" (click)="gotoTop(); $event.preventDefault(); isMenuCollapsed = true">
                                     Hazrat Wala DB.
                                 </a>
                             </li>
                             <li>
-                                <a [routerLink]="'abt-baitulmaarif'" (click)="gotoTop()" (click)="isMenuCollapsed = true" (click)="$event.preventDefault()">
+                                <a [routerLink]="'abt-baitulmaarif'" (click)="gotoTop(); $event.preventDefault(); isMenuCollapsed = true">
                                     Baitul Maarif
                                 </a>
                             </li>

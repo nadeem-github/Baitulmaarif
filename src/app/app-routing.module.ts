@@ -31,7 +31,7 @@ import { NaatPaakComponent } from './eng-web/eng-home/eng-page/ashaar/naat-paak/
 const routes: Routes = [
   { path: '', redirectTo: 'EngHome', pathMatch: 'full', },
   { path: 'EngHome', component: EngHomeComponent, },
-  { path: 'BayanDetail', component: BayanDetailComponent, },
+  { path: 'BayanDetail', component: BayanDetailComponent, }, // "/:id"
   { path: 'Fatawa', component: FatawaComponent, },
   { path: 'ResentFatawa', component: ResentFatawaComponent, },
   { path: 'AskQuestion', component: AskQuestionComponent, },
@@ -39,7 +39,7 @@ const routes: Routes = [
   { path: 'AhamBayanList', component: AhamBayanListComponent, },
   { path: 'Contact', component: ContactComponent, },
   { path: 'AdmissionForm', component: AdmissionFormComponent, },
-  { path: 'bayaandetaillist/:Catagory', component: BayaandetaillistComponent, },
+  { path: 'Bayaandetaillist', component: BayaandetaillistComponent, },
   { path: 'Islahibookslist', component: IslahibookslistComponent, },
   { path: 'quran-mp3', component: QuranMp3Component, },
   { path: 'quran-pdf', component: QuranPdfComponent, },

@@ -68,8 +68,23 @@ export class ApisService {
     const fetchBayanDetailsUrl = `${this.baseURL}/api/adminActivities/fetchMolanaBayanDetails/${id}`;
     return this.http.get(fetchBayanDetailsUrl, { headers });
   }
-  
 
+  molanaBayanID(bayanId: string): Observable<any> {
+    const headers = this.createHeaders();
+    const fetchBayanDetailUrl = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';  // Update with actual API endpoint
+    return this.http.post(fetchBayanDetailUrl, { MolanaBayanId: bayanId }, { headers });
+  }
+
+  getBayanDetailById(ShortClipModal: ShortClipModal, bayanId: string): Observable<any> {
+    const headers = this.createHeaders();
+    const fetchBayanDetailUrl = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';  // Replace with the actual endpoint
+
+    // Update ShortClipModal to include bayanId (MolanaBayanId)
+    ShortClipModal.MolanaBayanId = bayanId;  // Add MolanaBayanId to the ShortClipModal object
+
+    // Send the updated ShortClipModal to the API
+    return this.http.post(fetchBayanDetailUrl, ShortClipModal, { headers });
+  }
 
 
 

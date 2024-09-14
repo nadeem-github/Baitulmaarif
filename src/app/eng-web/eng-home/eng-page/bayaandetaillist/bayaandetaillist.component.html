@@ -1,11 +1,45 @@
 <div class="container py-4">
+	<div class="row">
+		<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+			<select class="form-select form-select-border shadow-sm rounded-1" [(ngModel)]="selectedCategory" (change)="onCategoryChange($event)"
+				aria-label="Default select example">
+				<option value="All Bayanaat" selected>All Bayanaat</option>
+				<option value="Hazrat Maulana Maseehullah Khan Sb. Jalalabadi (R.A.)">
+					Hazrat Maulana Maseehullah Khan Sb. Jalalabadi (R.A.)
+				</option>
+				<option value="Hazrat Maulana Shah Abararul Haq Sb. Hardoi RH.">
+					Hazrat Maulana Shah Abararul Haq Sb. Hardoi RH.
+				</option>
+				<option value="Hazrat Maulana Muhammad Arshad Sb. Bajhedi DB.">
+					Hazrat Maulana Muhammad Arshad Sb. Bajhedi DB.
+				</option>
+				<option value="Hazrat Maulana Hakeem Muhammad Akhter Sb. (R.A.)">
+					Hazrat Maulana Hakeem Muhammad Akhter Sb. (R.A.)
+				</option>
+				<option value="Hazrat Shah Feroz Abdullah Memon Sb. DB.">
+					Hazrat Shah Feroz Abdullah Memon Sb. DB.
+				</option>
+				<option value="Mufti Muhammad Mujahid Khairabadi">
+					Mufti Muhammad Mujahid Khairabadi
+				</option>
+				<option value="Other Bayanaat">
+					Other Bayanaat
+				</option>
+			</select>
+		</div>
+		<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+			<input type="text" class="form-control shadow-sm rounded-1" placeholder="Search Bayaan by Title" [(ngModel)]="searchTerm" (input)="onSearchChange()" />
+		</div>
+	</div>
+
 	<div class="card shadow-sm">
 		<div class="card-header text-center card-lbk px-0">
-			<p class="text-white border-bottom-dotted mb-0 font-24">Mufti Muhammad Mujahid Khairabadi</p>
+			<p class="text-white border-bottom-dotted mb-0 font-24">{{ selectedCategory }}</p>
 		</div>
 		<div class="p-0 p-sm-3 card-body">
 			<div class="table-responsive">
-				<table class="table table-bordered">
+				<!-- Table -->
+				<table class="table table-bordered" *ngIf="dataMolanaBayanList && dataMolanaBayanList.length > 0">
 					<thead>
 						<tr class="bg-light">
 							<th scope="col">Title</th>
@@ -16,26 +50,27 @@
 					</thead>
 					<tbody>
 						<tr *ngFor="let bayan of dataMolanaBayanList">
-							<td class="majlis">
-								<div [routerLink]="['/BayanDetail',bayan.MolanaBayanId]" (click)="gotoTop()">
-									<div class="fw-semibold text-truncate-20" [title]="bayan.Title">{{ bayan.Title }}</div>
-									<span class="date d-block d-sm-none">{{ bayan.UrUploadDate | date: 'dd/MM/y' }} - {{ bayan.FileSize }}</span>
-								  </div>								  
-							</td>
-							<td class="text-center d-none d-sm-table-cell">
+							<td class="majlis" (click)="openBayanModal(bayan, bayanModal);">
+								<!-- (click)="viewBayanDetails(bayan.MolanaBayanId)" -->
 								<div>
-									{{ bayan.UrUploadDate | date: 'dd/MM/y' }}
+									<div class="fw-semibold text-truncate-20" [title]="bayan.Title">{{ bayan.Title }}
+									</div>
+									<span class="date d-block d-sm-none">
+										{{ bayan.UrUploadDate | date: 'dd/MM/y' }} - {{	bayan.FileSize }}
+									</span>
 								</div>
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
-								<div>
-									{{bayan.FileSize}}
-								</div>
+								{{ bayan.UrUploadDate | date: 'dd/MM/y' }}
+							</td>
+							<td class="text-center d-none d-sm-table-cell">
+								{{ bayan.FileSize }}
 							</td>
 							<td class="text-center verticale-align pb-0">
 								<ul class="social-icons mb-0 d-flex align-items-center justify-content-center">
 									<li>
-										<a title="Download" class="social-square" (click)="downloadFile(bayan.UrMp3Path, bayan.UrTitle)">
+										<a title="Download" class="social-square"
+											(click)="downloadFile(bayan.UrMp3Path, bayan.UrTitle)">
 											<i class="fa fa-cloud-download" aria-hidden="true"></i>
 										</a>
 									</li>
@@ -45,19 +80,25 @@
 										</a>
 									</li>
 								</ul>
-							</td>							
+							</td>
 						</tr>
 					</tbody>
 				</table>
+
+				<!-- Show "No Record Found" if dataMolanaBayanList is empty -->
+				<div *ngIf="dataMolanaBayanList && dataMolanaBayanList.length === 0" class="text-center">
+					<p class="mb-0 py-2">No Record Found</p>
+				</div>
 			</div>
 
 			<div class="p-2 p-sm-0">
 				<div class="d-flex justify-content-between flex-wrap">
-					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" [maxSize]="2"
-						[rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
+					<!-- Pagination -->
+					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+						[maxSize]="2" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
 					</ngb-pagination>
-				
-				
+
+					<!-- Page Size Selector -->
 					<select class="form-select form-select-sm" style="width: auto" [(ngModel)]="pageSize"
 						(ngModelChange)="onPageSizeChange()">
 						<option [ngValue]="5">5 Bayaan Per Page</option>
@@ -69,3 +110,37 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal template -->
+<ng-template #bayanModal let-modal>
+	<div class="modal-header card-lbk">
+		<p class="text-white mb-0 w-100 d-flex fw-semibold">
+			<marquee behavior="" direction="">{{ selectedBayan?.Title }}</marquee>
+		</p>
+		<!-- <i class="fa fa-times-circle fa-2x text-danger btn-div position-absolute bg-white rounded-circle d-flex align-items-center justify-content-center" aria-hidden="true" (click)="modal.dismiss()"></i> -->
+	</div>
+	<div class="modal-body">
+		<audio [src]="audioUrl" autoplay controls class="w-100 mb-3"></audio>
+		<p class="font-16"><strong>Date :</strong> {{ selectedBayan?.UrUploadDate | date: 'dd/MM/y' }}</p>
+		<p class="font-16"><strong>File Size :</strong> {{ selectedBayan?.FileSize }}</p>
+		<p class="font-16"><strong>Voice :</strong> {{selectedBayan.Catagory}}</p>
+		<p class="mb-0"><strong>Description :</strong> {{ selectedBayan?.Description }}</p>
+	</div>
+	<div class="modal-footer d-flex align-items-center justify-content-center">
+		<!-- Download Button -->
+		<a class="actionbtns"
+			(click)="downloadFile(selectedBayan?.UrMp3Path, selectedBayan?.Title)">
+			<i class="fa fa-cloud-download" aria-hidden="true"></i> Download
+		</a>
+
+		<!-- Share Button -->
+		<a class="actionbtns" (click)="shareBayan(selectedBayan)">
+			<i class="fa fa-share-alt" aria-hidden="true"></i> Share
+		</a>
+
+		<!-- Close Button -->
+		<a class="actionbtns" (click)="modal.close()">Close</a>
+	</div>
+</ng-template>
+  
+  
