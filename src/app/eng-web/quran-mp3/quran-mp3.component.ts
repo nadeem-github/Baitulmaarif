@@ -29,15 +29,36 @@ export class QuranMp3Component implements OnInit {
   searchTerm: string = '';
   loading: boolean = true;
   errorMessage: string = '';
+  selectedSheikh: string = 'Sheikh Mishary Rashid Alafasy';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get<SurahResponse>('assets/QuranAudioData.json').subscribe(
+    this.loadSurahs(); // Load surahs initially
+    this.updatePageSize(window.innerWidth); // Set pageSize based on current window size
+  }
+
+  // Method to load the Surahs based on the selected Sheikh
+  loadSurahs(): void {
+    this.loading = true;
+    let jsonFile = '';
+
+    switch (this.selectedSheikh) {
+      case 'Sheikh Abdullah Basfar':
+        jsonFile = 'assets/QuranAudioAbdullahbasfar.json';
+        break;
+      case 'Sheikh Bandar Baleelah':
+        jsonFile = 'assets/QuranAudioBandarBalila.json';
+        break;
+      default:
+        jsonFile = 'assets/QuranAudioAlafasy.json';
+        break;
+    }
+
+    this.http.get<SurahResponse>(jsonFile).subscribe(
       (data: SurahResponse) => {
         this.surahs = data.surahs;
         this.loading = false;
-        this.updatePageSize(window.innerWidth); // Set pageSize based on current window size
       },
       (error) => {
         console.error('Error loading surahs', error);
@@ -75,6 +96,11 @@ export class QuranMp3Component implements OnInit {
 
   onPageChange(page: number): void {
     this.currentPage = page;
+  }
+
+  // Method to handle Sheikh selection change
+  onSheikhChange(): void {
+    this.loadSurahs(); // Reload surahs when the sheikh changes
   }
 
 

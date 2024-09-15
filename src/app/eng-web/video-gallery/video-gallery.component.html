@@ -1,11 +1,15 @@
 <div class="bg-light py-4 shortclip-audio">
     <div *ngIf="isLoading" class="text-center">
-        Loading...
+        <img src="../../../assets/images/Spinner.svg" width="100" alt="">
     </div>
     <div class="container" *ngIf="!isLoading">
-        <h3 class="text-center pb-4 fw-bold">Short Audio Clips</h3>
+        <div class="heading-text mx-auto py-2 px-3 rounded-1 text-center mb-4">
+            <p class="h4 mb-0 text-white mb-0 pb-1">
+                Short Audio Clips
+            </p>
+        </div>
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-6 mb-3" *ngFor="let clip of paginatedVideos">
+            <div class="col-lg-3 col-md-3 col-6 mb-4" *ngFor="let clip of paginatedVideos">
                 <div (click)="openModal(content, clip)">
                     <img [src]="clip.ImagePath ? baseUrl + clip.ImagePath : 'assets/images/shortClipDefault.png'" alt="" class="img-thumbnail shadow">
                 </div>
@@ -19,15 +23,17 @@
 
 <ng-template #content let-modal>
     <div class="modal-header card-lbk">
-        <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedVideo?.Title }}</p>
+        <marquee behavior="scroll" direction="left" scrollamount="4">
+            <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedVideo?.Title }}</p>
+        </marquee>
     </div>
     <div class="modal-body">
-        <video width="100%" height="auto" class="border p-2 rounded" controls [poster]="baseUrl + selectedVideo?.ImagePath" autoplay>
+        <video width="100%" height="auto" class="border p-2 rounded mb-2" controls [poster]="baseUrl + selectedVideo?.ImagePath" autoplay>
             <source [src]="baseUrl + selectedVideo?.Mp4path" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <!-- Fallback -->
-        <p class="text-center m-0 py-2 text-danger font-16 fw-medium" *ngIf="!selectedVideo?.Mp4path">
+        <p class="text-center text-danger font-16 fw-medium" *ngIf="!selectedVideo?.Mp4path">
             Video unavailable. Please try again later.
         </p>          
         <p class="font-16 mb-2"><strong>Molana Name: </strong>{{ selectedVideo?.MolanaName }}</p>
