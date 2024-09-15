@@ -1,70 +1,52 @@
-<!-- <div *ngIf="isLoading">Loading...</div>
-<div *ngIf="!isLoading && dataShortClipList.length">
-    <ul>
-        <li *ngFor="let clip of dataShortClipList">
-            {{ clip.title }} - {{ clip.description }}
-        </li>
-    </ul>
-</div>
-<div *ngIf="!isLoading && !dataShortClipList.length">
-    No clips available.
-</div> -->
-
-
-<div class="bg-light py-5 shortclip-audio pt-0">
-    <div class="container">
-        <h3 class="text-center py-4 fw-bold">Short Audio Clips</h3>
+<div class="bg-light py-4 shortclip-audio">
+    <div *ngIf="isLoading" class="text-center">
+        Loading...
+    </div>
+    <div class="container" *ngIf="!isLoading">
+        <h3 class="text-center pb-4 fw-bold">Short Audio Clips</h3>
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-6 mb-3">
-                <video class="img-fluid" width="100%" height="250px" controls poster="assets/images/short-clip.jpg">
-                    <source src="{{videoSource}}" type="video/mp4">
-                    Your browser does not support HTML video.
-                </video>
-            </div>
-            <div class="col-lg-3 col-md-3 col-6 mb-3">
-                <video class="img-fluid" width="100%" height="250px" controls poster="assets/images/short-clip.jpg">
-                    <source src="{{videoSource}}" type="video/mp4">
-                    Your browser does not support HTML video.
-                </video>
-            </div>
-            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm">
-                <video class="img-fluid" width="100%" height="250px" controls poster="assets/images/short-clip.jpg">
-                    <source src="{{videoSource}}" type="video/mp4">
-                    Your browser does not support HTML video.
-                </video>
-            </div>
-            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm">
-                <video class="img-fluid" width="100%" height="250px" controls poster="assets/images/short-clip.jpg">
-                    <source src="{{videoSource}}" type="video/mp4">
-                    Your browser does not support HTML video.
-                </video>
+            <div class="col-lg-3 col-md-3 col-6 mb-3" *ngFor="let clip of paginatedVideos">
+                <div (click)="openModal(content, clip)">
+                    <img [src]="clip.ImagePath ? baseUrl + clip.ImagePath : 'assets/images/shortClipDefault.png'" alt="" class="img-thumbnail shadow">
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm">
-                <video class="img-fluid" width="100%" height="250px" controls poster="assets/images/short-clip.jpg">
-                    <source src="{{videoSource}}" type="video/mp4">
-                    Your browser does not support HTML video.
-                </video>
-            </div>
-            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm">
-                <video class="img-fluid" width="100%" height="250px" controls poster="assets/images/short-clip.jpg">
-                    <source src="{{videoSource}}" type="video/mp4">
-                    Your browser does not support HTML video.
-                </video>
-            </div>
-            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm">
-                <video class="img-fluid" width="100%" height="250px" controls poster="assets/images/short-clip.jpg">
-                    <source src="{{videoSource}}" type="video/mp4">
-                    Your browser does not support HTML video.
-                </video>
-            </div>
-            <div class="col-lg-3 col-md-3 col-6 mb-3 d-none-sm">
-                <video class="img-fluid" width="100%" height="250px" controls poster="assets/images/short-clip.jpg">
-                    <source src="{{videoSource}}" type="video/mp4">
-                    Your browser does not support HTML video.
-                </video>
-            </div>
+        <div class="d-flex align-items-center justify-content-center mt-4">
+            <ngb-pagination [(page)]="currentPage" [pageSize]="pageSize" [collectionSize]="totalItems"></ngb-pagination>
         </div>
     </div>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header card-lbk">
+        <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedVideo?.Title }}</p>
+    </div>
+    <div class="modal-body">
+        <video width="100%" height="auto" class="border p-2 rounded" controls [poster]="baseUrl + selectedVideo?.ImagePath" autoplay>
+            <source [src]="baseUrl + selectedVideo?.Mp4path" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Fallback -->
+        <p class="text-center m-0 py-2 text-danger font-16 fw-medium" *ngIf="!selectedVideo?.Mp4path">
+            Video unavailable. Please try again later.
+        </p>          
+        <p class="font-16 mb-2"><strong>Molana Name: </strong>{{ selectedVideo?.MolanaName }}</p>
+        <p class="font-16 mb-2"><strong>File Size: </strong>{{ selectedVideo?.FileSize }}</p>
+        <p class="font-16 mb-2"><strong>Upload Date: </strong>{{ selectedVideo?.UploadDate | date:'mediumDate' }}</p>
+        <p class="font-16 mb-0"><strong>Views: </strong>{{ selectedVideo?.CountViews }}</p>
+    </div>
+    <div class="modal-footer d-flex align-items-center justify-content-center">
+        <!-- Download Button -->
+        <a class="actionbtns" (click)="downloadVideo(selectedVideo)">
+          Download
+        </a>
+    
+        <!-- Share Button -->
+        <a class="actionbtns" (click)="shareVideo(selectedVideo)">
+          Share
+        </a>
+    
+        <!-- Close Button -->
+        <a class="actionbtns" (click)="modal.close('Save click')">Close</a>
+      </div>
+</ng-template>

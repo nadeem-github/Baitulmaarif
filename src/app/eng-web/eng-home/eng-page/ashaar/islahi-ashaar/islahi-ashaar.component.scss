@@ -12,6 +12,11 @@
     vertical-align: middle;
 }
 
+.form-control,
+.form-select-border {
+    border-color: var(--darkbran);
+}
+
 .social-icons {
     padding: 0;
     list-style: none;
@@ -96,18 +101,19 @@
     }
 }
 
-@media (max-width: 450px) {
-    .responsive {
-        .d-flex {
-            display: unset !important;
-        }
-    }
+.text-truncate-20 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 70ch;
+}
 
+@media (max-width: 450px) {
     .text-truncate-20 {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        width: 40ch;
+        width: 38ch;
         font-size: var(--font-size-12);
     }
 }

@@ -1,0 +1,688 @@
+{
+    "surahs": [
+        {
+            "surahNumber": 1,
+            "surahName": "Al-Fatiha",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/1.mp3"
+        },
+        {
+            "surahNumber": 2,
+            "surahName": "Al-Baqarah",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/2.mp3"
+        },
+        {
+            "surahNumber": 3,
+            "surahName": "Aali Imran",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/3.mp3"
+        },
+        {
+            "surahNumber": 4,
+            "surahName": "An-Nisa",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/4.mp3"
+        },
+        {
+            "surahNumber": 5,
+            "surahName": "Al-Ma'idah",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/5.mp3"
+        },
+        {
+            "surahNumber": 6,
+            "surahName": "Al-An'am",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/6.mp3"
+        },
+        {
+            "surahNumber": 7,
+            "surahName": "Al-A'raf",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/7.mp3"
+        },
+        {
+            "surahNumber": 8,
+            "surahName": "Al-Anfal",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/8.mp3"
+        },
+        {
+            "surahNumber": 9,
+            "surahName": "At-Tawbah",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/9.mp3"
+        },
+        {
+            "surahNumber": 10,
+            "surahName": "Yunus",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/10.mp3"
+        },
+        {
+            "surahNumber": 11,
+            "surahName": "Hud",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/11.mp3"
+        },
+        {
+            "surahNumber": 12,
+            "surahName": "Yusuf",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/12.mp3"
+        },
+        {
+            "surahNumber": 13,
+            "surahName": "Ar-Ra'd",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/13.mp3"
+        },
+        {
+            "surahNumber": 14,
+            "surahName": "Ibrahim",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/14.mp3"
+        },
+        {
+            "surahNumber": 15,
+            "surahName": "Al-Hijr",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/15.mp3"
+        },
+        {
+            "surahNumber": 16,
+            "surahName": "An-Nahl",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/16.mp3"
+        },
+        {
+            "surahNumber": 17,
+            "surahName": "Al-Isra",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/17.mp3"
+        },
+        {
+            "surahNumber": 18,
+            "surahName": "Al-Kahf",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/18.mp3"
+        },
+        {
+            "surahNumber": 19,
+            "surahName": "Maryam",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/19.mp3"
+        },
+        {
+            "surahNumber": 20,
+            "surahName": "Ta-Ha",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/20.mp3"
+        },
+        {
+            "surahNumber": 21,
+            "surahName": "Al-Anbiya",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/21.mp3"
+        },
+        {
+            "surahNumber": 22,
+            "surahName": "Al-Hajj",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/22.mp3"
+        },
+        {
+            "surahNumber": 23,
+            "surahName": "Al-Mu'minun",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/23.mp3"
+        },
+        {
+            "surahNumber": 24,
+            "surahName": "An-Nur",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/24.mp3"
+        },
+        {
+            "surahNumber": 25,
+            "surahName": "Al-Furqan",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/25.mp3"
+        },
+        {
+            "surahNumber": 26,
+            "surahName": "Ash-Shu'ara",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/26.mp3"
+        },
+        {
+            "surahNumber": 27,
+            "surahName": "An-Naml",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/27.mp3"
+        },
+        {
+            "surahNumber": 28,
+            "surahName": "Al-Qasas",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/28.mp3"
+        },
+        {
+            "surahNumber": 29,
+            "surahName": "Al-Ankabut",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/29.mp3"
+        },
+        {
+            "surahNumber": 30,
+            "surahName": "Ar-Rum",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/30.mp3"
+        },
+        {
+            "surahNumber": 31,
+            "surahName": "Luqman",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/31.mp3"
+        },
+        {
+            "surahNumber": 32,
+            "surahName": "As-Sajda",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/32.mp3"
+        },
+        {
+            "surahNumber": 33,
+            "surahName": "Al-Ahzab",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/33.mp3"
+        },
+        {
+            "surahNumber": 34,
+            "surahName": "Saba",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/34.mp3"
+        },
+        {
+            "surahNumber": 35,
+            "surahName": "Fatir",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/35.mp3"
+        },
+        {
+            "surahNumber": 36,
+            "surahName": "Ya-Sin",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/36.mp3"
+        },
+        {
+            "surahNumber": 37,
+            "surahName": "As-Saffat",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/37.mp3"
+        },
+        {
+            "surahNumber": 38,
+            "surahName": "Sad",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/38.mp3"
+        },
+        {
+            "surahNumber": 39,
+            "surahName": "Az-Zumar",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/39.mp3"
+        },
+        {
+            "surahNumber": 40,
+            "surahName": "Ghafir",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/40.mp3"
+        },
+        {
+            "surahNumber": 41,
+            "surahName": "Fussilat",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/41.mp3"
+        },
+        {
+            "surahNumber": 42,
+            "surahName": "Ash-Shura",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/42.mp3"
+        },
+        {
+            "surahNumber": 43,
+            "surahName": "Az-Zukhruf",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/43.mp3"
+        },
+        {
+            "surahNumber": 44,
+            "surahName": "Ad-Dukhan",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/44.mp3"
+        },
+        {
+            "surahNumber": 45,
+            "surahName": "Al-Jathiya",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/45.mp3"
+        },
+        {
+            "surahNumber": 46,
+            "surahName": "Al-Ahqaf",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/46.mp3"
+        },
+        {
+            "surahNumber": 47,
+            "surahName": "Muhammad",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/47.mp3"
+        },
+        {
+            "surahNumber": 48,
+            "surahName": "Al-Fath",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/48.mp3"
+        },
+        {
+            "surahNumber": 49,
+            "surahName": "Al-Hujurat",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/49.mp3"
+        },
+        {
+            "surahNumber": 50,
+            "surahName": "Qaf",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/50.mp3"
+        },
+        {
+            "surahNumber": 51,
+            "surahName": "Adh-Dhariyat",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/51.mp3"
+        },
+        {
+            "surahNumber": 52,
+            "surahName": "At-Tur",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/52.mp3"
+        },
+        {
+            "surahNumber": 53,
+            "surahName": "An-Najm",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/53.mp3"
+        },
+        {
+            "surahNumber": 54,
+            "surahName": "Al-Qamar",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/54.mp3"
+        },
+        {
+            "surahNumber": 55,
+            "surahName": "Ar-Rahman",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/55.mp3"
+        },
+        {
+            "surahNumber": 56,
+            "surahName": "Al-Waqi'a",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/56.mp3"
+        },
+        {
+            "surahNumber": 57,
+            "surahName": "Al-Hadid",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/57.mp3"
+        },
+        {
+            "surahNumber": 58,
+            "surahName": "Al-Mujadila",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/58.mp3"
+        },
+        {
+            "surahNumber": 59,
+            "surahName": "Al-Hashr",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/59.mp3"
+        },
+        {
+            "surahNumber": 60,
+            "surahName": "Al-Mumtahina",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/60.mp3"
+        },
+        {
+            "surahNumber": 61,
+            "surahName": "As-Saff",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/61.mp3"
+        },
+        {
+            "surahNumber": 62,
+            "surahName": "Al-Jumu'a",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/62.mp3"
+        },
+        {
+            "surahNumber": 63,
+            "surahName": "Al-Munafiqoon",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/63.mp3"
+        },
+        {
+            "surahNumber": 64,
+            "surahName": "At-Taghabun",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/64.mp3"
+        },
+        {
+            "surahNumber": 65,
+            "surahName": "At-Talaq",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/65.mp3"
+        },
+        {
+            "surahNumber": 66,
+            "surahName": "At-Tahrim",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/66.mp3"
+        },
+        {
+            "surahNumber": 67,
+            "surahName": "Al-Mulk",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/67.mp3"
+        },
+        {
+            "surahNumber": 68,
+            "surahName": "Al-Qalam",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/68.mp3"
+        },
+        {
+            "surahNumber": 69,
+            "surahName": "Al-Haaqqa",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/69.mp3"
+        },
+        {
+            "surahNumber": 70,
+            "surahName": "Al-Ma'arij",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/70.mp3"
+        },
+        {
+            "surahNumber": 71,
+            "surahName": "Nuh",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/71.mp3"
+        },
+        {
+            "surahNumber": 72,
+            "surahName": "Al-Jinn",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/72.mp3"
+        },
+        {
+            "surahNumber": 73,
+            "surahName": "Al-Muzzammil",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/73.mp3"
+        },
+        {
+            "surahNumber": 74,
+            "surahName": "Al-Muddathir",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/74.mp3"
+        },
+        {
+            "surahNumber": 75,
+            "surahName": "Al-Qiyama",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/75.mp3"
+        },
+        {
+            "surahNumber": 76,
+            "surahName": "Al-Insan",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/76.mp3"
+        },
+        {
+            "surahNumber": 77,
+            "surahName": "Al-Mursalat",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/77.mp3"
+        },
+        {
+            "surahNumber": 78,
+            "surahName": "An-Naba",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/78.mp3"
+        },
+        {
+            "surahNumber": 79,
+            "surahName": "An-Nazi'at",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/79.mp3"
+        },
+        {
+            "surahNumber": 80,
+            "surahName": "Abasa",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/80.mp3"
+        },
+        {
+            "surahNumber": 81,
+            "surahName": "At-Takwir",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/81.mp3"
+        },
+        {
+            "surahNumber": 82,
+            "surahName": "Al-Infitar",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/82.mp3"
+        },
+        {
+            "surahNumber": 83,
+            "surahName": "Al-Mutaffifin",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/83.mp3"
+        },
+        {
+            "surahNumber": 84,
+            "surahName": "Al-Inshiqaq",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/84.mp3"
+        },
+        {
+            "surahNumber": 85,
+            "surahName": "Al-Buruj",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/85.mp3"
+        },
+        {
+            "surahNumber": 86,
+            "surahName": "At-Takwir",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/86.mp3"
+        },
+        {
+            "surahNumber": 87,
+            "surahName": "Al-Ala",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/87.mp3"
+        },
+        {
+            "surahNumber": 88,
+            "surahName": "Al-Ghashiya",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/88.mp3"
+        },
+        {
+            "surahNumber": 89,
+            "surahName": "Al-Fajr",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/89.mp3"
+        },
+        {
+            "surahNumber": 90,
+            "surahName": "Al-Balad",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/90.mp3"
+        },
+        {
+            "surahNumber": 91,
+            "surahName": "Ash-Shams",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/91.mp3"
+        },
+        {
+            "surahNumber": 92,
+            "surahName": "Al-Layl",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/92.mp3"
+        },
+        {
+            "surahNumber": 93,
+            "surahName": "Ad-Duha",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/93.mp3"
+        },
+        {
+            "surahNumber": 94,
+            "surahName": "Ash-Sharh",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/94.mp3"
+        },
+        {
+            "surahNumber": 95,
+            "surahName": "At-Tin",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/95.mp3"
+        },
+        {
+            "surahNumber": 96,
+            "surahName": "Al-Alaq",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/96.mp3"
+        },
+        {
+            "surahNumber": 97,
+            "surahName": "Al-Qadr",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/97.mp3"
+        },
+        {
+            "surahNumber": 98,
+            "surahName": "Al-Bayyina",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/98.mp3"
+        },
+        {
+            "surahNumber": 99,
+            "surahName": "Az-Zalzala",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/99.mp3"
+        },
+        {
+            "surahNumber": 100,
+            "surahName": "Al-Adiyat",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/100.mp3"
+        },
+        {
+            "surahNumber": 101,
+            "surahName": "Al-Qaria",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/101.mp3"
+        },
+        {
+            "surahNumber": 102,
+            "surahName": "At-Takathur",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/102.mp3"
+        },
+        {
+            "surahNumber": 103,
+            "surahName": "Al-Asr",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/103.mp3"
+        },
+        {
+            "surahNumber": 104,
+            "surahName": "Al-Humaza",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/104.mp3"
+        },
+        {
+            "surahNumber": 105,
+            "surahName": "Al-Fil",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/105.mp3"
+        },
+        {
+            "surahNumber": 106,
+            "surahName": "Quraish",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/106.mp3"
+        },
+        {
+            "surahNumber": 107,
+            "surahName": "Al-Ma'un",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/107.mp3"
+        },
+        {
+            "surahNumber": 108,
+            "surahName": "Al-Kawthar",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/108.mp3"
+        },
+        {
+            "surahNumber": 109,
+            "surahName": "Al-Kafirun",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/109.mp3"
+        },
+        {
+            "surahNumber": 110,
+            "surahName": "An-Nasr",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/110.mp3"
+        },
+        {
+            "surahNumber": 111,
+            "surahName": "Al-Masad",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/111.mp3"
+        },
+        {
+            "surahNumber": 112,
+            "surahName": "Al-Ikhlas",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/112.mp3"
+        },
+        {
+            "surahNumber": 113,
+            "surahName": "Al-Falaq",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/113.mp3"
+        },
+        {
+            "surahNumber": 114,
+            "surahName": "An-Nas",
+            "reader": "Sheikh Bandar Baleelah",
+            "audioUrl": "https://cdn.islamic.network/quran/audio-surah/128/ar.bandarbalila/114.mp3"
+        }
+    ]
+}

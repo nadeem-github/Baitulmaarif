@@ -17,7 +17,7 @@ export class EngHomeComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.openModalOnDelay();
-    }, 3000);
+    }, 20000);
   }
 
   openModalOnDelay() {

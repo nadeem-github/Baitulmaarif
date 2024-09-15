@@ -57,10 +57,16 @@ ul {
 	transition: 0.2s border-bottom ease-in;
 }
 
-.nav-item:hover {
-	color: #000;
-	background-color: #d8b36a;
+.nav-item{
+	transition: 0.5s;
+	&:hover {
+		color: #000;
+		background-color: #d8b36a;
+		transition: 0.5s;
+		border-radius: 2px;
+	}
 }
+
 
 .menu:hover>.menu-title:after {
 	border-bottom-width: 5px;

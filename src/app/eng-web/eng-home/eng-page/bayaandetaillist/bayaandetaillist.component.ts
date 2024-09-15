@@ -139,7 +139,7 @@ export class BayaandetaillistComponent implements OnInit {
   openBayanModal(bayan: any, content: any) {
     this.selectedBayan = bayan; // Set the selected bayan
     this.audioUrl = 'http://apis.baitulmaarif.com/' + bayan.UrMp3Path; // Set the audio URL
-    this.modalService.open(content, { centered: true, size: 'md' }); // Open modal with 'lg' size
+    this.modalService.open(content, { centered: true, size: 'md', backdrop: 'static', keyboard: false }); // Open modal with 'lg' size
   }
 
   gotoTop() {

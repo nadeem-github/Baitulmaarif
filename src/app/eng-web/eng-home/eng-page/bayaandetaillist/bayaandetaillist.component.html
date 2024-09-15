@@ -4,20 +4,23 @@
 			<select class="form-select form-select-border shadow-sm rounded-1" [(ngModel)]="selectedCategory" (change)="onCategoryChange($event)"
 				aria-label="Default select example">
 				<option value="All Bayanaat" selected>All Bayanaat</option>
+				<option value="Majalis Hazrat Wala (D.B.)">
+					Majalis Hazrat Wala (D.B.)
+				</option>
 				<option value="Hazrat Maulana Maseehullah Khan Sb. Jalalabadi (R.A.)">
 					Hazrat Maulana Maseehullah Khan Sb. Jalalabadi (R.A.)
 				</option>
-				<option value="Hazrat Maulana Shah Abararul Haq Sb. Hardoi RH.">
-					Hazrat Maulana Shah Abararul Haq Sb. Hardoi RH.
+				<option value="Hazrat Maulana Shah Abrarul Haq Sb. Hardoi (R.A.)">
+					Hazrat Maulana Shah Abrarul Haq Sb. Hardoi (R.A.)
 				</option>
-				<option value="Hazrat Maulana Muhammad Arshad Sb. Bajhedi DB.">
-					Hazrat Maulana Muhammad Arshad Sb. Bajhedi DB.
+				<option value="Hazrat Mufti Muhammad Arshad Sb. Bajhedi (D.B.)">
+					Hazrat Mufti Muhammad Arshad Sb. Bajhedi (D.B.)
 				</option>
 				<option value="Hazrat Maulana Hakeem Muhammad Akhter Sb. (R.A.)">
 					Hazrat Maulana Hakeem Muhammad Akhter Sb. (R.A.)
 				</option>
-				<option value="Hazrat Shah Feroz Abdullah Memon Sb. DB.">
-					Hazrat Shah Feroz Abdullah Memon Sb. DB.
+				<option value="Hazrat Feroz Abdullah Memon Sb. (D.B.)">
+					Hazrat Feroz Abdullah Memon Sb. (D.B.)
 				</option>
 				<option value="Mufti Muhammad Mujahid Khairabadi">
 					Mufti Muhammad Mujahid Khairabadi
@@ -124,7 +127,7 @@
 		<p class="font-16"><strong>Date :</strong> {{ selectedBayan?.UrUploadDate | date: 'dd/MM/y' }}</p>
 		<p class="font-16"><strong>File Size :</strong> {{ selectedBayan?.FileSize }}</p>
 		<p class="font-16"><strong>Voice :</strong> {{selectedBayan.Catagory}}</p>
-		<p class="mb-0"><strong>Description :</strong> {{ selectedBayan?.Description }}</p>
+		<p class="font-16 mb-0"><strong>Description :</strong> {{ selectedBayan?.Description }}</p>
 	</div>
 	<div class="modal-footer d-flex align-items-center justify-content-center">
 		<!-- Download Button -->

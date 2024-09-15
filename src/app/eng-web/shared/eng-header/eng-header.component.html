@@ -41,7 +41,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link menu" [routerLink]="['/Bayaandetaillist']" (click)="gotoTop();">
+                    <a class="nav-link menu" [routerLink]="['/Bayaandetaillist']" (click)="isMenuCollapsed = true; gotoTop();">
                         BAYANAT
                     </a>
                     <!--<a class="menu">
@@ -86,7 +86,10 @@
                     </a>-->
                 </li>
                 <li class="nav-item">
-                    <a class="menu">
+                    <a class="nav-link menu" [routerLink]="['/IslahiAshaar']" (click)="isMenuCollapsed = true; gotoTop();">
+                        ASH'AAR
+                    </a>
+                    <!-- <a class="menu">
                         <span class="menu-title nav-link menu-title_2nd">ASH'AAR</span>
                         <ul class="menu-dropdown">
                             <li>
@@ -105,7 +108,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </a>
+                    </a> -->
                 </li>
                 <li class="nav-item">
                     <a class="menu">

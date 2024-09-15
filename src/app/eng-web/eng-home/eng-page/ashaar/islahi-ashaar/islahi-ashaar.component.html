@@ -1,11 +1,29 @@
 <div class="container py-4">
+	<div class="row">
+		<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+			<select class="form-select form-select-border shadow-sm rounded-1" [(ngModel)]="selectedCategory"
+				(change)="filterByCategory()">
+				<option value="All Ashaar">All Ash'aar</option>
+				<option value="Munajat">Munajaat</option>
+				<option value="Hamd">Hamd</option>
+				<option value="Naat">Naat Paak</option>
+				<option value="Nazm">Nazm</option>
+			</select>
+		</div>
+		<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
+			<input type="text" class="form-control shadow-sm rounded-1" placeholder="Search Ash'aar by Title"
+				[(ngModel)]="searchTitle" (ngModelChange)="filterByTitle()" />
+		</div>
+	</div>
 	<div class="card shadow-sm">
 		<div class="card-header text-center card-lbk px-0">
-			<p class="text-white border-bottom-dotted mb-0 font-24">Islahi Ash'aar</p>
+			<p class="text-white border-bottom-dotted mb-0 font-24">{{ selectedCategory }}</p>
+			<!-- Display the selected category here -->
 		</div>
+
 		<div class="p-0 p-sm-3 card-body">
 			<div class="table-responsive">
-				<table class="table table-bordered">
+				<table class="table table-bordered" *ngIf="filteredShortClipList.length > 0;">
 					<thead>
 						<tr class="bg-light">
 							<th scope="col">Title</th>
@@ -15,27 +33,25 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr *ngFor="let clip of dataShortClipList">
-							<td class="majlis">
-								<div [routerLink]="'../BayanDetail'" (click)="gotoTop()">
+						<tr *ngFor="let clip of filteredShortClipList">
+							<td class="majlis" (click)="openModal(clip)">
+								<div>
 									<div class="fw-semibold text-truncate text-truncate-20">{{ clip.Title }}</div>
-									<span class="date d-block d-sm-none">{{ clip.UrUploadDate | date: 'dd/MM/y' }} - {{ clip.FileSize }}</span>
+									<span class="date d-block d-sm-none">{{ clip.UrUploadDate | date: 'dd/MM/y' }} - {{
+										clip.FileSize }}</span>
 								</div>
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
-								<div>
-									{{ clip.UrUploadDate | date: 'dd/MM/y' }}
-								</div>
+								<div>{{ clip.UrUploadDate | date: 'dd/MM/y' }}</div>
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
-								<div>
-									{{clip.FileSize}}
-								</div>
+								<div>{{ clip.FileSize }}</div>
 							</td>
 							<td class="text-center verticale-align pb-0">
 								<ul class="social-icons mb-0 d-flex align-items-center justify-content-center">
 									<li>
-										<a title="Download" class="social-square" (click)="downloadFile(clip.UrMp3Path, clip.UrTitle)">
+										<a title="Download" class="social-square"
+											(click)="downloadFile(clip.UrMp3Path, clip.UrTitle)">
 											<i class="fa fa-cloud-download" aria-hidden="true"></i>
 										</a>
 									</li>
@@ -45,19 +61,23 @@
 										</a>
 									</li>
 								</ul>
-							</td>							
+							</td>
 						</tr>
 					</tbody>
 				</table>
+
+				<!-- No Data Template -->
+				<div *ngIf="dataShortClipList && dataShortClipList.length === 0" class="text-center">
+					<p class="mb-0 py-2">No Record Found</p>
+				</div>
 			</div>
 
 			<div class="p-2 p-sm-0">
 				<div class="d-flex justify-content-between flex-wrap">
-					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" [maxSize]="2"
-						[rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
+					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+						[maxSize]="2" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
 					</ngb-pagination>
-				
-				
+
 					<select class="form-select form-select-sm" style="width: auto" [(ngModel)]="pageSize"
 						(ngModelChange)="onPageSizeChange()">
 						<option [ngValue]="5">5 Bayaan Per Page</option>
@@ -68,4 +88,32 @@
 			</div>
 		</div>
 	</div>
+
 </div>
+<ng-template #clipModal let-modal>
+	<div class="modal-header card-lbk">
+		<p class="text-white mb-0 w-100 d-flex fw-semibold">
+			<marquee behavior="" direction="">{{ selectedClip?.Title }}</marquee>
+		</p>
+	</div>
+	<div class="modal-body">
+		<audio [src]="getAudioPath(selectedClip?.Mp3Path)" autoplay controls class="w-100 mb-3"></audio>
+		<p class="font-16"><strong>Date :</strong> {{ selectedClip?.UrUploadDate | date: 'dd/MM/y' }}</p>
+		<p class="font-16"><strong>File Size :</strong> {{ selectedClip?.FileSize }}</p>
+		<p class="font-16"><strong>Catagory :</strong> {{selectedClip.Catagory}}</p>
+		<p class="font-16"><strong>Voice :</strong> {{selectedClip.Voice}}</p>
+		<p class="font-16 mb-0"><strong>Description :</strong> {{ selectedClip?.Description }}</p>
+	</div>
+
+	<div class="modal-footer d-flex align-items-center justify-content-center">
+		<a class="actionbtns" (click)="downloadFile(selectedClip?.Mp3Path, selectedClip?.Title)">
+			<i class="fa fa-cloud-download"></i> Download
+		</a>
+
+		<!-- Share Button -->
+		<a class="actionbtns" (click)="shareClip(selectedClip)">
+			<i class="fa fa-share-alt-square"></i> Share
+		</a>
+		<a class="actionbtns" (click)="modal.close()">Close</a>
+	</div>
+</ng-template>

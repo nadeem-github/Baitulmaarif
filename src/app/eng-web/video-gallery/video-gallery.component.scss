@@ -1,0 +1,35 @@
+:host ::ng-deep {
+    .page-link {
+        color: var(--darkbran);
+    }
+
+    .page-link.active,
+    .active>.page-link {
+        background-color: var(--darkbran);
+        border-color: var(--darkbran);
+        color: #fff;
+    }
+}
+
+.card-lbk {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+}
+
+.img-thumbnail {
+    transition: transform 0.5s;
+    cursor: pointer;
+    height: 18vw;
+    object-fit: cover;
+
+    &:hover {
+        -ms-transform: scale(1.07);
+        -webkit-transform: scale(1.07);
+        transform: scale(1.07);
+    }
+
+    @media (max-width:450px) {
+        height: 38vw;
+        width: 100%;
+    }
+}

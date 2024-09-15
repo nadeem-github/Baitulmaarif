@@ -121,12 +121,6 @@
 }
 
 @media (max-width: 450px) {
-    .responsive {
-        .d-flex {
-            display: unset !important;
-        }
-    }
-
     .text-truncate-20 {
         white-space: nowrap;
         overflow: hidden;
