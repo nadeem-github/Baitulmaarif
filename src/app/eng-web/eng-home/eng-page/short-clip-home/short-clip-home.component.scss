@@ -1,34 +1,61 @@
-.shortclip-audio {
-    .border-custom {
-        transition: transform 0.5s;
-        margin: 2rem;
-        cursor: pointer;
+.heading-text {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+    max-width: fit-content;
 
-        &:hover {
-            -ms-transform: scale(1.1);
-            -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-        }
-    }
-
-    img {
-        object-fit: cover;
-        width: 100%;
-    }
-
-    .view-more {
-        background-color: #794e01;
-        border: none;
-        border-radius: 1rem;
-        padding: 4px 10px;
-        font-size: 0.8rem;
-        font-weight: 600;
+    p {
+        border-bottom: dashed 1px #fff;
     }
 
     @media (max-width:450px) {
-        .col-6 {
-            width: 100%;
-            text-align: center;
-        }
+        max-width: unset;
+    }
+}
+
+:host ::ng-deep {
+    .page-link {
+        color: var(--darkbran);
+    }
+
+    .page-link.active,
+    .active>.page-link {
+        background-color: var(--darkbran);
+        border-color: var(--darkbran);
+        color: #fff;
+    }
+}
+
+.view-more {
+    background-color: #794e01;
+    font-size: var(--font-size-14);
+    font-weight: 600;
+}
+
+.card-lbk {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+}
+
+.img-outer-div {
+    width: 80%;
+    margin: 0 auto;
+    height: 14vw;
+
+    @media (max-width:600px) {
+        height: auto;
+        width: 100%;
+    }
+}
+
+.img-thumbnail {
+    transition: transform 0.5s;
+    cursor: pointer;
+    height: 100%;
+    object-fit: cover;
+
+    &:hover {
+        -ms-transform: scale(1.07);
+        -webkit-transform: scale(1.07);
+        transform: scale(1.07);
     }
 }

@@ -12,9 +12,8 @@ import { QuranList } from "../modals/QuranMP3";
 export class ApisService {
 
   private baseURL = 'http://apis.baitulmaarif.com';
-  private surahApiUrl = 'https://www.mp3quran.net/api/v3/suwar?language=ar';
-  private recitersApiUrl = 'https://www.mp3quran.net/api/v3/reciters?language=ar';
-  private countDownURL = 'http://apis.baitulmaarif.com/services/timercountdown';
+  private countDownURL = 'http://apis.baitulmaarif.com/api/services/timerCountdown';
+  
 
   private username = 'BaitulMaarif';
   private password = 'JifYf58uy07d';
@@ -34,21 +33,13 @@ export class ApisService {
     return this.http.get<{ countdownDate: string }>(this.countDownURL);
   }
 
+  getNextMajlis(): Observable<any> {
+    return this.http.get<any>(this.countDownURL);
+  }
+
   // Method to update the countdown date
   updateCountdownDate(newDate: string): Observable<any> {
     return this.http.post(this.countDownURL, { countdownDate: newDate });
-  }
-
-  quranList(): Observable<any> {
-    return this.http.get(this.surahApiUrl);
-  }
-
-  // quranList(QuranList: QuranList) {
-  //   return this.http.get(this.surahApiUrl, QuranList);
-  // }
-
-  getReciters(): Observable<any> {
-    return this.http.get(this.recitersApiUrl);
   }
 
   fetchShortClipList(ShortClipModal: ShortClipModal): Observable<any> {

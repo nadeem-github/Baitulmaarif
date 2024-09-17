@@ -75,6 +75,9 @@
         </table>
     </div>
     <div class="d-block d-sm-none">
-        <img src="assets/images/LiveBroadcastingSchedule.png" class="img-fluid" alt="">
+        <div *ngIf="!isImageLoaded">
+            <img src="assets/images/Spinner.svg" width="50" alt="">
+        </div>
+        <img src="assets/images/LiveBroadcastingSchedule.png" class="img-fluid" alt="" (load)="isImageLoaded = true" (error)="isImageLoaded = false">
     </div>
 </div>

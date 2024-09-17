@@ -8,6 +8,8 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class WeeklyMajalisPopupComponent implements OnInit {
 
+  isImageLoaded: boolean = false;
+
   ngOnInit(): void {
   }
 

@@ -1,42 +1,47 @@
-<div class="shortclip-audio">
-    <div class="row">
-        <div class="col-lg-3 col-md-3 col-6 mb-3">
-            <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
-                <img src="assets/images/short-clip-1.jpg" class="img-fluid" alt="">
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-6 mb-3">
-            <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
-                <img src="assets/images/short-clip-2.jpg" class="img-fluid" alt="">
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-6 mb-3 d-none d-sm-block">
-            <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
-                <img src="assets/images/short-clip-3.jpg" class="img-fluid" alt="">
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-3 col-6 mb-3 d-none d-sm-block">
-            <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
-                <img src="assets/images/short-clip-4.jpg" class="img-fluid" alt="">
-            </div>
-        </div>
+<div class="bg-light py-4 shortclip-audio">
+    <div *ngIf="isLoading" class="text-center">
+        <img src="../../../assets/images/Spinner.svg" width="50" alt="">
     </div>
-    <div class="row">
-        <div class="col-lg-3 col-md-3 col-6 mb-3 d-none d-sm-block"></div>
-        <div class="col-lg-3 col-md-3 col-6 mb-3 d-none d-sm-block">
-            <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
-                <img src="assets/images/short-clip-5.jpg" class="img-fluid" alt="">
+    <div class="container" *ngIf="!isLoading">
+        <div class="row d-flex align-items-center justify-content-center flex-wrap">
+            <div class="col-lg-3 col-md-3 col-sm-12 mb-4 mb-sm-5" *ngFor="let clip of paginatedVideos">
+                <div class="p-4 p-md-0 img-outer-div mx-auto" (click)="openModal(content, clip)">
+                    <img [src]="clip.ImagePath ? baseUrl + clip.ImagePath : 'assets/images/shortClipDefault.png'" alt="" class="img-thumbnail shadow">
+                </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-6 mb-3 d-none d-sm-block">
-            <div class="border-custom p-2 pointer-event shadow" (click)="gotoTop()" routerLink="/full-video-view">
-                <img src="assets/images/short-clip-6.jpg" class="img-fluid" alt="">
-            </div>
+        <div class="py-4 text-center">
+            <button class="btn btn-primary rounded-pill border-0 view-more" routerLink="/VideoGallery" (click)="gotoTop()">View More...</button>
         </div>
-        <div class="col-lg-3 col-md-3 col-6 mb-3 d-none d-sm-block"></div>
-    </div>
-    
-    <div class="py-4 text-center">
-        <button class="btn btn-primary view-more" routerLink="/VideoGallery" (click)="gotoTop()">View More...</button>
     </div>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header card-lbk">
+        <marquee behavior="scroll" direction="left" scrollamount="4">
+            <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedVideo?.Title }}</p>
+        </marquee>
+    </div>
+    <div class="modal-body">
+        <video width="100%" height="auto" class="border p-2 rounded mb-2" controls [poster]="baseUrl + selectedVideo?.ImagePath" autoplay>
+            <source [src]="baseUrl + selectedVideo?.Mp4path" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p class="text-center text-danger font-16 fw-medium" *ngIf="!selectedVideo?.Mp4path">
+            Video unavailable. Please try again later.
+        </p>          
+        <p class="font-16 mb-2"><strong>Molana Name: </strong>{{ selectedVideo?.MolanaName }}</p>
+        <p class="font-16 mb-2"><strong>File Size: </strong>{{ selectedVideo?.FileSize }}</p>
+        <p class="font-16 mb-2"><strong>Upload Date: </strong>{{ selectedVideo?.UploadDate | date:'mediumDate' }}</p>
+        <p class="font-16 mb-0"><strong>Views: </strong>{{ selectedVideo?.CountViews }}</p>
+    </div>
+    <div class="modal-footer d-flex align-items-center justify-content-center">
+        <a class="actionbtns" (click)="downloadVideo(selectedVideo)">
+          Download
+        </a>
+        <a class="actionbtns" (click)="shareVideo(selectedVideo)">
+          Share
+        </a>
+        <a class="actionbtns" (click)="modal.close('Save click')">Close</a>
+      </div>
+</ng-template>

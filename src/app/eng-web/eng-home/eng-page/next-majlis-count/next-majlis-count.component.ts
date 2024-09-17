@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
+import { ApisService } from 'src/app/services/apis.service';
 
 @Component({
   selector: 'next-majlis-count',
@@ -11,7 +12,7 @@ export class NextMajlisCountComponent implements OnInit {
   private subscription!: Subscription;
 
   public dateNow = new Date();
-  public dDay = new Date('Dec 05 2024 12:30:00');
+  public dDay!: Date;
   milliSecondsInASecond = 1000;
   hoursInADay = 24;
   minutesInAnHour = 60;
@@ -22,12 +23,45 @@ export class NextMajlisCountComponent implements OnInit {
   public minutesToDday: any;
   public hoursToDday: any;
   public daysToDday: any;
+  public title: string = '';
+  public heading: string = '';
 
+  constructor(private timerService: ApisService) { }  // Inject TimerService
+
+  ngOnInit(): void {
+    // Fetch the timer data from service
+    this.timerService.getNextMajlis().subscribe((data: any) => {
+      this.dDay = new Date(data.TimerDate); // Set dDay from API
+      this.title = data.Title;
+      this.heading = data.Heading;
+      
+      // Start the countdown
+      this.subscription = interval(1000).subscribe(() => this.getTimeDifference());
+    });
+  }
 
   private getTimeDifference() {
     this.timeDifference = this.dDay.getTime() - new Date().getTime();
-    this.allocateTimeUnits(this.timeDifference);
+  
+    // Check if the timer has ended
+    if (this.timeDifference <= 0) {
+      this.daysToDday = '00';
+      this.hoursToDday = '00';
+      this.minutesToDday = '00';
+      this.secondsToDday = '00';
+  
+      // Show message that the next Majlis is coming soon
+      this.heading = 'Next Majlis Coming Soon';
+  
+      // Optionally stop the interval to prevent unnecessary calculations
+      if (this.subscription) {
+        this.subscription.unsubscribe();
+      }
+    } else {
+      this.allocateTimeUnits(this.timeDifference);
+    }
   }
+  
 
   private allocateTimeUnits(timeDifference: any) {
     this.secondsToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond) % this.SecondsInAMinute);
@@ -36,7 +70,9 @@ export class NextMajlisCountComponent implements OnInit {
     this.daysToDday = Math.floor((timeDifference) / (this.milliSecondsInASecond * this.minutesInAnHour * this.SecondsInAMinute * this.hoursInADay));
   }
 
-  ngOnInit(): void {
-    this.subscription = interval(1000).subscribe(x => { this.getTimeDifference(); });
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

@@ -59,6 +59,8 @@ import { FiqhoFatawaComponent } from './eng-web/eng-home/eng-page/books/fiqho-fa
 import { HamdOMunajaatComponent } from './eng-web/eng-home/eng-page/ashaar/hamd-omunajaat/hamd-omunajaat.component';
 import { NaatPaakComponent } from './eng-web/eng-home/eng-page/ashaar/naat-paak/naat-paak.component';
 import { ShortClipHomeComponent } from './eng-web/eng-home/eng-page/short-clip-home/short-clip-home.component';
+import { AshaarHomeComponent } from './eng-web/eng-home/eng-page/ashaar-home/ashaar-home.component';
+import { AhamBayanatHomeComponent } from './eng-web/eng-home/eng-page/aham-bayanat-home/aham-bayanat-home.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -104,6 +106,8 @@ import { ShortClipHomeComponent } from './eng-web/eng-home/eng-page/short-clip-h
     HamdOMunajaatComponent,
     NaatPaakComponent,
     ShortClipHomeComponent,
+    AshaarHomeComponent,
+    AhamBayanatHomeComponent,
   ],
   imports: [
     BrowserModule,

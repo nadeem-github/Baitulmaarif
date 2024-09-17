@@ -1,6 +1,6 @@
 <!-- Live Broadcasting Header with ON AIR/OFF AIR status -->
 <div class="mb-3 mb-sm-5 d-flex align-items-center justify-content-center">
-    <p class="fw-bold mb-0 font-20">Live Broadcasting</p>
+    <p class="fw-bold mb-0 font-22">Live Broadcasting</p>
     <p class="air-status mb-0" [ngClass]="{ 'on-air': isAirStatusOn, 'off-air': !isAirStatusOn }">
         {{ isAirStatusOn ? 'ON AIR' : 'OFF AIR' }}
     </p>
@@ -34,8 +34,6 @@
 <audio #audioRef (timeupdate)="updateTime($event)" (ended)="onAudioEnd()">
     <source src="http://live.bazm.org:9002/live" type="audio/mp3" />
 </audio>
-
-<!-- https://www.learningcontainer.com/wp-content/uploads/2020/02/Kalimba.mp3 -->
 
 <!-- App Download Link -->
 <div class="mt-4">

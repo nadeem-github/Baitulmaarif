@@ -1,0 +1,59 @@
+<div class="card shadow-sm border-0">
+    <div class="card-body p-0 majlist-card-body">
+        <div class="majlis" *ngFor="let clip of filteredShortClipList" (click)="openModal(clip)">
+            <a>
+                <div class="row">
+                    <div class="col-9 align-self-center">
+                        <p class="mb-0 text-truncate">{{ clip.Title }}</p>
+                        <p class="mb-0 bayan-date-color">
+                            {{ clip.UrUploadDate | date: 'dd/MM/y' }} - {{clip.FileSize }}
+                        </p>
+                    </div>
+                    <div class="col-3 align-self-center pl-0-resp-maj">
+                        <div class="text-center text-nowrap">
+                            <a class="mr-2" (click)="downloadFile(clip.UrMp3Path, clip.UrTitle)" title="Click Here to Download">
+                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                            </a>
+                            <a href="" title="Click to share">
+                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="py-2 text-center">
+            <button class="btn btn-primary view-more" (click)="gotoTop()" routerLink="../IslahiAshaar">View More...</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #clipModal let-modal>
+	<div class="modal-header card-lbk">
+		<p class="text-white mb-0 w-100 d-flex fw-semibold">
+			<marquee behavior="scroll" direction="left" scrollamount="4">
+				<p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedClip?.Title }}</p>
+			</marquee>
+		</p>
+	</div>
+	<div class="modal-body">
+		<audio [src]="getAudioPath(selectedClip?.Mp3Path)" autoplay controls class="w-100 mb-3"></audio>
+		<p class="font-16"><strong>Date :</strong> {{ selectedClip?.UrUploadDate | date: 'dd/MM/y' }}</p>
+		<p class="font-16"><strong>File Size :</strong> {{ selectedClip?.FileSize }}</p>
+		<p class="font-16"><strong>Catagory :</strong> {{selectedClip.Catagory}}</p>
+		<p class="font-16"><strong>Voice :</strong> {{selectedClip.Voice}}</p>
+		<p class="font-16 mb-0"><strong>Description :</strong> {{ selectedClip?.Description }}</p>
+	</div>
+
+	<div class="modal-footer d-flex align-items-center justify-content-center">
+		<a class="actionbtns" (click)="downloadFile(selectedClip?.Mp3Path, selectedClip?.Title)">
+			<i class="fa fa-cloud-download"></i> Download
+		</a>
+
+		<!-- Share Button -->
+		<a class="actionbtns" (click)="shareClip(selectedClip)">
+			<i class="fa fa-share-alt-square"></i> Share
+		</a>
+		<a class="actionbtns" (click)="modal.close()">Close</a>
+	</div>
+</ng-template>
