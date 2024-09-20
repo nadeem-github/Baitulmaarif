@@ -20,6 +20,7 @@ export class AllMajalisBayanComponent implements OnInit {
   audioUrl: any;
   audioError: boolean = false;
   loading: boolean = false;
+  loadingAudio: boolean = false;
 
   constructor(
     private shortClipService: ApisService,
@@ -111,11 +112,17 @@ export class AllMajalisBayanComponent implements OnInit {
     this.selectedBayan = bayan; // Set the selected bayan
     this.audioUrl = 'http://apis.baitulmaarif.com/' + bayan.UrMp3Path; // Set the audio URL
     this.audioError = false; // Reset the error state
-    this.modalService.open(content, { centered: true, size: 'md', backdrop: 'static', keyboard: false }); // Open modal with 'lg' size
+    this.loadingAudio = true; // Start showing loader when modal is opened
+    this.modalService.open(content, { centered: true, size: 'md', backdrop: 'static', keyboard: false }); // Open modal
   }
-
+  
   handleAudioError() {
-    this.audioError = true; // Set the error flag to true if the audio fails to load
+    this.loadingAudio = false; // Hide loader on error
+    this.audioError = true; // Show error message if audio fails to load
+  }
+  
+  onAudioLoad() {
+    this.loadingAudio = false; // Hide loader when audio is ready
   }
 
 }

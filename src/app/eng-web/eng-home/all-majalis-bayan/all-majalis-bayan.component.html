@@ -82,7 +82,19 @@
         </p>
     </div>
     <div class="modal-body">
-        <audio [src]="audioUrl" autoplay controls class="w-100 mb-3" (error)="handleAudioError()"></audio>
+        <!-- Loader when audio is loading -->
+        <div *ngIf="loadingAudio" class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <p class="text-success mt-2">Audio is loading, please wait...</p>
+        </div>
+
+        <!-- Audio element with event bindings -->
+        <audio [src]="audioUrl" (canplay)="onAudioLoad()" (error)="handleAudioError()" (waiting)="loadingAudio = true" autoplay controls class="w-100 mb-3">
+        </audio>
+
+        <!-- Error message if audio fails to load -->
         <p *ngIf="audioError" class="text-center text-danger font-14 fw-semibold">Audio file unavailable, Please try again later</p>
         <p class="font-16"><strong>Date :</strong> {{ selectedBayan?.UploadDate | date: 'dd/MM/y' }}</p>
         <p class="font-16"><strong>File Size :</strong> {{ selectedBayan?.FileSize }}</p>
