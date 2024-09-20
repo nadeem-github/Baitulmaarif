@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgbModal, NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
-import { ShortClipModal } from 'src/app/modals/ShortClipList';
+// import { ShortClipModal } from 'src/app/modals/AshaarList';
 import { ApisService } from 'src/app/services/apis.service';
 
 @Component({
@@ -17,8 +17,8 @@ import { ApisService } from 'src/app/services/apis.service';
 export class IslahiAshaarComponent implements OnInit {
 
   ShortClipModal: any = {};
-  dataShortClipList: any[] = []; // Holds the full list of clips
-  filteredShortClipList: any[] = []; // Holds the filtered list
+  dataAshaarList: any[] = []; // Holds the full list of clips
+  filteredAshaarList: any[] = []; // Holds the filtered list
   page = 1;
   pageSize = 10;
   collectionSize = 0;
@@ -32,7 +32,7 @@ export class IslahiAshaarComponent implements OnInit {
 
   ngOnInit(): void {
     this.setUpPayload();
-    this.getShortClipList();
+    this.getAshaarList();
   }
 
   setUpPayload() {
@@ -45,13 +45,13 @@ export class IslahiAshaarComponent implements OnInit {
     };
   }
 
-  getShortClipList() {
+  getAshaarList() {
     this.shortClipService.getAshaarList(this.ShortClipModal).subscribe(
       (response: any) => {
         if (response.Status) {
-          this.dataShortClipList = response.Data;
+          this.dataAshaarList = response.Data;
           this.collectionSize = response.TotalCount;
-          this.filteredShortClipList = this.dataShortClipList; // Initially, show all clips
+          this.filteredAshaarList = this.dataAshaarList; // Initially, show all clips
           this.filterByCategory(); // Apply category filtering initially
         } else {
           console.warn('API response status is false');
@@ -65,32 +65,32 @@ export class IslahiAshaarComponent implements OnInit {
 
   filterByCategory() {
     if (this.selectedCategory === 'All Ashaar') {
-      this.filteredShortClipList = this.dataShortClipList; // Show all clips
+      this.filteredAshaarList = this.dataAshaarList; // Show all clips
     } else {
-      this.filteredShortClipList = this.dataShortClipList.filter(clip =>
+      this.filteredAshaarList = this.dataAshaarList.filter(clip =>
         clip.Catagory === this.selectedCategory
       );
     }
-    this.collectionSize = this.filteredShortClipList.length; // Update total count after filtering
+    this.collectionSize = this.filteredAshaarList.length; // Update total count after filtering
   }
 
   filterByTitle() {
     const searchTerm = this.searchTitle.toLowerCase();
-    this.filteredShortClipList = this.dataShortClipList.filter(clip =>
+    this.filteredAshaarList = this.dataAshaarList.filter(clip =>
       clip.Title.toLowerCase().includes(searchTerm)
     );
-    this.collectionSize = this.filteredShortClipList.length; // Update total count after filtering
+    this.collectionSize = this.filteredAshaarList.length; // Update total count after filtering
   }
 
   onPageChange() {
     this.ShortClipModal.PageIndexSize = this.page;
-    this.getShortClipList();
+    this.getAshaarList();
   }
 
   onPageSizeChange() {
     this.page = 1; // Reset to first page when changing page size
     this.setUpPayload();
-    this.getShortClipList();
+    this.getAshaarList();
   }
 
   openModal(clip: any) {

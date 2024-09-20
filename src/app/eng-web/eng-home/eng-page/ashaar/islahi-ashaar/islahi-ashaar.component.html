@@ -23,7 +23,7 @@
 
 		<div class="p-0 p-sm-3 card-body">
 			<div class="table-responsive">
-				<table class="table table-bordered" *ngIf="filteredShortClipList.length > 0;">
+				<table class="table table-bordered" *ngIf="filteredAshaarList.length > 0;">
 					<thead>
 						<tr class="bg-light">
 							<th scope="col">Title</th>
@@ -33,7 +33,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr *ngFor="let clip of filteredShortClipList">
+						<tr *ngFor="let clip of filteredAshaarList">
 							<td class="majlis" (click)="openModal(clip)">
 								<div>
 									<div class="fw-semibold text-truncate text-truncate-20">{{ clip.Title }}</div>
@@ -67,7 +67,7 @@
 				</table>
 
 				<!-- No Data Template -->
-				<div *ngIf="dataShortClipList && dataShortClipList.length === 0" class="text-center">
+				<div *ngIf="dataAshaarList && dataAshaarList.length === 0" class="text-center">
 					<p class="mb-0 py-2">No Record Found</p>
 				</div>
 			</div>

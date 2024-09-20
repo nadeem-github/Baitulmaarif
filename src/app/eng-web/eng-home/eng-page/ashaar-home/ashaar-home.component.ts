@@ -10,13 +10,10 @@ import { ApisService } from 'src/app/services/apis.service';
 export class AshaarHomeComponent implements OnInit {
 
   ShortClipModal: any = {};
-  dataShortClipList: any[] = []; // Holds the full list of clips
-  filteredShortClipList: any[] = []; // Holds the filtered list
+  dataAshaarList: any[] = []; // Holds the full list of clips
   page = 1;
   pageSize = 6;
   collectionSize = 0;
-  searchTitle: string = ''; // Holds the search input value
-  selectedCategory: string = 'All Ashaar'; // Holds the selected category
   selectedClip: any; // Holds the currently selected clip
 
   @ViewChild('clipModal', { static: true }) clipModal: any;
@@ -25,7 +22,7 @@ export class AshaarHomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.setUpPayload();
-    this.getShortClipList();
+    this.getAshaarList();
   }
 
   setUpPayload() {
@@ -38,14 +35,12 @@ export class AshaarHomeComponent implements OnInit {
     };
   }
 
-  getShortClipList() {
+  getAshaarList() {
     this.shortClipService.getAshaarList(this.ShortClipModal).subscribe(
       (response: any) => {
         if (response.Status) {
-          this.dataShortClipList = response.Data;
+          this.dataAshaarList = response.Data;
           this.collectionSize = response.TotalCount;
-          this.filteredShortClipList = this.dataShortClipList; // Initially, show all clips
-          this.filterByCategory(); // Apply category filtering initially
         } else {
           console.warn('API response status is false');
         }
@@ -56,34 +51,15 @@ export class AshaarHomeComponent implements OnInit {
     );
   }
 
-  filterByCategory() {
-    if (this.selectedCategory === 'All Ashaar') {
-      this.filteredShortClipList = this.dataShortClipList; // Show all clips
-    } else {
-      this.filteredShortClipList = this.dataShortClipList.filter(clip =>
-        clip.Catagory === this.selectedCategory
-      );
-    }
-    this.collectionSize = this.filteredShortClipList.length; // Update total count after filtering
-  }
-
-  filterByTitle() {
-    const searchTerm = this.searchTitle.toLowerCase();
-    this.filteredShortClipList = this.dataShortClipList.filter(clip =>
-      clip.Title.toLowerCase().includes(searchTerm)
-    );
-    this.collectionSize = this.filteredShortClipList.length; // Update total count after filtering
-  }
-
   onPageChange() {
     this.ShortClipModal.PageIndexSize = this.page;
-    this.getShortClipList();
+    this.getAshaarList();
   }
 
   onPageSizeChange() {
     this.page = 1; // Reset to first page when changing page size
     this.setUpPayload();
-    this.getShortClipList();
+    this.getAshaarList();
   }
 
   openModal(clip: any) {

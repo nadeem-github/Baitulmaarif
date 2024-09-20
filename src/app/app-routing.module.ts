@@ -11,8 +11,8 @@ import { ContactComponent } from './eng-web/contact/contact.component';
 import { AdmissionFormComponent } from './eng-web/admission-form/admission-form.component';
 import { BayaandetaillistComponent } from './eng-web/eng-home/eng-page/bayaandetaillist/bayaandetaillist.component';
 import { IslahibookslistComponent } from './eng-web/eng-home/eng-page/books/islahibookslist/islahibookslist.component';
-import { QuranMp3Component } from './eng-web/quran-mp3/quran-mp3.component';
-import { QuranPdfComponent } from './eng-web/quran-pdf/quran-pdf.component';
+import { QuranMp3Component } from './eng-web/eng-home/eng-page/quran-mp3/quran-mp3.component';
+import { QuranPdfComponent } from './eng-web/eng-home/eng-page/quran-pdf/quran-pdf.component';
 import { FullVideoComponent } from './eng-web/full-video/full-video.component';
 import { AboutBaitulmaarifComponent } from './eng-web/about-baitulmaarif/about-baitulmaarif.component';
 import { DuayenComponent } from './eng-web/SpecialCollection/duayen/duayen.component';
@@ -27,6 +27,8 @@ import { FiqhoFatawaComponent } from './eng-web/eng-home/eng-page/books/fiqho-fa
 import { IslahiAshaarComponent } from './eng-web/eng-home/eng-page/ashaar/islahi-ashaar/islahi-ashaar.component';
 import { HamdOMunajaatComponent } from './eng-web/eng-home/eng-page/ashaar/hamd-omunajaat/hamd-omunajaat.component';
 import { NaatPaakComponent } from './eng-web/eng-home/eng-page/ashaar/naat-paak/naat-paak.component';
+import { AllMajalisBayanComponent } from './eng-web/eng-home/all-majalis-bayan/all-majalis-bayan.component';
+import { AllArshadBayanComponent } from './eng-web/eng-home/all-arshad-bayan/all-arshad-bayan.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'EngHome', pathMatch: 'full', },
@@ -57,6 +59,8 @@ const routes: Routes = [
   { path: 'IslahiAshaar', component: IslahiAshaarComponent, },
   { path: 'HamdMunajaat', component: HamdOMunajaatComponent, },
   { path: 'NaatPaak', component: NaatPaakComponent, },
+  { path: 'AllMajalisBayan', component: AllMajalisBayanComponent, },
+  { path: 'AllArshadBayan', component: AllArshadBayanComponent, },
 ];
 
 @NgModule({

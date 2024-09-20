@@ -42,7 +42,7 @@
     height: 14vw;
 
     @media (max-width:600px) {
-        height: auto;
+        height: 80vw;
         width: 100%;
     }
 }
@@ -57,5 +57,9 @@
         -ms-transform: scale(1.07);
         -webkit-transform: scale(1.07);
         transform: scale(1.07);
+    }
+
+    @media (max-width:600px) {
+        object-fit: fill;
     }
 }

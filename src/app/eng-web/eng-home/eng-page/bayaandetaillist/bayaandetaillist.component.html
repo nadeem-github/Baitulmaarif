@@ -56,15 +56,16 @@
 							<td class="majlis" (click)="openBayanModal(bayan, bayanModal);">
 								<!-- (click)="viewBayanDetails(bayan.MolanaBayanId)" -->
 								<div>
-									<div class="fw-semibold text-truncate-20" [title]="bayan.Title">{{ bayan.Title }}
+									<div class="fw-semibold text-truncate-20" [title]="bayan.Title">
+										{{ bayan.Title }}
 									</div>
 									<span class="date d-block d-sm-none">
-										{{ bayan.UrUploadDate | date: 'dd/MM/y' }} - {{	bayan.FileSize }}
+										{{ bayan.UploadDate | date: 'dd/MM/y' }} - {{	bayan.FileSize }}
 									</span>
 								</div>
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
-								{{ bayan.UrUploadDate | date: 'dd/MM/y' }}
+								{{ bayan.UploadDate | date: 'dd/MM/y' }}
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
 								{{ bayan.FileSize }}

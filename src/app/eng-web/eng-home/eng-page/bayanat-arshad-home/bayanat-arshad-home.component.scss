@@ -62,6 +62,26 @@
     }
 }
 
+.sub-head {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 6px;
+    border-radius: 5px 5px 0 0;
+
+    h6 {
+        font-size: 0.9rem;
+    }
+
+    h5 {
+        border-bottom: dashed 1px #ddd;
+        font-size: 1.2rem;
+        padding-bottom: 5px;
+    }
+}
+
 .card-lbk {
     background: rgb(221, 172, 84);
     background: linear-gradient(0deg, #241700 0%, #714904 100%);

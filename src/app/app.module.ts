@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AngMusicPlayerModule } from 'ang-music-player';
-import { DatePipe } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { SwiperModule } from 'swiper/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -35,13 +35,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CdkStepperModule } from '@angular/cdk/stepper';
 import { NgStepperModule } from 'angular-ng-stepper';
-import { QuranMp3Component } from './eng-web/quran-mp3/quran-mp3.component';
-import { QuranPdfComponent } from './eng-web/quran-pdf/quran-pdf.component';
+import { QuranMp3Component } from './eng-web/eng-home/eng-page/quran-mp3/quran-mp3.component';
+import { QuranPdfComponent } from './eng-web/eng-home/eng-page/quran-pdf/quran-pdf.component';
 import { FullVideoComponent } from './eng-web/full-video/full-video.component';
 import { AajkasabaqComponent } from './eng-web/eng-home/eng-page/aajkasabaq/aajkasabaq.component';
 import { EngTopSliderComponent } from './eng-web/eng-home/eng-page/eng-top-slider/eng-top-slider.component';
 import { AboutBaitulmaarifComponent } from './eng-web/about-baitulmaarif/about-baitulmaarif.component';
-import { LiveBroadcastingPlayerComponent } from './eng-web/live-broadcasting-player/live-broadcasting-player.component';
 import { JumaBayaanHomePageComponent } from './eng-web/eng-home/eng-page/juma-bayaan-home-page/juma-bayaan-home-page.component';
 import { NextMajlisCountComponent } from './eng-web/eng-home/eng-page/next-majlis-count/next-majlis-count.component';
 import { SearchAnythingComponent } from './eng-web/eng-home/eng-page/search-anything/search-anything.component';
@@ -61,6 +60,15 @@ import { NaatPaakComponent } from './eng-web/eng-home/eng-page/ashaar/naat-paak/
 import { ShortClipHomeComponent } from './eng-web/eng-home/eng-page/short-clip-home/short-clip-home.component';
 import { AshaarHomeComponent } from './eng-web/eng-home/eng-page/ashaar-home/ashaar-home.component';
 import { AhamBayanatHomeComponent } from './eng-web/eng-home/eng-page/aham-bayanat-home/aham-bayanat-home.component';
+import { MajalisHomeComponent } from './eng-web/eng-home/eng-page/majalis-home/majalis-home.component';
+import { BayanatArshadHomeComponent } from './eng-web/eng-home/eng-page/bayanat-arshad-home/bayanat-arshad-home.component';
+import { BayanatMujahidHomeComponent } from './eng-web/eng-home/eng-page/bayanat-mujahid-home/bayanat-mujahid-home.component';
+import { JumeratMajlisHomeComponent } from './eng-web/eng-home/eng-page/jumerat-majlis-home/jumerat-majlis-home.component';
+import { JumaMajlisHomeComponent } from './eng-web/eng-home/eng-page/juma-majlis-home/juma-majlis-home.component';
+import { IslahiBayanHomeComponent } from './eng-web/eng-home/eng-page/islahi-bayan-home/islahi-bayan-home.component';
+import { LiveBroadcastingPlayerComponent } from './eng-web/eng-home/eng-page/live-broadcasting-player/live-broadcasting-player.component';
+import { AllMajalisBayanComponent } from './eng-web/eng-home/all-majalis-bayan/all-majalis-bayan.component';
+import { AllArshadBayanComponent } from './eng-web/eng-home/all-arshad-bayan/all-arshad-bayan.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,11 +116,20 @@ import { AhamBayanatHomeComponent } from './eng-web/eng-home/eng-page/aham-bayan
     ShortClipHomeComponent,
     AshaarHomeComponent,
     AhamBayanatHomeComponent,
+    MajalisHomeComponent,
+    BayanatArshadHomeComponent,
+    BayanatMujahidHomeComponent,
+    JumeratMajlisHomeComponent,
+    JumaMajlisHomeComponent,
+    IslahiBayanHomeComponent,
+    AllMajalisBayanComponent,
+    AllArshadBayanComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    CommonModule,
     NgxSpinnerModule,
     AngMusicPlayerModule,
     BrowserAnimationsModule,

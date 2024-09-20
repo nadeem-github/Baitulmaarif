@@ -74,14 +74,29 @@ export class ApisService {
 
   getBayanDetailById(ShortClipModal: ShortClipModal, bayanId: string): Observable<any> {
     const headers = this.createHeaders();
-    const fetchBayanDetailUrl = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';  // Replace with the actual endpoint
-
-    // Update ShortClipModal to include bayanId (MolanaBayanId)
+    const fetchBayanDetailById = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';  // Replace with the actual endpoint
     ShortClipModal.MolanaBayanId = bayanId;  // Add MolanaBayanId to the ShortClipModal object
-
-    // Send the updated ShortClipModal to the API
-    return this.http.post(fetchBayanDetailUrl, ShortClipModal, { headers });
+    return this.http.post(fetchBayanDetailById, ShortClipModal, { headers });
   }
+
+  jumaMajlis(): Observable<any> {
+    const headers = this.createHeaders();
+    const fetchjumaMajlis = `${this.baseURL}/api/adminActivities/getMolanaBayanByMujlisType`;  // Actual API endpoint
+    const payload = {
+      majlisType: 'Juma Majlis'
+    };
+    return this.http.post(fetchjumaMajlis, payload, { headers });
+  }
+  
+  jumeratMajlis(): Observable<any> {
+    const headers = this.createHeaders();
+    const fetchjumaMajlis = `${this.baseURL}/api/adminActivities/getMolanaBayanByMujlisType`;  // Actual API endpoint
+    const payload = {
+      majlisType: 'Jumerat Majlis'
+    };
+    return this.http.post(fetchjumaMajlis, payload, { headers });
+  }
+  
 
 
 
