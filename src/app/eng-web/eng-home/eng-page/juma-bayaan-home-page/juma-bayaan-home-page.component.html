@@ -4,34 +4,36 @@
     </div>
     <div class="card-body p-0 position-relative">
         <img src="assets/images/juma-bayan-bg.png" class="img-fluid" alt="">
-        <div class="juma-bayan-bg position-absolute">
-            <p class="mb-0 font-20 fw-bold text-truncate">Allah ke ba wafa bande</p>
-            <div class="juma-bayan-player-positin">
-                <div class="player my-2 my-sm-4">
-                    <audio preload="none" class="audio-player" controls="">
-                        <source
-                            src="https://www.zapsplat.com/wp-content/uploads/2015/sound-effects-61905/zapsplat_multimedia_alert_chime_short_musical_notification_cute_child_like_001_64918.mp3?_=1"
-                            type="audio/mpeg">
-                        Your Browser Does Not Support Audio, Click button to Download
-                    </audio>
-                </div>
-                <div class="my-2 my-sm-4">
-                    <p class="mb-2 mb-sm-4 font-16 fw-semibold">Mufti Muhammad Mujahid Khairabadi</p>
-                    <p class="mb-0 font-16 fw-semibold">15/12/2022</p>
-                </div>
-                <div class="player-btn-border d-flex justify-content-center align-items-center flex-wrap">
-                    <a class="actionbtns mb-2 mb-sm-0" download>
-                        <i class="fa fa-download me-2" aria-hidden="true"></i>
-                        <span class="ml-2">Download</span>
-                    </a>
-                    <a class="actionbtns mb-2 mb-sm-0 mx-2">
-                        <i class="fa fa-share me-2" aria-hidden="true"></i>
-                        <span class="ml-2">Share</span>
-                    </a>
-                    <a class="actionbtns mb-2 mb-sm-0" [routerLink]="'../JumaBayanList'" (click)="gotoTop()">
-                        <i class="fa fa-list me-2" aria-hidden="true"></i>
-                        <span class="ml-2">View More...</span>
-                    </a>
+        <div *ngIf="loading" class="text-center">
+            <img src="../../../assets/images/Spinner.svg" width="100" alt="">
+        </div>
+        <div class="juma-bayan-bg position-absolute" *ngIf="!loading">
+            <div *ngFor="let bayan of dataJumaByanList">
+                <p class="mb-0 px-3 px-sm-0 font-20 fw-semibold">{{ bayan.Title }}</p>
+                <div class="juma-bayan-player-positin">
+                    <div class="player my-2 my-sm-4">
+                        <audio [src]="this.baseUrl + bayan.Mp3Path" controls class="w-100 audio-player"
+                            (error)="handleAudioError()"></audio>
+                    </div>
+                    <div class="my-2 my-sm-4">
+                        <p class="mb-2 mb-sm-3 font-16 fw-semibold">{{ bayan.MolanaName }}</p>
+                        <p class="mb-0 font-16 fw-semibold">{{ bayan.UploadDate | date: 'dd/MM/y' }}</p>
+                    </div>
+                    <div class="player-btn-border d-flex justify-content-center align-items-center flex-wrap">
+                        <a class="actionbtns mb-2 mb-sm-0" download
+                            (click)="downloadFile(bayan.UrMp3Path, bayan.Title)">
+                            <i class="fa fa-download me-2" aria-hidden="true"></i>
+                            <span class="ml-2">Download</span>
+                        </a>
+                        <a class="actionbtns mb-2 mb-sm-0 mx-2">
+                            <i class="fa fa-share me-2" aria-hidden="true"></i>
+                            <span class="ml-2">Share</span>
+                        </a>
+                        <a class="actionbtns mb-2 mb-sm-0" [routerLink]="'../JumaBayanList'" (click)="gotoTop()">
+                            <i class="fa fa-list me-2" aria-hidden="true"></i>
+                            <span class="ml-2">View More...</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

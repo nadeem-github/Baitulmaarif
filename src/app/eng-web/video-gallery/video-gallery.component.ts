@@ -22,14 +22,11 @@ export class VideoGalleryComponent implements OnInit {
   constructor(private shortClipService: ApisService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-    this.setUpPayload();
     this.getShortClipList();
     this.checkScreenSize();  // Check initial screen size
   }
 
-  setUpPayload() {
-    // Setup payload for API request
-  }
+  
 
   getShortClipList() {
     this.isLoading = true;

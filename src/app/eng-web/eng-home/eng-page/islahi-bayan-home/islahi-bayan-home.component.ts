@@ -108,9 +108,7 @@ export class IslahiBayanHomeComponent implements OnInit {
 
   handleAudioError() {
     this.audioError = true; // Set the error flag to true if the audio fails to load
-  }
-
-  
+  }  
 
   updateAudioState(event: Event) {
     const audioElement = event.target as HTMLAudioElement;

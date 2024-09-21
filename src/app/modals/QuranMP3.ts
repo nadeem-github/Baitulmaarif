@@ -11,7 +11,7 @@ export class QuranList {
     Descriptions: any;
     UrFileSize: any;
     FileSize: any;
-    UploadDate: any;
+    // UploadDate: any;
     UrUploadDate: any;
     CountViews: any;
     UrCountViews: any

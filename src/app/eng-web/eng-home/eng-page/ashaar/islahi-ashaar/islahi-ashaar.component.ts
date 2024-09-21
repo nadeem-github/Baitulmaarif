@@ -19,7 +19,7 @@ export class IslahiAshaarComponent implements OnInit {
   ShortClipModal: any = {};
   dataAshaarList: any[] = []; // Holds the full list of clips
   filteredAshaarList: any[] = []; // Holds the filtered list
-  page = 1;
+  page = 0;
   pageSize = 10;
   collectionSize = 0;
   searchTitle: string = ''; // Holds the search input value

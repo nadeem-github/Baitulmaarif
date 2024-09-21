@@ -96,6 +96,12 @@ export class ApisService {
     };
     return this.http.post(fetchjumaMajlis, payload, { headers });
   }
+
+  jumaBayaan(ShortClipModal: ShortClipModal): Observable<any> {
+    const headers = this.createHeaders();
+    const jumaBayaanURL = this.baseURL + '/api/adminActivities/fetchJumaBayanList';  // Replace with the actual endpoint
+    return this.http.post(jumaBayaanURL, ShortClipModal, { headers });
+  }
   
 
 

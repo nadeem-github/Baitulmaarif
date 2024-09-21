@@ -26,7 +26,7 @@ export class ShortClipModal {
     MolanaBayanId: any;
   
     constructor() {
-      this.PageIndexSize = 1;
+      this.PageIndexSize = 0;
       this.SortOrder = 'desc';
       this.Filter = '';
       this.PageSize = 10;

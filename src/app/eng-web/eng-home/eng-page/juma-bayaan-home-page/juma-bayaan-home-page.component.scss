@@ -24,7 +24,7 @@
 .juma-bayan-bg {
     max-width: 80%;
     margin: 0 auto;
-    top: 8rem;
+    top: 25%;
     left: 0;
     right: 0;
 }
@@ -38,11 +38,7 @@
     padding-bottom: 0.4rem;
 }
 
-@media(max-width:450px) {
-    .juma-bayan-bg {
-        top: 5rem;
-    }
-
+@media(max-width:500px) {
     .juma-bayan-bg .btn-success {
         font-size: 0.6em;
     }

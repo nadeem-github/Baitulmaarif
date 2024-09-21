@@ -11,7 +11,7 @@ export class AshaarHomeComponent implements OnInit {
 
   ShortClipModal: any = {};
   dataAshaarList: any[] = []; // Holds the full list of clips
-  page = 1;
+  page = 0;
   pageSize = 6;
   collectionSize = 0;
   selectedClip: any; // Holds the currently selected clip
