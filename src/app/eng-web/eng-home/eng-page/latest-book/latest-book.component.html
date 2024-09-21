@@ -3,31 +3,34 @@
     <h5 class="mb-0 border-bottom-dotted">Latest Book</h5>
   </div>
   <div class="card-body pt-0 hover-show-icon">
-    <swiper class="py-0" [grabCursor]="true" [autoplay]="{ delay: 3000, disableOnInteraction: false }" [loop]="true"
+    <div *ngIf="isLoading" class="text-center">
+      <img src="../../../assets/images/Spinner.svg" width="100" alt="Loading..." />
+    </div>
+    <swiper *ngIf="!isLoading" class="py-0" [grabCursor]="true" [autoplay]="{ delay: 3000, disableOnInteraction: false }" [loop]="true"
       [effect]="'creative'"
       [creativeEffect]="{ prev: { shadow: true, translate: [0, 0, -400] }, next: { translate: ['100%', 0, 0] } }">
-      <ng-template swiperSlide *ngFor="let item of items">
+      <ng-template swiperSlide *ngFor="let clip of dataLatestBooksList">
         <div class="team-area">
           <div class="team-content">
             <div class="team-img">
-              <img [src]="item.imgUrl" alt="{{ item.name }}" />
+              <img [src]="baseUrl + clip.UrImagePath" class="img-fluid rounded-2" alt="Book Image" />
               <div class="overlay team-2 radious-1">
                 <div class="social-icon only-social-icon team-icon-2">
                   <ul>
                     <li>
-                      <a (click)="openPdfModal(pdfModal, item.pdfUrl)">
+                      <a (click)="openPdfModal(clip.UrPdfPath)">
                         <i class="fa fa-leanpub"></i>
                       </a>
                       <span>Read Online</span>
                     </li>
                     <li>
-                      <a (click)="downloadPdf(item.pdfUrl, item.name)">
+                      <a (click)="downloadPdf(clip.UrPdfPath)">
                         <i class="fa fa-cloud-download"></i>
                       </a>
                       <span>Download</span>
                     </li>
                     <li>
-                      <a (click)="sharePdf(item.pdfUrl, item.name)">
+                      <a (click)="sharePdf(clip.UrPdfPath)">
                         <i class="fa fa-share-alt-square"></i>
                       </a>
                       <span>Share</span>
@@ -43,11 +46,13 @@
   </div>
 </div>
 
-<!-- Modal Template -->
+<!-- Modal Template for Reading PDF Online -->
 <ng-template #pdfModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Read Online</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
   <div class="modal-body">
-    <i class="fa fa-times-circle fa-2x text-danger btn-div position-absolute bg-white rounded-circle d-flex align-items-center justify-content-center"
-      aria-hidden="true" (click)="modal.dismiss()"></i>
-    <iframe [src]="sanitizedPdfUrl" width="100%" height="600px"></iframe>
+    <iframe [src]="pdfUrl | safeUrl" width="100%" height="500px"></iframe>
   </div>
 </ng-template>

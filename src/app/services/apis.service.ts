@@ -103,6 +103,12 @@ export class ApisService {
     return this.http.post(jumaBayaanURL, ShortClipModal, { headers });
   }
   
+  latestBooksList(ShortClipModal: ShortClipModal): Observable<any> {
+    const headers = this.createHeaders();
+    const latestBookURL = this.baseURL + '/api/adminActivities/fetchLatestBooksList';  // Replace with the actual endpoint
+    return this.http.post(latestBookURL, ShortClipModal, { headers });
+  }
+  
 
 
 
