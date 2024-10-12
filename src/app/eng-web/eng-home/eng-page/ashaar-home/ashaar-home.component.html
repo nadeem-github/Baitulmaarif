@@ -1,26 +1,31 @@
 <div class="card shadow-sm border-0">
     <div class="card-body p-0 majlist-card-body">
-        <div class="majlis" *ngFor="let clip of dataAshaarList" (click)="openModal(clip)">
-            <a>
-                <div class="row">
-                    <div class="col-9 align-self-center">
-                        <p class="mb-0 text-truncate">{{ clip.Title }}</p>
-                        <p class="mb-0 bayan-date-color">
-                            {{ clip.UrUploadDate | date: 'dd/MM/y' }} - {{clip.FileSize }}
-                        </p>
-                    </div>
-                    <div class="col-3 align-self-center">
-                        <div class="text-center text-nowrap">
-                            <a class="mr-2" (click)="downloadFile(clip.UrMp3Path, clip.UrTitle)" title="Click Here to Download">
-                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
-                            </a>
-                            <a href="" title="Click to share">
-                                <i class="fa fa-share-alt-square" aria-hidden="true"></i>
-                            </a>
+        <div *ngIf="loading" class="text-center py-4">
+            <img src="../../../assets/images/Spinner.svg" width="100" alt="">
+        </div>
+        <div *ngIf="!loading">
+            <div class="majlis" *ngFor="let clip of dataAshaarList" (click)="openModal(clip)">
+                <a>
+                    <div class="row">
+                        <div class="col-9 align-self-center">
+                            <p class="mb-0 text-truncate">{{ clip.Title }}</p>
+                            <p class="mb-0 bayan-date-color">
+                                {{ clip.UrUploadDate | date: 'dd/MM/y' }} - {{clip.FileSize }}
+                            </p>
+                        </div>
+                        <div class="col-3 align-self-center">
+                            <div class="text-center text-nowrap">
+                                <a class="mr-2" (click)="downloadFile(clip.UrMp3Path, clip.UrTitle)" title="Click Here to Download">
+                                    <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                </a>
+                                <a href="" title="Click to share">
+                                    <i class="fa fa-share-alt-square" aria-hidden="true"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
         <div class="py-2 text-center">
             <button class="btn btn-primary view-more" (click)="gotoTop()" routerLink="../IslahiAshaar">View More...</button>

@@ -25,11 +25,11 @@ export class BayaandetaillistComponent implements OnInit {
   selectedCategory = 'All Bayanaat'; // Default selected category
   selectedBayan: any;
   audioUrl: any;
+  loading: boolean = false;
 
   constructor(
     private shortClipService: ApisService,
     private route: ActivatedRoute,
-    private router: Router,
     private modalService: NgbModal
   ) {}
 
@@ -41,56 +41,56 @@ export class BayaandetaillistComponent implements OnInit {
     });
   }
 
-  setUpPayload() {
-    this.ShortClipModal.PageIndexSize = this.page;
-    this.ShortClipModal.SortOrder = 'desc';
-    this.ShortClipModal.PageSize = this.pageSize;
-    
-    // Log the selected category to ensure it matches what the API expects
-    console.log('Selected Category:', this.selectedCategory);
-
-    // Apply the filter for selected category, 'All' will return everything (no filter)
+  setUpPayload() {  
     if (this.selectedCategory === 'All Bayanaat') {
       this.ShortClipModal.Filter = ''; // Empty filter means no category filter
     } else {
-      this.ShortClipModal.Filter = this.selectedCategory;
-    }
-
-    this.ShortClipModal.SortBy = 'Title';
+      this.ShortClipModal.Filter = this.selectedCategory.trim(); // Trim to remove any extra spaces
+    } 
+  
+    // Debugging logs
+    console.log('Payload Setup:');
+    console.log('Selected Category:', this.selectedCategory);
+    console.log('Applied Filter:', this.ShortClipModal.Filter);
   }
-
+  
   getMolanaBayanList() {
+    this.loading = true;
+    console.log('Fetching data for category:', this.selectedCategory); // Log before making API call
+    
     this.shortClipService.molanaBayanList(this.ShortClipModal).subscribe(
       (response: any) => {
+        console.log('API Response:', response); // Log the API response
+        this.loading = false;
         if (response.Status) {
-          // Apply search filter after receiving data
+          // Filter the records based on search term
           this.dataMolanaBayanList = response.Data.filter((bayan: { Title: string; }) =>
             bayan.Title.toLowerCase().includes(this.searchTerm.toLowerCase())
           );
+  
           this.collectionSize = response.TotalCount;
         } else {
           console.warn('API response status is false');
         }
       },
       (error) => {
+        this.loading = false;
         console.error('Error fetching short clips:', error);
       }
     );
-  }
-
-  viewBayanDetails(bayanId: string) {
-    this.router.navigate(['/BayanDetail', bayanId]); // Navigate to BayanDetail using MolanaBayanId
-  }
+  }  
+  
 
   onSearchChange() {
-    this.page = 1; // Reset to the first page when search term changes
-    this.setUpPayload(); // Ensure pagination and category filters are applied
-    this.getMolanaBayanList(); // Re-fetch the list with the search term
+    this.page = 1; 
+    this.setUpPayload(); 
+    this.getMolanaBayanList();
   }
 
   // Triggered when the category changes
   onCategoryChange(event: any) {
-    this.page = 1; // Reset to first page when changing category
+    console.log('Selected Category:', this.selectedCategory);
+    this.page = 1; 
     this.setUpPayload();
     this.getMolanaBayanList();
   }
@@ -140,14 +140,6 @@ export class BayaandetaillistComponent implements OnInit {
     this.selectedBayan = bayan; // Set the selected bayan
     this.audioUrl = 'http://apis.baitulmaarif.com/' + bayan.UrMp3Path; // Set the audio URL
     this.modalService.open(content, { centered: true, size: 'md', backdrop: 'static', keyboard: false }); // Open modal with 'lg' size
-  }
-
-  gotoTop() {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
   }
 
 }

@@ -1,8 +1,9 @@
 import { CommonModule, DecimalPipe, NgFor } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgbModal, NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { ShortClipModal } from 'src/app/modals/ShortClipList';
 // import { ShortClipModal } from 'src/app/modals/AshaarList';
 import { ApisService } from 'src/app/services/apis.service';
 
@@ -16,97 +17,96 @@ import { ApisService } from 'src/app/services/apis.service';
 
 export class IslahiAshaarComponent implements OnInit {
 
-  ShortClipModal: any = {};
-  dataAshaarList: any[] = []; // Holds the full list of clips
-  filteredAshaarList: any[] = []; // Holds the filtered list
-  page = 0;
+  ShortClipModal: ShortClipModal = new ShortClipModal();
+  dataMolanaBayanList: any[] = [];
+  page = 1;
   pageSize = 10;
   collectionSize = 0;
-  searchTitle: string = ''; // Holds the search input value
-  selectedCategory: string = 'All Ashaar'; // Holds the selected category
-  selectedClip: any; // Holds the currently selected clip
+  catagory: any;
+  searchTerm: string = '';
+  selectedCategory = 'All Ashaar'; // Default selected category
+  selectedBayan: any;
+  audioUrl: any;
+  loading: boolean = false;
+  loadingAudio: boolean = false;
+  audioError: boolean = false;
 
-  @ViewChild('clipModal', { static: true }) clipModal: any;
-
-  constructor(private shortClipService: ApisService, private modalService: NgbModal) { }
+  constructor(
+    private shortClipService: ApisService,
+    private route: ActivatedRoute,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
-    this.setUpPayload();
-    this.getAshaarList();
+    this.route.paramMap.subscribe(params => {
+      this.catagory = params.get('catagory');
+      this.setUpPayload();
+      this.getMolanaBayanList();
+    });
   }
 
-  setUpPayload() {
-    this.ShortClipModal = {
-      PageIndexSize: this.page,
-      SortOrder: 'desc',
-      Filter: '',
-      PageSize: this.pageSize,
-      SortBy: 'Title',
-    };
+  setUpPayload() {  
+    if (this.selectedCategory === 'All Ashaar') {
+      this.ShortClipModal.Filter = ''; // Empty filter means no category filter
+    } else {
+      this.ShortClipModal.Filter = this.selectedCategory.trim(); // Trim to remove any extra spaces
+    } 
   }
-
-  getAshaarList() {
+  
+  getMolanaBayanList() {
+    this.loading = true;
+    console.log('Fetching data for category:', this.selectedCategory); // Log before making API call
+    
     this.shortClipService.getAshaarList(this.ShortClipModal).subscribe(
       (response: any) => {
+        console.log('API Response:', response); // Log the API response
+        this.loading = false;
         if (response.Status) {
-          this.dataAshaarList = response.Data;
+          this.dataMolanaBayanList = response.Data.filter((bayan: { Title: string; }) =>
+            bayan.Title.toLowerCase().includes(this.searchTerm.toLowerCase())
+          );
+  
           this.collectionSize = response.TotalCount;
-          this.filteredAshaarList = this.dataAshaarList; // Initially, show all clips
-          this.filterByCategory(); // Apply category filtering initially
         } else {
           console.warn('API response status is false');
         }
       },
       (error) => {
+        this.loading = false;
         console.error('Error fetching short clips:', error);
       }
     );
+  }  
+  
+
+  onSearchChange() {
+    this.page = 1; 
+    this.setUpPayload(); 
+    this.getMolanaBayanList();
   }
 
-  filterByCategory() {
-    if (this.selectedCategory === 'All Ashaar') {
-      this.filteredAshaarList = this.dataAshaarList; // Show all clips
-    } else {
-      this.filteredAshaarList = this.dataAshaarList.filter(clip =>
-        clip.Catagory === this.selectedCategory
-      );
-    }
-    this.collectionSize = this.filteredAshaarList.length; // Update total count after filtering
-  }
-
-  filterByTitle() {
-    const searchTerm = this.searchTitle.toLowerCase();
-    this.filteredAshaarList = this.dataAshaarList.filter(clip =>
-      clip.Title.toLowerCase().includes(searchTerm)
-    );
-    this.collectionSize = this.filteredAshaarList.length; // Update total count after filtering
+  // Triggered when the category changes
+  onCategoryChange(event: any) {
+    console.log('Selected Category:', this.selectedCategory);
+    this.page = 1; 
+    this.setUpPayload();
+    this.getMolanaBayanList();
   }
 
   onPageChange() {
     this.ShortClipModal.PageIndexSize = this.page;
-    this.getAshaarList();
+    this.getMolanaBayanList();
   }
 
   onPageSizeChange() {
-    this.page = 1; // Reset to first page when changing page size
+    this.page = 1;
     this.setUpPayload();
-    this.getAshaarList();
-  }
-
-  openModal(clip: any) {
-    this.selectedClip = clip; // Set the selected clip
-    this.modalService.open(this.clipModal, { size: 'md', centered: true, backdrop: 'static', keyboard: false });
-  }
-
-  getAudioPath(mp3Path: string): string {
-    const baseUrl = 'http://apis.baitulmaarif.com/'; // Replace with your actual base URL
-    return `${baseUrl}${mp3Path}`;
+    this.getMolanaBayanList();
   }
 
   downloadFile(mp3Path: string, title: string): void {
-    const baseUrl = 'http://apis.baitulmaarif.com/'; // Replace with your actual base URL
+    const baseUrl = 'http://apis.baitulmaarif.com/';
     const downloadUrl = `${baseUrl}${mp3Path}`;
-
     const link = document.createElement('a');
     link.href = downloadUrl;
     link.download = title;
@@ -114,30 +114,41 @@ export class IslahiAshaarComponent implements OnInit {
     link.click();
   }
 
-  shareClip(clip: any): void {
-    const shareUrl = window.location.href; // Get the current page URL
+  shareBayan(bayan: any): void {
+    const shareData = {
+      title: bayan.Title,
+      text: bayan.Description,
+      url: 'http://apis.baitulmaarif.com/' + bayan.UrMp3Path
+    };
 
     if (navigator.share) {
-      // Use the Web Share API if available
-      navigator.share({
-        title: clip.Title,
-        text: `Check out this clip: ${clip.Title}`,
-        url: shareUrl
-      }).then(() => {
-        console.log('Clip shared successfully');
+      navigator.share(shareData).then(() => {
+        console.log('Bayan shared successfully');
       }).catch((error) => {
-        console.error('Error sharing:', error);
+        console.error('Error sharing bayan:', error);
       });
     } else {
-      // Fallback to copying the link to clipboard if Web Share API is not supported
-      const dummyInput = document.createElement('input');
-      dummyInput.value = shareUrl;
-      document.body.appendChild(dummyInput);
-      dummyInput.select();
-      document.execCommand('copy');
-      document.body.removeChild(dummyInput);
-      alert('Link copied to clipboard');
+      // Fallback for browsers that don't support the share API
+      console.warn('Web Share API is not supported in this browser.');
+      alert('Sharing is not supported in this browser.');
     }
+  }
+
+  openBayanModal(bayan: any, content: any) {
+    this.selectedBayan = bayan; // Set the selected bayan
+    this.audioUrl = 'http://apis.baitulmaarif.com/' + bayan.UrMp3Path; // Set the audio URL
+    this.audioError = false; // Reset the error state
+    this.loadingAudio = true; // Start showing loader when modal is opened
+    this.modalService.open(content, { centered: true, size: 'md', backdrop: 'static', keyboard: false }); // Open modal
+  }
+
+  handleAudioError() {
+    this.loadingAudio = false; // Hide loader on error
+    this.audioError = true; // Show error message if audio fails to load
+  }
+  
+  onAudioLoad() {
+    this.loadingAudio = false; // Hide loader when audio is ready
   }
 
   gotoTop() {

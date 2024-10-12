@@ -38,7 +38,7 @@ const routes: Routes = [
   { path: 'ResentFatawa', component: ResentFatawaComponent, },
   { path: 'AskQuestion', component: AskQuestionComponent, },
   { path: 'VideoGallery', component: VideoGalleryComponent, },
-  { path: 'AhamBayanList', component: AhamBayanListComponent, },
+  { path: 'AllBayanMujahid', component: AhamBayanListComponent, },
   { path: 'Contact', component: ContactComponent, },
   { path: 'AdmissionForm', component: AdmissionFormComponent, },
   { path: 'Bayaandetaillist', component: BayaandetaillistComponent, },

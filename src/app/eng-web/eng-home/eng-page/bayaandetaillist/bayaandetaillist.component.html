@@ -22,8 +22,8 @@
 				<option value="Hazrat Feroz Abdullah Memon Sb. (D.B.)">
 					Hazrat Feroz Abdullah Memon Sb. (D.B.)
 				</option>
-				<option value="Mufti Muhammad Mujahid Khairabadi">
-					Mufti Muhammad Mujahid Khairabadi
+				<option value="Hazrat Mufti Muhammad Mujahid Sb. Khairabadi (D.B.)">
+					Hazrat Mufti Muhammad Mujahid Sb. Khairabadi (D.B.)
 				</option>
 				<option value="Other Bayanaat">
 					Other Bayanaat
@@ -40,7 +40,10 @@
 			<p class="text-white border-bottom-dotted mb-0 font-24">{{ selectedCategory }}</p>
 		</div>
 		<div class="p-0 p-sm-3 card-body">
-			<div class="table-responsive">
+			<div *ngIf="loading" class="text-center">
+				<img src="../../../assets/images/Spinner.svg" width="100" alt="">
+			</div>
+			<div class="table-responsive" *ngIf="!loading">
 				<!-- Table -->
 				<table class="table table-bordered" *ngIf="dataMolanaBayanList && dataMolanaBayanList.length > 0">
 					<thead>

@@ -9,15 +9,15 @@
         </div>
         <div class="juma-bayan-bg position-absolute" *ngIf="!loading">
             <div *ngFor="let bayan of dataJumaByanList">
-                <p class="mb-0 px-3 px-sm-0 font-20 fw-semibold">{{ bayan.Title }}</p>
+                <p class="mb-0 px-3 px-sm-0 font-20 fw-semibold mx-auto">{{ bayan.Title }}</p>
                 <div class="juma-bayan-player-positin">
                     <div class="player my-2 my-sm-4">
                         <audio [src]="this.baseUrl + bayan.Mp3Path" controls class="w-100 audio-player"
                             (error)="handleAudioError()"></audio>
                     </div>
                     <div class="my-2 my-sm-4">
-                        <p class="mb-2 mb-sm-3 font-16 fw-semibold">{{ bayan.MolanaName }}</p>
-                        <p class="mb-0 font-16 fw-semibold">{{ bayan.UploadDate | date: 'dd/MM/y' }}</p>
+                        <p class="mb-2 mb-sm-3 font-16 fw-semibold mx-auto">{{ bayan.MolanaName }}</p>
+                        <p class="mb-0 font-16 fw-semibold mx-auto">{{ bayan.UploadDate | date: 'dd/MM/y' }}</p>
                     </div>
                     <div class="player-btn-border d-flex justify-content-center align-items-center flex-wrap">
                         <a class="actionbtns mb-2 mb-sm-0" download

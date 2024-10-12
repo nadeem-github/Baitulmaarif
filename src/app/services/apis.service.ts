@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { ShortClipModal } from "../modals/ShortClipList";
-import { QuranList } from "../modals/QuranMP3";
-
+import { SliderData } from '../modals/slider.model';
 
 @Injectable({
   providedIn: 'root'
@@ -107,6 +105,12 @@ export class ApisService {
     const headers = this.createHeaders();
     const latestBookURL = this.baseURL + '/api/adminActivities/fetchLatestBooksList';  // Replace with the actual endpoint
     return this.http.post(latestBookURL, ShortClipModal, { headers });
+  }
+  
+  topSlider(): Observable<SliderData[]> { // Specify the return type
+    const headers = this.createHeaders();
+    const topSliderURL = `${this.baseURL}/api/adminActivities/fetchSliderImageList`; // Replace with the actual endpoint
+    return this.http.get<SliderData[]>(topSliderURL, { headers });
   }
   
 

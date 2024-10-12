@@ -15,6 +15,7 @@ export class AshaarHomeComponent implements OnInit {
   pageSize = 6;
   collectionSize = 0;
   selectedClip: any; // Holds the currently selected clip
+  loading: boolean = false;
 
   @ViewChild('clipModal', { static: true }) clipModal: any;
 
@@ -31,13 +32,15 @@ export class AshaarHomeComponent implements OnInit {
       SortOrder: 'desc',
       Filter: '',
       PageSize: this.pageSize,
-      SortBy: 'Title',
+      SortBy: '',
     };
   }
 
   getAshaarList() {
+    this.loading = true;
     this.shortClipService.getAshaarList(this.ShortClipModal).subscribe(
       (response: any) => {
+        this.loading = false;
         if (response.Status) {
           this.dataAshaarList = response.Data;
           this.collectionSize = response.TotalCount;
@@ -46,6 +49,7 @@ export class AshaarHomeComponent implements OnInit {
         }
       },
       (error: any) => {
+        this.loading = false;
         console.error('Error fetching short clips:', error);
       }
     );

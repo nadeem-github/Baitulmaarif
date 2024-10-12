@@ -34,13 +34,13 @@ export class MajalisHomeComponent implements OnInit {
   }
 
   setUpPayload() {
-    this.ShortClipModal.PageIndexSize = this.page;
-    this.ShortClipModal.SortOrder = 'desc';
+    // this.ShortClipModal.PageIndexSize = this.page;
+    // this.ShortClipModal.SortOrder = 'desc';
+    // this.ShortClipModal.SortBy = 'Title';
     this.ShortClipModal.PageSize = this.pageSize;
 
     // Always filter for "Majalis Hazrat Wala (D.B.)"
     this.ShortClipModal.Filter = 'Majalis Hazrat Wala (D.B.)';
-    this.ShortClipModal.SortBy = 'Title';
   }
 
   getMolanaBayanList() {
@@ -51,9 +51,8 @@ export class MajalisHomeComponent implements OnInit {
         this.loading = false; // Stop loading when data is received
         if (response.Status) {
           // Sort data by 'UrUploadDate' in descending order to display the latest record at the top
-          this.dataMolanaBayanList = response.Data.sort((a: any, b: any) => {
-            return new Date(b.UploadDate).getTime() - new Date(a.UploadDate).getTime();
-          });
+          this.dataMolanaBayanList = response.Data
+          // this.dataMolanaBayanList.sort((a: { MolanaBayanId: number; }, b: { MolanaBayanId: number; }) => a.MolanaBayanId - b.MolanaBayanId);
           this.collectionSize = response.TotalCount;
         } else {
           console.warn('API response status is false');

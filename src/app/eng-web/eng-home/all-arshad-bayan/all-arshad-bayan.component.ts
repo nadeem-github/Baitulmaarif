@@ -33,13 +33,13 @@ export class AllArshadBayanComponent implements OnInit {
   }
 
   setUpPayload() {
-    this.ShortClipModal.PageIndexSize = this.page;
-    this.ShortClipModal.SortOrder = 'desc';
+    // this.ShortClipModal.PageIndexSize = this.page;
+    // this.ShortClipModal.SortOrder = 'desc';
+    // this.ShortClipModal.SortBy = 'Title';
     this.ShortClipModal.PageSize = this.pageSize;
 
     // Always filter for "Hazrat Mufti Muhammad Arshad Sb. Bajhedi (D.B.)"
     this.ShortClipModal.Filter = 'Hazrat Mufti Muhammad Arshad Sb. Bajhedi (D.B.)';
-    this.ShortClipModal.SortBy = 'Title';
   }
 
   getMolanaBayanList() {
@@ -49,10 +49,7 @@ export class AllArshadBayanComponent implements OnInit {
       (response: any) => {
         this.loading = false; // Stop loading when data is received
         if (response.Status) {
-          // Sort data by 'UrUploadDate' in descending order to display the latest record at the top
-          this.dataMolanaBayanList = response.Data.sort((a: any, b: any) => {
-            return new Date(b.UploadDate).getTime() - new Date(a.UploadDate).getTime();
-          });
+          this.dataMolanaBayanList = response.Data
           this.collectionSize = response.TotalCount;
         } else {
           console.warn('API response status is false');

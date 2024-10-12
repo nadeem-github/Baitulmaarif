@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApisService } from 'src/app/services/apis.service';
 
 @Component({
   selector: 'eng-top-slider',
@@ -10,6 +11,9 @@ export class EngTopSliderComponent implements OnInit {
   currentIndex: number = 0;
   slideCount: number = 5;
   intervalId: any;
+  sliderImages: string[] = [];
+
+  constructor(private sliderService: ApisService) {}
 
   ngOnInit() {
     this.autoSlide();
@@ -36,6 +40,14 @@ export class EngTopSliderComponent implements OnInit {
 
   ngOnDestroy() {
     this.stopAutoSlide();
+  }
+
+  getSliderImage(){
+    this.sliderService.topSlider().subscribe(data => {
+      // this.sliderImages = this.data; // Extract image paths
+      this.slideCount = this.sliderImages.length; // Update slide count
+      this.autoSlide(); // Start the auto-slide after fetching images
+    })
   }
 
 }
