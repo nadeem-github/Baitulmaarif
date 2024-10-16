@@ -1,21 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule, DecimalPipe, NgFor } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { NgbModal, NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ShortClipModal } from 'src/app/modals/ShortClipList';
 import { ApisService } from 'src/app/services/apis.service';
 
-
 @Component({
-  selector: 'aham-bayan-list',
-  standalone: true,
-  imports: [DecimalPipe, NgFor, FormsModule, NgbTypeaheadModule, NgbPaginationModule, RouterModule, CommonModule],
-  templateUrl: './aham-bayan-list.component.html',
-  styleUrls: ['./aham-bayan-list.component.scss']
+  selector: 'app-all-mujahid-bayan',
+  templateUrl: './all-mujahid-bayan.component.html',
+  styleUrls: ['./all-mujahid-bayan.component.scss']
 })
-export class AhamBayanListComponent implements OnInit {
-  
+export class AllMujahidBayanComponent implements OnInit {
+
   ShortClipModal: ShortClipModal = new ShortClipModal();
   dataMolanaBayanList: any[] = [];
   page = 1;
@@ -40,13 +34,13 @@ export class AhamBayanListComponent implements OnInit {
   setUpPayload() {
     this.ShortClipModal.PageSize = this.pageSize;
 
-    // Always filter for "other"
-    this.ShortClipModal.Filter = 'other';
+    // Always filter for "Hazrat Mufti Muhammad Mujahid Sb. Khairabadi (D.B.)"
+    this.ShortClipModal.Filter = 'Hazrat Mufti Muhammad Mujahid Sb. Khairabadi (D.B.)';
   }
 
   getMolanaBayanList() {
     this.loading = true; // Start loading before making the API call
-  
+
     this.shortClipService.molanaBayanList(this.ShortClipModal).subscribe(
       (response: any) => {
         this.loading = false; // Stop loading when data is received
@@ -112,12 +106,12 @@ export class AhamBayanListComponent implements OnInit {
     this.loadingAudio = true; // Start showing loader when modal is opened
     this.modalService.open(content, { centered: true, size: 'md', backdrop: 'static', keyboard: false }); // Open modal
   }
-  
+
   handleAudioError() {
     this.loadingAudio = false; // Hide loader on error
     this.audioError = true; // Show error message if audio fails to load
   }
-  
+
   onAudioLoad() {
     this.loadingAudio = false; // Hide loader when audio is ready
   }

@@ -1,6 +1,37 @@
 <div class="modal-body p-0 text-center position-relative">
-    <button type="button" class="btn position-absolute d-flex align-items-center justify-content-center bg-white rounded-circle p-0 shadow" aria-label="Close" (click)="closeModal()">
-        <i class="fa fa-times-circle fa-2x text-danger" aria-hidden="true"></i>
+    <button type="button"
+        class="btn position-absolute d-flex align-items-center justify-content-center bg-white rounded-circle p-0 shadow"
+        aria-label="Close" (click)="closeModal()">
+        <i class="fa fa-times-circle fa-2x text-danger position-relative" aria-hidden="true"></i>
     </button>
-    <img src="./assets/images/modal-img.jpg" class="img-thumbnail" alt="">
+
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center" style="height: 300px;">
+        <img src="../../../assets/images/Spinner.svg" width="100" alt="Loading">
+    </div>
+
+    <!-- Error Message (Optional) -->
+    <div *ngIf="isError" class="text-danger mt-3">
+        <img src="./assets/images/defaultAnnouncement.png" class="img-thumbnail" alt="Default Image">
+    </div>
+
+    <ngb-carousel *ngIf="!isLoading && !isError && announcementImages.length > 1" class="custom-carousel" [wrap]="true" [keyboard]="true" [pauseOnHover]="true" [showIndicators]="false">
+        <ng-template ngbSlide *ngFor="let image of announcementImages">
+            <div class="position-relative">
+                <img [src]="image.ImgPath" class="img-thumbnail w-100" alt="Announcement Image" *ngIf="image.ImgPath">
+                <p class="position-absolute bg-white px-3 py-1 mb-0 rounded-start-pill font-14 fw-medium">
+                   {{ image.EntryDate | date: 'dd/MM/y' }}
+                </p>
+            </div>
+        </ng-template>
+    </ngb-carousel>
+    
+
+    <!-- Single Image Display -->
+    <div *ngIf="!isLoading && !isError && announcementImages.length === 1" class="position-relative">
+        <img [src]="announcementImages[0].ImgPath" class="img-thumbnail w-100" alt="Announcement Image" *ngIf="announcementImages[0].ImgPath">
+        <p class="position-absolute bg-white px-3 py-1 mb-0 rounded-start-pill font-14 fw-medium">
+           {{ announcementImages[0].EntryDate | date: 'dd/MM/y' }}
+        </p>
+    </div>
 </div>

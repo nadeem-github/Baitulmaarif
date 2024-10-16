@@ -70,7 +70,7 @@ export class VideoGalleryComponent implements OnInit {
     if (screenWidth < 768) {  // Mobile screen
       this.pageSize = 6;
     } else {  // Desktop screen
-      this.pageSize = 8;
+      this.pageSize = 12;
     }
   }
 

@@ -1,0 +1,130 @@
+.card-lbk {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+}
+
+.date {
+    color: #979797;
+    font-size: var(--font-size-12);
+}
+
+.verticale-align {
+    vertical-align: middle;
+}
+
+.social-icons {
+    padding: 0;
+    list-style: none;
+    margin: 0em;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin: 0 0.15em;
+    position: relative;
+    font-size: 1.2em;
+}
+
+.social-icons i {
+    color: var(--darkbran);
+    position: absolute;
+    top: 7px;
+    left: 0;
+    right: 0;
+    transition: all 265ms ease-out;
+    font-size: 1rem;
+}
+
+.social-icons a {
+    display: inline-block;
+}
+
+.social-icons a:before {
+    transform: scale(1);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    content: " ";
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    display: block;
+    transition: all 265ms ease-out;
+    border: solid 1px var(--darkbran);
+}
+
+.social-icons a.social-square:before {
+    border-radius: 100%;
+}
+
+.border-bottom-dotted {
+    border-bottom: dashed 1px #ddd;
+    padding-bottom: 6px;
+}
+
+.majlis {
+    a {
+        font-size: var(--font-size-14);
+    }
+}
+
+.majlis:hover {
+    background-color: #f2f2f2;
+    transition: 0.5s;
+    cursor: pointer;
+
+    a {
+        color: #794e01;
+        text-decoration: underline;
+    }
+
+    i {
+        color: #000;
+    }
+}
+
+:host ::ng-deep {
+    .page-link {
+        color: var(--darkbran);
+    }
+
+    .page-link.active,
+    .active>.page-link {
+        background-color: var(--darkbran);
+        border-color: var(--darkbran);
+        color: #fff;
+    }
+}
+
+@media (max-width: 450px) {
+    .responsive {
+        .d-flex {
+            display: unset !important;
+        }
+    }
+
+    .text-truncate-20 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 40ch;
+        font-size: var(--font-size-12);
+    }
+}
+
+@media (max-width: 375px) {
+    .text-truncate-20 {
+        width: 35ch;
+    }
+}
+
+@media (max-width: 360px) {
+    .text-truncate-20 {
+        width: 33ch;
+    }
+}
+
+@media (max-width: 320px) {
+    .text-truncate-20 {
+        width: 27ch;
+    }
+}

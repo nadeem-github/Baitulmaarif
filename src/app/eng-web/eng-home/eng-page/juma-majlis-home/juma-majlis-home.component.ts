@@ -30,7 +30,7 @@ export class JumaMajlisHomeComponent implements OnInit {
 
   getjumaMajlis() {
     this.isLoading = true;
-    this.bayanService.jumaMajlis().subscribe(
+    this.bayanService.jumeratMajlis().subscribe(
       (response: any) => {
         if (response.Status) {
           this.bayanData = response.Data[0];

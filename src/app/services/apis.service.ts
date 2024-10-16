@@ -10,7 +10,7 @@ import { SliderData } from '../modals/slider.model';
 export class ApisService {
 
   private baseURL = 'http://apis.baitulmaarif.com';
-  private countDownURL = 'http://apis.baitulmaarif.com/api/services/timerCountdown';
+  // private countDownURL = 'http://apis.baitulmaarif.com/api/services/timerCountdown';
   
 
   private username = 'BaitulMaarif';
@@ -27,18 +27,18 @@ export class ApisService {
   constructor(private http: HttpClient) { }
 
   // Method to fetch the current countdown date
-  getCountdownDate(): Observable<{ countdownDate: string }> {
-    return this.http.get<{ countdownDate: string }>(this.countDownURL);
-  }
+  // getCountdownDate(): Observable<{ countdownDate: string }> {
+  //   return this.http.get<{ countdownDate: string }>(this.countDownURL);
+  // }
 
   getNextMajlis(): Observable<any> {
-    return this.http.get<any>(this.countDownURL);
+    return this.http.get<any>(this.baseURL + '/api/services/timerCountdown');
   }
 
   // Method to update the countdown date
-  updateCountdownDate(newDate: string): Observable<any> {
-    return this.http.post(this.countDownURL, { countdownDate: newDate });
-  }
+  // updateCountdownDate(newDate: string): Observable<any> {
+  //   return this.http.post(this.countDownURL, { countdownDate: newDate });
+  // }
 
   fetchShortClipList(ShortClipModal: ShortClipModal): Observable<any> {
     const headers = this.createHeaders();
@@ -66,20 +66,20 @@ export class ApisService {
 
   molanaBayanID(bayanId: string): Observable<any> {
     const headers = this.createHeaders();
-    const fetchBayanDetailUrl = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';  // Update with actual API endpoint
+    const fetchBayanDetailUrl = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';
     return this.http.post(fetchBayanDetailUrl, { MolanaBayanId: bayanId }, { headers });
   }
 
   getBayanDetailById(ShortClipModal: ShortClipModal, bayanId: string): Observable<any> {
     const headers = this.createHeaders();
-    const fetchBayanDetailById = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';  // Replace with the actual endpoint
-    ShortClipModal.MolanaBayanId = bayanId;  // Add MolanaBayanId to the ShortClipModal object
+    const fetchBayanDetailById = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';
+    ShortClipModal.MolanaBayanId = bayanId;
     return this.http.post(fetchBayanDetailById, ShortClipModal, { headers });
   }
 
   jumaMajlis(): Observable<any> {
     const headers = this.createHeaders();
-    const fetchjumaMajlis = `${this.baseURL}/api/adminActivities/getMolanaBayanByMujlisType`;  // Actual API endpoint
+    const fetchjumaMajlis = `${this.baseURL}/api/adminActivities/getMolanaBayanByMujlisType`;
     const payload = {
       majlisType: 'Juma Majlis'
     };
@@ -88,7 +88,7 @@ export class ApisService {
   
   jumeratMajlis(): Observable<any> {
     const headers = this.createHeaders();
-    const fetchjumaMajlis = `${this.baseURL}/api/adminActivities/getMolanaBayanByMujlisType`;  // Actual API endpoint
+    const fetchjumaMajlis = `${this.baseURL}/api/adminActivities/getMolanaBayanByMujlisType`;
     const payload = {
       majlisType: 'Jumerat Majlis'
     };
@@ -97,22 +97,27 @@ export class ApisService {
 
   jumaBayaan(ShortClipModal: ShortClipModal): Observable<any> {
     const headers = this.createHeaders();
-    const jumaBayaanURL = this.baseURL + '/api/adminActivities/fetchJumaBayanList';  // Replace with the actual endpoint
+    const jumaBayaanURL = this.baseURL + '/api/adminActivities/fetchJumaBayanList';
     return this.http.post(jumaBayaanURL, ShortClipModal, { headers });
   }
   
   latestBooksList(ShortClipModal: ShortClipModal): Observable<any> {
     const headers = this.createHeaders();
-    const latestBookURL = this.baseURL + '/api/adminActivities/fetchLatestBooksList';  // Replace with the actual endpoint
+    const latestBookURL = this.baseURL + '/api/adminActivities/fetchLatestBooksList';
     return this.http.post(latestBookURL, ShortClipModal, { headers });
   }
   
   topSlider(): Observable<SliderData[]> { // Specify the return type
     const headers = this.createHeaders();
-    const topSliderURL = `${this.baseURL}/api/adminActivities/fetchSliderImageList`; // Replace with the actual endpoint
+    const topSliderURL = `${this.baseURL}/api/adminActivities/fetchSliderImageList`
     return this.http.get<SliderData[]>(topSliderURL, { headers });
   }
   
+  announcementImage(): Observable<any> {
+    const headers = this.createHeaders();
+    const announcementImageURL = `${this.baseURL}/api/adminActivities/fetchOnLoadImageAnnouncementList`
+    return this.http.get(announcementImageURL, { headers });
+  }  
 
 
 

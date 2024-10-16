@@ -57,7 +57,7 @@ export class JumeratMajlisHomeComponent implements OnInit {
   shareBayan() {
     if (navigator.share && this.bayanData) {
       navigator.share({
-        title: this.bayanData.Title || 'Juma Majlis',
+        title: this.bayanData.Title || 'Jumerat Majlis',
         text: 'Check out this bayan',
         url: this.baseURL + this.bayanData.Mp3Path
       }).catch((error) => console.error('Error sharing bayan:', error));

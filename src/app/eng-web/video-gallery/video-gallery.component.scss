@@ -33,8 +33,12 @@
 .img-thumbnail {
     transition: transform 0.5s;
     cursor: pointer;
-    height: 18vw;
-    object-fit: cover;
+    height: 16vw;
+    object-fit: fill;
+
+    @media (min-width:1800px) {
+        height: 12vw;
+    }
 
     &:hover {
         -ms-transform: scale(1.07);

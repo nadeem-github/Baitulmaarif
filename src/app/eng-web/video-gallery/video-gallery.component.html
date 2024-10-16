@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-3 col-6 mb-4" *ngFor="let clip of paginatedVideos">
-                <div (click)="openModal(content, clip)">
+                <div (click)="openModal(content, clip)" class="m-0 m-sm-3">
                     <img [src]="clip.ImagePath ? baseUrl + clip.ImagePath : 'assets/images/shortClipDefault.png'" alt="" class="img-thumbnail shadow">
                 </div>
             </div>

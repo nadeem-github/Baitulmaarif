@@ -39,7 +39,7 @@ export class IslahiBayanHomeComponent implements OnInit {
 
     // Always filter for "Hazrat Mufti Muhammad Arshad Sb. Bajhedi (D.B.)"
     this.ShortClipModal.Filter = 'Hazrat Mufti Muhammad Arshad Sb. Bajhedi (D.B.)';
-    this.ShortClipModal.SortBy = 'Title';
+    this.ShortClipModal.SortBy = '';
   }
 
   getMolanaBayanList() {

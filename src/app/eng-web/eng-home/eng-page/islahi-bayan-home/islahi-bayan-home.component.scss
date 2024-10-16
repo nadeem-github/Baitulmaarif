@@ -37,4 +37,17 @@
         align-items: center;
         justify-content: center;
     }
+
+    .bayanTitle {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /* Limit to 2 lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-height: 3em;
+        /* Adjust based on your line-height */
+        line-height: 1.5em;
+        /* Ensure this matches the actual line height */
+    }
 }

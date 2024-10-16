@@ -1,5 +1,6 @@
 // slider.model.ts
 export interface SliderData {
+    imageUrl: any;
     SliderId: number;
     UrSliderImagePath1: string | null;
     UrSliderImagePath2: string | null;

@@ -24,7 +24,7 @@
             </a>
         </div>
         <div class="py-2 text-center">
-            <button class="btn btn-primary view-more" (click)="gotoTop()" routerLink="../Bayaandetaillist">View More...</button>
+            <button class="btn btn-primary view-more" (click)="gotoTop()" routerLink="../AllAhamBayan">View More...</button>
         </div>
     </div>
 </div>
@@ -39,7 +39,16 @@
 		<!-- <i class="fa fa-times-circle fa-2x text-danger btn-div position-absolute bg-white rounded-circle d-flex align-items-center justify-content-center" aria-hidden="true" (click)="modal.dismiss()"></i> -->
 	</div>
 	<div class="modal-body">
-		<audio [src]="audioUrl" autoplay controls class="w-100 mb-3"></audio>
+		<div *ngIf="loadingAudio" class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <p class="text-success mt-2">Audio is loading, please wait...</p>
+        </div>
+
+        <!-- Audio element with event bindings -->
+        <audio [src]="audioUrl" (canplay)="onAudioLoad()" (error)="handleAudioError()" (waiting)="loadingAudio = true" autoplay controls class="w-100 mb-3">
+        </audio>
 		<p class="font-16"><strong>Date :</strong> {{ selectedBayan?.UrUploadDate | date: 'dd/MM/y' }}</p>
 		<p class="font-16"><strong>File Size :</strong> {{ selectedBayan?.FileSize }}</p>
 		<p class="font-16"><strong>Voice :</strong> {{selectedBayan.Catagory}}</p>

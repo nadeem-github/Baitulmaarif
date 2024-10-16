@@ -1,13 +1,59 @@
-.btn {
-    right: -1rem;
-    top: -1rem;
-    height: 35px;
-    width: 35px;
+.modal-body {
+
+    .position-relative {
+        p {
+            right: 5px;
+            top: 1.5rem;
+        }
+    }
+
+    .btn {
+        right: -1rem;
+        top: -1rem;
+        height: 35px;
+        width: 35px;
+        z-index: 9;
+
+        @media (min-width: 1500px){
+            i {
+                top: 1.2px;
+            }            
+        }
+
+        @media (max-width:450px) {
+            right: 0;
+            top: 0;
+        }
+    }
+
 }
 
-@media (max-width:450px) {
-    .btn {
-        right: 0;
-        top: 0;
+:host ::ng-deep .custom-carousel {
+    .carousel-indicators {
+        display: none;
+    }
+
+    .carousel-inner {
+        overflow: hidden; // Ensure no overflow of images
+
+        img {
+            height: 90vh;
+            overflow: hidden;
+            object-fit: fill; // Cover the space while maintaining aspect ratio
+        }
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 50px; // Fixed width for arrows
+        height: 50px; // Fixed height for arrows
+        top: 50%; // Center the arrows vertically
+        transform: translateY(-50%); // Adjust for perfect centering
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(255, 255, 255, 0.5); // Background color for visibility
+            border-radius: 50%; // Make arrows circular
+        }
     }
 }

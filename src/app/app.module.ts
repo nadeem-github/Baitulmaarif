@@ -70,6 +70,7 @@ import { LiveBroadcastingPlayerComponent } from './eng-web/eng-home/eng-page/liv
 import { AllMajalisBayanComponent } from './eng-web/eng-home/all-majalis-bayan/all-majalis-bayan.component';
 import { AllArshadBayanComponent } from './eng-web/eng-home/all-arshad-bayan/all-arshad-bayan.component';
 import { SafeUrlPipe } from './pipes/safe-url';
+import { AllMujahidBayanComponent } from './eng-web/eng-home/all-mujahid-bayan/all-mujahid-bayan.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -125,7 +126,8 @@ import { SafeUrlPipe } from './pipes/safe-url';
     IslahiBayanHomeComponent,
     AllMajalisBayanComponent,
     AllArshadBayanComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    AllMujahidBayanComponent
   ],
   imports: [
     BrowserModule,

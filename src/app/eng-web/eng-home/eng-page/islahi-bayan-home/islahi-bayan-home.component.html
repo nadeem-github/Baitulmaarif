@@ -15,11 +15,11 @@
                 </div>
             </div>
             <div *ngFor="let bayan of dataMolanaBayanList">
-                <p class="my-3 fw-semibold">{{ bayan.Title }}</p>
+                <p class="my-3 fw-semibold bayanTitle" [title]="bayan.Title">{{ bayan.Title }}</p>
                 <audio [src]="this.baseUrl + bayan.Mp3Path" controls class="w-100 mb-3" (error)="handleAudioError()" (playing)="updateAudioState($event)" (pause)="updateAudioState($event)"></audio>
                 <p *ngIf="audioError" class="text-center text-danger font-14 fw-semibold">Audio file unavailable, Please try again later</p>
-                <p class="mt-2 mb-1 fw-semibold">Voice: {{bayan.Catagory}}</p>
-                <p class="fw-semibold">{{ bayan.UploadDate | date: 'dd/MM/yyyy' }}</p>
+                <p class="mt-2 mb-1 fw-semibold text-truncate" [title]="bayan.Catagory">Voice: {{bayan.Catagory}}</p>
+                <p class="fw-semibold">{{ bayan.UploadDate | date: 'd MMMM y' }}</p>
                 <div class="player-btn-border d-flex justify-content-center align-items-center">
                     <a (click)="downloadFile(bayan.UrMp3Path, bayan.UrTitle)" class="actionbtns me-3" download>
                         <i class="fa fa-download me-2" aria-hidden="true"></i>

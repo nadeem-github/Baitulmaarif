@@ -29,6 +29,7 @@ import { HamdOMunajaatComponent } from './eng-web/eng-home/eng-page/ashaar/hamd-
 import { NaatPaakComponent } from './eng-web/eng-home/eng-page/ashaar/naat-paak/naat-paak.component';
 import { AllMajalisBayanComponent } from './eng-web/eng-home/all-majalis-bayan/all-majalis-bayan.component';
 import { AllArshadBayanComponent } from './eng-web/eng-home/all-arshad-bayan/all-arshad-bayan.component';
+import { AllMujahidBayanComponent } from './eng-web/eng-home/all-mujahid-bayan/all-mujahid-bayan.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'EngHome', pathMatch: 'full', },
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: 'ResentFatawa', component: ResentFatawaComponent, },
   { path: 'AskQuestion', component: AskQuestionComponent, },
   { path: 'VideoGallery', component: VideoGalleryComponent, },
-  { path: 'AllBayanMujahid', component: AhamBayanListComponent, },
+  { path: 'AllAhamBayan', component: AhamBayanListComponent, },
+  { path: 'AllBayanMujahid', component: AllMujahidBayanComponent, },
   { path: 'Contact', component: ContactComponent, },
   { path: 'AdmissionForm', component: AdmissionFormComponent, },
   { path: 'Bayaandetaillist', component: BayaandetaillistComponent, },

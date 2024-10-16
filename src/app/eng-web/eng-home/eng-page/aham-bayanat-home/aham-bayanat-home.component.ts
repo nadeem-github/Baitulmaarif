@@ -14,82 +14,56 @@ export class AhamBayanatHomeComponent implements OnInit {
   ShortClipModal: ShortClipModal = new ShortClipModal();
   dataMolanaBayanList: any[] = [];
   page = 1;
-  pageSize = 6;
+  pageSize = 5;
   collectionSize = 0;
-  catagory: any;
-  searchTerm: string = '';
-  selectedCategory = 'All Bayanaat'; // Default selected category
   selectedBayan: any;
   audioUrl: any;
+  audioError: boolean = false;
+  loading: boolean = false;
+  loadingAudio: boolean = false;
 
   constructor(
     private shortClipService: ApisService,
     private route: ActivatedRoute,
     private router: Router,
     private modalService: NgbModal
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.catagory = params.get('catagory');
-      this.setUpPayload();
-      this.getMolanaBayanList();
-    });
+    this.setUpPayload();
+    this.getMolanaBayanList();
   }
 
   setUpPayload() {
-    this.ShortClipModal.PageIndexSize = this.page;
-    this.ShortClipModal.SortOrder = 'desc';
+    // this.ShortClipModal.PageIndexSize = this.page;
+    // this.ShortClipModal.SortOrder = 'desc';
+    // this.ShortClipModal.SortBy = 'Title';
     this.ShortClipModal.PageSize = this.pageSize;
-    
-    // Log the selected category to ensure it matches what the API expects
-    console.log('Selected Category:', this.selectedCategory);
 
-    // Apply the filter for selected category, 'All' will return everything (no filter)
-    if (this.selectedCategory === 'All Bayanaat') {
-      this.ShortClipModal.Filter = ''; // Empty filter means no category filter
-    } else {
-      this.ShortClipModal.Filter = this.selectedCategory;
-    }
-
-    this.ShortClipModal.SortBy = 'Title';
+    // Always filter for "other"
+    this.ShortClipModal.Filter = 'other';
   }
 
   getMolanaBayanList() {
+    this.loading = true; // Start loading before making the API call
+  
     this.shortClipService.molanaBayanList(this.ShortClipModal).subscribe(
       (response: any) => {
+        this.loading = false; // Stop loading when data is received
         if (response.Status) {
-          // Apply search filter after receiving data
-          this.dataMolanaBayanList = response.Data.filter((bayan: { Title: string; }) =>
-            bayan.Title.toLowerCase().includes(this.searchTerm.toLowerCase())
-          );
+          this.dataMolanaBayanList = response.Data
           this.collectionSize = response.TotalCount;
         } else {
           console.warn('API response status is false');
         }
       },
-      (error: any) => {
+      (error) => {
+        this.loading = false; // Stop loading in case of error
         console.error('Error fetching short clips:', error);
       }
     );
   }
 
-  viewBayanDetails(bayanId: string) {
-    this.router.navigate(['/BayanDetail', bayanId]); // Navigate to BayanDetail using MolanaBayanId
-  }
-
-  onSearchChange() {
-    this.page = 1; // Reset to the first page when search term changes
-    this.setUpPayload(); // Ensure pagination and category filters are applied
-    this.getMolanaBayanList(); // Re-fetch the list with the search term
-  }
-
-  // Triggered when the category changes
-  onCategoryChange(event: any) {
-    this.page = 1; // Reset to first page when changing category
-    this.setUpPayload();
-    this.getMolanaBayanList();
-  }
 
   onPageChange() {
     this.ShortClipModal.PageIndexSize = this.page;
@@ -126,7 +100,6 @@ export class AhamBayanatHomeComponent implements OnInit {
         console.error('Error sharing bayan:', error);
       });
     } else {
-      // Fallback for browsers that don't support the share API
       console.warn('Web Share API is not supported in this browser.');
       alert('Sharing is not supported in this browser.');
     }
@@ -135,7 +108,18 @@ export class AhamBayanatHomeComponent implements OnInit {
   openBayanModal(bayan: any, content: any) {
     this.selectedBayan = bayan; // Set the selected bayan
     this.audioUrl = 'http://apis.baitulmaarif.com/' + bayan.UrMp3Path; // Set the audio URL
+    this.loadingAudio = true;
+    this.audioError = false; // Reset the error state
     this.modalService.open(content, { centered: true, size: 'md', backdrop: 'static', keyboard: false }); // Open modal with 'lg' size
+  }
+
+  handleAudioError() {
+    this.loadingAudio = false; // Hide loader on error
+    this.audioError = true; // Show error message if audio fails to load
+  }
+  
+  onAudioLoad() {
+    this.loadingAudio = false; // Hide loader when audio is ready
   }
 
   gotoTop() {

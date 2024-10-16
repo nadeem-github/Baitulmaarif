@@ -50,9 +50,7 @@ export class MajalisHomeComponent implements OnInit {
       (response: any) => {
         this.loading = false; // Stop loading when data is received
         if (response.Status) {
-          // Sort data by 'UrUploadDate' in descending order to display the latest record at the top
           this.dataMolanaBayanList = response.Data
-          // this.dataMolanaBayanList.sort((a: { MolanaBayanId: number; }, b: { MolanaBayanId: number; }) => a.MolanaBayanId - b.MolanaBayanId);
           this.collectionSize = response.TotalCount;
         } else {
           console.warn('API response status is false');
