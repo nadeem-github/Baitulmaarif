@@ -13,45 +13,44 @@ export class AllMajalisBayanComponent implements OnInit {
 
   ShortClipModal: ShortClipModal = new ShortClipModal();
   dataMolanaBayanList: any[] = [];
+  filteredBayanList: any[] = [];
   page = 1;
   pageSize = 10;
   collectionSize = 0;
   selectedBayan: any;
-  audioUrl: any;
-  audioError: boolean = false;
-  loading: boolean = false;
-  loadingAudio: boolean = false;
+  audioUrl: string | null = null;
+  audioError = false;
+  loading = false;
+  loadingAudio = false;
+  searchQuery = ''; // Filter input binding
+
+  private readonly BASE_URL = 'http://apis.baitulmaarif.com/';
 
   constructor(
     private shortClipService: ApisService,
     private route: ActivatedRoute,
     private router: Router,
     private modalService: NgbModal
-  ) { }
+  ) {}
 
   ngOnInit(): void {
-    this.setUpPayload();
     this.getMolanaBayanList();
   }
 
-  setUpPayload() {
-    // this.ShortClipModal.PageIndexSize = this.page;
-    // this.ShortClipModal.SortOrder = 'desc';
-    // this.ShortClipModal.SortBy = 'Title';
-    this.ShortClipModal.PageSize = this.pageSize;
-
-    // Always filter for "Majalis Hazrat Wala (D.B.)"
-    this.ShortClipModal.Filter = 'Majalis Hazrat Wala (D.B.)';
-  }
-
-  getMolanaBayanList() {
+  private getMolanaBayanList(): void {
     this.loading = true;
-  
+    const payload = {
+      PageSize: this.pageSize,
+      PageIndexSize: this.page,
+      Filter: 'Majalis Hazrat Wala (D.B.)',
+    };
+
     this.shortClipService.molanaBayanList(this.ShortClipModal).subscribe(
       (response: any) => {
         this.loading = false;
         if (response.Status) {
-          this.dataMolanaBayanList = response.Data
+          this.dataMolanaBayanList = response.Data;
+          this.filteredBayanList = response.Data; // Initialize filtered list
           this.collectionSize = response.TotalCount;
         } else {
           console.warn('API response status is false');
@@ -59,26 +58,22 @@ export class AllMajalisBayanComponent implements OnInit {
       },
       (error) => {
         this.loading = false;
-        console.error('Error fetching short clips:', error);
+        console.error('Error fetching bayan list:', error);
       }
     );
   }
 
-
-  onPageChange() {
-    this.ShortClipModal.PageIndexSize = this.page;
+  onPageChange(): void {
     this.getMolanaBayanList();
   }
 
-  onPageSizeChange() {
+  onPageSizeChange(): void {
     this.page = 1;
-    this.setUpPayload();
     this.getMolanaBayanList();
   }
 
   downloadFile(mp3Path: string, title: string): void {
-    const baseUrl = 'http://apis.baitulmaarif.com/';
-    const downloadUrl = `${baseUrl}${mp3Path}`;
+    const downloadUrl = `${this.BASE_URL}${mp3Path}`;
     const link = document.createElement('a');
     link.href = downloadUrl;
     link.download = title;
@@ -90,36 +85,46 @@ export class AllMajalisBayanComponent implements OnInit {
     const shareData = {
       title: bayan.Title,
       text: bayan.Description,
-      url: 'http://apis.baitulmaarif.com/' + bayan.UrMp3Path
+      url: `${this.BASE_URL}${bayan.UrMp3Path}`,
     };
 
     if (navigator.share) {
-      navigator.share(shareData).then(() => {
-        console.log('Bayan shared successfully');
-      }).catch((error) => {
-        console.error('Error sharing bayan:', error);
-      });
+      navigator.share(shareData).catch((error) =>
+        console.error('Error sharing bayan:', error)
+      );
     } else {
-      console.warn('Web Share API is not supported in this browser.');
       alert('Sharing is not supported in this browser.');
     }
   }
 
-  openBayanModal(bayan: any, content: any) {
-    this.selectedBayan = bayan; // Set the selected bayan
-    this.audioUrl = 'http://apis.baitulmaarif.com/' + bayan.UrMp3Path; // Set the audio URL
-    this.audioError = false; // Reset the error state
-    this.loadingAudio = true; // Start showing loader when modal is opened
-    this.modalService.open(content, { centered: true, size: 'md', backdrop: 'static', keyboard: false }); // Open modal
+  openBayanModal(bayan: any, content: any): void {
+    this.selectedBayan = bayan;
+    this.audioUrl = `${this.BASE_URL}${bayan.UrMp3Path}`;
+    this.audioError = false;
+    this.loadingAudio = true;
+    this.modalService.open(content, {
+      centered: true,
+      size: 'md',
+      backdrop: 'static',
+      keyboard: false,
+    });
   }
-  
-  handleAudioError() {
-    this.loadingAudio = false; // Hide loader on error
-    this.audioError = true; // Show error message if audio fails to load
+
+  handleAudioError(): void {
+    this.loadingAudio = false;
+    this.audioError = true;
   }
-  
-  onAudioLoad() {
-    this.loadingAudio = false; // Hide loader when audio is ready
+
+  onAudioLoad(): void {
+    this.loadingAudio = false;
+  }
+
+  // New method to filter bayan list based on search input
+  filterBayanList(): void {
+    const query = this.searchQuery.trim().toLowerCase();
+    this.filteredBayanList = this.dataMolanaBayanList.filter((bayan) =>
+      bayan.Title.toLowerCase().includes(query)
+    );
   }
 
 }

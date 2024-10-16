@@ -14,10 +14,10 @@
         width: 35px;
         z-index: 9;
 
-        @media (min-width: 1500px){
+        @media (min-width: 1500px) {
             i {
                 top: 1.2px;
-            }            
+            }
         }
 
         @media (max-width:450px) {
@@ -39,7 +39,11 @@
         img {
             height: 90vh;
             overflow: hidden;
-            object-fit: fill; // Cover the space while maintaining aspect ratio
+            object-fit: fill;
+
+            @media (max-width: 500px) {
+                height: auto;
+            }
         }
     }
 

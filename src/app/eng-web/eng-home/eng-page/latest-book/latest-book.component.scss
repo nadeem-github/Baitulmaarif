@@ -52,6 +52,12 @@
 
     .team-area .team-content .team-img {
         position: relative;
+
+        @media (max-width: 500px) {
+            img {
+                height: 70vh;
+            }
+        }
     }
 
     .team-area:hover .overlay {

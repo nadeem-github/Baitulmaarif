@@ -1,14 +1,23 @@
 <div class="container py-4">
-	<h2 class="text-center fw-bold mb-4">Majalis Bayaan</h2>
+	<h2 class="text-center fw-bold mb-4">All Majalis Bayaan</h2>
+
 	<div class="card shadow-sm">
 		<div class="card-header text-center card-lbk px-0">
 			<p class="text-white font-16 mb-0">Arif billah Hazrat Aqdas</p>
 			<p class="text-white border-bottom-dotted mb-0 font-24">Hazrat Wala (D.B.)</p>
 		</div>
-		<div class="p-0 p-sm-3 card-body">
-            <div *ngIf="loading" class="text-center py-4">
-                <img src="../../../assets/images/Spinner.svg" width="100" alt="">
-            </div>
+
+		<div class="card-body p-0 p-sm-3">
+			<!-- Search Input for Filtering Bayaan List -->
+			<div class="mb-0 mb-sm-3 p-3 p-sm-0">
+				<input type="text" class="form-control shadow-none" placeholder="Search by Title" [(ngModel)]="searchQuery"	(input)="filterBayanList()" />
+			</div>
+
+			<div *ngIf="loading" class="text-center py-4">
+				<img src="../../../assets/images/Spinner.svg" width="100" alt="Loading..." />
+			</div>
+
+
 			<div class="table-responsive" *ngIf="!loading">
 				<table class="table table-bordered">
 					<thead>
@@ -20,33 +29,29 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr *ngFor="let bayan of dataMolanaBayanList">
-							<td class="majlis" (click)="openBayanModal(bayan, bayanModal);">
+						<tr *ngFor="let bayan of filteredBayanList">
+							<td (click)="openBayanModal(bayan, bayanModal)" class="majlis">
 								<div>
-									<div class="fw-semibold text-truncate text-truncate-20">
-                                        {{ bayan.Title }}
-                                    </div>
-									<span class="date d-block d-sm-none">
-                                        {{ bayan.UploadDate | date: 'dd/MM/yyyy' }} - {{ bayan.FileSize }}
-                                    </span>
+									<div class="fw-semibold text-truncate text-truncate-20">{{ bayan.Title }}</div>
+									<span class="d-block d-sm-none">
+										{{ bayan.UploadDate | date: 'dd/MM/yyyy' }} - {{ bayan.FileSize }}
+									</span>
 								</div>
 							</td>
-							<td class="text-center d-none d-sm-table-cell">
-                                {{ bayan.UploadDate | date: 'dd/MM/yyyy' }}
+							<td class="text-center d-none d-sm-table-cell">{{ bayan.UploadDate | date: 'dd/MM/yyyy' }}
 							</td>
-							<td class="text-center d-none d-sm-table-cell">
-								{{ bayan.FileSize ? bayan.FileSize : 'Not Added'}}
-							</td>
-							<td class="text-center verticale-align pb-0">
+							<td class="text-center d-none d-sm-table-cell">{{ bayan.FileSize || 'Not Added' }}</td>
+							<td class="text-center">
 								<ul class="social-icons mb-0 d-flex align-items-center justify-content-center">
-									<li>
-										<a (click)="downloadFile(bayan.UrMp3Path, bayan.UrTitle)" title="Download Bayaan" class="social-square">
-											<i class="fa fa-cloud-download" aria-hidden="true"></i>
+									<li class="d-flex">
+										<a (click)="downloadFile(bayan.UrMp3Path, bayan.Title)" title="Download"
+											class="social-square">
+											<i class="fa fa-cloud-download"></i>
 										</a>
 									</li>
-									<li>
-										<a title="Share Bayaan" class="social-square">
-											<i class="fa fa-share-alt-square" aria-hidden="true"></i>
+									<li class="d-flex">
+										<a (click)="shareBayan(bayan)" title="Share" class="social-square">
+											<i class="fa fa-share-alt-square"></i>
 										</a>
 									</li>
 								</ul>
@@ -56,58 +61,50 @@
 				</table>
 			</div>
 
-			<div class="p-2 p-sm-0 responsive">
-				<div class="d-flex justify-content-between">
-					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-                    [maxSize]="2" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
-					</ngb-pagination>
+			<div class="d-flex justify-content-between align-items-center flex-wrap p-2 p-sm-0 ngbPagination">
+				<ngb-pagination class="mb-3 mb-sm-0 mx-auto mx-sm-0" [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" [maxSize]="2"
+					[rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
+				</ngb-pagination>
 
-					<select class="form-select" style="width: auto" [(ngModel)]="pageSize"
-                    (ngModelChange)="onPageSizeChange()">
-						<option [ngValue]="5">5 Bayaan Per Page</option>
-						<option [ngValue]="10">10 Bayaan Per Page</option>
-					</select>
-				</div>
+				<select class="form-select shadow-none" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()">
+					<option [ngValue]="5">5 Bayaan Per Page</option>
+					<option [ngValue]="10">10 Bayaan Per Page</option>
+				</select>
 			</div>
 		</div>
 	</div>
 </div>
 
 <ng-template #bayanModal let-modal>
-    <div class="modal-header card-lbk">
-        <p class="text-white mb-0 w-100 d-flex fw-semibold">
-            <marquee behavior="scroll" direction="left" scrollamount="4">
-                <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedBayan?.Title }}</p>
-            </marquee>
-        </p>
-    </div>
-    <div class="modal-body">
-        <!-- Loader when audio is loading -->
-        <div *ngIf="loadingAudio" class="text-center">
-            <div class="spinner-border text-primary" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-            <p class="text-success mt-2">Audio is loading, please wait...</p>
-        </div>
+	<div class="modal-header card-lbk">
+		<marquee behavior="scroll" direction="left" scrollamount="4" class="w-100 text-white fw-semibold">
+			{{ selectedBayan?.Title }}
+		</marquee>
+	</div>
+	<div class="modal-body">
+		<div *ngIf="loadingAudio" class="text-center">
+			<div class="spinner-border text-primary" role="status"></div>
+			<p class="text-success mt-2">Audio is loading, please wait...</p>
+		</div>
 
-        <!-- Audio element with event bindings -->
-        <audio [src]="audioUrl" (canplay)="onAudioLoad()" (error)="handleAudioError()" (waiting)="loadingAudio = true" autoplay controls class="w-100 mb-3">
-        </audio>
+		<audio [src]="audioUrl" (canplay)="onAudioLoad()" (error)="handleAudioError()" autoplay controls
+			class="w-100 mb-3">
+		</audio>
 
-        <!-- Error message if audio fails to load -->
-        <p *ngIf="audioError" class="text-center text-danger font-14 fw-semibold">Audio file unavailable, Please try again later</p>
-        <p class="font-16"><strong>Date :</strong> {{ selectedBayan?.UploadDate | date: 'dd/MM/y' }}</p>
-        <p class="font-16"><strong>File Size :</strong> {{ selectedBayan?.FileSize }}</p>
-        <p class="font-16"><strong>Voice :</strong> {{selectedBayan.Catagory}}</p>
-        <p class="font-16 mb-0"><strong>Description :</strong> {{ selectedBayan?.Description }}</p>
-    </div>
-    <div class="modal-footer d-flex align-items-center justify-content-center">
-        <a class="actionbtns" (click)="downloadFile(selectedBayan?.UrMp3Path, selectedBayan?.Title)">
-            <i class="fa fa-cloud-download" aria-hidden="true"></i> Download
-        </a>
-        <a class="actionbtns" (click)="shareBayan(selectedBayan)">
-            <i class="fa fa-share-alt" aria-hidden="true"></i> Share
-        </a>
-        <a class="actionbtns" (click)="modal.close()">Close</a>
-    </div>
+		<p *ngIf="audioError" class="text-center text-danger fw-semibold">Audio unavailable. Try again later.</p>
+
+		<p><strong>Date:</strong> {{ selectedBayan?.UploadDate | date: 'dd/MM/yyyy' }}</p>
+		<p><strong>File Size:</strong> {{ selectedBayan?.FileSize }}</p>
+		<p><strong>Voice:</strong> {{ selectedBayan?.Catagory }}</p>
+		<p><strong>Description:</strong> {{ selectedBayan?.Description }}</p>
+	</div>
+	<div class="modal-footer">
+		<a (click)="downloadFile(selectedBayan?.UrMp3Path, selectedBayan?.Title)" class="actionbtns">
+			<i class="fa fa-cloud-download"></i> Download
+		</a>
+		<a (click)="shareBayan(selectedBayan)" class="actionbtns">
+			<i class="fa fa-share-alt"></i> Share
+		</a>
+		<a (click)="modal.close()" class="actionbtns">Close</a>
+	</div>
 </ng-template>

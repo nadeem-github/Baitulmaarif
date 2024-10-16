@@ -82,7 +82,27 @@
     }
 }
 
+.table-responsive{
+    th, td{
+        vertical-align: middle;
+    }
+}
+
 :host ::ng-deep {
+    .ngbPagination {
+        .pagination {
+            margin-bottom: 0;
+        }
+
+        select {
+            width: 20%;
+
+            @media (max-width:500px) {
+                width: 100%;
+            }
+        }
+    }
+
     .page-link {
         color: var(--darkbran);
     }
@@ -95,7 +115,7 @@
     }
 }
 
-@media (max-width: 450px) {
+@media (max-width: 500px) {
     .responsive {
         .d-flex {
             display: unset !important;
