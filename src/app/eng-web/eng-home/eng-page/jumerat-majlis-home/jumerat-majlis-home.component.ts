@@ -35,6 +35,8 @@ export class JumeratMajlisHomeComponent implements OnInit {
       (response: any) => {
         if (response.Status) {
           this.bayanData = response.Data[0];
+          console.log('Jumerat Majlis', this.bayanData);
+          
           this.isLoading = false;
         } else {
           console.warn('API response status is false');

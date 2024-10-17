@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { catchError, Observable } from 'rxjs';
 import { ShortClipModal } from "../modals/ShortClipList";
 import { SliderData } from '../modals/slider.model';
 
@@ -10,115 +10,80 @@ import { SliderData } from '../modals/slider.model';
 export class ApisService {
 
   private baseURL = 'http://apis.baitulmaarif.com';
-  // private countDownURL = 'http://apis.baitulmaarif.com/api/services/timerCountdown';
-  
-
-  private username = 'BaitulMaarif';
-  private password = 'JifYf58uy07d';
-
-  private createHeaders(): HttpHeaders {
-    const encodedCredentials = btoa(`${this.username}:${this.password}`);
-    return new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Basic ${encodedCredentials}`
-    });
-  }
 
   constructor(private http: HttpClient) { }
 
-  // Method to fetch the current countdown date
-  // getCountdownDate(): Observable<{ countdownDate: string }> {
-  //   return this.http.get<{ countdownDate: string }>(this.countDownURL);
-  // }
+  private handleError(error: any): Observable<never> {
+    console.error('API Error:', error);
+    throw error;
+  }
 
   getNextMajlis(): Observable<any> {
-    return this.http.get<any>(this.baseURL + '/api/services/timerCountdown');
+    const url = `${this.baseURL}/api/services/timerCountdown`;
+    return this.http.get<any>(url).pipe(catchError(this.handleError));
   }
 
-  // Method to update the countdown date
-  // updateCountdownDate(newDate: string): Observable<any> {
-  //   return this.http.post(this.countDownURL, { countdownDate: newDate });
-  // }
-
-  fetchShortClipList(ShortClipModal: ShortClipModal): Observable<any> {
-    const headers = this.createHeaders();
-    const fetchShortClipListUrl = this.baseURL + '/api/adminActivities/fetchShortClipList';
-    return this.http.post(fetchShortClipListUrl, ShortClipModal, { headers });
+  fetchShortClipList(payload: ShortClipModal): Observable<any> {
+    const url = `${this.baseURL}/api/adminActivities/fetchShortClipList`;
+    return this.http.post<any>(url, payload).pipe(catchError(this.handleError));
   }
 
-  molanaBayanList(ShortClipModal: ShortClipModal): Observable<any> {
-    const headers = this.createHeaders();
-    const fetchMolanaBayanListUrl = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';
-    return this.http.post(fetchMolanaBayanListUrl, ShortClipModal, { headers });
+  molanaBayanList(payload: ShortClipModal): Observable<any> {
+    const url = `${this.baseURL}/api/adminActivities/fetchMolanaBayanList`;
+    return this.http.post<any>(url, payload).pipe(catchError(this.handleError));
   }
 
   getBayanDetails(id: string): Observable<any> {
-    const headers = this.createHeaders();
-    const fetchBayanDetailsUrl = `${this.baseURL}/api/adminActivities/fetchMolanaBayanDetails/${id}`;
-    return this.http.get(fetchBayanDetailsUrl, { headers });
+    const url = `${this.baseURL}/api/adminActivities/fetchMolanaBayanDetails/${id}`;
+    return this.http.get<any>(url).pipe(catchError(this.handleError));
   }
-  
-  getAshaarList(ShortClipModal: ShortClipModal): Observable<any> {
-    const headers = this.createHeaders();
-    const fetchAshaarListUrl = this.baseURL + '/api/adminActivities/fetchAshaarList';
-    return this.http.post(fetchAshaarListUrl, ShortClipModal, { headers });
+
+  getAshaarList(payload: ShortClipModal): Observable<any> {
+    const url = `${this.baseURL}/api/adminActivities/fetchAshaarList`;
+    return this.http.post<any>(url, payload).pipe(catchError(this.handleError));
   }
 
   molanaBayanID(bayanId: string): Observable<any> {
-    const headers = this.createHeaders();
-    const fetchBayanDetailUrl = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';
-    return this.http.post(fetchBayanDetailUrl, { MolanaBayanId: bayanId }, { headers });
+    const url = `${this.baseURL}/api/adminActivities/fetchMolanaBayanList`;
+    return this.http.post<any>(url, { MolanaBayanId: bayanId }).pipe(catchError(this.handleError));
   }
 
-  getBayanDetailById(ShortClipModal: ShortClipModal, bayanId: string): Observable<any> {
-    const headers = this.createHeaders();
-    const fetchBayanDetailById = this.baseURL + '/api/adminActivities/fetchMolanaBayanList';
-    ShortClipModal.MolanaBayanId = bayanId;
-    return this.http.post(fetchBayanDetailById, ShortClipModal, { headers });
+  getBayanDetailById(payload: ShortClipModal, bayanId: string): Observable<any> {
+    payload.MolanaBayanId = bayanId;
+    const url = `${this.baseURL}/api/adminActivities/fetchMolanaBayanList`;
+    return this.http.post<any>(url, payload).pipe(catchError(this.handleError));
   }
 
   jumaMajlis(): Observable<any> {
-    const headers = this.createHeaders();
-    const fetchjumaMajlis = `${this.baseURL}/api/adminActivities/getMolanaBayanByMujlisType`;
-    const payload = {
-      majlisType: 'Juma Majlis'
-    };
-    return this.http.post(fetchjumaMajlis, payload, { headers });
+    const url = `${this.baseURL}/api/adminActivities/getMolanaBayanByMujlisType`;
+    const payload = { majlisType: 'Juma Majlis' };
+    return this.http.post<any>(url, payload).pipe(catchError(this.handleError));
   }
-  
+
   jumeratMajlis(): Observable<any> {
-    const headers = this.createHeaders();
-    const fetchjumaMajlis = `${this.baseURL}/api/adminActivities/getMolanaBayanByMujlisType`;
-    const payload = {
-      majlisType: 'Jumerat Majlis'
-    };
-    return this.http.post(fetchjumaMajlis, payload, { headers });
+    const url = `${this.baseURL}/api/adminActivities/getMolanaBayanByMujlisType`;
+    const payload = { majlisType: 'Jumerat Majlis' };
+    return this.http.post<any>(url, payload).pipe(catchError(this.handleError));
   }
 
-  jumaBayaan(ShortClipModal: ShortClipModal): Observable<any> {
-    const headers = this.createHeaders();
-    const jumaBayaanURL = this.baseURL + '/api/adminActivities/fetchJumaBayanList';
-    return this.http.post(jumaBayaanURL, ShortClipModal, { headers });
+  jumaBayaan(payload: ShortClipModal): Observable<any> {
+    const url = `${this.baseURL}/api/adminActivities/fetchJumaBayanList`;
+    return this.http.post<any>(url, payload).pipe(catchError(this.handleError));
   }
-  
-  latestBooksList(ShortClipModal: ShortClipModal): Observable<any> {
-    const headers = this.createHeaders();
-    const latestBookURL = this.baseURL + '/api/adminActivities/fetchLatestBooksList';
-    return this.http.post(latestBookURL, ShortClipModal, { headers });
+
+  latestBooksList(payload: ShortClipModal): Observable<any> {
+    const url = `${this.baseURL}/api/adminActivities/fetchLatestBooksList`;
+    return this.http.post<any>(url, payload).pipe(catchError(this.handleError));
   }
-  
-  topSlider(): Observable<SliderData[]> { // Specify the return type
-    const headers = this.createHeaders();
-    const topSliderURL = `${this.baseURL}/api/adminActivities/fetchSliderImageList`
-    return this.http.get<SliderData[]>(topSliderURL, { headers });
+
+  topSlider(): Observable<SliderData[]> {
+    const url = `${this.baseURL}/api/adminActivities/fetchSliderImageList`;
+    return this.http.get<SliderData[]>(url).pipe(catchError(this.handleError));
   }
-  
+
   announcementImage(): Observable<any> {
-    const headers = this.createHeaders();
-    const announcementImageURL = `${this.baseURL}/api/adminActivities/fetchOnLoadImageAnnouncementList`
-    return this.http.get(announcementImageURL, { headers });
-  }  
-
-
+    const url = `${this.baseURL}/api/adminActivities/fetchOnLoadImageAnnouncementList`;
+    return this.http.get<any>(url).pipe(catchError(this.handleError));
+  }
 
 }

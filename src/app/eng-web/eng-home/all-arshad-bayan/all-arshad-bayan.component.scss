@@ -16,11 +16,13 @@
     padding: 0;
     list-style: none;
     margin: 0em;
+
     li {
         display: inline-block;
         margin: 0 0.15em;
         position: relative;
         font-size: 1.2em;
+
         i {
             color: var(--darkbran);
             position: absolute;
@@ -31,9 +33,11 @@
             font-size: 1rem;
         }
     }
+
     a {
         display: inline-block;
-        &::before{
+
+        &::before {
             transform: scale(1);
             -ms-transform: scale(1);
             -webkit-transform: scale(1);
@@ -61,23 +65,44 @@
     a {
         font-size: var(--font-size-14);
     }
-    &:hover{
+
+    &:hover {
         background-color: #f2f2f2;
         transition: 0.5s;
         cursor: pointer;
-    
+
         a {
             color: #794e01;
             text-decoration: underline;
         }
-    
+
         i {
             color: #000;
         }
     }
 }
 
+.table-responsive{
+    th, td{
+        vertical-align: middle;
+    }
+}
+
 :host ::ng-deep {
+    .ngbPagination {
+        .pagination {
+            margin-bottom: 0;
+        }
+
+        select {
+            width: 20%;
+
+            @media (max-width:500px) {
+                width: 100%;
+            }
+        }
+    }
+
     .page-link {
         color: var(--darkbran);
     }

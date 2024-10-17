@@ -21,6 +21,8 @@ export class AllArshadBayanComponent implements OnInit {
   audioError: boolean = false;
   loading: boolean = false;
   loadingAudio: boolean = false;
+  filteredBayanList: any[] = [];
+  searchQuery: string = '';
 
   constructor(
     private shortClipService: ApisService,
@@ -51,6 +53,7 @@ export class AllArshadBayanComponent implements OnInit {
         if (response.Status) {
           this.dataMolanaBayanList = response.Data
           this.collectionSize = response.TotalCount;
+          this.applySearchFilter();
         } else {
           console.warn('API response status is false');
         }
@@ -60,6 +63,20 @@ export class AllArshadBayanComponent implements OnInit {
         console.error('Error fetching short clips:', error);
       }
     );
+  }
+
+  onSearchQueryChange() {
+    this.applySearchFilter(); // Reapply filter on search input change
+  }
+
+  applySearchFilter() {
+    if (this.searchQuery.trim()) {
+      this.filteredBayanList = this.dataMolanaBayanList.filter(bayan =>
+        bayan.Title.toLowerCase().includes(this.searchQuery.toLowerCase())
+      );
+    } else {
+      this.filteredBayanList = [...this.dataMolanaBayanList]; // Reset filter if no query
+    }
   }
 
 

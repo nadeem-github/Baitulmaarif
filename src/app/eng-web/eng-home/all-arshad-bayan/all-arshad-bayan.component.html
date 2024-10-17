@@ -6,9 +6,21 @@
 			<p class="text-white border-bottom-dotted mb-0 font-24">Arshad Sb. Bajhedi (D.B.)</p>
 		</div>
 		<div class="p-0 p-sm-3 card-body">
+			<!-- Search Input for Filtering Bayaan List -->
+			<div class="mb-0 mb-sm-3 p-3 p-sm-0">
+				<input
+          type="text"
+          [(ngModel)]="searchQuery"
+          (ngModelChange)="onSearchQueryChange()"
+          class="form-control shadow-none"
+          placeholder="Search by Title"
+        />
+			</div>
+
             <div *ngIf="loading" class="text-center py-4">
                 <img src="../../../assets/images/Spinner.svg" width="100" alt="">
             </div>
+
 			<div class="table-responsive" *ngIf="!loading">
 				<table class="table table-bordered">
 					<thead>
@@ -20,7 +32,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr *ngFor="let bayan of dataMolanaBayanList">
+						<tr *ngFor="let bayan of filteredBayanList">
 							<td class="majlis" (click)="openBayanModal(bayan, bayanModal);">
 								<div>
 									<div class="fw-semibold text-truncate text-truncate-20">
@@ -55,61 +67,52 @@
 					</tbody>
 				</table>
 			</div>
+			<div class="d-flex justify-content-between align-items-center flex-wrap p-2 p-sm-0 ngbPagination">
+				<ngb-pagination class="mb-3 mb-sm-0 mx-auto mx-sm-0"  [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+				[maxSize]="2" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
+				</ngb-pagination>
 
-			<div class="p-2 p-sm-0 responsive">
-				<div class="d-flex justify-content-between">
-					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-                    [maxSize]="2" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
-					</ngb-pagination>
-
-					<select class="form-select" style="width: auto" [(ngModel)]="pageSize"
-                    (ngModelChange)="onPageSizeChange()">
-						<option [ngValue]="5">5 Bayaan Per Page</option>
-						<option [ngValue]="10">10 Bayaan Per Page</option>
-					</select>
-				</div>
+				<select class="form-select shadow-none" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()">
+					<option [ngValue]="5">5 Bayaan Per Page</option>
+					<option [ngValue]="10">10 Bayaan Per Page</option>
+				</select>
 			</div>
 		</div>
 	</div>
 </div>
 
 <ng-template #bayanModal let-modal>
-    <div class="modal-header card-lbk">
-        <p class="text-white mb-0 w-100 d-flex fw-semibold">
-            <marquee behavior="scroll" direction="left" scrollamount="4">
-                <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedBayan?.Title }}</p>
-            </marquee>
-        </p>
-    </div>
-    <div class="modal-body">
-        <!-- Loader when audio is loading -->
-        <div *ngIf="loadingAudio" class="text-center">
-            <div class="spinner-border text-primary" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-            <p class="text-success mt-2">Audio is loading, please wait...</p>
-        </div>
+	<div class="modal-header card-lbk text-white">
+		<marquee behavior="scroll" direction="left" scrollamount="4">
+			{{ selectedBayan?.Title }}
+		</marquee>
+	</div>
+	<div class="modal-body">
+		<div *ngIf="loadingAudio" class="text-center">
+			<img src="../../../../assets/images/loader.gif" width="50" alt="" />
+			<p class="text-success mt-2">Audio is loading, please wait...</p>
+		</div>
 
-        <!-- Audio element with event bindings -->
-        <audio [src]="audioUrl" (canplay)="onAudioLoad()" (error)="handleAudioError()" (waiting)="loadingAudio = true" autoplay controls class="w-100 mb-3">
-        </audio>
+		<audio [src]="audioUrl" (canplay)="onAudioLoad()" (error)="handleAudioError()" autoplay controls
+			class="w-100 mb-3">
+		</audio>
 
-        <!-- Error message if audio fails to load -->
-        <p *ngIf="audioError" class="text-center text-danger font-14 fw-semibold">Audio file unavailable, Please try again later</p>
+		<p *ngIf="audioError" class="text-center text-danger fw-semibold">
+			Audio file unavailable, Please try again later.
+		</p>
 
-        <p class="font-16"><strong>Date :</strong> {{ selectedBayan?.UploadDate | date: 'dd/MM/y' }}</p>
-        <p class="font-16"><strong>File Size :</strong> {{ selectedBayan?.FileSize }}</p>
-        <p class="font-16"><strong>Voice :</strong> {{ selectedBayan?.Catagory }}</p>
-        <p class="font-16 mb-0"><strong>Description :</strong> {{ selectedBayan?.Description }}</p>
-    </div>
-
-    <div class="modal-footer d-flex align-items-center justify-content-center">
-        <a class="actionbtns" (click)="downloadFile(selectedBayan?.UrMp3Path, selectedBayan?.Title)">
-            <i class="fa fa-cloud-download" aria-hidden="true"></i> Download
-        </a>
-        <a class="actionbtns" (click)="shareBayan(selectedBayan)">
-            <i class="fa fa-share-alt" aria-hidden="true"></i> Share
-        </a>
-        <a class="actionbtns" (click)="modal.close()">Close</a>
-    </div>
+		<p><strong>Date :</strong> {{ selectedBayan?.UploadDate | date: 'dd/MM/yyyy' }}</p>
+		<p><strong>File Size :</strong> {{ selectedBayan?.FileSize }}</p>
+		<p><strong>Voice :</strong> {{ selectedBayan?.Catagory }}</p>
+		<p><strong>Description :</strong> {{ selectedBayan?.Descriptions }}</p>
+	</div>
+	<div class="modal-footer">
+		<a (click)="downloadFile(selectedBayan?.UrMp3Path, selectedBayan?.Title)" class="actionbtns">
+			<i class="fa fa-cloud-download"></i> Download
+		</a>
+		<a (click)="shareBayan(selectedBayan)" class="actionbtns">
+			<i class="fa fa-share-alt"></i> Share
+		</a>
+		<a (click)="modal.close()" class="actionbtns">Close</a>
+	</div>
 </ng-template>

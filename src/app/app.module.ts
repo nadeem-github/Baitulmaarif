@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
@@ -71,6 +71,7 @@ import { AllMajalisBayanComponent } from './eng-web/eng-home/all-majalis-bayan/a
 import { AllArshadBayanComponent } from './eng-web/eng-home/all-arshad-bayan/all-arshad-bayan.component';
 import { SafeUrlPipe } from './pipes/safe-url';
 import { AllMujahidBayanComponent } from './eng-web/eng-home/all-mujahid-bayan/all-mujahid-bayan.component';
+import { AuthInterceptor } from './auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -150,7 +151,7 @@ import { AllMujahidBayanComponent } from './eng-web/eng-home/all-mujahid-bayan/a
     NgStepperModule,
     ReactiveFormsModule 
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, }],
   // SharedService, 
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

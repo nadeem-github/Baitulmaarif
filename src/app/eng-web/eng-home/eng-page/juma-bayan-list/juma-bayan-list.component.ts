@@ -4,6 +4,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ShortClipModal } from 'src/app/modals/ShortClipList';
 import { ApisService } from 'src/app/services/apis.service';
 
+const BASE_URL = 'http://apis.baitulmaarif.com/'; // Base URL
+
 @Component({
   selector: 'juma-bayan-list',
   templateUrl: './juma-bayan-list.component.html',
@@ -13,16 +15,17 @@ export class JumaBayanListComponent implements OnInit {
 
   ShortClipModal: ShortClipModal = new ShortClipModal();
   dataJumaByanList: any[] = [];
-  filteredJumaByanList: any[] = []; // Filtered list for search
-  page = 0;
+  filteredJumaByanList: any[] = [];
+  page = 1;
   pageSize = 10;
   collectionSize = 0;
-  catagory: any;
-  searchTerm: string = '';
+  category: string | null = '';
+  searchTerm = '';
   selectedBayan: any;
-  audioUrl: any;
-  audioError: boolean = false;
-  loadingAudio: boolean = false;
+  audioUrl: string | null = null;
+  audioError = false;
+  loadingAudio = false;
+  loading = false;
 
   constructor(
     private shortClipService: ApisService,
@@ -33,64 +36,63 @@ export class JumaBayanListComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.catagory = params.get('catagory');
-      this.setUpPayload();
-      this.getJumaByanList();
+      this.category = params.get('category');
+      this.fetchJumaByanList();
     });
   }
 
-  setUpPayload() {
-    this.ShortClipModal.PageIndexSize = this.page;
-    this.ShortClipModal.SortOrder = 'desc';
-    this.ShortClipModal.PageSize = this.pageSize;
-  }
+  fetchJumaByanList(): void {
+    this.loading = true;
+    const payload = {
+      PageIndexSize: this.page,
+      SortOrder: 'desc',
+      PageSize: this.pageSize,
+    };
 
-  getJumaByanList() {
     this.shortClipService.jumaBayaan(this.ShortClipModal).subscribe(
       (response: any) => {
+        this.loading = false;
         if (response.Status) {
           this.dataJumaByanList = response.Data;
-          this.filterData(); // Apply search filter after receiving data
           this.collectionSize = response.TotalCount;
+          this.filterData();
         } else {
           console.warn('API response status is false');
         }
       },
       (error) => {
-        console.error('Error fetching short clips:', error);
+        this.loading = false;
+        console.error('Error fetching data:', error);
       }
     );
   }
 
-  onSearchChange() {
-    this.page = 1; // Reset to the first page when search term changes
-    this.filterData(); // Filter the data locally
-  }
-
-  filterData() {
-    this.filteredJumaByanList = this.dataJumaByanList.filter((bayan: { Title: string; }) =>
-      bayan.Title.toLowerCase().includes(this.searchTerm.toLowerCase())
+  filterData(): void {
+    const term = this.searchTerm.toLowerCase();
+    this.filteredJumaByanList = this.dataJumaByanList.filter(bayan =>
+      bayan.Title.toLowerCase().includes(term)
     );
   }
 
-  onPageChange() {
-    this.ShortClipModal.PageIndexSize = this.page;
-    this.getJumaByanList();
+  onSearchChange(): void {
+    this.page = 1;
+    this.filterData();
   }
 
-  onPageSizeChange() {
+  onPageChange(): void {
+    this.fetchJumaByanList();
+  }
+
+  onPageSizeChange(): void {
     this.page = 1;
-    this.setUpPayload();
-    this.getJumaByanList();
+    this.fetchJumaByanList();
   }
 
   downloadFile(mp3Path: string, title: string): void {
-    const baseUrl = 'http://apis.baitulmaarif.com/';
-    const downloadUrl = `${baseUrl}${mp3Path}`;
+    const downloadUrl = `${BASE_URL}${mp3Path}`;
     const link = document.createElement('a');
     link.href = downloadUrl;
     link.download = title;
-    link.target = '_blank';
     link.click();
   }
 
@@ -98,36 +100,41 @@ export class JumaBayanListComponent implements OnInit {
     const shareData = {
       title: bayan.Title,
       text: bayan.Description,
-      url: 'http://apis.baitulmaarif.com/' + bayan.UrMp3Path
+      url: `${BASE_URL}${bayan.Mp3Path}`,
     };
 
     if (navigator.share) {
-      navigator.share(shareData).then(() => {
-        console.log('Bayan shared successfully');
-      }).catch((error) => {
-        console.error('Error sharing bayan:', error);
-      });
+      navigator.share(shareData).then(() =>
+        console.log('Bayan shared successfully')
+      ).catch(error =>
+        console.error('Error sharing bayan:', error)
+      );
     } else {
-      console.warn('Web Share API is not supported in this browser.');
       alert('Sharing is not supported in this browser.');
     }
   }
 
-  openBayanModal(bayan: any, content: any) {
-    this.selectedBayan = bayan; // Set the selected bayan
-    this.audioUrl = 'http://apis.baitulmaarif.com/' + bayan.UrMp3Path; // Set the audio URL
-    this.audioError = false; // Reset the error state
-    this.loadingAudio = true; // Start showing loader when modal is opened
-    this.modalService.open(content, { centered: true, size: 'md', backdrop: 'static', keyboard: false }); // Open modal
+  openBayanModal(bayan: any, content: any): void {
+    this.selectedBayan = bayan;
+    this.audioUrl = `${BASE_URL}${bayan.Mp3Path}`;
+    this.audioError = false;
+    this.loadingAudio = true;
+
+    this.modalService.open(content, {
+      centered: true,
+      size: 'md',
+      backdrop: 'static',
+      keyboard: false
+    });
   }
-  
-  handleAudioError() {
-    this.loadingAudio = false; // Hide loader on error
-    this.audioError = true; // Show error message if audio fails to load
+
+  handleAudioError(): void {
+    this.loadingAudio = false;
+    this.audioError = true;
   }
-  
-  onAudioLoad() {
-    this.loadingAudio = false; // Hide loader when audio is ready
+
+  onAudioLoad(): void {
+    this.loadingAudio = false;
   }
 
 }

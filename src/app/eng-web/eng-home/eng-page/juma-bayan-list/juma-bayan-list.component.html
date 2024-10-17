@@ -1,128 +1,127 @@
 <div class="container py-4">
-	<div class="row">
-		<div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 mb-4">
-			<input type="text" class="form-control shadow-sm rounded-1" placeholder="Search Bayaan by Title" [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()" />
-		</div>
-	</div>
-
 	<div class="card shadow-sm">
 		<div class="card-header text-center card-lbk px-0">
-			<p class="text-white border-bottom-dotted mb-0 font-24">Mufti Muhammad Mujahid Khairabadi</p>
+			<p class="text-white border-bottom-dotted mb-0 font-24">
+				Mufti Muhammad Mujahid Khairabadi
+			</p>
 		</div>
-		<div class="p-0 p-sm-3 card-body">
-			<div class="table-responsive">
-				<!-- Table -->
-				<table class="table table-bordered" *ngIf="filteredJumaByanList.length > 0">
-					<thead>
-						<tr class="bg-light">
-							<th scope="col">Title</th>
-							<th class="text-center d-none d-sm-table-cell" scope="col">Date</th>
-							<th class="text-center d-none d-sm-table-cell" scope="col">Size</th>
-							<th class="text-center" scope="col">Action</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr *ngFor="let bayan of filteredJumaByanList">
-							<td class="majlis" (click)="openBayanModal(bayan, bayanModal);">
-								<!-- (click)="viewBayanDetails(bayan.MolanaBayanId)" -->
-								<div>
-									<div class="fw-semibold text-truncate-20" [title]="bayan.Title">
-										{{ bayan.Title }}
-									</div>
-									<span class="date d-block d-sm-none">
-										{{ bayan.UploadDate | date: 'dd/MM/y' }} - {{	bayan.FileSize }}
-									</span>
-								</div>
-							</td>
-							<td class="text-center d-none d-sm-table-cell">
-								{{ bayan.UploadDate | date: 'dd/MM/y' }}
-							</td>
-							<td class="text-center d-none d-sm-table-cell">
-								{{ bayan.FileSize }}
-							</td>
-							<td class="text-center verticale-align pb-0">
-								<ul class="social-icons mb-0 d-flex align-items-center justify-content-center">
-									<li>
-										<a title="Download" class="social-square"
-											(click)="downloadFile(bayan.UrMp3Path, bayan.UrTitle)">
-											<i class="fa fa-cloud-download" aria-hidden="true"></i>
-										</a>
-									</li>
-									<li>
-										<a title="Share" class="social-square">
-											<i class="fa fa-share-alt-square" aria-hidden="true"></i>
-										</a>
-									</li>
-								</ul>
-							</td>
-						</tr>
-					</tbody>
-				</table>
 
-				<!-- Show "No Record Found" if dataMolanaBayanList is empty -->
-				<div *ngIf="filteredJumaByanList.length === 0" class="text-center">
-                    <p class="mb-0 py-2">No Record Found</p>
-                </div>
+		<div class="p-0 p-sm-3 card-body">
+			<div class="mb-0 mb-sm-3 p-3 p-sm-0">
+				<input type="text" class="form-control shadow-sm rounded-1" placeholder="Search Bayaan by Title" [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()" />
 			</div>
 
-			<div class="p-2 p-sm-0">
-				<div class="d-flex justify-content-between flex-wrap">
-					<!-- Pagination -->
-					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-						[maxSize]="2" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
-					</ngb-pagination>
+			<div *ngIf="loading" class="text-center py-4">
+				<img src="../../../assets/images/Spinner.svg" width="100" alt="Loading..." />
+			</div>
 
-					<!-- Page Size Selector -->
-					<select class="form-select form-select-sm" style="width: auto" [(ngModel)]="pageSize"
-						(ngModelChange)="onPageSizeChange()">
-						<option [ngValue]="5">5 Bayaan Per Page</option>
-						<option [ngValue]="10">10 Bayaan Per Page</option>
-						<option [ngValue]="20">20 Bayaan Per Page</option>
-					</select>
+			<div *ngIf="!loading">
+				<div class="table-responsive" *ngIf="filteredJumaByanList.length > 0; else noRecord">
+					<table class="table table-bordered">
+						<thead>
+							<tr class="bg-light">
+								<th scope="col">Title</th>
+								<th class="text-center d-none d-sm-table-cell" scope="col">Date</th>
+								<th class="text-center d-none d-sm-table-cell" scope="col">Size</th>
+								<th class="text-center" scope="col">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let bayan of filteredJumaByanList">
+								<td class="majlis" (click)="openBayanModal(bayan, bayanModal)">
+									<div>
+										<div class="fw-semibold text-truncate-20" [title]="bayan.Title">
+											{{ bayan.Title }}
+										</div>
+										<span class="date d-block d-sm-none">
+											{{ bayan.UploadDate | date: 'dd/MM/y' }} - {{ bayan.FileSize }}
+										</span>
+									</div>
+								</td>
+								<td class="text-center d-none d-sm-table-cell">
+									{{ bayan.UploadDate | date: 'dd/MM/y' }}
+								</td>
+								<td class="text-center d-none d-sm-table-cell">
+									{{ bayan.FileSize }}
+								</td>
+								<td class="text-center verticale-align pb-0">
+									<ul class="social-icons mb-0 d-flex align-items-center justify-content-center">
+										<li>
+											<a class="social-square" title="Download"
+												(click)="downloadFile(bayan.Mp3Path, bayan.Title)">
+												<i class="fa fa-cloud-download" aria-hidden="true"></i>
+											</a>
+										</li>
+										<li>
+											<a class="social-square" title="Share" (click)="shareBayan(bayan)">
+												<i class="fa fa-share-alt-square" aria-hidden="true"></i>
+											</a>
+										</li>
+									</ul>
+								</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
+			</div>
+
+			<ng-template #noRecord>
+				<div class="text-center">
+					<p class="mb-0 py-2">No Record Found</p>
+				</div>
+			</ng-template>
+
+			<!-- <div class="d-flex justify-content-between flex-wrap p-2 p-sm-0">
+				<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+					(pageChange)="onPageChange()" [boundaryLinks]="true"></ngb-pagination>
+
+				<select class="form-select form-select-sm" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()"
+					style="width: auto">
+					<option [ngValue]="5">5 Bayaan Per Page</option>
+					<option [ngValue]="10">10 Bayaan Per Page</option>
+					<option [ngValue]="20">20 Bayaan Per Page</option>
+				</select>
+			</div> -->
+			<div class="d-flex justify-content-between align-items-center flex-wrap p-2 p-sm-0 ngbPagination">
+				<ngb-pagination class="mb-3 mb-sm-0 mx-auto mx-sm-0" [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+				(pageChange)="onPageChange()" [boundaryLinks]="true">
+				</ngb-pagination>
+
+				<select class="form-select shadow-none" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()">
+					<option [ngValue]="5">5 Bayaan Per Page</option>
+					<option [ngValue]="10">10 Bayaan Per Page</option>
+				</select>
 			</div>
 		</div>
 	</div>
 </div>
 
-<!-- Modal template -->
 <ng-template #bayanModal let-modal>
 	<div class="modal-header card-lbk">
 		<p class="text-white mb-0 w-100 d-flex fw-semibold">
 			<marquee behavior="scroll" direction="left" scrollamount="4">
-				<p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedBayan?.Title }}</p>
+				{{ selectedBayan?.Title }}
 			</marquee>
 		</p>
-		<!-- <i class="fa fa-times-circle fa-2x text-danger btn-div position-absolute bg-white rounded-circle d-flex align-items-center justify-content-center" aria-hidden="true" (click)="modal.dismiss()"></i> -->
 	</div>
 	<div class="modal-body">
 		<div *ngIf="loadingAudio" class="text-center">
-            <div class="spinner-border text-success" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-            <p class="text-success mt-2">Audio is loading, please wait...</p>
-        </div>
-		<audio [src]="audioUrl" (canplay)="onAudioLoad()" (error)="handleAudioError()" (waiting)="loadingAudio = true" autoplay controls class="w-100 mb-3"></audio>
-		<p class="font-16"><strong>Date :</strong> {{ selectedBayan?.UrUploadDate | date: 'dd/MM/y' }}</p>
-		<p class="font-16"><strong>File Size :</strong> {{ selectedBayan?.FileSize }}</p>
-		<p class="font-16"><strong>Voice :</strong> {{selectedBayan.MolanaName}}</p>
-		<p class="font-16 mb-0"><strong>Description :</strong> {{ selectedBayan?.Description }}</p>
+			<img src="../../../../../assets/images/loader.gif" width="50" alt="">
+			<p class="text-success mt-2">Audio is loading, please wait...</p>
+		</div>
+		<audio *ngIf="!loadingAudio" [src]="audioUrl" autoplay controls (canplay)="onAudioLoad()" (error)="handleAudioError()" class="w-100 mb-3"></audio>
+		<p><strong>Voice:</strong> {{ selectedBayan?.MolanaName }}</p>
+		<p><strong>Date:</strong> {{ selectedBayan?.UploadDate | date: 'dd/MM/y' }}</p>
+		<p><strong>File Size:</strong> {{ selectedBayan?.FileSize }}</p>
+		<p><strong>Description:</strong> {{ selectedBayan?.Descriptions }}</p>
 	</div>
-	<div class="modal-footer d-flex align-items-center justify-content-center">
-		<!-- Download Button -->
-		<a class="actionbtns"
-			(click)="downloadFile(selectedBayan?.UrMp3Path, selectedBayan?.Title)">
-			<i class="fa fa-cloud-download" aria-hidden="true"></i> Download
+	<div class="modal-footer d-flex justify-content-center">
+		<a (click)="downloadFile(selectedBayan?.Mp3Path, selectedBayan?.Title)" class="actionbtns">
+			<i class="fa fa-cloud-download"></i> Download
 		</a>
-
-		<!-- Share Button -->
-		<a class="actionbtns" (click)="shareBayan(selectedBayan)">
-			<i class="fa fa-share-alt" aria-hidden="true"></i> Share
+		<a (click)="shareBayan(selectedBayan)" class="actionbtns">
+			<i class="fa fa-share-alt"></i> Share
 		</a>
-
-		<!-- Close Button -->
-		<a class="actionbtns" (click)="modal.close()">Close</a>
+		<a (click)="modal.close()" class="actionbtns">Close</a>
 	</div>
 </ng-template>
-  
-  
