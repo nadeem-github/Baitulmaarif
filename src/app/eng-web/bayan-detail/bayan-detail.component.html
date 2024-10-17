@@ -3,7 +3,7 @@
   <h2>{{ bayanDetail?.Title }}</h2>
   <p><strong>Date:</strong> {{ bayanDetail?.UploadDate | date: 'dd/MM/y' }}</p>
   <p><strong>File Size:</strong> {{ bayanDetail?.FileSize }}</p>
-  <p><strong>Description:</strong> {{ bayanDetail?.Description }}</p>
+  <p><strong>Description:</strong> {{ bayanDetail?.Descriptions }}</p>
 
   <!-- Embed an audio player for the MP3 file -->
   <audio controls *ngIf="bayanDetail?.UrMp3Path">

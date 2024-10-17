@@ -3,10 +3,10 @@
         <h5 class="mb-0 border-bottom-dotted">Juma Bayaan</h5>
     </div>
     <div class="card-body p-0 position-relative">
-        <img src="assets/images/juma-bayan-bg.png" class="img-fluid" alt="">
-        <div *ngIf="loading" class="text-center">
-            <img src="../../../assets/images/Spinner.svg" width="100" alt="">
+        <div *ngIf="loading" class="text-center position-absolute JumaLoader">
+            <img src="assets/images/loader.gif" width="100" alt="">
         </div>
+        <img src="assets/images/juma-bayan-bg.png" class="img-fluid" alt="">
         <div class="juma-bayan-bg position-absolute" *ngIf="!loading">
             <div *ngFor="let bayan of dataJumaByanList">
                 <p class="mb-0 px-3 px-sm-0 font-20 fw-semibold mx-auto">{{ bayan.Title }}</p>

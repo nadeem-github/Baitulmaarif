@@ -6,9 +6,15 @@
 			<p class="text-white border-bottom-dotted mb-0 font-24">Mujahid Khairabadi</p>
 		</div>
 		<div class="p-0 p-sm-3 card-body">
+			<!-- Search Input for Filtering Bayaan List -->
+			<div class="mb-0 mb-sm-3 p-3 p-sm-0">
+				<input type="text" class="form-control shadow-none" placeholder="Search by Title" [(ngModel)]="searchQuery"	(input)="filterBayanList()" />
+			</div>
+
             <div *ngIf="loading" class="text-center py-4">
-                <img src="../../../assets/images/Spinner.svg" width="100" alt="">
+                <img src="assets/images/loader.gif" width="100" alt="">
             </div>
+
 			<div class="table-responsive" *ngIf="!loading">
 				<table class="table table-bordered">
 					<thead>
@@ -20,7 +26,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr *ngFor="let bayan of dataMolanaBayanList">
+						<tr *ngFor="let bayan of filteredBayanList">
 							<td class="majlis" (click)="openBayanModal(bayan, bayanModal);">
 								<div>
 									<div class="fw-semibold text-truncate text-truncate-20">
@@ -56,18 +62,15 @@
 				</table>
 			</div>
 
-			<div class="p-2 p-sm-0 responsive">
-				<div class="d-flex justify-content-between">
-					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-                    [maxSize]="2" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
-					</ngb-pagination>
+			<div class="d-flex justify-content-between align-items-center flex-wrap p-2 p-sm-0 ngbPagination">
+				<ngb-pagination class="mb-3 mb-sm-0 mx-auto mx-sm-0" [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+				[maxSize]="2" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
+				</ngb-pagination>
 
-					<select class="form-select" style="width: auto" [(ngModel)]="pageSize"
-                    (ngModelChange)="onPageSizeChange()">
-						<option [ngValue]="5">5 Bayaan Per Page</option>
-						<option [ngValue]="10">10 Bayaan Per Page</option>
-					</select>
-				</div>
+				<select class="form-select shadow-none" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()">
+					<option [ngValue]="5">5 Bayaan Per Page</option>
+					<option [ngValue]="10">10 Bayaan Per Page</option>
+				</select>
 			</div>
 		</div>
 	</div>
@@ -100,7 +103,7 @@
         <p class="font-16"><strong>Date :</strong> {{ selectedBayan?.UploadDate | date: 'dd/MM/y' }}</p>
         <p class="font-16"><strong>File Size :</strong> {{ selectedBayan?.FileSize }}</p>
         <p class="font-16"><strong>Voice :</strong> {{ selectedBayan?.Catagory }}</p>
-        <p class="font-16 mb-0"><strong>Description :</strong> {{ selectedBayan?.Description }}</p>
+        <p class="font-16 mb-0"><strong>Description :</strong> {{ selectedBayan?.Descriptions }}</p>
     </div>
 
     <div class="modal-footer d-flex align-items-center justify-content-center">

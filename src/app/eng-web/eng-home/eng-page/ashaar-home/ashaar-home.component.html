@@ -1,7 +1,7 @@
 <div class="card shadow-sm border-0">
     <div class="card-body p-0 majlist-card-body">
         <div *ngIf="loading" class="text-center py-4">
-            <img src="../../../assets/images/Spinner.svg" width="100" alt="">
+            <img src="assets/images/loader.gif" width="100" alt="">
         </div>
         <div *ngIf="!loading">
             <div class="majlis" *ngFor="let clip of dataAshaarList" (click)="openModal(clip)">
@@ -47,7 +47,7 @@
 		<p class="font-16"><strong>File Size :</strong> {{ selectedClip?.FileSize }}</p>
 		<p class="font-16"><strong>Catagory :</strong> {{selectedClip.Catagory}}</p>
 		<p class="font-16"><strong>Voice :</strong> {{selectedClip.Voice}}</p>
-		<p class="font-16 mb-0"><strong>Description :</strong> {{ selectedClip?.Description }}</p>
+		<p class="font-16 mb-0"><strong>Description :</strong> {{ selectedClip?.Descriptions }}</p>
 	</div>
 
 	<div class="modal-footer d-flex align-items-center justify-content-center">

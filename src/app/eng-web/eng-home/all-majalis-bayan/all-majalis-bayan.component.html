@@ -14,7 +14,7 @@
 			</div>
 
 			<div *ngIf="loading" class="text-center py-4">
-				<img src="../../../assets/images/Spinner.svg" width="100" alt="Loading..." />
+				<img src="assets/images/loader.gif" width="100" alt="Loading..." />
 			</div>
 
 
@@ -96,7 +96,7 @@
 		<p><strong>Date:</strong> {{ selectedBayan?.UploadDate | date: 'dd/MM/yyyy' }}</p>
 		<p><strong>File Size:</strong> {{ selectedBayan?.FileSize }}</p>
 		<p><strong>Voice:</strong> {{ selectedBayan?.Catagory }}</p>
-		<p><strong>Description:</strong> {{ selectedBayan?.Description }}</p>
+		<p><strong>Description:</strong> {{ selectedBayan?.Descriptions }}</p>
 	</div>
 	<div class="modal-footer">
 		<a (click)="downloadFile(selectedBayan?.UrMp3Path, selectedBayan?.Title)" class="actionbtns">

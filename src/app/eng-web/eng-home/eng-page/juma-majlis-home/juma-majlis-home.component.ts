@@ -1,13 +1,6 @@
 import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
+import { ShortClipModal } from 'src/app/modals/ShortClipList';
 import { ApisService } from 'src/app/services/apis.service';
-
-interface Bayan {
-  MajlisType?: string;
-  Title?: string;
-  Mp3Path?: string;
-  Catagory?: string;
-  UploadDate?: Date;
-}
 
 @Component({
   selector: 'juma-majlis-home',
@@ -15,56 +8,71 @@ interface Bayan {
   styleUrls: ['./juma-majlis-home.component.scss']
 })
 export class JumaMajlisHomeComponent implements OnInit {
-  public baseURL = 'http://apis.baitulmaarif.com/';
-  bayanData: Bayan | null = null;
-  isAudioPlaying: boolean = false;
-  isLoading = true;
+  
+  // ShortClipModal: ShortClipModal = new ShortClipModal();
+  dataMolanaBayanList: any[] = [];
+  page = 1;
+  pageSize = 1;
+  collectionSize = 0;
+  loading = false;
+  audioError = false;
+  isAudioPlaying = false;
+  baseUrl = 'http://apis.baitulmaarif.com/';
 
-  constructor(
-    private bayanService: ApisService,
-  ) { }
+  ShortClipModal: any = {
+    PageSize: this.pageSize,
+    // Filter: 'Majalis Hazrat Wala (D.B.)'
+    Filter: 'Juma Majlis'
+  };
+
+  constructor(private shortClipService: ApisService) {}
 
   ngOnInit(): void {
-    this.getjumaMajlis();
+    this.getMolanaBayanList();
   }
 
-  getjumaMajlis() {
-    this.isLoading = true;
-    this.bayanService.jumeratMajlis().subscribe(
-      (response: any) => {
+  getMolanaBayanList(): void {
+    this.loading = true;
+    this.shortClipService.molanaBayanList(this.ShortClipModal).subscribe({
+      next: (response: any) => {
+        this.loading = false;
         if (response.Status) {
-          this.bayanData = response.Data[0];
-          console.log('Juma Majlis', this.bayanData);
-          
-          this.isLoading = false;
+          this.dataMolanaBayanList = response.Data;
+          this.collectionSize = response.TotalCount;
         } else {
           console.warn('API response status is false');
-          this.isLoading = false;
         }
       },
-      (error) => {
-        console.error('Error fetching bayan data', error);
-        this.isLoading = false;
+      error: (error) => {
+        this.loading = false;
+        console.error('Error fetching short clips:', error);
       }
-    );
+    });
   }
 
-  updateAudioState(event: Event): void {
-    const audioEvent = event as Event;
-    this.isAudioPlaying = audioEvent.type === 'play'; // Correctly set isAudioPlaying based on play event
+  updateAudioState(isPlaying: boolean): void {
+    this.isAudioPlaying = isPlaying;
   }
 
+  shareBayan(bayan: any): void {
+    const shareData = {
+      title: bayan.Title,
+      text: bayan.Description,
+      url: this.baseUrl + bayan.Mp3Path
+    };
 
-  shareBayan() {
-    if (navigator.share && this.bayanData) {
-      navigator.share({
-        title: this.bayanData.Title || 'Juma Majlis',
-        text: 'Check out this bayan',
-        url: this.baseURL + this.bayanData.Mp3Path
-      }).catch((error) => console.error('Error sharing bayan:', error));
+    if (navigator.share) {
+      navigator.share(shareData).catch((error) =>
+        console.error('Error sharing bayan:', error)
+      );
     } else {
-      console.warn('Share feature not supported or bayan data is missing.');
+      console.warn('Web Share API is not supported in this browser.');
+      alert('Sharing is not supported in this browser.');
     }
   }
 
+  handleAudioError(): void {
+    this.audioError = true;
+    console.error('Audio failed to load.');
+  }
 }

@@ -1,10 +1,14 @@
-<h5 class="fw-semibold mb-4">{{ bayanData?.MajlisType ? bayanData?.MajlisType: 'Jumerat Majlis' }}</h5>
+<h5 class="fw-semibold mb-4">Jumerat Majlis</h5>
 <div class="audio-circle-div">
     <div class="audio-circle bg-white p-3 d-flex align-items-center justify-content-center">
-        <div *ngIf="isLoading" class="text-center">
-            <img src="../../../assets/images/Spinner.svg" width="100" alt="">
+
+        <!-- Loading spinner while data is being fetched -->
+        <div *ngIf="loading" class="text-center">
+            <img src="assets/images/loader.gif" width="100" alt="Loading...">
         </div>
-        <div class="audio-div" *ngIf="!isLoading">
+
+        <!-- Audio content section -->
+        <div class="audio-div" *ngIf="!loading">
             <div class="mb-3 d-flex align-items-center justify-content-center">
                 <div class="icon-bg" *ngIf="isAudioPlaying">
                     <i class="fa fa-microphone fa-2x text-white" aria-hidden="true"></i>
@@ -13,23 +17,38 @@
                     <i class="fa fa-microphone-slash fa-2x text-white" aria-hidden="true"></i>
                 </div>
             </div>
-            <p class="my-3 fw-semibold">{{ bayanData?.Title }}</p>
-            <audio class="audio-player" [src]="baseURL + bayanData?.Mp3Path" (play)="updateAudioState($event)" (pause)="updateAudioState($event)" (ended)="updateAudioState($event)" controls>
-                Your browser does not support the audio element.
-            </audio>
 
-            <p class="mt-2 mb-1 fw-semibold">Voice: {{ bayanData?.Catagory }}</p>
-            <p class="fw-semibold">{{ bayanData?.UploadDate | date: 'd MMMM y' }}</p>
-            <div class="player-btn-border d-flex justify-content-center align-items-center">
-                <a class="actionbtns me-3" [href]="baseURL + bayanData?.Mp3Path" download>
-                    <i class="fa fa-download me-2" aria-hidden="true"></i>
-                    <span class="ml-2">Download</span>
-                </a>
-                <a class="actionbtns" (click)="shareBayan()">
-                    <i class="fa fa-share me-2" aria-hidden="true"></i>
-                    <span class="ml-2">Share</span>
-                </a>
+            <!-- Loop through the bayan list -->
+            <div *ngFor="let bayan of dataMolanaBayanList">
+                <p class="my-3 fw-semibold">{{ bayan.Title }}</p>
+                <ng-container *ngIf="bayan.Mp3Path; else noAudioMessage">
+                    <audio class="audio-player" [src]="baseUrl + bayan.Mp3Path" (play)="updateAudioState(true)"
+                        (pause)="updateAudioState(false)" (ended)="updateAudioState(false)" (error)="handleAudioError()"
+                        controls>
+                        Your browser does not support the audio element.
+                    </audio>
+                </ng-container>
+
+                <!-- Fallback message if Mp3Path is unavailable -->
+                <ng-template #noAudioMessage>
+                    <p class="text-danger">Audio not available for this bayan.</p>
+                </ng-template>
+
+                <p class="mt-2 mb-1 fw-semibold">Voice: {{ bayan.Catagory }}</p>
+                <p class="fw-semibold">{{ bayan.UploadDate | date: 'd MMMM y' }}</p>
+
+                <div class="player-btn-border d-flex justify-content-center align-items-center">
+                    <a class="actionbtns me-3" [href]="baseUrl + bayan.Mp3Path" download>
+                        <i class="fa fa-download me-2" aria-hidden="true"></i>
+                        <span>Download</span>
+                    </a>
+                    <a class="actionbtns" (click)="shareBayan(bayan)">
+                        <i class="fa fa-share me-2" aria-hidden="true"></i>
+                        <span>Share</span>
+                    </a>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
