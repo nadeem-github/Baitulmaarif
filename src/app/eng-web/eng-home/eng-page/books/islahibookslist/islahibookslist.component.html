@@ -1,47 +1,58 @@
 <div class="container py-4">
     <div class="heading-text mx-auto py-2 px-3 rounded-1 text-center mb-sm-0">
-        <p class="h4 mb-0 text-white mb-0 pb-1">
-            Islahi Books
-        </p>
+        <p class="h4 mb-0 text-white mb-0 pb-1">Islahi Books</p>
     </div>
+
     <div class="row my-4">
         <div class="col-md-7 align-self-center mx-auto">
             <div class="input-group">
                 <span class="input-group-text">
-                    <img src="assets/images/search.png" width="20" alt="">
+                    <i class="fa fa-search" aria-hidden="true"></i>
                 </span>
-                <input type="text" class="form-control" placeholder="Search Your Book">
+                <input type="text" class="form-control" placeholder="Search Your Book" />
                 <button class="btn btn-outline-secondary" type="button">Search</button>
             </div>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-xl-6 col-sm-6 mb-4" *ngFor="let item of items">
+        <div class="col-xl-6 col-sm-6 mb-4" *ngFor="let book of dataUrduBooks">
             <div class="card">
                 <div class="card-body">
                     <div class="d-inline-flex d-sm-flex flex-column-reverse flex-sm-row books-responsive">
                         <div class="me-0 me-sm-3">
                             <p class="font-14 mb-1">
-                                <span class="fw-semibold">Writer:</span> 
-                                {{item.writer}}
+                                <span class="fw-semibold">Writer:</span> {{ book.UrTitle }}
                             </p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Book Name:</span> {{item.name}}</p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Topic:</span> {{item.topic}} </p>
-                            <p class="font-14 mb-1"><span class="fw-semibold">Description:</span> {{item.description}} </p>
-                            <div class="d-flex justify-content-center justify-content-sm-start align-items-center actionbtnsIslahi">
-                                <div class="text-center d-none d-sm-block" (click)="openPdfModal(pdfModal, item.pdfUrl)">
-                                    <div class="d-flex align-items-center justify-content-center rounded-5 border">
+                            <p class="font-14 mb-1">
+                                <span class="fw-semibold">Book Name:</span> {{ book.Title || 'N/A' }}
+                            </p>
+                            <p class="font-14 mb-1">
+                                <span class="fw-semibold">Topic:</span> {{ book.UrCategory }}
+                            </p>
+                            <p class="font-14 mb-1">
+                                <span class="fw-semibold">Description:</span> {{ book.Category }}
+                            </p>
+
+                            <div
+                                class="d-flex justify-content-center justify-content-sm-start align-items-center actionbtnsIslahi">
+                                <div class="text-center">
+                                    <div class="d-flex align-items-center justify-content-center rounded-5 border"
+                                        (click)="openPdf(book.UrPdfPath)">
                                         <i class="fa fa-leanpub"></i>
                                     </div>
                                     <p class="mb-0">Read Online</p>
                                 </div>
-                                <div class="text-center" (click)="downloadPdf(item.pdfUrl, item.name)">
-                                    <div class="d-flex align-items-center justify-content-center rounded-5 border">
+
+                                <div class="text-center">
+                                    <div class="d-flex align-items-center justify-content-center rounded-5 border"
+                                        (click)="openPdf(book.UrPdfPath)">
                                         <i class="fa fa-cloud-download"></i>
                                     </div>
                                     <p class="mb-0">Download</p>
                                 </div>
-                                <div class="text-center" (click)="sharePdf(item.pdfUrl, item.name)">
+
+                                <div class="text-center">
                                     <div class="d-flex align-items-center justify-content-center rounded-5 border">
                                         <i class="fa fa-share-alt-square"></i>
                                     </div>
@@ -49,20 +60,23 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="text-center mb-3 mb-sm-0">
-                            <img [src]="item.imgUrl" alt="{{ item.name }}" class="book-img rounded" />
+                            <img [src]="getImageUrl(book.UrImagePath)" class="book-img rounded" alt="Book Image" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="d-flex justify-content-between align-items-center flex-wrap p-2 p-sm-0 ngbPagination">
+        <ngb-pagination class="mb-3 mb-sm-0 mx-auto mx-sm-0"  [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+        [maxSize]="2" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
+        </ngb-pagination>
 
-<ng-template #pdfModal let-modal>
-    <div class="modal-body">
-        <i class="fa fa-times-circle fa-2x text-danger btn-div position-absolute bg-white rounded-circle d-flex align-items-center justify-content-center"
-            aria-hidden="true" (click)="modal.dismiss()"></i>
-        <iframe [src]="sanitizedPdfUrl" class="img-fluid shadow-sm w-100" type="application/pdf"></iframe>
+        <select class="form-select shadow-none" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()">
+            <option [ngValue]="5">5 Bayaan Per Page</option>
+            <option [ngValue]="10">10 Bayaan Per Page</option>
+        </select>
     </div>
-</ng-template>
+</div>

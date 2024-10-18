@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ShortClipModal } from 'src/app/modals/ShortClipList';
+import { UrduBook } from 'src/app/modals/UrduBook';
+import { ApisService } from 'src/app/services/apis.service';
 
 @Component({
   selector: 'app-islahibookslist',
@@ -9,117 +12,79 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class IslahibookslistComponent implements OnInit {
 
-  items = [
-    {
-      name: 'Ek Mint Ka Madarsa',
-      writer: 'Hazrat Maulana Ashraf Ali Thanvi',
-      topic: 'Islahe Nafs',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum.',
-      imgUrl: 'assets/images/IslahiBookTitle/Ek_Mint_Ka_Madarsa.png',
-      pdfUrl: 'assets/pdf/IslahiBooks/Ek_Mint_Ka_Madarsa.pdf'
-    },
-    {
-      name: 'Islah e Akhlaq',
-      writer: 'Hazrat Maulana Ashraf Ali Thanvi',
-      topic: 'Islahe Nafs',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum.',
-      imgUrl: 'assets/images/IslahiBookTitle/Islah-e-Akhlaq.png',
-      pdfUrl: 'assets/pdf/IslahiBooks/Islah-e-Akhlaq.pdf'
-    },
-    {
-      name: 'Majalis e Abrar',
-      writer: 'Hazrat Maulana Ashraf Ali Thanvi',
-      topic: 'Islahe Nafs',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum.',
-      imgUrl: 'assets/images/IslahiBookTitle/Majalis_e_Abrar.png',
-      pdfUrl: 'assets/pdf/IslahiBooks/Majalis_e_Abrar.pdf'
-    },
-    {
-      name: 'Mawahib e Rabbania',
-      writer: 'Hazrat Maulana Ashraf Ali Thanvi',
-      topic: 'Islahe Nafs',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum.',
-      imgUrl: 'assets/images/IslahiBookTitle/Mawahib_e_Rabbania.png',
-      pdfUrl: 'assets/pdf/IslahiBooks/Mawahib_e_Rabbania.pdf'
-    },
-    {
-      name: 'Mayiyat e Iillaheya',
-      writer: 'Hazrat Maulana Ashraf Ali Thanvi',
-      topic: 'Islahe Nafs',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum.',
-      imgUrl: 'assets/images/IslahiBookTitle/Mayiyat-e-Iillaheya.png',
-      pdfUrl: 'assets/pdf/IslahiBooks/Mayiyat-e-Iillaheya.pdf'
-    },
-    {
-      name: 'Perdais Me Tazkarah_Vatan',
-      writer: 'Hazrat Maulana Ashraf Ali Thanvi',
-      topic: 'Islahe Nafs',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum.',
-      imgUrl: 'assets/images/IslahiBookTitle/Perdais_Me_Tazkarah_Vatan.png',
-      pdfUrl: 'assets/pdf/IslahiBooks/Perdais_Me_Tazkarah_Vatan.pdf'
-    },
-    {
-      name: 'Piyary Nabi SAWW Ki Piyari Sunnatin',
-      writer: 'Hazrat Maulana Ashraf Ali Thanvi',
-      topic: 'Islahe Nafs',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum.',
-      imgUrl: 'assets/images/IslahiBookTitle/Piyary-Nabi-SAWW-Ki-Piyari-Sunnatin.png',
-      pdfUrl: 'assets/pdf/IslahiBooks/Piyary-Nabi-SAWW-Ki-Piyari-Sunnatin.pdf'
-    },
-    {
-      name: 'Qalb E Saleem',
-      writer: 'Hazrat Maulana Ashraf Ali Thanvi',
-      topic: 'Islahe Nafs',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum.',
-      imgUrl: 'assets/images/IslahiBookTitle/Qalb_e_Saleem.png',
-      pdfUrl: 'assets/pdf/IslahiBooks/Qalb_e_Saleem.pdf'
-    },
-    {
-      name: 'Rooh Ki Bimarian',
-      writer: 'Hazrat Maulana Ashraf Ali Thanvi',
-      topic: 'Islahe Nafs',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum.',
-      imgUrl: 'assets/images/IslahiBookTitle/Rooh_Ki_Bimarian.png',
-      pdfUrl: 'assets/pdf/IslahiBooks/Rooh_Ki_Bimarian.pdf'
-    },
-    {
-      name: 'Waliullah Bananay Walay 4 Aamaal',
-      writer: 'Hazrat Maulana Ashraf Ali Thanvi',
-      topic: 'Islahe Nafs',
-      description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo praesentium assumenda quia nostrum.',
-      imgUrl: 'assets/images/IslahiBookTitle/Waliullah_Bananay_Walay_4_Aamaal.png',
-      pdfUrl: 'assets/pdf/IslahiBooks/Waliullah_Bananay_Walay_4_Aamaal.pdf'
-    },
-  ];
+  ShortClipModal: ShortClipModal = new ShortClipModal();
+  dataUrduBooks: any[] = []; // Stores all fetched books
+  page = 1;                  // Current page
+  pageSize = 5;              // Default page size
+  collectionSize = 0;        // Total number of books
 
-  sanitizedPdfUrl!: SafeResourceUrl;
-
-  constructor(private modalService: NgbModal, private sanitizer: DomSanitizer) { }
-
-  openPdfModal(modal: any, pdfUrl: string) {
-    this.sanitizedPdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl(pdfUrl);
-    this.modalService.open(modal, { size: 'xl' });
-  }
-
-  downloadPdf(pdfUrl: string, pdfName: string) {
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = `${pdfName}.pdf`;
-    link.click();
-  }
-
-  sharePdf(pdfUrl: string, pdfName: string) {
-    if (navigator.share) {
-      navigator.share({
-        title: pdfName,
-        url: pdfUrl
-      }).catch((error) => console.log('Error sharing:', error));
-    } else {
-      alert('Web Share API is not supported in this browser.');
-    }
-  }
+  constructor(
+    private modalService: NgbModal,
+    private sanitizer: DomSanitizer,
+    private urduBooksService: ApisService
+  ) {}
 
   ngOnInit(): void {
+    this.fetchBooks(); // Fetch data when the component loads
+  }
+
+  /**
+   * Fetches books from the API and updates the data and pagination.
+   */
+  fetchBooks(): void {
+    this.urduBooksService.UrduBooksList(this.ShortClipModal).subscribe(
+      (response: any) => {
+        if (response.Status) {
+          this.dataUrduBooks = response.Data;
+          this.collectionSize = response.TotalCount;
+          console.log('Books:', this.dataUrduBooks);
+        } else {
+          console.warn('API response status is false');
+        }
+      },
+      (error) => {
+        console.error('Error fetching books:', error);
+      }
+    );
+  }
+
+  /**
+   * Returns the books to be displayed on the current page.
+   */
+  paginatedBooks(): any[] {
+    const start = (this.page - 1) * this.pageSize;
+    const end = start + this.pageSize;
+    return this.dataUrduBooks.slice(start, end);
+  }
+
+  /**
+   * Opens a PDF in a new tab.
+   */
+  openPdf(url: string): void {
+    window.open(this.getImageUrl(url), '_blank');
+  }
+
+  /**
+   * Constructs the full URL for a book's image or PDF.
+   */
+  getImageUrl(path: string): string {
+    return `http://apis.baitulmaarif.com/${path.replace('\\', '/')}`;
+  }
+
+  /**
+   * Handles page changes triggered by pagination.
+   */
+  onPageChange(): void {
+    console.log(`Page changed to: ${this.page}`);
+  }
+
+  /**
+   * Updates the pagination when the page size is changed via the dropdown.
+   */
+  onPageSizeChange(): void {
+    this.page = 1; // Reset to the first page whenever the page size changes
+    this.collectionSize = this.dataUrduBooks.length; // Update total items count
+    console.log(`Page size changed to: ${this.pageSize}`);
   }
 
 }

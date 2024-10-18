@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, Observable } from 'rxjs';
 import { ShortClipModal } from "../modals/ShortClipList";
 import { SliderData } from '../modals/slider.model';
+import { UrduBook } from '../modals/UrduBook';
 
 @Injectable({
   providedIn: 'root'
@@ -84,6 +85,13 @@ export class ApisService {
   announcementImage(): Observable<any> {
     const url = `${this.baseURL}/api/adminActivities/fetchOnLoadImageAnnouncementList`;
     return this.http.get<any>(url).pipe(catchError(this.handleError));
+  }
+
+  UrduBooksList(payload: ShortClipModal): Observable<UrduBook[]> {
+    const url = `${this.baseURL}/api/adminActivities/fetchUrduBooksList`;
+    return this.http.post<UrduBook[]>(url, payload).pipe(
+      catchError(this.handleError)
+    );
   }
 
 }

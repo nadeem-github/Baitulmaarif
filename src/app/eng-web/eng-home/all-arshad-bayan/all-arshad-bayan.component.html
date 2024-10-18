@@ -1,25 +1,22 @@
 <div class="container py-4">
 	<h2 class="text-center fw-bold mb-4">All Bayaan</h2>
 	<div class="card shadow-sm">
-		<div class="card-header text-center card-lbk px-0">
-			<p class="text-white font-16 mb-0">Mufti Muhammad</p>
-			<p class="text-white border-bottom-dotted mb-0 font-24">Arshad Sb. Bajhedi (D.B.)</p>
+		<div class="card-header text-center cardHeadingHeader px-0 pb-1">
+			<div>
+				<p class="text-white font-16 mb-0">Mufti Muhammad</p>
+				<p class="text-white mb-0 font-24">Hazrat Wala (D.B.)</p>
+			</div>
 		</div>
 		<div class="p-0 p-sm-3 card-body">
 			<!-- Search Input for Filtering Bayaan List -->
 			<div class="mb-0 mb-sm-3 p-3 p-sm-0">
-				<input
-          type="text"
-          [(ngModel)]="searchQuery"
-          (ngModelChange)="onSearchQueryChange()"
-          class="form-control shadow-none"
-          placeholder="Search by Title"
-        />
+				<input type="text" [(ngModel)]="searchQuery" (ngModelChange)="onSearchQueryChange()"
+					class="form-control shadow-none" placeholder="Search by Title" />
 			</div>
 
-            <div *ngIf="loading" class="text-center py-4">
-                <img src="assets/images/Spinner.svg" width="100" alt="">
-            </div>
+			<div *ngIf="loading" class="text-center py-4">
+				<img src="assets/images/Spinner.svg" width="100" alt="">
+			</div>
 
 			<div class="table-responsive" *ngIf="!loading">
 				<table class="table table-bordered">
@@ -36,15 +33,15 @@
 							<td class="majlis" (click)="openBayanModal(bayan, bayanModal);">
 								<div>
 									<div class="fw-semibold text-truncate text-truncate-20">
-                                        {{ bayan.Title }}
-                                    </div>
+										{{ bayan.Title }}
+									</div>
 									<span class="date d-block d-sm-none">
-                                        {{ bayan.UploadDate | date: 'dd/MM/yyyy' }} - {{ bayan.FileSize }}
-                                    </span>
+										{{ bayan.UploadDate | date: 'dd/MM/yyyy' }} - {{ bayan.FileSize }}
+									</span>
 								</div>
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
-                                {{ bayan.UploadDate | date: 'dd/MM/yyyy' }}
+								{{ bayan.UploadDate | date: 'dd/MM/yyyy' }}
 							</td>
 							<td class="text-center d-none d-sm-table-cell">
 								{{ bayan.FileSize ? bayan.FileSize : 'Not Added'}}
@@ -52,7 +49,8 @@
 							<td class="text-center verticale-align pb-0">
 								<ul class="social-icons mb-0 d-flex align-items-center justify-content-center">
 									<li>
-										<a (click)="downloadFile(bayan.UrMp3Path, bayan.UrTitle)" title="Download Bayaan" class="social-square">
+										<a (click)="downloadFile(bayan.UrMp3Path, bayan.UrTitle)"
+											title="Download Bayaan" class="social-square">
 											<i class="fa fa-cloud-download" aria-hidden="true"></i>
 										</a>
 									</li>
@@ -68,8 +66,9 @@
 				</table>
 			</div>
 			<div class="d-flex justify-content-between align-items-center flex-wrap p-2 p-sm-0 ngbPagination">
-				<ngb-pagination class="mb-3 mb-sm-0 mx-auto mx-sm-0"  [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-				[maxSize]="2" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
+				<ngb-pagination class="mb-3 mb-sm-0 mx-auto mx-sm-0" [collectionSize]="collectionSize" [(page)]="page"
+					[pageSize]="pageSize" [maxSize]="2" [rotate]="true" [boundaryLinks]="true"
+					(pageChange)="onPageChange()">
 				</ngb-pagination>
 
 				<select class="form-select shadow-none" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()">
@@ -82,11 +81,13 @@
 </div>
 
 <ng-template #bayanModal let-modal>
-	<div class="modal-header card-lbk text-white">
-		<marquee behavior="scroll" direction="left" scrollamount="4">
-			{{ selectedBayan?.Title }}
-		</marquee>
-	</div>
+	<div class="modal-header px-0 pt-3 pb-2 cardHeadingHeader">
+		<div class="w-100">
+			<marquee behavior="scroll" direction="left" scrollamount="4">
+                <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedBayan?.Title }}</p>
+            </marquee>
+		</div>
+    </div>
 	<div class="modal-body">
 		<div *ngIf="loadingAudio" class="text-center">
 			<img src="../../../../assets/images/Spinner.svg" width="50" alt="" />

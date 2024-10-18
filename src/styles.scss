@@ -163,3 +163,17 @@
         border-bottom: dashed 1px #ddd;
     }
 }
+
+.ngbPagination {
+    .pagination {
+        margin-bottom: 0;
+    }
+
+    select {
+        width: 20%;
+
+        @media (max-width:500px) {
+            width: 100%;
+        }
+    }
+}

@@ -18,6 +18,7 @@ export class AhamBayanListComponent implements OnInit {
   
   ShortClipModal: ShortClipModal = new ShortClipModal();
   dataMolanaBayanList: any[] = [];
+  filteredBayanList: any[] = [];
   page = 1;
   pageSize = 10;
   collectionSize = 0;
@@ -26,6 +27,7 @@ export class AhamBayanListComponent implements OnInit {
   audioError: boolean = false;
   loading: boolean = false;
   loadingAudio: boolean = false;
+  searchQuery = ''; // Filter input binding
 
   constructor(
     private shortClipService: ApisService,
@@ -51,7 +53,8 @@ export class AhamBayanListComponent implements OnInit {
       (response: any) => {
         this.loading = false; // Stop loading when data is received
         if (response.Status) {
-          this.dataMolanaBayanList = response.Data
+          this.dataMolanaBayanList = response.Data;
+          this.filteredBayanList = response.Data;
           this.collectionSize = response.TotalCount;
         } else {
           console.warn('API response status is false');
@@ -64,6 +67,13 @@ export class AhamBayanListComponent implements OnInit {
     );
   }
 
+  // New method to filter bayan list based on search input
+  filterBayanList(): void {
+    const query = this.searchQuery.trim().toLowerCase();
+    this.filteredBayanList = this.dataMolanaBayanList.filter((bayan) =>
+      bayan.Title.toLowerCase().includes(query)
+    );
+  }
 
   onPageChange() {
     this.ShortClipModal.PageIndexSize = this.page;

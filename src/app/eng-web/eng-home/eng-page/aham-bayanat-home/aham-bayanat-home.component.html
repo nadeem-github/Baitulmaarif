@@ -36,12 +36,12 @@
 </div>
 
 <ng-template #bayanModal let-modal>
-    <div class="modal-header card-lbk">
-        <p class="text-white mb-0 w-100 d-flex fw-semibold">
-            <marquee behavior="scroll" direction="left" scrollamount="4">
+    <div class="modal-header px-0 pt-3 pb-2 cardHeadingHeader">
+		<div class="w-100">
+			<marquee behavior="scroll" direction="left" scrollamount="4">
                 <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedBayan?.Title }}</p>
             </marquee>
-        </p>
+		</div>
     </div>
     <div class="modal-body">
         <div *ngIf="loadingAudio" class="text-center">

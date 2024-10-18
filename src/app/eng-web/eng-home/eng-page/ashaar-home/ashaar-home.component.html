@@ -34,13 +34,13 @@
 </div>
 
 <ng-template #clipModal let-modal>
-	<div class="modal-header card-lbk">
-		<p class="text-white mb-0 w-100 d-flex fw-semibold">
+    <div class="modal-header px-0 pt-3 pb-2 cardHeadingHeader">
+		<div class="w-100">
 			<marquee behavior="scroll" direction="left" scrollamount="4">
-				<p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedClip?.Title }}</p>
-			</marquee>
-		</p>
-	</div>
+                <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedClip?.Title }}</p>
+            </marquee>
+		</div>
+    </div>
 	<div class="modal-body">
 		<audio [src]="getAudioPath(selectedClip?.Mp3Path)" autoplay controls class="w-100 mb-3"></audio>
 		<p class="font-16"><strong>Date :</strong> {{ selectedClip?.UrUploadDate | date: 'dd/MM/y' }}</p>
