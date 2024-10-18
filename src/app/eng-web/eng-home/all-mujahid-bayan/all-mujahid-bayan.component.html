@@ -1,9 +1,11 @@
 <div class="container py-4">
 	<h2 class="text-center fw-bold mb-4">All Bayaan</h2>
 	<div class="card shadow-sm">
-		<div class="card-header text-center card-lbk px-0">
-			<p class="text-white font-16 mb-0">Mufti Muhammad</p>
-			<p class="text-white border-bottom-dotted mb-0 font-24">Mujahid Khairabadi</p>
+		<div class="card-header text-center cardHeadingHeader px-0">
+			<div>
+				<p class="text-white font-16 mb-0">Mufti Muhammad</p>
+				<p class="text-white mb-0 font-24">Mujahid Khairabadi</p>
+			</div>
 		</div>
 		<div class="p-0 p-sm-3 card-body">
 			<!-- Search Input for Filtering Bayaan List -->
@@ -12,46 +14,46 @@
 			</div>
 
             <div *ngIf="loading" class="text-center py-4">
-                <img src="assets/images/loader.gif" width="100" alt="">
+                <img src="assets/images/Spinner.svg" width="100" alt="">
             </div>
 
 			<div class="table-responsive" *ngIf="!loading">
 				<table class="table table-bordered">
 					<thead>
 						<tr class="bg-light">
-							<th scope="col">Title</th>
-							<th class="text-center d-none d-sm-table-cell" scope="col">Date</th>
-							<th class="text-center d-none d-sm-table-cell" scope="col">Size</th>
-							<th class="text-center" scope="col">Action</th>
+							<th scope="col" class="verticale-align">Title</th>
+							<th class="text-center d-none d-sm-table-cell verticale-align" scope="col">Date</th>
+							<th class="text-center d-none d-sm-table-cell verticale-align" scope="col">Size</th>
+							<th class="text-center verticale-align" scope="col">Action</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr *ngFor="let bayan of filteredBayanList">
-							<td class="majlis" (click)="openBayanModal(bayan, bayanModal);">
+							<td class="majlis verticale-align" (click)="openBayanModal(bayan, bayanModal);">
 								<div>
 									<div class="fw-semibold text-truncate text-truncate-20">
                                         {{ bayan.Title }}
                                     </div>
-									<span class="date d-block d-sm-none">
+									<span class="textGreyDate font-12 d-block d-sm-none">
                                         {{ bayan.UploadDate | date: 'dd/MM/yyyy' }} - {{ bayan.FileSize }}
                                     </span>
 								</div>
 							</td>
-							<td class="text-center d-none d-sm-table-cell">
+							<td class="text-center d-none d-sm-table-cell verticale-align">
                                 {{ bayan.UploadDate | date: 'dd/MM/yyyy' }}
 							</td>
-							<td class="text-center d-none d-sm-table-cell">
+							<td class="text-center d-none d-sm-table-cell verticale-align">
 								{{ bayan.FileSize ? bayan.FileSize : 'Not Added'}}
 							</td>
-							<td class="text-center verticale-align pb-0">
+							<td class="text-center verticale-align pb-0 verticale-align">
 								<ul class="social-icons mb-0 d-flex align-items-center justify-content-center">
 									<li>
-										<a (click)="downloadFile(bayan.UrMp3Path, bayan.UrTitle)" title="Download Bayaan" class="social-square">
+										<a (click)="downloadFile(bayan.UrMp3Path, bayan.UrTitle)" title="Download Bayaan">
 											<i class="fa fa-cloud-download" aria-hidden="true"></i>
 										</a>
 									</li>
 									<li>
-										<a title="Share Bayaan" class="social-square">
+										<a title="Share Bayaan">
 											<i class="fa fa-share-alt-square" aria-hidden="true"></i>
 										</a>
 									</li>
@@ -77,12 +79,12 @@
 </div>
 
 <ng-template #bayanModal let-modal>
-    <div class="modal-header card-lbk">
-        <p class="text-white mb-0 w-100 d-flex fw-semibold">
-            <marquee behavior="scroll" direction="left" scrollamount="4">
-                <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedBayan?.Title }}</p>
-            </marquee>
-        </p>
+    <div class="modal-header px-0 pt-3 pb-2 cardHeadingHeader">
+		<div>
+			<marquee behavior="scroll" direction="left" scrollamount="4">
+				<p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedBayan?.Title }}</p>
+			</marquee>
+		</div>
     </div>
     <div class="modal-body">
         <!-- Loader when audio is loading -->

@@ -12,7 +12,7 @@
 			</div>
 
 			<div *ngIf="loading" class="text-center py-4">
-				<img src="assets/images/loader.gif" width="100" alt="Loading..." />
+				<img src="assets/images/Spinner.svg" width="100" alt="Loading..." />
 			</div>
 
 			<div *ngIf="!loading">
@@ -106,7 +106,7 @@
 	</div>
 	<div class="modal-body">
 		<div *ngIf="loadingAudio" class="text-center">
-			<img src="../../../../../assets/images/loader.gif" width="50" alt="">
+			<img src="../../../../../assets/images/Spinner.svg" width="50" alt="">
 			<p class="text-success mt-2">Audio is loading, please wait...</p>
 		</div>
 		<audio *ngIf="!loadingAudio" [src]="audioUrl" autoplay controls (canplay)="onAudioLoad()" (error)="handleAudioError()" class="w-100 mb-3"></audio>

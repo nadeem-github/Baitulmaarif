@@ -150,3 +150,16 @@
 *::-webkit-scrollbar-thumb:active {
     background-color: #FF9600;
 }
+
+.textGreyDate {
+    color: #979797;
+}
+
+.cardHeadingHeader {
+    background: rgb(221, 172, 84);
+    background: linear-gradient(0deg, #241700 0%, #714904 100%);
+
+    div {
+        border-bottom: dashed 1px #ddd;
+    }
+}

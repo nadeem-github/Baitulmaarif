@@ -19,8 +19,8 @@ export class IslahiBayanHomeComponent implements OnInit {
   audioUrl: any;
   audioError: boolean = false;
   loading: boolean = false;
+  baseUrl : any = 'http://apis.baitulmaarif.com/';
   isAudioPlaying = false;
-  baseUrl = 'http://apis.baitulmaarif.com/';
 
   constructor(
     private shortClipService: ApisService,
@@ -33,29 +33,24 @@ export class IslahiBayanHomeComponent implements OnInit {
   }
 
   setUpPayload() {
-    this.ShortClipModal.PageIndexSize = this.page;
-    this.ShortClipModal.SortOrder = 'desc';
+    // this.ShortClipModal.PageIndexSize = this.page;
+    // this.ShortClipModal.SortOrder = 'desc';
+    // this.ShortClipModal.SortBy = 'Title';
     this.ShortClipModal.PageSize = this.pageSize;
 
     // Always filter for "Hazrat Mufti Muhammad Arshad Sb. Bajhedi (D.B.)"
     this.ShortClipModal.Filter = 'Hazrat Mufti Muhammad Arshad Sb. Bajhedi (D.B.)';
-    this.ShortClipModal.SortBy = '';
   }
 
   getMolanaBayanList() {
     this.loading = true; // Start loading before making the API call
-
+  
     this.shortClipService.molanaBayanList(this.ShortClipModal).subscribe(
       (response: any) => {
         this.loading = false; // Stop loading when data is received
         if (response.Status) {
-          // Sort data by 'UrUploadDate' in descending order to display the latest record at the top
-          this.dataMolanaBayanList = response.Data.sort((a: any, b: any) => {
-            return new Date(b.UploadDate).getTime() - new Date(a.UploadDate).getTime();
-          });
+          this.dataMolanaBayanList = response.Data
           this.collectionSize = response.TotalCount;
-          console.log('dataMolanaBayanList', this.dataMolanaBayanList);
-          
         } else {
           console.warn('API response status is false');
         }
@@ -66,6 +61,7 @@ export class IslahiBayanHomeComponent implements OnInit {
       }
     );
   }
+
 
   onPageChange() {
     this.ShortClipModal.PageIndexSize = this.page;
@@ -106,11 +102,18 @@ export class IslahiBayanHomeComponent implements OnInit {
     }
   }
 
+  openBayanModal(bayan: any, content: any) {
+    this.selectedBayan = bayan; // Set the selected bayan
+    this.audioUrl = this.baseUrl + bayan.UrMp3Path; // Set the audio URL
+    this.audioError = false; // Reset the error state
+    this.modalService.open(content, { centered: true, size: 'md', backdrop: 'static', keyboard: false }); // Open modal with 'lg' size
+  }
+
   handleAudioError() {
     this.audioError = true; // Set the error flag to true if the audio fails to load
-  }  
+  }
 
-  updateAudioState(event: Event) {
+  updateAudioState(event: Event): void {
     const audioElement = event.target as HTMLAudioElement;
     this.isAudioPlaying = !audioElement.paused;
   }
