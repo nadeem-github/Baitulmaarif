@@ -1,11 +1,10 @@
 <div class="container py-4">
 	<div class="card shadow-sm">
-		<div class="card-header text-center card-lbk px-0">
-			<p class="text-white border-bottom-dotted mb-0 font-24">
-				Mufti Muhammad Mujahid Khairabadi
-			</p>
+		<div class="card-header text-center cardHeadingHeader px-0 pb-1">
+			<div>
+				<p class="text-white mb-2 font-24">Mufti Muhammad Mujahid Khairabadi</p>
+			</div>
 		</div>
-
 		<div class="p-0 p-sm-3 card-body">
 			<div class="mb-0 mb-sm-3 p-3 p-sm-0">
 				<input type="text" class="form-control shadow-sm rounded-1" placeholder="Search Bayaan by Title" [(ngModel)]="searchTerm" (ngModelChange)="onSearchChange()" />
@@ -97,13 +96,13 @@
 </div>
 
 <ng-template #bayanModal let-modal>
-	<div class="modal-header card-lbk">
-		<p class="text-white mb-0 w-100 d-flex fw-semibold">
+	<div class="modal-header px-0 pt-3 pb-2 cardHeadingHeader">
+		<div class="w-100">
 			<marquee behavior="scroll" direction="left" scrollamount="4">
-				{{ selectedBayan?.Title }}
-			</marquee>
-		</p>
-	</div>
+                <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedBayan?.Title }}</p>
+            </marquee>
+		</div>
+    </div>
 	<div class="modal-body">
 		<div *ngIf="loadingAudio" class="text-center">
 			<img src="../../../../../assets/images/Spinner.svg" width="50" alt="">
