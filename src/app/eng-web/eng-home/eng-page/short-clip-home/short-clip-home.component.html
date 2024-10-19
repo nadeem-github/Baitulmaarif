@@ -17,10 +17,12 @@
 </div>
 
 <ng-template #content let-modal>
-    <div class="modal-header card-lbk">
-        <marquee behavior="scroll" direction="left" scrollamount="4">
-            <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedVideo?.Title }}</p>
-        </marquee>
+    <div class="modal-header px-0 pt-3 pb-2 cardHeadingHeader">
+		<div class="w-100">
+			<marquee behavior="scroll" direction="left" scrollamount="4">
+                <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedVideo?.Title }}</p>
+            </marquee>
+		</div>
     </div>
     <div class="modal-body">
         <video width="100%" height="auto" class="border p-2 rounded mb-2" controls [poster]="baseUrl + selectedVideo?.ImagePath" autoplay>
