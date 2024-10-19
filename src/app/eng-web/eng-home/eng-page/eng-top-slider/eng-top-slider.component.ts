@@ -54,7 +54,7 @@ export class EngTopSliderComponent implements OnInit {
 
   // Helper function to construct image paths or provide a fallback
   getImagePath(path: string | null): string {
-    return path ? `${this.baseURL}/${path.replace(/\\/g, '/')}` : 'assets/images/slide-02.jpg';
+    return path ? `${this.baseURL}/${path.replace(/\\/g, '/')}` : 'assets/images/sliderDummy.png';
   }
 
   autoSlide() {

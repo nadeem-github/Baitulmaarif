@@ -10,16 +10,16 @@
                             <hr class="bg-white">
                             <ul class="pl-4 footer-menu-cursor lh-lg">
                                 <li>
-                                    <a class="text-white font-16 text-decoration-none">Audio</a>
+                                    <a class="text-white font-16 text-decoration-none" [routerLink]="['/Bayaandetaillist']" (click)="gotoTop();">Audio</a>
                                 </li>
                                 <li>
-                                    <a class="text-white font-16 text-decoration-none">Al-Quran</a>
+                                    <a class="text-white font-16 text-decoration-none" [routerLink]="'./quran-mp3'" (click)="gotoTop();">Al-Quran</a>
                                 </li>
                                 <li>
-                                    <a class="text-white font-16 text-decoration-none">Video</a>
+                                    <a class="text-white font-16 text-decoration-none" [routerLink]="['/VideoGallery']" (click)="gotoTop();">Video</a>
                                 </li>
                                 <li>
-                                    <a class="text-white font-16 text-decoration-none">Books</a>
+                                    <a class="text-white font-16 text-decoration-none" [routerLink]="['/Islahibookslist']" (click)="gotoTop();">Books</a>
                                 </li>
                             </ul>
                         </div>
@@ -37,10 +37,10 @@
                                     <a class="nav-link text-white font-16 text-decoration-none" routerLink="./Contact" (click)="gotoTop()">Contact</a>
                                 </li>
                                 <li>
-                                    <a class="text-white font-16 text-decoration-none">Live</a>
+                                    <a class="text-white font-16 text-decoration-none" [routerLink]="['/EngHome']" (click)="gotoTop();">Live</a>
                                 </li>
                                 <li>
-                                    <a class="text-white font-16 text-decoration-none">About Us</a>
+                                    <a class="text-white font-16 text-decoration-none" [routerLink]="['/aboutBaitulmaarif']" (click)="gotoTop();">About Us</a>
                                 </li>
                             </ul>
                         </div>
@@ -100,5 +100,14 @@
     </div>
 </div>
 <div class="copyright py-2">
-    <p class="mb-0 text-center text-dark font-14">&copy; Copyright {{currentYear}} baitulmaarif All Right Reserved.</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-8 col-xl-8 co-lg-8 col-md-6 col-sm-12">
+                <p class="mb-0 text-center text-sm-start text-dark font-12">&copy; Copyright {{currentYear}} baitulmaarif All Right Reserved.</p>
+            </div>
+            <div class="col-xxl-4 col-xl-4 co-lg-4 col-md-6 col-sm-12">
+                <p class="mb-0 text-center text-sm-end text-dark font-12">Privacy Policy</p>
+            </div>
+        </div>
+    </div>
 </div>

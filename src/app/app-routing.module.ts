@@ -48,7 +48,7 @@ const routes: Routes = [
   { path: 'quran-mp3', component: QuranMp3Component, },
   { path: 'quran-pdf', component: QuranPdfComponent, },
   { path: 'full-video-view', component: FullVideoComponent, },
-  { path: 'abt-baitulmaarif', component: AboutBaitulmaarifComponent, },
+  { path: 'aboutBaitulmaarif', component: AboutBaitulmaarifComponent, },
   { path: 'Duayen', component: DuayenComponent, },
   { path: 'Sunnaten', component: SunnatenComponent, },
   { path: 'Malfuzaat', component: MalfuzaatComponent, },

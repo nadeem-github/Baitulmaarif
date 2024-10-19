@@ -100,21 +100,16 @@
 				</div>
 			</div>
 
-			<div class="p-2 p-sm-0">
-				<div class="d-flex justify-content-between flex-wrap">
-					<!-- Pagination -->
-					<ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-						[maxSize]="2" [rotate]="true" [boundaryLinks]="true" (pageChange)="onPageChange()">
-					</ngb-pagination>
+			<div class="d-flex justify-content-between align-items-center flex-wrap p-2 p-sm-0 ngbPagination">
+				<ngb-pagination class="mb-3 mb-sm-0 mx-auto mx-sm-0" [collectionSize]="collectionSize" [(page)]="page"
+					[pageSize]="pageSize" [maxSize]="2" [rotate]="true" [boundaryLinks]="true"
+					(pageChange)="onPageChange()">
+				</ngb-pagination>
 
-					<!-- Page Size Selector -->
-					<select class="form-select form-select-sm" style="width: auto" [(ngModel)]="pageSize"
-						(ngModelChange)="onPageSizeChange()">
-						<option [ngValue]="5">5 Bayaan Per Page</option>
-						<option [ngValue]="10">10 Bayaan Per Page</option>
-						<option [ngValue]="20">20 Bayaan Per Page</option>
-					</select>
-				</div>
+				<select class="form-select shadow-none" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()">
+					<option [ngValue]="5">5 Bayaan Per Page</option>
+					<option [ngValue]="10">10 Bayaan Per Page</option>
+				</select>
 			</div>
 		</div>
 	</div>
