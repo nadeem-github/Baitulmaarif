@@ -1,13 +1,15 @@
 <div class="card bg-transparent border-custom">
-  <div class="card-header card-lbk">
-    <h5 class="mb-0 border-bottom-dotted">Latest Book</h5>
+  <div class="card-header text-center cardHeadingHeader px-0 pb-1">
+    <div>
+      <p class="text-white mb-2 font-24">Latest Book</p>
+    </div>
   </div>
-  <div class="card-body pt-0 hover-show-icon">
+  <div class="card-body hover-show-icon">
     <div *ngIf="isLoading" class="text-center">
       <img src="assets/images/Spinner.svg" width="100" alt="Loading..." />
     </div>
-    <swiper *ngIf="!isLoading" class="py-0" [grabCursor]="true" [autoplay]="{ delay: 3000, disableOnInteraction: false }" [loop]="true"
-      [effect]="'creative'"
+    <swiper *ngIf="!isLoading" class="py-0" [grabCursor]="true"
+      [autoplay]="{ delay: 3000, disableOnInteraction: false }" [loop]="true" [effect]="'creative'"
       [creativeEffect]="{ prev: { shadow: true, translate: [0, 0, -400] }, next: { translate: ['100%', 0, 0] } }">
       <ng-template swiperSlide *ngFor="let clip of dataLatestBooksList">
         <div class="team-area">

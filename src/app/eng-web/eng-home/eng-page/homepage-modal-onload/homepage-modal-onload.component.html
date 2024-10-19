@@ -6,16 +6,17 @@
     </button>
 
     <!-- Loading Spinner -->
-    <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center" style="height: 300px;">
+    <!-- <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center" style="height: 300px;">
         <img src="assets/images/Spinner.svg" width="100" alt="Loading">
-    </div>
+    </div> -->
 
     <!-- Error Message (Optional) -->
     <div *ngIf="isError" class="text-danger mt-3">
         <img src="./assets/images/defaultAnnouncement.png" class="img-thumbnail" alt="Default Image">
     </div>
 
-    <ngb-carousel *ngIf="!isLoading && !isError && announcementImages.length > 1" class="custom-carousel" [wrap]="true" [keyboard]="true" [pauseOnHover]="true" [showIndicators]="false">
+    <!-- !isLoading &&  -->
+    <ngb-carousel *ngIf="!isError && announcementImages.length > 1" class="custom-carousel" [wrap]="true" [keyboard]="true" [pauseOnHover]="true" [showIndicators]="false">
         <ng-template ngbSlide *ngFor="let image of announcementImages">
             <div class="position-relative">
                 <img [src]="image.ImgPath" class="img-thumbnail w-100" alt="Announcement Image" *ngIf="image.ImgPath">
@@ -27,8 +28,9 @@
     </ngb-carousel>
     
 
+    <!-- !isLoading &&  -->
     <!-- Single Image Display -->
-    <div *ngIf="!isLoading && !isError && announcementImages.length === 1" class="position-relative">
+    <div *ngIf="!isError && announcementImages.length === 1" class="position-relative">
         <img [src]="announcementImages[0].ImgPath" class="img-thumbnail w-100" alt="Announcement Image" *ngIf="announcementImages[0].ImgPath">
         <p class="position-absolute bg-white px-3 py-1 mb-0 rounded-start-pill font-14 fw-medium">
            {{ announcementImages[0].EntryDate | date: 'dd/MM/y' }}

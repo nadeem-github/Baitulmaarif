@@ -1,0 +1,23 @@
+.bg-bless {
+    background: url(../../../../../assets/images/bg-bless.jpg) no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 6rem 0rem;
+
+    h2 {
+        font-weight: 900;
+        color: #794e01;
+        font-size: 3rem;
+    }
+
+    .view-more {
+        background-color: #794e01;
+        border: none;
+        border-radius: 1rem;
+        padding: 4px 10px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+}

@@ -94,4 +94,9 @@ export class ApisService {
     );
   }
 
+  ahamTaleemat(payload: ShortClipModal): Observable<any> {
+    const url = `${this.baseURL}/api/adminActivities/fetchKnowledgeBaseList`;
+    return this.http.post<any>(url, payload).pipe(catchError(this.handleError));
+  }
+
 }

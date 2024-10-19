@@ -72,6 +72,8 @@ import { AllArshadBayanComponent } from './eng-web/eng-home/all-arshad-bayan/all
 import { SafeUrlPipe } from './pipes/safe-url';
 import { AllMujahidBayanComponent } from './eng-web/eng-home/all-mujahid-bayan/all-mujahid-bayan.component';
 import { AuthInterceptor } from './auth.interceptor';
+import { AhamTaleematHomeComponent } from './eng-web/eng-home/eng-page/aham-taleemat-home/aham-taleemat-home.component';
+import { BlessYourSoalComponent } from './eng-web/eng-home/eng-page/bless-your-soal/bless-your-soal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -128,7 +130,9 @@ import { AuthInterceptor } from './auth.interceptor';
     AllMajalisBayanComponent,
     AllArshadBayanComponent,
     SafeUrlPipe,
-    AllMujahidBayanComponent
+    AllMujahidBayanComponent,
+    AhamTaleematHomeComponent,
+    BlessYourSoalComponent
   ],
   imports: [
     BrowserModule,
@@ -151,7 +155,10 @@ import { AuthInterceptor } from './auth.interceptor';
     NgStepperModule,
     ReactiveFormsModule 
   ],
-  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, }],
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true, },
+  ],
   // SharedService, 
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

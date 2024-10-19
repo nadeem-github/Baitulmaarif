@@ -54,10 +54,12 @@
             </div>
             <div class="col-lg-3 col-md-12">
                 <div class="card bg-transparent border-custom">
-                    <div class="card-header card-lbk">
-                        <h5 class="mb-0 border-bottom-dotted">Special Collection</h5>
+                    <div class="card-header text-center cardHeadingHeader px-0 pb-1">
+                        <div>
+                            <p class="text-white mb-2 font-24">Special Collection</p>
+                        </div>
                     </div>
-                    <div class="card-body pt-0">
+                    <div class="card-body">
                         <aajkasabaq></aajkasabaq>
                     </div>
                 </div>
@@ -134,56 +136,14 @@
                 <ashaar-home></ashaar-home>
             </div>
             <div class="col-md-3 mx-auto align-self-center">
-                <div class="card h-100 border-custom bg-transparent">
-                    <div class="card-header card-lbk text-center">
-                        <h5 class="mb-0 border-bottom-dotted">Aham Ta’leemat</h5>
-                    </div>
-                    <div class="card-body pt-0 aham-teleem-div">
-                        <swiper class="py-0" [effect]="'cube'" [autoplay]="{ delay: 3000, disableOnInteraction: false }" [grabCursor]="true" [cubeEffect]="{ shadow: true, slideShadows: true, shadowOffset: 20, shadowScale: 0.94 }" [navigation]="true" [loop]="true">
-                            <ng-template swiperSlide><img src="assets/images/aham-taleemat-1.jpg" /></ng-template>
-                            <ng-template swiperSlide><img src="assets/images/aham-taleemat-2.jpg" /></ng-template>
-                            <ng-template swiperSlide><img src="assets/images/aham-taleemat-3.jpg" /></ng-template>
-                            <ng-template swiperSlide><img src="assets/images/aham-taleemat-4.jpg" /></ng-template>
-                            <ng-template swiperSlide><img src="assets/images/aham-taleemat-5.jpg" /></ng-template>
-                        </swiper>
-                    </div>
-                </div>
+                <aham-taleemat-home></aham-taleemat-home>
             </div>
         </div>
     </div>
 </div>
 
-<div class="bg-bless">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <img src="assets/images/bless-img.png" class="img-fluid" alt="">
-            </div>
-            <div class="col-md-6">
-                <h2>BLESS YOUR SOUL</h2>
-                <h5>Listen to all bayanats of</h5>
-                <p>
-                    Hazrat Aqdas Mufti Muhammad Arshad Sb.Bajhedi Damat barakatuhum & other akabir from silsilah
-                    Imdadiyah Ashrafiyah on self-purification
-                </p>
-                <div class="center-mob-resp">
-                    <button class="btn btn-primary view-more mt-3">DOWNLOAD BAITUL MAARIF APP</button>
-                </div>
-                <p class="mt-4">AND GET ACCESS TO HIGH QUALITY ISLAMIC CONTENT</p>
-                <div class="row center-mob-resp">
-                    <div class="col-12">
-                        <img src="assets/images/logo-icon.png" class="img-fluid logo-icon-play" width="50" alt="">
-                        <a href="https://play.google.com/store/apps/details?id=com.sarbakaf.baitulmaarif">
-                            <img src="assets/images/app-download.png" class="img-fluid ml-4" width="155" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<bless-your-soal></bless-your-soal>
 
 <total-visitors></total-visitors>
-
 
 <loader></loader>
