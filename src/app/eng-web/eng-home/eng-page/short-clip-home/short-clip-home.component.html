@@ -6,32 +6,35 @@
         <div class="row d-flex align-items-center justify-content-center flex-wrap">
             <div class="col-lg-3 col-md-3 col-sm-12 mb-4 mb-sm-5" *ngFor="let clip of paginatedVideos">
                 <div class="p-4 p-md-0 img-outer-div mx-auto" (click)="openModal(content, clip)">
-                    <img [src]="clip.ImagePath ? baseUrl + clip.ImagePath : 'assets/images/shortClipDefault.png'" alt="" class="img-thumbnail shadow">
+                    <img [src]="clip.ImagePath ? baseUrl + clip.ImagePath : 'assets/images/shortClipDefault.png'" alt=""
+                        class="img-thumbnail shadow">
                 </div>
             </div>
         </div>
         <div class="py-4 text-center">
-            <button class="btn btn-primary rounded-pill border-0 view-more" routerLink="/VideoGallery" (click)="gotoTop()">View More...</button>
+            <button class="btn btn-primary rounded-pill border-0 view-more" routerLink="/VideoGallery"
+                (click)="gotoTop()">View More...</button>
         </div>
     </div>
 </div>
 
 <ng-template #content let-modal>
     <div class="modal-header px-0 pt-3 pb-2 cardHeadingHeader">
-		<div class="w-100">
-			<marquee behavior="scroll" direction="left" scrollamount="4">
+        <div class="w-100">
+            <marquee behavior="scroll" direction="left" scrollamount="4">
                 <p class="text-white mb-0 w-100 d-flex fw-semibold">{{ selectedVideo?.Title }}</p>
             </marquee>
-		</div>
+        </div>
     </div>
     <div class="modal-body">
-        <video width="100%" height="auto" class="border p-2 rounded mb-2" controls [poster]="baseUrl + selectedVideo?.ImagePath" autoplay>
+        <video width="100%" height="auto" class="border p-2 rounded mb-2" controls
+            [poster]="baseUrl + selectedVideo?.ImagePath" autoplay>
             <source [src]="baseUrl + selectedVideo?.Mp4path" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <p class="text-center text-danger font-16 fw-medium" *ngIf="!selectedVideo?.Mp4path">
             Video unavailable. Please try again later.
-        </p>          
+        </p>
         <p class="font-16 mb-2"><strong>Molana Name: </strong>{{ selectedVideo?.MolanaName }}</p>
         <p class="font-16 mb-2"><strong>File Size: </strong>{{ selectedVideo?.FileSize }}</p>
         <p class="font-16 mb-2"><strong>Upload Date: </strong>{{ selectedVideo?.UploadDate | date:'mediumDate' }}</p>
@@ -39,11 +42,11 @@
     </div>
     <div class="modal-footer d-flex align-items-center justify-content-center">
         <a class="actionbtns" (click)="downloadVideo(selectedVideo)">
-          Download
+            Download
         </a>
         <a class="actionbtns" (click)="shareVideo(selectedVideo)">
-          Share
+            Share
         </a>
         <a class="actionbtns" (click)="modal.close('Save click')">Close</a>
-      </div>
+    </div>
 </ng-template>

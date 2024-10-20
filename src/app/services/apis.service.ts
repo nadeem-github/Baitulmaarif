@@ -98,5 +98,10 @@ export class ApisService {
     const url = `${this.baseURL}/api/adminActivities/fetchKnowledgeBaseList`;
     return this.http.post<any>(url, payload).pipe(catchError(this.handleError));
   }
+  
+  specialCollectionList(payload: ShortClipModal): Observable<any> {
+    const url = `${this.baseURL}/api/adminActivities/fetchSpecialCollectionList`;
+    return this.http.post<any>(url, payload).pipe(catchError(this.handleError));
+  }
 
 }

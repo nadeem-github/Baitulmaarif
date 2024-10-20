@@ -1,7 +1,7 @@
 <div class="card h-100 border-custom bg-transparent">
     <div class="card-header text-center cardHeadingHeader px-0 pb-1">
         <div>
-            <p class="text-white mb-1 font-24">Aham Ta’leemat</p>
+            <p class="text-white mb-1 font-20 fw-semibold">Aham Ta’leemat</p>
         </div>
     </div>
     <div class="card-body">
@@ -14,12 +14,12 @@
                 [cubeEffect]="{ shadow: true, slideShadows: true, shadowOffset: 20, shadowScale: 0.94 }"
                 [navigation]="true" [loop]="true">
                 <ng-template swiperSlide *ngFor="let img of images">
-                    <img *ngIf="img; else defaultImage" [src]="img" alt="Aham Taleemat Image" class="img-fluid object-fit-fill" />
+                    <img *ngIf="img; else defaultImage" [src]="img" alt="Aham Taleemat Image" class="img-fluid object-fit-fill h-auto" />
                 </ng-template>
 
                 <!-- Default Image Template -->
                 <ng-template #defaultImage>
-                    <img src="assets/images/AhamTaleemDummy.png" class="img-fluid object-fit-fill" alt="Default Image" />
+                    <img src="assets/images/AhamTaleemDummy.png" class="img-fluid object-fit-fill h-auto" alt="Default Image" />
                 </ng-template>
             </swiper>
         </div>
