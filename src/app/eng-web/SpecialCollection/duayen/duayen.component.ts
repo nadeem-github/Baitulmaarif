@@ -1,5 +1,4 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ShortClipModal } from 'src/app/modals/ShortClipList';
 import { ApisService } from 'src/app/services/apis.service';
@@ -19,6 +18,7 @@ export class DuayenComponent implements OnInit {
   selectedImage: any;
   loading = false;
   selectedIndex: number = 0;
+  paginatedData: any[] = []; // To hold paginated records
 
   public BASE_URL = 'http://apis.baitulmaarif.com/';
 
@@ -53,6 +53,21 @@ export class DuayenComponent implements OnInit {
         console.error('Error fetching bayan list:', error);
       }
     );
+  }
+
+  updatePaginatedData(): void {
+    const startIndex = (this.page - 1) * this.pageSize;
+    this.paginatedData = this.dataDuayen.slice(startIndex, startIndex + this.pageSize);
+  }
+
+  onPageChange(newPage: number): void {
+    this.page = newPage;
+    this.updatePaginatedData(); // Update the displayed data for the new page
+  }
+
+  onPageSizeChange(): void {
+    this.page = 1; // Reset to the first page when page size changes
+    this.updatePaginatedData(); // Update data for the new page size
   }
 
   openModal(index: number) {
@@ -119,6 +134,11 @@ export class DuayenComponent implements OnInit {
       console.warn('Web Share API not supported in this browser.');
       alert('Sharing is not supported on your device.');
     }
+  }
+
+  onImageError(event: Event): void {
+    const target = event.target as HTMLImageElement;
+    target.src = 'assets/images/shortClipDefault.png'; // Local fallback image
   }
 
 

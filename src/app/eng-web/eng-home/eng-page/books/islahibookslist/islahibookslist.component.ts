@@ -13,10 +13,12 @@ import { ApisService } from 'src/app/services/apis.service';
 export class IslahibookslistComponent implements OnInit {
 
   ShortClipModal: ShortClipModal = new ShortClipModal();
-  dataUrduBooks: any[] = []; // Stores all fetched books
-  page = 1;                  // Current page
-  pageSize = 5;              // Default page size
-  collectionSize = 0;        // Total number of books
+  dataUrduBooks: any[] = []; // List of books
+  page = 0;                  // Current page number
+  pageSize = 10;              // Items per page
+  collectionSize = 0;        // Total number of books (from API)
+  baseURL = 'http://apis.baitulmaarif.com'; // API Base URL
+  loading = false;           // Loading state
 
   constructor(
     private modalService: NgbModal,
@@ -25,66 +27,52 @@ export class IslahibookslistComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.fetchBooks(); // Fetch data when the component loads
+    this.fetchBooks();
   }
 
-  /**
-   * Fetches books from the API and updates the data and pagination.
-   */
   fetchBooks(): void {
-    this.urduBooksService.UrduBooksList(this.ShortClipModal).subscribe(
-      (response: any) => {
-        if (response.Status) {
+    this.loading = true;
+    this.urduBooksService.UrduBooksList(this.ShortClipModal).subscribe({
+      next: (response: any) => {
+        this.loading = false;
+
+        // Assuming the API response has { Data: [], TotalCount: number }
+        if (response && response.Data) {
           this.dataUrduBooks = response.Data;
-          this.collectionSize = response.TotalCount;
-          console.log('Books:', this.dataUrduBooks);
+          console.log('dataUrduBooks', this.dataUrduBooks);
+          
+          this.collectionSize = response.TotalCount || this.dataUrduBooks.length;
         } else {
-          console.warn('API response status is false');
+          console.warn('Invalid API response:', response);
         }
       },
-      (error) => {
+      error: (error) => {
+        this.loading = false;
         console.error('Error fetching books:', error);
       }
-    );
+    });
   }
 
-  /**
-   * Returns the books to be displayed on the current page.
-   */
   paginatedBooks(): any[] {
     const start = (this.page - 1) * this.pageSize;
     const end = start + this.pageSize;
     return this.dataUrduBooks.slice(start, end);
   }
 
-  /**
-   * Opens a PDF in a new tab.
-   */
   openPdf(url: string): void {
     window.open(this.getImageUrl(url), '_blank');
   }
 
-  /**
-   * Constructs the full URL for a book's image or PDF.
-   */
   getImageUrl(path: string): string {
-    return `http://apis.baitulmaarif.com/${path.replace('\\', '/')}`;
+    return `${this.baseURL}/${path.replace(/\\/g, '/')}`;
   }
 
-  /**
-   * Handles page changes triggered by pagination.
-   */
   onPageChange(): void {
     console.log(`Page changed to: ${this.page}`);
   }
 
-  /**
-   * Updates the pagination when the page size is changed via the dropdown.
-   */
   onPageSizeChange(): void {
-    this.page = 1; // Reset to the first page whenever the page size changes
-    this.collectionSize = this.dataUrduBooks.length; // Update total items count
+    this.page = 1; // Reset to the first page when page size changes
     console.log(`Page size changed to: ${this.pageSize}`);
   }
-
 }

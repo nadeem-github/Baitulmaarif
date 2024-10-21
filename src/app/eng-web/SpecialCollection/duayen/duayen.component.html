@@ -1,7 +1,7 @@
-<section class="py-3 py-sm-5">
+<section class="py-3 py-sm-5 specialCollection">
     <div class="container">
         <div class="heading-text mx-auto py-2 rounded-1 text-center mb-3 mb-sm-0">
-            <p class="mb-0 text-white mb-0 px-3 pb-1 font-20">Special Collection</p>
+            <p class="mb-0 text-white mb-0 px-3 pb-1 font-20 fw-semibold">Special Collection</p>
         </div>
 
         <div class="duyaenDiv">
@@ -14,9 +14,10 @@
                     <div *ngFor="let image of dataDuayen; let i = index"
                         class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6 mb-3 mb-sm-0">
                         <div class="position-relative">
+
                             <img [src]="BASE_URL + image.ImageIcon"
                                 class="img-thumbnail shadow-sm w-100 object-fit-fill" alt="Duayen Image"
-                                (click)="openModal(i)" />
+                                (click)="openModal(i)" (error)="onImageError($event)" />
 
                             <!-- Share Icon -->
                             <a class="position-absolute top-0 end-0 m-2 border rounded-circle bg-light text-dark d-flex align-items-center justify-content-center text-decoration-none"
@@ -26,6 +27,16 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center flex-wrap p-2 p-sm-0 ngbPagination">
+                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="collectionSize"
+                    (pageChange)="onPageChange($event)" class="d-flex justify-content-center mt-3">
+                </ngb-pagination>
+                
+                <select class="form-select shadow-none" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()">
+                    <option [ngValue]="5">5 Bayaan Per Page</option>
+                    <option [ngValue]="10">10 Bayaan Per Page</option>
+                </select>
             </div>
         </div>
     </div>

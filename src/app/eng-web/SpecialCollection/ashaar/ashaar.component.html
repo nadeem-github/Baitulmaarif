@@ -1,55 +1,79 @@
-<section class="py-3 py-sm-5">
+<section class="py-3 py-sm-5 specialCollection">
     <div class="container">
-        <div class="heading-text mx-auto py-2 px-3 rounded-1 text-center mb-3 mb-sm-0">
-            <p class="h4 mb-0 text-white mb-0 pb-1">
-                Special Collection
-            </p>
+        <div class="heading-text mx-auto py-2 rounded-1 text-center mb-3 mb-sm-0">
+            <p class="mb-0 text-white mb-0 px-3 pb-1 font-20 fw-semibold">Special Collection</p>
         </div>
-        <ul ngbNav #nav="ngbNav" class="nav-tabs">
-            <li ngbNavItem>
-                <a ngbNavLink class="text-white sunnaten-text border-bottom-0 position-relative fw-bold lh-base">
-                    Ash'aar
-                </a>
-                <ng-template ngbNavContent>
-                    <div class="row img-sm">
-                        <div *ngFor="let image of images; let i = index" class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6 mb-3">
-                            <div class="position-relative">
-                                <img [src]="image.src" class="img-thumbnail shadow-sm" alt="" (click)="openModal(i)" />
-    
-                                <!-- Share Icon -->
-                                <a class="position-absolute border rounded-circle bg-light text-dark d-flex align-items-center justify-content-center text-decoration-none" (click)="shareImage(image.src)">
-                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                </a>
-                            </div>
+
+        <div class="duyaenDiv">
+            <p class="headingText text-white font-20 mb-0 fw-semibold py-2 px-3 rounded-top-2">Ash'aar-e-ma'arifat</p>
+            <div class="duyaenImages p-3 rounded-bottom-3 rounded-end-3">
+                <div *ngIf="loading" class="text-center py-4">
+                    <img src="assets/images/Spinner.svg" width="100" alt="Loading..." />
+                </div>
+                <div class="row" *ngIf="!loading">
+                    <div *ngFor="let image of dataDuayen; let i = index"
+                        class="col-xxl-2 col-xl-2 col-lg-3 col-md-3 col-sm-4 col-6 mb-3 mb-sm-0">
+                        <div class="position-relative">
+
+                            <img [src]="BASE_URL + image.ImageIcon"
+                                class="img-thumbnail shadow-sm w-100 object-fit-fill" alt="Duayen Image"
+                                (click)="openModal(i)" (error)="onImageError($event)" />
+
+                            <!-- Share Icon -->
+                            <a class="position-absolute top-0 end-0 m-2 border rounded-circle bg-light text-dark d-flex align-items-center justify-content-center text-decoration-none"
+                                (click)="shareImage(image)">
+                                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
-                </ng-template>
-            </li>
-        </ul>
-        
-        <div [ngbNavOutlet]="nav" class="content-div rounded-bottom-2 p-3"></div>
-        
-        <!-- Modal Template -->
-        <ng-template #imageModal let-modal>
-            <div class="modal-body text-center position-relative p-1">
-                <i class="fa fa-times-circle fa-2x text-danger btn-div position-absolute bg-white rounded-circle d-flex align-items-center justify-content-center" aria-hidden="true" (click)="modal.dismiss()"></i>
-                
-                <!-- Loader -->
-                <ngb-progressbar *ngIf="loading" type="info" [animated]="true" class="w-100"></ngb-progressbar>
-
-                <!-- Full Image -->
-                <img [src]="selectedImage?.src" class="img-fluid" alt="" (load)="onImageLoad()" [hidden]="loading">
-
-                <!-- Left Icon -->
-                <div class="position-absolute top-50 start-0 translate-middle-y rounded-circle text-white d-flex align-items-center justify-content-center shadow" (click)="previousImage()" [hidden]="loading">
-                    <i class="fa fa-arrow-circle-o-left fa-2x" aria-hidden="true"></i>
-                </div>
-
-                <!-- Right Icon -->
-                <div class="position-absolute top-50 end-0 translate-middle-y rounded-circle text-white d-flex align-items-center justify-content-center shadow" (click)="nextImage()" [hidden]="loading">
-                    <i class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true"></i>
                 </div>
             </div>
-        </ng-template>
+            <div class="d-flex justify-content-between align-items-center flex-wrap p-2 p-sm-0 ngbPagination">
+                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="collectionSize"
+                    (pageChange)="onPageChange($event)" class="d-flex justify-content-center mt-3">
+                </ngb-pagination>
+                
+                <select class="form-select shadow-none" [(ngModel)]="pageSize" (ngModelChange)="onPageSizeChange()">
+                    <option [ngValue]="5">5 Bayaan Per Page</option>
+                    <option [ngValue]="10">10 Bayaan Per Page</option>
+                </select>
+            </div>
+        </div>
     </div>
+
+    <!-- Modal Popup -->
+    <ng-template #imageModal let-modal>
+        <!-- <div class="modal-header">
+            <h5 class="modal-title">{{ selectedImage?.Title }}</h5>
+        </div> -->
+        <div class="modal-body text-center position-relative p-1">
+            <div *ngIf="loading" class="text-center py-4">
+                <img src="assets/images/Spinner.svg" width="100" alt="Loading..." />
+            </div>
+
+            <div *ngIf="!loading">
+                <img [src]="BASE_URL + selectedImage?.ImgPath" class="img-fluid" alt="Full Size Image" />
+            </div>
+
+            <div class="position-absolute top-50 start-0 translate-middle-y rounded-circle text-white d-flex align-items-center justify-content-center shadow"
+                (click)="previousImage()" [hidden]="loading">
+                <i class="fa fa-arrow-circle-o-left fa-2x" aria-hidden="true"></i>
+            </div>
+
+            <!-- Right Icon -->
+            <div class="position-absolute top-50 end-0 translate-middle-y rounded-circle text-white d-flex align-items-center justify-content-center shadow"
+                (click)="nextImage()" [hidden]="loading">
+                <i class="fa fa-arrow-circle-o-right fa-2x" aria-hidden="true"></i>
+            </div>
+        </div>
+        <div class="modal-footer d-flex align-items-center justify-content-center">
+            <a (click)="downloadImage()" class="actionbtns">
+                <i class="fa fa-cloud-download"></i> Download
+            </a>
+            <a (click)="shareImage(selectedImage)" class="actionbtns">
+                <i class="fa fa-share-alt"></i> Share
+            </a>
+            <a (click)="modal.close()" class="actionbtns">Close</a>
+        </div>
+    </ng-template>
 </section>

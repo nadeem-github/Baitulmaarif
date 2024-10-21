@@ -1,5 +1,7 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ShortClipModal } from 'src/app/modals/ShortClipList';
+import { ApisService } from 'src/app/services/apis.service';
 
 @Component({
   selector: 'app-ashaar',
@@ -8,74 +10,135 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AshaarComponent implements OnInit {
 
-  ngOnInit(): void {
-  }
-
-  images = [
-    { src: 'assets/images/sCollection/ashaar-1.webp' },
-    { src: 'assets/images/sCollection/ashaar-2.webp' },
-    { src: 'assets/images/sCollection/ashaar-1.webp' },
-    { src: 'assets/images/sCollection/ashaar-2.webp' },
-    { src: 'assets/images/sCollection/ashaar-1.webp' },
-    { src: 'assets/images/sCollection/ashaar-2.webp' },
-    { src: 'assets/images/sCollection/ashaar-1.webp' },
-    { src: 'assets/images/sCollection/ashaar-2.webp' },
-    { src: 'assets/images/sCollection/ashaar-1.webp' },
-    { src: 'assets/images/sCollection/ashaar-2.webp' },
-    { src: 'assets/images/sCollection/ashaar-1.webp' },
-    { src: 'assets/images/sCollection/ashaar-2.webp' },
-  ];
-
+  ShortClipModal: ShortClipModal = new ShortClipModal();
+  dataDuayen: any[] = [];
+  paginatedData: any[] = []; // To hold paginated records
+  page = 1;
+  pageSize = 10;
+  collectionSize = 0;
   selectedImage: any;
+  loading = false;
   selectedIndex: number = 0;
-  loading: boolean = true; // To handle the loader
+
+  public BASE_URL = 'http://apis.baitulmaarif.com/';
 
   @ViewChild('imageModal', { static: true }) imageModal!: TemplateRef<any>;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(private shortClipService: ApisService, private modalService: NgbModal) { }
+
+  ngOnInit(): void {
+    this.getMolanaBayanList();
+  }
+
+  private getMolanaBayanList(): void {
+    this.loading = true;
+    const payload = {
+      PageSize: this.pageSize,
+      PageIndexSize: this.page,
+      Filter: 'Dua',
+    };
+
+    this.shortClipService.specialCollectionList(this.ShortClipModal).subscribe(
+      (response: any) => {
+        this.loading = false;
+        if (response.Status) {
+          this.dataDuayen = response.Data.filter((item: any) => item.Category === "Ash'aar-e-ma'arifat");
+          this.collectionSize = this.dataDuayen.length;
+        } else {
+          console.warn('API response status is false');
+        }
+      },
+      (error) => {
+        this.loading = false;
+        console.error('Error fetching bayan list:', error);
+      }
+    );
+  }
+
+  updatePaginatedData(): void {
+    const startIndex = (this.page - 1) * this.pageSize;
+    this.paginatedData = this.dataDuayen.slice(startIndex, startIndex + this.pageSize);
+  }
+
+  onPageChange(newPage: number): void {
+    this.page = newPage;
+    this.updatePaginatedData(); // Update the displayed data for the new page
+  }
+
+  onPageSizeChange(): void {
+    this.page = 1; // Reset to the first page when page size changes
+    this.updatePaginatedData(); // Update data for the new page size
+  }
 
   openModal(index: number) {
     this.selectedIndex = index;
-    this.selectedImage = this.images[this.selectedIndex];
-    this.loading = true; // Set loading to true when opening modal
-    this.modalService.open(this.imageModal, { size: 'md', centered: true });
-  }
-
-  onImageLoad() {
-    this.loading = false; // Hide the loader once the image is fully loaded
+    this.selectedImage = this.dataDuayen[this.selectedIndex];
+    this.modalService.open(this.imageModal, { size: 'md', centered: true, backdrop: 'static', keyboard: false, });
   }
 
   previousImage() {
     if (this.selectedIndex > 0) {
       this.selectedIndex--;
-      this.selectedImage = this.images[this.selectedIndex];
-      this.loading = true; // Show loader when navigating to another image
+      this.selectedImage = this.dataDuayen[this.selectedIndex];
     }
   }
 
   nextImage() {
-    if (this.selectedIndex < this.images.length - 1) {
+    if (this.selectedIndex < this.dataDuayen.length - 1) {
       this.selectedIndex++;
-      this.selectedImage = this.images[this.selectedIndex];
-      this.loading = true; // Show loader when navigating to another image
+      this.selectedImage = this.dataDuayen[this.selectedIndex];
     }
   }
 
-  shareImage(imageSrc: string) {
-    const shareData = {
-      title: 'Special Collection',
-      text: 'Check out this image!',
-      url: imageSrc,
-    };
-  
+  downloadImage(): void {
+    const imageUrl = `${this.BASE_URL}${this.selectedImage?.ImgPath}`;
+    const fileName = this.selectedImage?.Title?.replace(/\s+/g, '_') || 'downloaded-image.jpg';
+
+    fetch(imageUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.blob();
+      })
+      .then((blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = fileName;
+        link.click();
+        window.URL.revokeObjectURL(url); // Clean up the URL object
+      })
+      .catch((error) => {
+        console.error('Error downloading the image:', error);
+        alert('Failed to download the image.');
+      });
+  }
+
+
+  shareImage(image: any): void {
+    const imageUrl = `${this.BASE_URL}${image.ImgPath}`;
+    const title = image.Title || 'Check out this image';
+    const text = `Take a look at this: ${title}`;
+
     if (navigator.share) {
-      navigator.share(shareData)
-        .then(() => console.log('Image shared successfully'))
-        .catch(error => console.log('Error sharing:', error));
+      navigator
+        .share({
+          title: title,
+          text: text,
+          url: imageUrl,
+        })
+        .then(() => console.log('Successfully shared'))
+        .catch((error) => console.error('Error sharing:', error));
     } else {
-      console.log('Web Share API is not supported on this browser.');
+      console.warn('Web Share API not supported in this browser.');
+      alert('Sharing is not supported on your device.');
     }
   }
-  
+
+  onImageError(event: Event): void {
+    const target = event.target as HTMLImageElement;
+    target.src = 'assets/images/shortClipDefault.png'; // Local fallback image
+  }  
 
 }
