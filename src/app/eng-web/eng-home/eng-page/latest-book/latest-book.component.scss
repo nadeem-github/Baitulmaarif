@@ -148,3 +148,33 @@
         font-size: 20px;
     }
 }
+
+.modal-body {
+
+    .position-relative {
+        p {
+            right: 5px;
+            top: 1.5rem;
+        }
+    }
+
+    .btn {
+        right: -1rem;
+        top: -1rem;
+        height: 35px;
+        width: 35px;
+        z-index: 9;
+
+        @media (min-width: 1500px) {
+            i {
+                top: 1.2px;
+            }
+        }
+
+        @media (max-width:450px) {
+            right: 0;
+            top: 0;
+        }
+    }
+
+}

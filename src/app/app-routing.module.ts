@@ -30,6 +30,7 @@ import { NaatPaakComponent } from './eng-web/eng-home/eng-page/ashaar/naat-paak/
 import { AllMajalisBayanComponent } from './eng-web/eng-home/all-majalis-bayan/all-majalis-bayan.component';
 import { AllArshadBayanComponent } from './eng-web/eng-home/all-arshad-bayan/all-arshad-bayan.component';
 import { AllMujahidBayanComponent } from './eng-web/eng-home/all-mujahid-bayan/all-mujahid-bayan.component';
+import { FatwaAllCategoryComponent } from './eng-web/Darul_Ifta/fatwa-all-category/fatwa-all-category.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'EngHome', pathMatch: 'full', },
@@ -63,6 +64,7 @@ const routes: Routes = [
   { path: 'NaatPaak', component: NaatPaakComponent, },
   { path: 'AllMajalisBayan', component: AllMajalisBayanComponent, },
   { path: 'AllArshadBayan', component: AllArshadBayanComponent, },
+  { path: 'FatawaAllCategory', component: FatwaAllCategoryComponent, },
 ];
 
 @NgModule({

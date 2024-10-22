@@ -132,7 +132,7 @@ import { BlessYourSoalComponent } from './eng-web/eng-home/eng-page/bless-your-s
     SafeUrlPipe,
     AllMujahidBayanComponent,
     AhamTaleematHomeComponent,
-    BlessYourSoalComponent
+    BlessYourSoalComponent,
   ],
   imports: [
     BrowserModule,

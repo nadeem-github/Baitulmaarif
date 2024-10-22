@@ -16,7 +16,7 @@ export class LatestBookComponent implements OnInit {
   baseUrl = 'http://apis.baitulmaarif.com/';
   dataLatestBooksList: any[] = [];
   currentPage = 1;
-  pageSize = 5;  // Default page size for desktop
+  pageSize = 3;  // Default page size for desktop
   totalItems = 0;
   selectedVideo: any;
   pdfUrl: string = '';
