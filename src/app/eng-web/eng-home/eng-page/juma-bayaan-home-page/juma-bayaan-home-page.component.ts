@@ -48,7 +48,6 @@ export class JumaBayaanHomePageComponent implements OnInit {
             return new Date(b.UploadDate).getTime() - new Date(a.UploadDate).getTime();
           });
           this.collectionSize = response.TotalCount;
-          console.log('dataJumaByanList', this.dataJumaByanList);
           
         } else {
           console.warn('API response status is false');
@@ -90,7 +89,6 @@ export class JumaBayaanHomePageComponent implements OnInit {
 
     if (navigator.share) {
       navigator.share(shareData).then(() => {
-        console.log('Bayan shared successfully');
       }).catch((error) => {
         console.error('Error sharing bayan:', error);
       });

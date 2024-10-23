@@ -1,20 +1,3 @@
-.border-bottom-dotted {
-    border-bottom: dashed 1px #ddd;
-    padding-bottom: 6px;
-}
-
-.card-lbk {
-    background: rgb(221, 172, 84);
-    background: linear-gradient(0deg, #241700 0%, #714904 100%);
-    color: #fff;
-    margin-bottom: 0.8rem;
-    padding: 10px 0 4px 0;
-}
-
-.border-custom {
-    border: solid 1px var(--darkbran);
-}
-
 .btn-div {
     right: -10px;
     top: -10px;
@@ -55,7 +38,8 @@
 
         @media (max-width: 500px) {
             img {
-                height: 70vh;
+                height: 90vh;
+                object-fit: fill;
             }
         }
     }

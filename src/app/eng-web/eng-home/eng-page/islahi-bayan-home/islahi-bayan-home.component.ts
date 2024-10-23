@@ -92,7 +92,6 @@ export class IslahiBayanHomeComponent implements OnInit {
 
     if (navigator.share) {
       navigator.share(shareData).then(() => {
-        console.log('Bayan shared successfully');
       }).catch((error) => {
         console.error('Error sharing bayan:', error);
       });

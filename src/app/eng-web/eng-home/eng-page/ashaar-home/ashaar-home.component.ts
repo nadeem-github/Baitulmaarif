@@ -97,7 +97,6 @@ export class AshaarHomeComponent implements OnInit {
         text: `Check out this clip: ${clip.Title}`,
         url: shareUrl
       }).then(() => {
-        console.log('Clip shared successfully');
       }).catch((error) => {
         console.error('Error sharing:', error);
       });

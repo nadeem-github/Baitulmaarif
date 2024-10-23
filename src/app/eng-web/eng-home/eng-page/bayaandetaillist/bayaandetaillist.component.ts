@@ -46,21 +46,13 @@ export class BayaandetaillistComponent implements OnInit {
       this.ShortClipModal.Filter = ''; // Empty filter means no category filter
     } else {
       this.ShortClipModal.Filter = this.selectedCategory.trim(); // Trim to remove any extra spaces
-    } 
-  
-    // Debugging logs
-    console.log('Payload Setup:');
-    console.log('Selected Category:', this.selectedCategory);
-    console.log('Applied Filter:', this.ShortClipModal.Filter);
+    }
   }
   
   getMolanaBayanList() {
     this.loading = true;
-    console.log('Fetching data for category:', this.selectedCategory); // Log before making API call
-    
     this.shortClipService.molanaBayanList(this.ShortClipModal).subscribe(
       (response: any) => {
-        console.log('API Response:', response); // Log the API response
         this.loading = false;
         if (response.Status) {
           // Filter the records based on search term
@@ -89,7 +81,6 @@ export class BayaandetaillistComponent implements OnInit {
 
   // Triggered when the category changes
   onCategoryChange(event: any) {
-    console.log('Selected Category:', this.selectedCategory);
     this.page = 1; 
     this.setUpPayload();
     this.getMolanaBayanList();
@@ -125,7 +116,6 @@ export class BayaandetaillistComponent implements OnInit {
 
     if (navigator.share) {
       navigator.share(shareData).then(() => {
-        console.log('Bayan shared successfully');
       }).catch((error) => {
         console.error('Error sharing bayan:', error);
       });

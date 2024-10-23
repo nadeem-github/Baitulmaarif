@@ -105,9 +105,7 @@ export class AhamBayanListComponent implements OnInit {
 
     if (navigator.share) {
       navigator.share(shareData).then(() => {
-        console.log('Bayan shared successfully');
       }).catch((error) => {
-        console.error('Error sharing bayan:', error);
       });
     } else {
       console.warn('Web Share API is not supported in this browser.');

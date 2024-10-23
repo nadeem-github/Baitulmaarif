@@ -31,7 +31,6 @@ export class EngTopSliderComponent implements OnInit {
     this.sliderService.topSlider().subscribe(
       (response: any[]) => {
         this.loading = false;
-        console.log('API Response:', response);
 
         if (response.length > 0) {
           const data = response[0];

@@ -1,135 +1,20 @@
-<div class="container-fluid py-5">
-    <div class="row">
-        <!-- Column 1 -->
-        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
-            <ngb-accordion [closeOthers]="false" activeIds="panel1">
-                <ngb-panel id="panel1">
-                    <ng-template ngbPanelTitle>
-                        <h5 class="accordion-title">Aqaid w Imaniyyat</h5>
-                    </ng-template>
-                    <ng-template ngbPanelContent>
-                        <div class="card mb-3">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">1- Islami Aqaid</p>
-                            </div>
-                        </div>
-                        <div class="card mb-3">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">2- Adyan-o-Mazahib</p>
-                            </div>
-                        </div>
-                        <div class="card mb-3">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">3- Firaq-e-Batila (False Sects)</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">4- Bid'aat-o-Rusumat</p>
-                            </div>
-                        </div>
-                    </ng-template>
-                </ngb-panel>
-            </ngb-accordion>
-        </div>
-
-        <!-- Column 2 -->
-        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
-            <ngb-accordion [closeOthers]="false" activeIds="panel2">
-                <ngb-panel id="panel2">
-                    <ng-template ngbPanelTitle>
-                        <h5 class="accordion-title">Ibadat</h5>
-                    </ng-template>
-                    <ng-template ngbPanelContent>
-                        <div class="card mb-3">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">1- Taharat (Purity)</p>
-                            </div>
-                        </div>
-                        <div class="card mb-3">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">2- Namaz (Prayer)</p>
-                            </div>
-                        </div>
-                        <div class="card mb-3">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">3- Juma, Eidain</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">4- Ahkam-e-Mayyet</p>
-                            </div>
-                        </div>
-                    </ng-template>
-                </ngb-panel>
-            </ngb-accordion>
-        </div>
-
-        <!-- Column 3 -->
-        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
-            <ngb-accordion [closeOthers]="false" activeIds="panel3" class="mb-3">
-                <ngb-panel id="panel3">
-                    <ng-template ngbPanelTitle>
-                        <h5 class="accordion-title">Mualumaat</h5>
-                    </ng-template>
-                    <ng-template ngbPanelContent>
-                        <div class="card mb-3">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">1- Tijaarat (Business)</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">2- Interest, Insurance</p>
-                            </div>
-                        </div>
-                    </ng-template>
-                </ngb-panel>
-            </ngb-accordion>
-
-            <ngb-accordion [closeOthers]="false" activeIds="panel5">
-                <ngb-panel id="panel5">
-                    <ng-template ngbPanelTitle>
-                        <h5 class="accordion-title">Mutafarriqat</h5>
-                    </ng-template>
-                    <ng-template ngbPanelContent>
-                        <div class="card mb-3">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">1- Halal & Haram</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">2- Tasawwuf</p>
-                            </div>
-                        </div>
-                    </ng-template>
-                </ngb-panel>
-            </ngb-accordion>
-        </div>
-
-        <!-- Column 4 -->
-        <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-4">
-            <ngb-accordion [closeOthers]="false" activeIds="panel4">
-                <ngb-panel id="panel4">
-                    <ng-template ngbPanelTitle>
-                        <h5 class="accordion-title">Muaasharat</h5>
-                    </ng-template>
-                    <ng-template ngbPanelContent>
-                        <div class="card mb-3">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">1- Nikah (Marriage)</p>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body shadow-sm">
-                                <p class="mb-0 font-16 fw-semibold">2- Talaaq (Divorce)</p>
-                            </div>
-                        </div>
-                    </ng-template>
-                </ngb-panel>
-            </ngb-accordion>
+<section class="fatawaAllCategory my-3 my-sm-5">
+    <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-sm-5">
+            <div class="col mb-3" *ngFor="let section of sections">
+                <div #accordionWrapper class="accordion-wrapper h-100">
+                    <ngb-accordion [closeOthers]="false" class="custom-accordion h-100"
+                        activeIds="panel-{{ section.title }}">
+                        <ngb-panel [id]="'panel-' + section.title" [title]="section.title">
+                            <ng-template ngbPanelContent>
+                                <p class="font-14 fw-semibold py-2 px-3 mb-0" *ngFor="let sub of section.subcategories">
+                                    &#9658; {{ sub }}
+                                </p>
+                            </ng-template>
+                        </ngb-panel>
+                    </ngb-accordion>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>

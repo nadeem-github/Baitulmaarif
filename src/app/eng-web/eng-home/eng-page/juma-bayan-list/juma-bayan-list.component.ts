@@ -106,7 +106,8 @@ export class JumaBayanListComponent implements OnInit {
     if (navigator.share) {
       navigator.share(shareData).then(() =>
         console.log('Bayan shared successfully')
-      ).catch(error =>
+      )
+      .catch(error =>
         console.error('Error sharing bayan:', error)
       );
     } else {

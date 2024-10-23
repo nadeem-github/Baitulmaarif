@@ -42,7 +42,6 @@ export class BayanDetailComponent implements OnInit {
       (response: any) => {
         if (response.Status) {
           this.bayanDetail = response; // Store the bayan detail
-          console.log('bayanDetail', this.bayanDetail);
 
         } else {
           console.warn('API response status is false');

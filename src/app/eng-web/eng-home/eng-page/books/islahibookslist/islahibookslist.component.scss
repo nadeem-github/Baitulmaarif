@@ -12,19 +12,6 @@
     }
 }
 
-.card {
-    border-radius: 1rem;
-    box-shadow: 0 3px 3px #fcefd2;
-}
-
-.book-img {
-    height: 200px;
-}
-
-.form-control:focus {
-    box-shadow: none;
-}
-
 .btn-div {
     right: -10px;
     top: -10px;
@@ -65,16 +52,6 @@ iframe {
     height: 85vh;
 }
 
-@media (max-width:500px) {
-    .book-img {
-        width: auto;
-    }
-
-    .books-responsive {
-        width: 100%;
-
-        .font-14 {
-            font-size: var(--font-size-12);
-        }
-    }
+.book-img {
+    height: 200px;
 }

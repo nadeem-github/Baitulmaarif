@@ -55,11 +55,9 @@ export class IslahiAshaarComponent implements OnInit {
   
   getMolanaBayanList() {
     this.loading = true;
-    console.log('Fetching data for category:', this.selectedCategory); // Log before making API call
     
     this.shortClipService.getAshaarList(this.ShortClipModal).subscribe(
       (response: any) => {
-        console.log('API Response:', response); // Log the API response
         this.loading = false;
         if (response.Status) {
           this.dataMolanaBayanList = response.Data.filter((bayan: { Title: string; }) =>
@@ -87,7 +85,6 @@ export class IslahiAshaarComponent implements OnInit {
 
   // Triggered when the category changes
   onCategoryChange(event: any) {
-    console.log('Selected Category:', this.selectedCategory);
     this.page = 1; 
     this.setUpPayload();
     this.getMolanaBayanList();
@@ -123,7 +120,6 @@ export class IslahiAshaarComponent implements OnInit {
 
     if (navigator.share) {
       navigator.share(shareData).then(() => {
-        console.log('Bayan shared successfully');
       }).catch((error) => {
         console.error('Error sharing bayan:', error);
       });

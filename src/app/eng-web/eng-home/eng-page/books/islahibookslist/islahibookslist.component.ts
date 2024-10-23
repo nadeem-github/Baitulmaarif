@@ -39,7 +39,6 @@ export class IslahibookslistComponent implements OnInit {
         // Assuming the API response has { Data: [], TotalCount: number }
         if (response && response.Data) {
           this.dataUrduBooks = response.Data;
-          console.log('dataUrduBooks', this.dataUrduBooks);
           
           this.collectionSize = response.TotalCount || this.dataUrduBooks.length;
         } else {
@@ -68,11 +67,9 @@ export class IslahibookslistComponent implements OnInit {
   }
 
   onPageChange(): void {
-    console.log(`Page changed to: ${this.page}`);
   }
 
   onPageSizeChange(): void {
     this.page = 1; // Reset to the first page when page size changes
-    console.log(`Page size changed to: ${this.pageSize}`);
   }
 }

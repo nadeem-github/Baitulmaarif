@@ -24,7 +24,6 @@ export class ContactComponent implements OnInit {
 
   onSubmit(): void {
     if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
       // Handle form submission, e.g., send data to the server
     } else {
       this.validateAllFormFields(this.contactForm); // Trigger validation messages
