@@ -1,19 +1,74 @@
 <section class="fatawaAllCategory my-3 my-sm-5">
     <div class="container-fluid">
-        <div class="row row-cols-1 row-cols-sm-5">
-            <div class="col mb-3" *ngFor="let section of sections">
-                <div #accordionWrapper class="accordion-wrapper h-100">
-                    <ngb-accordion [closeOthers]="false" class="custom-accordion h-100"
-                        activeIds="panel-{{ section.title }}">
-                        <ngb-panel [id]="'panel-' + section.title" [title]="section.title">
-                            <ng-template ngbPanelContent>
-                                <p class="font-14 fw-semibold py-2 px-3 mb-0" *ngFor="let sub of section.subcategories">
-                                    &#9658; {{ sub }}
-                                </p>
-                            </ng-template>
-                        </ngb-panel>
-                    </ngb-accordion>
+        <div class="row">
+            <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-6 col-sm-12 mb-3">
+                <div class="card shadow-sm overflow-hidden">
+                    <div class="card-header cardHeadingHeader px-0 text-center">
+                        <div>
+                            <p class="font-20 mb-2 px-3 fw-semibold text-white">Fatawa Cotogry List</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-3 mb-sm-0">
+                                <p class="font-18 fw-bold categoryTitle mb-2">Aqaid-w-Imaniyyat</p>
+                                <div class="subCategory">
+                                    <p class="font-14">Islami Aqaid (0)</p>
+                                    <p class="font-14">Adyan-o-Mazahib (0)</p>
+                                    <p class="font-14">Firaq-e-Batila (False Sects) (0)</p>
+                                    <p class="font-14">Bid'aat-o-Rusumat (0)</p>
+                                    <p class="font-14">Taqleed A'imma, Masalik (0)</p>
+                                    <p class="font-14">Quran-e-kareem (1)</p>
+                                    <p class="font-14">Hadees &amp; Sunnat (0)</p>
+                                    <p class="font-14">Dawat &amp; Tableegh (0)</p>
+                                </div>
+                            </div>
+                            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-3 mb-sm-0">
+                                <p class="font-18 fw-bold categoryTitle mb-2">Ibadat</p>
+                                <div class="subCategory">
+                                    <p class="font-14">Taharat (Purity) (2)</p>
+                                    <p class="font-14">Namaz (Prayer) (25)</p>
+                                    <p class="font-14">Juma, Eidain (5)</p>
+                                    <p class="font-14">Ahkam-e-Mayyet (0)</p>
+                                    <p class="font-14">Rozah (Fasting) (1)</p>
+                                    <p class="font-14">Zakat &amp; Sadqat (0)</p>
+                                    <p class="font-14">Hajj &amp; Umrah (1)</p>
+                                    <p class="font-14">Zabeeha &amp; Qurbani (0)</p>
+                                    <p class="font-14">Qasam &amp; Nazar (0)</p>
+                                    <p class="font-14">Auqaf, Masajid, Madaris (0)</p>
+                                </div>
+                            </div>
+                            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-3 mb-sm-0">
+                                <p class="font-18 fw-bold categoryTitle mb-2">Muamalat</p>
+                                <div class="subCategory mb-4">
+                                    <p class="font-14">Tijaarat (Buisnes) (2)</p>
+                                    <p class="font-14">Intrest, Insurrance (3)</p>
+                                    <p class="font-14">Warasat (0)</p>
+                                </div>
+        
+                                <p class="font-18 fw-bold categoryTitle mb-2">Muaashrat</p>
+                                <div class="subCategory">
+                                    <p class="font-14">Talaaq (Divorce) (0)</p>
+                                    <p class="font-14">Libas &amp; Lifestyle (0)</p>
+                                    <p class="font-14">Akhlaaq &amp; Aadab (0)</p>
+                                    <p class="font-14">Akhlaaq &amp; Aadab (0)</p>
+                                </div>
+                            </div>
+                            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-3 mb-sm-0">
+                                <p class="font-18 fw-bold categoryTitle mb-2">Mutafarriqat</p>
+                                <div class="subCategory">
+                                    <p class="font-14">Halal &amp; Haram (3)</p>
+                                    <p class="font-14">Tasawwuf (0)</p>
+                                    <p class="font-14">Seerat &amp; Maghazi (0)</p>
+                                    <p class="font-14">Other (4)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-12 mb-3">
+                <img src="../../../../assets/images/darulIftaImg.webp" class="img-fluid rounded-3 h-100 object-fit-cover shadow-sm" alt="">
             </div>
         </div>
     </div>

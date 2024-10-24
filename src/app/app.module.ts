@@ -74,6 +74,9 @@ import { AllMujahidBayanComponent } from './eng-web/eng-home/all-mujahid-bayan/a
 import { AuthInterceptor } from './auth.interceptor';
 import { AhamTaleematHomeComponent } from './eng-web/eng-home/eng-page/aham-taleemat-home/aham-taleemat-home.component';
 import { BlessYourSoalComponent } from './eng-web/eng-home/eng-page/bless-your-soal/bless-your-soal.component';
+import { FatwaAllCategoryComponent } from './eng-web/Darul_Ifta/fatwa-all-category/fatwa-all-category.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -133,6 +136,7 @@ import { BlessYourSoalComponent } from './eng-web/eng-home/eng-page/bless-your-s
     AllMujahidBayanComponent,
     AhamTaleematHomeComponent,
     BlessYourSoalComponent,
+    FatwaAllCategoryComponent
   ],
   imports: [
     BrowserModule,

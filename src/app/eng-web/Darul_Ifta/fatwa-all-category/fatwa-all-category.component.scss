@@ -1,0 +1,24 @@
+.fatawaAllCategory {
+    .card-body {
+        background-image: url(../../../../assets/images/darulIftaBg.webp);
+        background-size: cover;
+    }
+
+    .categoryTitle {
+        color: var(--darkbran);
+    }
+
+    .subCategory {
+        p {
+            margin-bottom: 8px;
+            transition: 0.3s;
+            font-weight: 600;
+
+            &:hover {
+                color: var(--specialColbg);
+                transition: 0.3s;
+                cursor: pointer;
+            }
+        }
+    }
+}
